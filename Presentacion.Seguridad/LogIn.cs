@@ -161,8 +161,8 @@ namespace Presentacion.Seguridad
 
         private void LogIn_Load(object sender, EventArgs e)
         {
-            this.txtUsuario.Text = "CDAUD";
-            this.txtPassword.Text = "P$assword";
+            this.txtUsuario.Text = "ADMIN";
+            this.txtPassword.Text = "123";
         }
     }
 }
