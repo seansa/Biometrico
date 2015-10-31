@@ -43,6 +43,7 @@
             this.btnImprimirSelección = new System.Windows.Forms.ToolStripMenuItem();
             this.btnImprmirListaCompleta = new System.Windows.Forms.ToolStripMenuItem();
             this.btnHorarios = new System.Windows.Forms.ToolStripButton();
+            this.btnLactancia = new System.Windows.Forms.ToolStripButton();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvGrilla = new PresentacionBase.Clases.Control.DataGridView();
             this.pnlBuscar = new System.Windows.Forms.Panel();
@@ -50,7 +51,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblBuscar = new System.Windows.Forms.Label();
-            this.btnLactancia = new System.Windows.Forms.ToolStripButton();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.pnlBuscar.SuspendLayout();
@@ -170,6 +170,16 @@
             this.btnHorarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnHorarios.Click += new System.EventHandler(this.btnHorarios_Click);
             // 
+            // btnLactancia
+            // 
+            this.btnLactancia.Image = ((System.Drawing.Image)(resources.GetObject("btnLactancia.Image")));
+            this.btnLactancia.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLactancia.Name = "btnLactancia";
+            this.btnLactancia.Size = new System.Drawing.Size(61, 49);
+            this.btnLactancia.Text = "Lactancia";
+            this.btnLactancia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnLactancia.Click += new System.EventHandler(this.btnLactancia_Click);
+            // 
             // lblTitulo
             // 
             this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -272,15 +282,6 @@
             this.lblBuscar.Size = new System.Drawing.Size(55, 13);
             this.lblBuscar.TabIndex = 0;
             this.lblBuscar.Text = "Busqueda";
-            // 
-            // btnLactancia
-            // 
-            this.btnLactancia.Image = ((System.Drawing.Image)(resources.GetObject("btnLactancia.Image")));
-            this.btnLactancia.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLactancia.Name = "btnLactancia";
-            this.btnLactancia.Size = new System.Drawing.Size(61, 49);
-            this.btnLactancia.Text = "Lactancia";
-            this.btnLactancia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // FormularioConsulta
             // 

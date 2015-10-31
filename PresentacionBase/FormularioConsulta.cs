@@ -235,5 +235,10 @@ namespace PresentacionBase
         {
 
         }
+
+        public virtual void btnLactancia_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
