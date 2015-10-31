@@ -198,5 +198,4 @@ FakesAssemblies/
 #Custom ignore
 *.config
 *.DS_Store
-BiometricoWF/App.config
-AccesoDatos/App.config
+App.config/
