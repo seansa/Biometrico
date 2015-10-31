@@ -114,21 +114,8 @@ namespace Servicio.RecursoHumano.Horario
 
         public bool VerificarExiste(List<DetalleHorarioDTO> lista, DateTime fechadesde, DateTime fechahasta, TimeSpan? horaentrada, TimeSpan? horasalidaparcial, TimeSpan? horaentradaparcial, TimeSpan? horasalida, bool[] listaDias)
         {
-            //List<DetalleHorarioDTO> copiaLista = new List<DetalleHorarioDTO>();
             try
             {
-                //var listaDiasHorariosDTO = new List<bool[]>();
-                //foreach(var item in lista) {
-                //    var arrayDias = new bool[7];
-                //    arrayDias[0] = item.Lunes;
-                //    arrayDias[1] = item.Martes;
-                //    arrayDias[2] = item.Miercoles;
-                //    arrayDias[3] = item.Jueves;
-                //    arrayDias[4] = item.Viernes;
-                //    arrayDias[5] = item.Sabado;
-                //    arrayDias[6] = item.Domingo;
-                //    listaDiasHorariosDTO.Add(arrayDias);
-                //}
 
                 foreach (var item in lista)
                 {
@@ -140,21 +127,18 @@ namespace Servicio.RecursoHumano.Horario
                     arrayDias[4] = item.Viernes;
                     arrayDias[5] = item.Sabado;
                     arrayDias[6] = item.Domingo;
-                    if (fechadesde>=item.FechaDesde&&fechahasta<=item.FechaHasta)
+
+                    if ((((fechadesde >= item.FechaDesde && fechadesde <= item.FechaHasta) || (fechahasta >= item.FechaDesde && fechahasta <= item.FechaHasta)) || (fechadesde < item.FechaDesde && fechahasta > item.FechaHasta)) && lista != null)
+
                     {
-                        //foreach (var array in listaDiasHorariosDTO)
-                        //{
-                            for (var i = 0; i < arrayDias.Length; i++)
-                            {
-                                if (arrayDias[i] == listaDias[i])
-                                {
-                                    //chequear si coincide hora de entrada y salida_parcial
-                                    if(((horaentrada >= item.HoraEntrada) && (horaentrada <= item.HoraSalida)) 
-                                        || ((horasalida >= item.HoraEntrada) && (horasalida <= item.HoraSalida)))  return false;
-                                }
-                            }
-                        //}
-                      
+                        for (var i = 0; i < arrayDias.Length; i++)
+                        {
+
+                            if ((listaDias[i]) && (listaDias[i] == arrayDias[i])) return false;
+
+                        }
+
+
                     }
                 }
                 return true;
