@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace PresentacionBase
@@ -11,6 +12,7 @@ namespace PresentacionBase
 
         //MIO
         public long idmio { get; set; }
+        public PrivateFontCollection fuentes;
 
 
         public FormularioBase()
@@ -18,6 +20,7 @@ namespace PresentacionBase
             InitializeComponent();
 
             this.BackColor = Colores.ColorFondoFormulario;
+            this.fuentes = new PrivateFontCollection();
         }
 
         public FormularioBase(Color colorFondoForm)             
@@ -291,10 +294,37 @@ namespace PresentacionBase
             }
         }
 
+        protected void CargarFuente(byte[] fuente)
+        {
+            //Create your private font collection object.
+            int fontLength = fuente.Length;
+
+            // create a buffer to read in to
+            byte[] fontdata = RecursosCompartidos.HelveticaNeue_Bold;
+
+            // create an unsafe memory block for the font data
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+
+            // copy the bytes to the unsafe memory block
+            Marshal.Copy(fontdata, 0, data, fontLength);
+
+            // pass the font to the font collection
+            fuentes.AddMemoryFont(data, fontLength);
+
+            // free up the unsafe memory
+            Marshal.FreeCoTaskMem(data);
+        }
+
         private void FormularioBase_Load(object sender, EventArgs e)
         {
-            PrivateFontCollection fuentes = new PrivateFontCollection();
-            fuentes.AddFontFile(RecursosCompartidos.);
+            CargarFuente(RecursosCompartidos.HelveticaNeue_Bold);
+            CargarFuente(RecursosCompartidos.HelveticaNeue_BoldItalic);
+            CargarFuente(RecursosCompartidos.HelveticaNeue_Italic);
+            CargarFuente(RecursosCompartidos.HelveticaNeue_Light);
+            CargarFuente(RecursosCompartidos.HelveticaNeue_LightItalic);
+            CargarFuente(RecursosCompartidos.HelveticaNeue_Roman);
+            CargarFuente(RecursosCompartidos.HelveticaNeue_Thin);
+            CargarFuente(RecursosCompartidos.HelveticaNeue_ThinItalic);
         }
     }
 }
