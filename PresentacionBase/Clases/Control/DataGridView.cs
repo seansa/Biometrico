@@ -17,6 +17,7 @@ namespace PresentacionBase.Clases.Control
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
             this.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;         
+            // En Teoria Esto Cambia el tamaño de las columnas a automatico y Fill. yambe
             this.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
         }

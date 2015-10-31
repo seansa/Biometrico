@@ -20,7 +20,7 @@ namespace AccesoDatos
         public bool Martes { get; set; }
         public bool Miercoles { get; set; }
         public bool Jueves { get; set; }
-        public string Viernes { get; set; }
+        public bool Viernes { get; set; }
         public bool Sabado { get; set; }
         public bool Domingo { get; set; }
         public System.DateTime FechaDesde { get; set; }

@@ -626,10 +626,10 @@
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AgenteId" Type="Int64" Nullable="false" />
-          <Property Name="HoraEntrada" Type="Time" Nullable="false" />
+          <Property Name="HoraEntrada" Type="Time" Nullable="true" />
           <Property Name="HoraSalidaParcial" Type="Time" Nullable="true" />
           <Property Name="HoraEntradaParcial" Type="Time" Nullable="true" />
-          <Property Name="HoraSalida" Type="Time" Nullable="false" />
+          <Property Name="HoraSalida" Type="Time" Nullable="true" />
           <Property Name="Lunes" Type="Boolean" Nullable="false" />
           <Property Name="Martes" Type="Boolean" Nullable="false" />
           <Property Name="Miercoles" Type="Boolean" Nullable="false" />
@@ -846,7 +846,7 @@
           <Property Name="Martes" Type="Boolean" Nullable="false" />
           <Property Name="Miercoles" Type="Boolean" Nullable="false" />
           <Property Name="Jueves" Type="Boolean" Nullable="false" />
-          <Property Name="Viernes" Type="String" Nullable="false" />
+          <Property Name="Viernes" Type="Boolean" Nullable="false" />
           <Property Name="Sabado" Type="Boolean" Nullable="false" />
           <Property Name="Domingo" Type="Boolean" Nullable="false" />
           <Property Name="FechaDesde" Type="DateTime" Nullable="false" />
