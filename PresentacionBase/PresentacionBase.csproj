@@ -97,7 +97,16 @@
       <LastGenOutput>RecursosCompartidos.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-Bold.otf" />
+    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-BoldItalic.otf" />
+    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-Italic.otf" />
+    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-Light.otf" />
+    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-LightItalic.otf" />
+    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-Roman.otf" />
+    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-Thin.otf" />
+    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-ThinItalic.otf" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="RecursoImagenes\Actualizar.png" />
     <Content Include="RecursoImagenes\Borrar.png" />
