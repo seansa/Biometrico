@@ -19,6 +19,7 @@ namespace PresentacionBase.Clases.Control
             this.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;         
             this.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.None;
         }
     }
 }
