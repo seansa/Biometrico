@@ -133,29 +133,35 @@
   <data name="Guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>RecursoImagenes\Guardar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="HelveticaNeue_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-bold.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_BoldItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-bolditalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Bold_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Bold Italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-italic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Condensed_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Condensed Black.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-light.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Condensed_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Condensed Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_LightItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-lightitalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_Roman" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-roman.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Light.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_Thin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-thin.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Light_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Light Italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_ThinItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-thinitalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Medium.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Helvetica_Neue_UltraLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue UltraLight.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Helvetica_Neue_UltraLight_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue UltraLight Italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Impresora" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>RecursoImagenes\Impresora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

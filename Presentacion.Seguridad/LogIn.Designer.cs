@@ -71,25 +71,28 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(89, 129);
+            this.lblUsuario.Location = new System.Drawing.Point(75, 129);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(62, 16);
+            this.lblUsuario.Size = new System.Drawing.Size(76, 16);
             this.lblUsuario.TabIndex = 2;
-            this.lblUsuario.Text = "Usuario";
+            this.lblUsuario.Text = "USUARIO";
+            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(64, 167);
+            this.lblPassword.Location = new System.Drawing.Point(41, 167);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(87, 16);
+            this.lblPassword.Size = new System.Drawing.Size(112, 16);
             this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "Contraseña";
+            this.lblPassword.Text = "CONTRASEÑA";
+            this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnIngresar
             // 
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.Location = new System.Drawing.Point(81, 8);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(120, 29);
@@ -101,6 +104,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Location = new System.Drawing.Point(219, 8);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(120, 29);
@@ -111,7 +115,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.btnIngresar);
             this.panel1.Location = new System.Drawing.Point(-5, 204);
@@ -131,14 +135,14 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(151, 19);
+            this.lblTitulo.Location = new System.Drawing.Point(151, 21);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(247, 66);
+            this.lblTitulo.Size = new System.Drawing.Size(190, 66);
             this.lblTitulo.TabIndex = 8;
-            this.lblTitulo.Text = "Sistema Control \r\nde Personal";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulo.Text = "Control \rde Personal ";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // errorProviderLogIn
             // 
@@ -149,7 +153,7 @@
             this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(426, 279);
             this.ControlBox = false;

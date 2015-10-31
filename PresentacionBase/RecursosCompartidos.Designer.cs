@@ -113,9 +113,9 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] HelveticaNeue_Bold {
+        public static byte[] Helvetica_Neue_Bold {
             get {
-                object obj = ResourceManager.GetObject("HelveticaNeue_Bold", resourceCulture);
+                object obj = ResourceManager.GetObject("Helvetica_Neue_Bold", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] HelveticaNeue_BoldItalic {
+        public static byte[] Helvetica_Neue_Bold_Italic {
             get {
-                object obj = ResourceManager.GetObject("HelveticaNeue_BoldItalic", resourceCulture);
+                object obj = ResourceManager.GetObject("Helvetica_Neue_Bold_Italic", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] HelveticaNeue_Italic {
+        public static byte[] Helvetica_Neue_Condensed_Black {
             get {
-                object obj = ResourceManager.GetObject("HelveticaNeue_Italic", resourceCulture);
+                object obj = ResourceManager.GetObject("Helvetica_Neue_Condensed_Black", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] HelveticaNeue_Light {
+        public static byte[] Helvetica_Neue_Condensed_Bold {
             get {
-                object obj = ResourceManager.GetObject("HelveticaNeue_Light", resourceCulture);
+                object obj = ResourceManager.GetObject("Helvetica_Neue_Condensed_Bold", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] HelveticaNeue_LightItalic {
+        public static byte[] Helvetica_Neue_Italic {
             get {
-                object obj = ResourceManager.GetObject("HelveticaNeue_LightItalic", resourceCulture);
+                object obj = ResourceManager.GetObject("Helvetica_Neue_Italic", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] HelveticaNeue_Roman {
+        public static byte[] Helvetica_Neue_Light {
             get {
-                object obj = ResourceManager.GetObject("HelveticaNeue_Roman", resourceCulture);
+                object obj = ResourceManager.GetObject("Helvetica_Neue_Light", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] HelveticaNeue_Thin {
+        public static byte[] Helvetica_Neue_Light_Italic {
             get {
-                object obj = ResourceManager.GetObject("HelveticaNeue_Thin", resourceCulture);
+                object obj = ResourceManager.GetObject("Helvetica_Neue_Light_Italic", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -183,9 +183,29 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] HelveticaNeue_ThinItalic {
+        public static byte[] Helvetica_Neue_Medium {
             get {
-                object obj = ResourceManager.GetObject("HelveticaNeue_ThinItalic", resourceCulture);
+                object obj = ResourceManager.GetObject("Helvetica_Neue_Medium", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Helvetica_Neue_UltraLight {
+            get {
+                object obj = ResourceManager.GetObject("Helvetica_Neue_UltraLight", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Helvetica_Neue_UltraLight_Italic {
+            get {
+                object obj = ResourceManager.GetObject("Helvetica_Neue_UltraLight_Italic", resourceCulture);
                 return ((byte[])(obj));
             }
         }

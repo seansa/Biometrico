@@ -98,16 +98,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-Bold.otf" />
-    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-BoldItalic.otf" />
-    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-Italic.otf" />
-    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-Light.otf" />
-    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-LightItalic.otf" />
-    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-Roman.otf" />
-    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-Thin.otf" />
-    <EmbeddedResource Include="RecursoFuentes\HelveticaNeue-ThinItalic.otf" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="RecursoImagenes\Actualizar.png" />
     <Content Include="RecursoImagenes\Borrar.png" />
     <Content Include="RecursoImagenes\Buscar.png" />
@@ -132,6 +122,18 @@
     <EmbeddedResource Include="RecursoFuentes\OpenSans-Regular.ttf" />
     <EmbeddedResource Include="RecursoFuentes\OpenSans-Semibold.ttf" />
     <EmbeddedResource Include="RecursoFuentes\OpenSans-SemiboldItalic.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Bold Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Bold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Condensed Black.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Condensed Bold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Light Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Light.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Medium.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue UltraLight Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue UltraLight.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
