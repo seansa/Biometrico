@@ -18,12 +18,13 @@ namespace PresentacionRecursoHumano
         public long AgenteId { get; set; }
         private IAgenteServicio _agenteServicio;
         private ILactanciaServicio _lactanciaServicio;
-        private List<LactanciaDTO> _listaLactancia { get; set; }
+        private List<LactanciaDTO> _listaLactancia;
         public _00014_ABM_Lactancia()
         {
             InitializeComponent();
             _agenteServicio = new AgenteServicio();
             _lactanciaServicio = new LactanciaServicio();
+            _listaLactancia = new List<LactanciaDTO>();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -72,7 +73,28 @@ namespace PresentacionRecursoHumano
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            var _nuevaLactancia = new LactanciaDTO()
+            {
+                AgenteId = AgenteId,
+                FechaDesde = this.dtpFechaDesde.Value,
+                FechaHasta = this.dtpFechaHasta.Value,
+                HoraInicio = this.dtpHoraInicio.Value.TimeOfDay,
+                Lunes=this.chkLunes.Checked,
+                Martes=this.chkMartes.Checked,
+                Miercoles=this.chkMiercoles.Checked,
+                Jueves=this.chkJueves.Checked,
+                Viernes=this.chkViernes.Checked,
+                Sabado=this.chkSabado.Checked,
+                Domingo=this.chkDomingo.Checked
+            };
+            _listaLactancia.Add(_nuevaLactancia);
+            LimpiarControles(this.pnlDias);
+            LimpiarControles(this.pnlFechas);
+            Actualizar();
+        }
+        public override void LimpiarControles(object obj)
+        {
+            base.LimpiarControles(obj);
         }
     }
 }
