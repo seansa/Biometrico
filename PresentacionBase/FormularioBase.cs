@@ -38,15 +38,7 @@ namespace PresentacionBase
             this.BackColor = Colores.ColorFondoFormulario;
             this.fuentes = new PrivateFontCollection();
 
-            byte[] fontData = RecursosCompartidos.HelveticaNeue_Roman;
-            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            uint dummy = 0;
-            fonts.AddMemoryFont(fontPtr, RecursosCompartidos.HelveticaNeue_Roman.Length);
-            AddFontMemResourceEx(fontPtr, (uint)RecursosCompartidos.HelveticaNeue_Roman.Length, IntPtr.Zero, ref dummy);
-            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
-
-            myFont = new Font(fonts.Families[0], 16.0F);
+            
         }
 
         public FormularioBase(Color colorFondoForm)             
