@@ -13,7 +13,15 @@ namespace PresentacionBase
         //MIO
         public long idmio { get; set; }
         public PrivateFontCollection fuentes;
-
+        public Font HelveticaRoman;
+        public Font HelveticaItalic;
+        public Font HelveticaBold;
+        public Font HelveticaBoldItalic;
+        public Font HelveticaLightItalic;
+        public Font HelveticaLight;
+        public Font HelveticaThin;
+        public Font HelveticaThinItalic;
+        public FontFamily[] Helvetica;
 
         public FormularioBase()
         {
@@ -294,24 +302,27 @@ namespace PresentacionBase
             }
         }
 
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+
         protected void CargarFuente(byte[] fuente)
         {
-            //Create your private font collection object.
-            int fontLength = fuente.Length;
-
             // create a buffer to read in to
-            byte[] fontdata = RecursosCompartidos.HelveticaNeue_Bold;
+            byte[] fontStream = fuente;
 
-            // create an unsafe memory block for the font data
-            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontStream.Length);
+            //create a buffer to read in to
+            Byte[] fontData = new Byte[fontStream.Length];
+            //copy the bytes to the unsafe memory block
+            Marshal.Copy(fontData, 0, data, fontStream.Length);
 
-            // copy the bytes to the unsafe memory block
-            Marshal.Copy(fontdata, 0, data, fontLength);
+            // We HAVE to do this to register the font to the system (Weird .NET bug !)
+            uint cFonts = 0;
+            AddFontMemResourceEx(data, (uint)fontData.Length, IntPtr.Zero, ref cFonts);
 
-            // pass the font to the font collection
-            fuentes.AddMemoryFont(data, fontLength);
-
-            // free up the unsafe memory
+            //pass the font to the font collection
+            fuentes.AddMemoryFont(data, fontStream.Length);
+            //free the unsafe memory
             Marshal.FreeCoTaskMem(data);
         }
 
@@ -325,6 +336,16 @@ namespace PresentacionBase
             CargarFuente(RecursosCompartidos.HelveticaNeue_Roman);
             CargarFuente(RecursosCompartidos.HelveticaNeue_Thin);
             CargarFuente(RecursosCompartidos.HelveticaNeue_ThinItalic);
+
+            Helvetica = fuentes.Families;
+            this.HelveticaBold = new  Font(Helvetica[0].Name, 16, FontStyle.Bold, GraphicsUnit.Pixel);
+            this.HelveticaBoldItalic = new Font(Helvetica[1].Name, 16, FontStyle.Italic, GraphicsUnit.Pixel);
+            this.HelveticaItalic = new Font(Helvetica[2].Name, 16, FontStyle.Italic, GraphicsUnit.Pixel);
+            this.HelveticaLight = new Font(Helvetica[3].Name, 16, FontStyle.Regular, GraphicsUnit.Pixel);
+            this.HelveticaLightItalic = new Font(Helvetica[4].Name, 16, FontStyle.Italic, GraphicsUnit.Pixel);
+            this.HelveticaRoman = new Font(Helvetica[5].Name, 16, FontStyle.Regular, GraphicsUnit.Pixel);
+            this.HelveticaThin = new Font(Helvetica[6].Name, 16, FontStyle.Regular, GraphicsUnit.Pixel);
+            this.HelveticaThinItalic = new Font(Helvetica[7].Name, 16, FontStyle.Italic, GraphicsUnit.Pixel);
         }
     }
 }
