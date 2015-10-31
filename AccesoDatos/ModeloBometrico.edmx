@@ -131,10 +131,10 @@
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="AgenteId" Type="bigint" Nullable="false" />
-    <Property Name="HoraEntrada" Type="time" Nullable="true" />
+    <Property Name="HoraEntrada" Type="time" Nullable="false" />
     <Property Name="HoraSalidaParcial" Type="time" Nullable="true" />
     <Property Name="HoraEntradaParcial" Type="time" Nullable="true" />
-    <Property Name="HoraSalida" Type="time" Nullable="true" />
+    <Property Name="HoraSalida" Type="time" Nullable="false" />
     <Property Name="Lunes" Type="bit" Nullable="false" />
     <Property Name="Martes" Type="bit" Nullable="false" />
     <Property Name="Miercoles" Type="bit" Nullable="false" />
@@ -246,7 +246,7 @@
     <Property Name="Martes" Type="bit" Nullable="false" />
     <Property Name="Miercoles" Type="bit" Nullable="false" />
     <Property Name="Jueves" Type="bit" Nullable="false" />
-    <Property Name="Viernes" Type="bit" Nullable="false" />
+    <Property Name="Viernes" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Sabado" Type="bit" Nullable="false" />
     <Property Name="Domingo" Type="bit" Nullable="false" />
     <Property Name="FechaDesde" Type="datetime" Nullable="false" />
