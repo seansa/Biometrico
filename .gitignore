@@ -194,3 +194,9 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+#Custom ignore
+*.config
+*.DS_Store
+BiometricoWF/App.config
+AccesoDatos/App.config
