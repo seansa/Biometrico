@@ -19,7 +19,7 @@ namespace AccesoDatos
         public Nullable<System.TimeSpan> HoraEntrada { get; set; }
         public Nullable<System.TimeSpan> HoraSalidaParcial { get; set; }
         public Nullable<System.TimeSpan> HoraEntradaParcial { get; set; }
-        public  Nullable<System.TimeSpan> HoraSalida { get; set; }
+        public Nullable<System.TimeSpan> HoraSalida { get; set; }
         public bool Lunes { get; set; }
         public bool Martes { get; set; }
         public bool Miercoles { get; set; }
