@@ -1,6 +1,7 @@
 ﻿using PresentacionBase.Clases;
 using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace PresentacionBase
@@ -288,6 +289,12 @@ namespace PresentacionBase
             {
                 ((NumericUpDown)sender).BackColor = colorControl;
             }
+        }
+
+        private void FormularioBase_Load(object sender, EventArgs e)
+        {
+            PrivateFontCollection fuentes = new PrivateFontCollection();
+            fuentes.AddFontFile(RecursosCompartidos.);
         }
     }
 }
