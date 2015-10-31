@@ -104,6 +104,7 @@
             this.dgvLactancia.Name = "dgvLactancia";
             this.dgvLactancia.Size = new System.Drawing.Size(642, 201);
             this.dgvLactancia.TabIndex = 1;
+            this.dgvLactancia.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLactancia_RowEnter);
             // 
             // panel1
             // 
@@ -249,6 +250,7 @@
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // chkLunes
             // 
@@ -328,6 +330,7 @@
             this.btnMarcarSemana.TabIndex = 14;
             this.btnMarcarSemana.Text = "Marcar Semana";
             this.btnMarcarSemana.UseVisualStyleBackColor = true;
+            this.btnMarcarSemana.Click += new System.EventHandler(this.btnMarcarSemana_Click);
             // 
             // btnDesmarcar
             // 
@@ -337,6 +340,7 @@
             this.btnDesmarcar.TabIndex = 15;
             this.btnDesmarcar.Text = "Desmarcar Todo";
             this.btnDesmarcar.UseVisualStyleBackColor = true;
+            this.btnDesmarcar.Click += new System.EventHandler(this.btnDesmarcar_Click);
             // 
             // pnlDias
             // 

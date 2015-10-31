@@ -19,12 +19,14 @@ namespace PresentacionRecursoHumano
         private IAgenteServicio _agenteServicio;
         private ILactanciaServicio _lactanciaServicio;
         private List<LactanciaDTO> _listaLactancia;
+        private LactanciaDTO _lactanciaSeleccionada;
         public _00014_ABM_Lactancia()
         {
             InitializeComponent();
             _agenteServicio = new AgenteServicio();
             _lactanciaServicio = new LactanciaServicio();
             _listaLactancia = new List<LactanciaDTO>();
+            _lactanciaSeleccionada = new LactanciaDTO();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -95,6 +97,47 @@ namespace PresentacionRecursoHumano
         public override void LimpiarControles(object obj)
         {
             base.LimpiarControles(obj);
+        }
+
+        private void btnMarcarSemana_Click(object sender, EventArgs e)
+        {
+            this.chkLunes.Checked = true;
+            this.chkMartes.Checked = true;
+            this.chkMiercoles.Checked = true;
+            this.chkJueves.Checked = true;
+            this.chkViernes.Checked = true;
+            
+        }
+
+        private void btnDesmarcar_Click(object sender, EventArgs e)
+        {
+            this.chkLunes.Checked = false;
+            this.chkMartes.Checked = false;
+            this.chkMiercoles.Checked = false;
+            this.chkJueves.Checked = false;
+            this.chkViernes.Checked = false;
+            this.chkSabado.Checked = false;
+            this.chkDomingo.Checked = false;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            _listaLactancia.RemoveAt(this.dgvLactancia.CurrentRow.Index);
+            Actualizar();
+        }
+
+        private void dgvLactancia_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+
+                //{
+        //    if (this.dgvLactancia.RowCount>0)
+        //    {
+        //        _lactanciaSeleccionada = (LactanciaDTO)this.dgvLactancia.Rows.[e.RowIndex].
+        //    }
+        //    else
+        //    {
+        //        _lactanciaSeleccionada =(LactanciaDTO)null;
+        //    }
         }
     }
 }
