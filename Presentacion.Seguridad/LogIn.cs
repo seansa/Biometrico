@@ -163,6 +163,7 @@ namespace Presentacion.Seguridad
         {
             this.txtUsuario.Text = "ADMIN";
             this.txtPassword.Text = "123";
+            lblTitulo.Font = new FormularioBase().myFont;
         }
     }
 }

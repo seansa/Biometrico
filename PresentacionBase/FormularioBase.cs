@@ -23,12 +23,30 @@ namespace PresentacionBase
         public Font HelveticaThinItalic;
         public FontFamily[] Helvetica;
 
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
+            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+
+        private PrivateFontCollection fonts = new PrivateFontCollection();
+
+        public Font myFont;
+
         public FormularioBase()
         {
             InitializeComponent();
 
             this.BackColor = Colores.ColorFondoFormulario;
             this.fuentes = new PrivateFontCollection();
+
+            byte[] fontData = RecursosCompartidos.HelveticaNeue_Roman;
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            uint dummy = 0;
+            fonts.AddMemoryFont(fontPtr, RecursosCompartidos.HelveticaNeue_Roman.Length);
+            AddFontMemResourceEx(fontPtr, (uint)RecursosCompartidos.HelveticaNeue_Roman.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+
+            myFont = new Font(fonts.Families[0], 16.0F);
         }
 
         public FormularioBase(Color colorFondoForm)             
@@ -302,28 +320,9 @@ namespace PresentacionBase
             }
         }
 
-        [DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
-
         protected void CargarFuente(byte[] fuente)
         {
-            // create a buffer to read in to
-            byte[] fontStream = fuente;
-
-            System.IntPtr data = Marshal.AllocCoTaskMem(fontStream.Length);
-            //create a buffer to read in to
-            Byte[] fontData = new Byte[fontStream.Length];
-            //copy the bytes to the unsafe memory block
-            Marshal.Copy(fontData, 0, data, fontStream.Length);
-
-            // We HAVE to do this to register the font to the system (Weird .NET bug !)
-            uint cFonts = 0;
-            AddFontMemResourceEx(data, (uint)fontData.Length, IntPtr.Zero, ref cFonts);
-
-            //pass the font to the font collection
-            fuentes.AddMemoryFont(data, fontStream.Length);
-            //free the unsafe memory
-            Marshal.FreeCoTaskMem(data);
+            
         }
 
         private void FormularioBase_Load(object sender, EventArgs e)
@@ -337,15 +336,16 @@ namespace PresentacionBase
             CargarFuente(RecursosCompartidos.HelveticaNeue_Thin);
             CargarFuente(RecursosCompartidos.HelveticaNeue_ThinItalic);
 
-            Helvetica = fuentes.Families;
-            this.HelveticaBold = new  Font(Helvetica[0].Name, 16, FontStyle.Bold, GraphicsUnit.Pixel);
-            this.HelveticaBoldItalic = new Font(Helvetica[1].Name, 16, FontStyle.Italic, GraphicsUnit.Pixel);
-            this.HelveticaItalic = new Font(Helvetica[2].Name, 16, FontStyle.Italic, GraphicsUnit.Pixel);
-            this.HelveticaLight = new Font(Helvetica[3].Name, 16, FontStyle.Regular, GraphicsUnit.Pixel);
-            this.HelveticaLightItalic = new Font(Helvetica[4].Name, 16, FontStyle.Italic, GraphicsUnit.Pixel);
-            this.HelveticaRoman = new Font(Helvetica[5].Name, 16, FontStyle.Regular, GraphicsUnit.Pixel);
-            this.HelveticaThin = new Font(Helvetica[6].Name, 16, FontStyle.Regular, GraphicsUnit.Pixel);
-            this.HelveticaThinItalic = new Font(Helvetica[7].Name, 16, FontStyle.Italic, GraphicsUnit.Pixel);
-        }
+            //Helvetica = fuentes.Families;
+            /*
+            this.HelveticaBold = new  Font(fuentes.Families[0], 16f, FontStyle.Bold);
+            this.HelveticaBoldItalic = new Font(fuentes.Families[1], 16, FontStyle.Italic, GraphicsUnit.Pixel);
+            this.HelveticaItalic = new Font(fuentes.Families[2], 16, FontStyle.Italic, GraphicsUnit.Pixel);
+            this.HelveticaLight = new Font(fuentes.Families[3], 16, FontStyle.Regular, GraphicsUnit.Pixel);
+            this.HelveticaLightItalic = new Font(fuentes.Families[4], 16, FontStyle.Italic, GraphicsUnit.Pixel);
+            this.HelveticaRoman = new Font(fuentes.Families[5], 16, FontStyle.Regular, GraphicsUnit.Pixel);
+            this.HelveticaThin = new Font(fuentes.Families[6], 16, FontStyle.Regular, GraphicsUnit.Pixel);
+            this.HelveticaThinItalic = new Font(fuentes.Families[7], 16, FontStyle.Italic, GraphicsUnit.Pixel);
+     */   }
     }
 }
