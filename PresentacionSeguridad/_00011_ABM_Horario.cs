@@ -47,22 +47,6 @@ namespace PresentacionRecursoHumano
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
-            if (this.dtpHoraEntradaParcial.Enabled)
-            {
-                _horaEntradaParcial = this.dtpHoraEntradaParcial.Value.TimeOfDay;
-            }
-            else
-            {
-                _horaEntradaParcial = null;
-            }
-            if (this.dtpHoraSalidaParcial.Enabled)
-            {
-                _horaSalidaParcial = this.dtpHoraSalidaParcial.Value.TimeOfDay;
-            }
-            else
-            {
-                _horaSalidaParcial = null;
-            }
             var listaDias = new bool[7];
             listaDias[0] = chkLunes.Checked;
             listaDias[1] = chkMartes.Checked;
@@ -73,21 +57,22 @@ namespace PresentacionRecursoHumano
             listaDias[6] = chkDomingo.Checked;
 
             //listaHorarios = _horarioServicio.AgregarDetalleHorario(listaHorarios, IdAgente, dtpFechaDesde.Value, dtpFechaHasta.Value, dtpHoraEntrada.Value.TimeOfDay, dtpHoraEntradaParcial.Value.TimeOfDay, dtpHoraSalidaParcial.Value.TimeOfDay, dtpHoraSalida.Value.TimeOfDay, chkLunes.Checked, chkMartes.Checked, chkMiercoles.Checked, chkJueves.Checked, chkViernes.Checked, chkSabado.Checked, chkDomingo.Checked).ToList();
-
-            if (_horarioServicio.VerificarExiste(listaTemporal, dtpFechaDesde.Value, dtpFechaHasta.Value, dtpHoraEntrada.Value.TimeOfDay, _horaSalidaParcial, _horaEntradaParcial, dtpHoraSalida.Value.TimeOfDay, listaDias))
+            if (!chkDomingo.Checked && !chkLunes.Checked && !chkMartes.Checked && !chkMiercoles.Checked && !chkJueves.Checked && !chkViernes.Checked && !chkSabado.Checked) MessageBox.Show("Debe tildar un dia de la semana al menos.");
+            else
             {
-                listaTemporal = _horarioServicio.AgregarDetalleHorario(listaHorarios, IdAgente, dtpFechaDesde.Value, dtpFechaHasta.Value, dtpHoraEntrada.Value.TimeOfDay, _horaEntradaParcial, _horaSalidaParcial, dtpHoraSalida.Value.TimeOfDay, chkLunes.Checked, chkMartes.Checked, chkMiercoles.Checked, chkJueves.Checked, chkViernes.Checked, chkSabado.Checked, chkDomingo.Checked).ToList();
+                if (_horarioServicio.VerificarExiste(listaTemporal, dtpFechaDesde.Value, dtpFechaHasta.Value, dtpHoraEntrada.Value.TimeOfDay, dtpHoraSalidaParcial.Value.TimeOfDay, dtpHoraEntradaParcial.Value.TimeOfDay, dtpHoraSalida.Value.TimeOfDay, listaDias))
+                {
+                    listaTemporal = _horarioServicio.AgregarDetalleHorario(listaHorarios, IdAgente, dtpFechaDesde.Value, dtpFechaHasta.Value, dtpHoraEntrada.Value.TimeOfDay, dtpHoraEntradaParcial.Value.TimeOfDay, dtpHoraSalidaParcial.Value.TimeOfDay, dtpHoraSalida.Value.TimeOfDay, chkLunes.Checked, chkMartes.Checked, chkMiercoles.Checked, chkJueves.Checked, chkViernes.Checked, chkSabado.Checked, chkDomingo.Checked).ToList();
+                }
+                else MessageBox.Show("El Agente ya tiene asignado horarios en el/los dias ingresados.");
+                this.dgvgrilla.DataSource = listaTemporal.ToList();
             }
-            else MessageBox.Show("No");
-            this.dgvgrilla.DataSource = listaTemporal.ToList();
         }
 
         private void dpHorarioEntrada_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpHoraEntradaParcial.Value > ((DateTimePicker)sender).Value) {
-                dtpHoraEntradaParcial.Value = ((DateTimePicker)sender).Value;
-            }       
-            dtpHoraEntradaParcial.MinDate = ((DateTimePicker)sender).Value;
+            dtpHoraSalida.MinDate = dtpHoraEntrada.Value;
+            if (dtpHoraSalida.Value < dtpHoraEntrada.Value) dtpHoraEntrada.Value = dtpHoraSalida.Value;
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -114,9 +99,8 @@ namespace PresentacionRecursoHumano
 
         private void dtpHoraSalida_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpHoraSalidaParcial.Value > ((DateTimePicker)sender).Value)
-                dtpHoraSalidaParcial.Value = ((DateTimePicker)sender).Value;
-            dtpHoraSalidaParcial.MaxDate = ((DateTimePicker)sender).Value;
+            dtpHoraEntrada.MaxDate = dtpHoraSalida.Value;
+            if (dtpHoraEntrada.Value > dtpHoraSalida.Value) dtpHoraEntrada.Value = dtpHoraSalida.Value;
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -148,6 +132,18 @@ namespace PresentacionRecursoHumano
             this.chkMiercoles.Checked = true;
             this.chkJueves.Checked = true;
             this.chkViernes.Checked = true;
+        }
+
+        private void dtpFechaDesde_ValueChanged(object sender, EventArgs e)
+        {
+            dtpFechaHasta.MinDate = dtpFechaDesde.Value;
+            if (dtpFechaHasta.Value < dtpFechaDesde.Value) dtpFechaHasta.Value = dtpFechaDesde.Value;
+        }
+
+        private void dtpFechaHasta_ValueChanged(object sender, EventArgs e)
+        {
+            dtpFechaDesde.MaxDate = dtpFechaHasta.Value;
+            if (dtpFechaDesde.Value > dtpFechaHasta.Value) dtpFechaDesde.Value = dtpFechaHasta.Value;
         }
     }
 }
