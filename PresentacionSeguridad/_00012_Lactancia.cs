@@ -59,5 +59,11 @@ namespace PresentacionRecursoHumano
             this.dgvLactancia.DataSource = _lactanciaServicio.ObtenerTodo();
             FormatearGrilla(this.dgvLactancia);
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            var _formulario = new _00014_ABM_Lactancia();
+            _formulario.ShowDialog();
+       }
     }
 }
