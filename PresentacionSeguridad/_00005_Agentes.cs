@@ -118,6 +118,11 @@ namespace PresentacionRecursoHumano
             fhorarios.IdAgente = agentesel;
             fhorarios.ShowDialog();
         }
+        public override void btnLactancia_Click(object sender, EventArgs e)
+        {
+            var _formaulario = new _00012_Lactancia();
+            _formaulario.ShowDialog();
+        }
 
     }
 }
