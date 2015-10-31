@@ -11,6 +11,7 @@ namespace Servicio.RecursoHumano.Lactancia.DTOs
         public long Id { get; set; }
         public long AgenteId { get; set; }
         public DateTime FechaActualizacion { get; set; }
+        public string FechaActualizacionStr { get { return FechaActualizacion.ToString(); } }
         public DateTime FechaDesde { get; set; }
         public string FechaDesdeStr { get { return FechaDesde.ToShortDateString(); } }
         public DateTime FechaHasta { get; set; }
