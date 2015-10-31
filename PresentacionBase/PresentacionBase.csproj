@@ -121,6 +121,18 @@
     <Content Include="RecursoImagenes\Salir.png" />
     <Content Include="RecursoImagenes\Usuario.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-Bold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-BoldItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-ExtraBold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-ExtraBoldItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-Light.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-LightItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-Regular.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-Semibold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-SemiboldItalic.ttf" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

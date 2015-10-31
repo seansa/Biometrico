@@ -231,6 +231,106 @@ namespace PresentacionBase {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_Bold {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_Bold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_BoldItalic {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_BoldItalic", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_ExtraBold {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_ExtraBold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_ExtraBoldItalic {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_ExtraBoldItalic", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_Italic {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_Italic", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_Light {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_Light", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_LightItalic {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_LightItalic", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_Regular {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_Semibold {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_Semibold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenSans_SemiboldItalic {
+            get {
+                object obj = ResourceManager.GetObject("OpenSans_SemiboldItalic", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Password {

@@ -27,6 +27,7 @@ namespace Presentacion.Seguridad
 
             this.PuedeIngresarAlSistema = false;
             this.imgLogo.Image = PresentacionBase.Imagenes.BotonLogin;
+            lblTitulo.Font = new FormularioBase().myFont;
         }
 
         protected override CreateParams CreateParams
@@ -163,7 +164,6 @@ namespace Presentacion.Seguridad
         {
             this.txtUsuario.Text = "ADMIN";
             this.txtPassword.Text = "123";
-            lblTitulo.Font = new FormularioBase().myFont;
         }
     }
 }

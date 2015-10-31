@@ -38,12 +38,12 @@ namespace PresentacionBase
             this.BackColor = Colores.ColorFondoFormulario;
             this.fuentes = new PrivateFontCollection();
 
-            byte[] fontData = RecursosCompartidos.HelveticaNeue_Thin;
+            byte[] fontData = RecursosCompartidos.OpenSans_ExtraBold;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
             uint dummy = 0;
-            fonts.AddMemoryFont(fontPtr, RecursosCompartidos.HelveticaNeue_Thin.Length);
-            AddFontMemResourceEx(fontPtr, (uint)RecursosCompartidos.HelveticaNeue_Thin.Length, IntPtr.Zero, ref dummy);
+            fonts.AddMemoryFont(fontPtr, RecursosCompartidos.OpenSans_ExtraBold.Length);
+            AddFontMemResourceEx(fontPtr, (uint)RecursosCompartidos.OpenSans_ExtraBold.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
             myFont = new Font(fonts.Families[0], 20.0F);
