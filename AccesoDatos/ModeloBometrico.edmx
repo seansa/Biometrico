@@ -1,0 +1,1117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModeloBometrico.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModeloBometricoStoreContainer">
+    <EntitySet Name="Sectores" EntityType="ModeloBometrico.Store.Sectores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubSectores" EntityType="ModeloBometrico.Store.SubSectores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Agentes" EntityType="ModeloBometrico.Store.Agentes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Horarios" EntityType="ModeloBometrico.Store.Horarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Accesos" EntityType="ModeloBometrico.Store.Accesos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Perfiles" EntityType="ModeloBometrico.Store.Perfiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Formularios" EntityType="ModeloBometrico.Store.Formularios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios" EntityType="ModeloBometrico.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Controles" EntityType="ModeloBometrico.Store.Controles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Configuraciones" EntityType="ModeloBometrico.Store.Configuraciones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipoNovedades" EntityType="ModeloBometrico.Store.TipoNovedades" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Novedades" EntityType="ModeloBometrico.Store.Novedades" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ComisionServicios" EntityType="ModeloBometrico.Store.ComisionServicios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lactancias" EntityType="ModeloBometrico.Store.Lactancias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubSectorAgente" EntityType="ModeloBometrico.Store.SubSectorAgente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PerfilFormulario" EntityType="ModeloBometrico.Store.PerfilFormulario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PerfilUsuario" EntityType="ModeloBometrico.Store.PerfilUsuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PerfilControl" EntityType="ModeloBometrico.Store.PerfilControl" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SectorSubSector" Association="ModeloBometrico.Store.SectorSubSector">
+      <End Role="Sector" EntitySet="Sectores" />
+      <End Role="SubSector" EntitySet="SubSectores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubSectorAgente_SubSector" Association="ModeloBometrico.Store.FK_SubSectorAgente_SubSector">
+      <End Role="SubSector" EntitySet="SubSectores" />
+      <End Role="SubSectorAgente" EntitySet="SubSectorAgente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubSectorAgente_Agente" Association="ModeloBometrico.Store.FK_SubSectorAgente_Agente">
+      <End Role="Agente" EntitySet="Agentes" />
+      <End Role="SubSectorAgente" EntitySet="SubSectorAgente" />
+    </AssociationSet>
+    <AssociationSet Name="AgenteHorario" Association="ModeloBometrico.Store.AgenteHorario">
+      <End Role="Agente" EntitySet="Agentes" />
+      <End Role="Horario" EntitySet="Horarios" />
+    </AssociationSet>
+    <AssociationSet Name="AgenteAcceso" Association="ModeloBometrico.Store.AgenteAcceso">
+      <End Role="Agente" EntitySet="Agentes" />
+      <End Role="Acceso" EntitySet="Accesos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilFormulario_Perfil" Association="ModeloBometrico.Store.FK_PerfilFormulario_Perfil">
+      <End Role="Perfil" EntitySet="Perfiles" />
+      <End Role="PerfilFormulario" EntitySet="PerfilFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilFormulario_Formulario" Association="ModeloBometrico.Store.FK_PerfilFormulario_Formulario">
+      <End Role="Formulario" EntitySet="Formularios" />
+      <End Role="PerfilFormulario" EntitySet="PerfilFormulario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilUsuario_Perfil" Association="ModeloBometrico.Store.FK_PerfilUsuario_Perfil">
+      <End Role="Perfil" EntitySet="Perfiles" />
+      <End Role="PerfilUsuario" EntitySet="PerfilUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilUsuario_Usuario" Association="ModeloBometrico.Store.FK_PerfilUsuario_Usuario">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="PerfilUsuario" EntitySet="PerfilUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilControl_Perfil" Association="ModeloBometrico.Store.FK_PerfilControl_Perfil">
+      <End Role="Perfil" EntitySet="Perfiles" />
+      <End Role="PerfilControl" EntitySet="PerfilControl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilControl_Control" Association="ModeloBometrico.Store.FK_PerfilControl_Control">
+      <End Role="Control" EntitySet="Controles" />
+      <End Role="PerfilControl" EntitySet="PerfilControl" />
+    </AssociationSet>
+    <AssociationSet Name="AgenteUsuario" Association="ModeloBometrico.Store.AgenteUsuario">
+      <End Role="Agente" EntitySet="Agentes" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="TipoNovedadNovedad" Association="ModeloBometrico.Store.TipoNovedadNovedad">
+      <End Role="TipoNovedad" EntitySet="TipoNovedades" />
+      <End Role="Novedad" EntitySet="Novedades" />
+    </AssociationSet>
+    <AssociationSet Name="AgenteNovedad" Association="ModeloBometrico.Store.AgenteNovedad">
+      <End Role="Agente" EntitySet="Agentes" />
+      <End Role="Novedad" EntitySet="Novedades" />
+    </AssociationSet>
+    <AssociationSet Name="AgenteComisionServicio" Association="ModeloBometrico.Store.AgenteComisionServicio">
+      <End Role="Agente" EntitySet="Agentes" />
+      <End Role="ComisionServicio" EntitySet="ComisionServicios" />
+    </AssociationSet>
+    <AssociationSet Name="AgenteLactancia" Association="ModeloBometrico.Store.AgenteLactancia">
+      <End Role="Agente" EntitySet="Agentes" />
+      <End Role="Lactancia" EntitySet="Lactancias" />
+    </AssociationSet>
+    <AssociationSet Name="FormularioControl" Association="ModeloBometrico.Store.FormularioControl">
+      <End Role="Formulario" EntitySet="Formularios" />
+      <End Role="Control" EntitySet="Controles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Sectores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubSectores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Abreviatura" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SectorId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Agentes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Legajo" Type="varchar(max)" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DNI" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Celular" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Visualizar" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Horarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgenteId" Type="bigint" Nullable="false" />
+    <Property Name="HoraEntrada" Type="time" Nullable="false" />
+    <Property Name="HoraSalidaParcial" Type="time" Nullable="true" />
+    <Property Name="HoraEntradaParcial" Type="time" Nullable="true" />
+    <Property Name="HoraSalida" Type="time" Nullable="false" />
+    <Property Name="Lunes" Type="bit" Nullable="false" />
+    <Property Name="Martes" Type="bit" Nullable="false" />
+    <Property Name="Miercoles" Type="bit" Nullable="false" />
+    <Property Name="Jueves" Type="bit" Nullable="false" />
+    <Property Name="Viernes" Type="bit" Nullable="false" />
+    <Property Name="Sabado" Type="bit" Nullable="false" />
+    <Property Name="Domingo" Type="bit" Nullable="false" />
+    <Property Name="FechaActualizacion" Type="datetime" Nullable="false" />
+    <Property Name="FechaDesde" Type="datetime" Nullable="false" />
+    <Property Name="FechaHasta" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Accesos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgenteId" Type="bigint" Nullable="false" />
+    <Property Name="FechaHora" Type="datetime" Nullable="false" />
+    <Property Name="TipoAcceso" Type="int" Nullable="false" />
+    <Property Name="NroReloj" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Perfiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Formularios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DescripcionCompleta" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EstaBloqueado" Type="bit" Nullable="false" />
+    <Property Name="AgenteId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Controles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FormularioId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Configuraciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MinutosToleranciaLlegadaTarde" Type="int" Nullable="false" />
+    <Property Name="MinutosToleranciaAusente" Type="int" Nullable="false" />
+    <Property Name="HoraEntradaPorDefecto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HoraSalidaPorDefecto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MinutosLactancia" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoNovedades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Abreviatura" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EsJornadaCompleta" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Novedades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgenteId" Type="bigint" Nullable="false" />
+    <Property Name="TipoNovedadId" Type="bigint" Nullable="false" />
+    <Property Name="FechaDesde" Type="datetime" Nullable="false" />
+    <Property Name="FechaHasta" Type="datetime" Nullable="true" />
+    <Property Name="HoraDesde" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HoraHasta" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Observacion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComisionServicios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgenteId" Type="bigint" Nullable="false" />
+    <Property Name="FechaDesde" Type="datetime" Nullable="false" />
+    <Property Name="FechaHasta" Type="datetime" Nullable="true" />
+    <Property Name="HoraDesde" Type="time" Nullable="false" />
+    <Property Name="HoraHasta" Type="time" Nullable="false" />
+    <Property Name="EsJornadaCompleta" Type="bit" Nullable="false" />
+    <Property Name="Observacion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lactancias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgenteId" Type="bigint" Nullable="false" />
+    <Property Name="Lunes" Type="bit" Nullable="false" />
+    <Property Name="Martes" Type="bit" Nullable="false" />
+    <Property Name="Miercoles" Type="bit" Nullable="false" />
+    <Property Name="Jueves" Type="bit" Nullable="false" />
+    <Property Name="Viernes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sabado" Type="bit" Nullable="false" />
+    <Property Name="Domingo" Type="bit" Nullable="false" />
+    <Property Name="FechaDesde" Type="datetime" Nullable="false" />
+    <Property Name="FechaHasta" Type="datetime" Nullable="false" />
+    <Property Name="HoraInicio" Type="time" Nullable="false" />
+    <Property Name="FechaActualizacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubSectorAgente">
+    <Key>
+      <PropertyRef Name="SubSectores_Id" />
+      <PropertyRef Name="Agentes_Id" />
+    </Key>
+    <Property Name="SubSectores_Id" Type="bigint" Nullable="false" />
+    <Property Name="Agentes_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PerfilFormulario">
+    <Key>
+      <PropertyRef Name="Perfiles_Id" />
+      <PropertyRef Name="Formularios_Id" />
+    </Key>
+    <Property Name="Perfiles_Id" Type="bigint" Nullable="false" />
+    <Property Name="Formularios_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PerfilUsuario">
+    <Key>
+      <PropertyRef Name="Perfiles_Id" />
+      <PropertyRef Name="Usuarios_Id" />
+    </Key>
+    <Property Name="Perfiles_Id" Type="bigint" Nullable="false" />
+    <Property Name="Usuarios_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PerfilControl">
+    <Key>
+      <PropertyRef Name="Perfiles_Id" />
+      <PropertyRef Name="Controles_Id" />
+    </Key>
+    <Property Name="Perfiles_Id" Type="bigint" Nullable="false" />
+    <Property Name="Controles_Id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="SectorSubSector">
+    <End Role="Sector" Type="ModeloBometrico.Store.Sectores" Multiplicity="1" />
+    <End Role="SubSector" Type="ModeloBometrico.Store.SubSectores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubSector">
+        <PropertyRef Name="SectorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AgenteHorario">
+    <End Role="Agente" Type="ModeloBometrico.Store.Agentes" Multiplicity="1" />
+    <End Role="Horario" Type="ModeloBometrico.Store.Horarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Horario">
+        <PropertyRef Name="AgenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AgenteAcceso">
+    <End Role="Agente" Type="ModeloBometrico.Store.Agentes" Multiplicity="1" />
+    <End Role="Acceso" Type="ModeloBometrico.Store.Accesos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Acceso">
+        <PropertyRef Name="AgenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AgenteUsuario">
+    <End Role="Agente" Type="ModeloBometrico.Store.Agentes" Multiplicity="1" />
+    <End Role="Usuario" Type="ModeloBometrico.Store.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="AgenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TipoNovedadNovedad">
+    <End Role="TipoNovedad" Type="ModeloBometrico.Store.TipoNovedades" Multiplicity="1" />
+    <End Role="Novedad" Type="ModeloBometrico.Store.Novedades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoNovedad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Novedad">
+        <PropertyRef Name="TipoNovedadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AgenteNovedad">
+    <End Role="Agente" Type="ModeloBometrico.Store.Agentes" Multiplicity="1" />
+    <End Role="Novedad" Type="ModeloBometrico.Store.Novedades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Novedad">
+        <PropertyRef Name="AgenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AgenteComisionServicio">
+    <End Role="Agente" Type="ModeloBometrico.Store.Agentes" Multiplicity="1" />
+    <End Role="ComisionServicio" Type="ModeloBometrico.Store.ComisionServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ComisionServicio">
+        <PropertyRef Name="AgenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AgenteLactancia">
+    <End Role="Agente" Type="ModeloBometrico.Store.Agentes" Multiplicity="1" />
+    <End Role="Lactancia" Type="ModeloBometrico.Store.Lactancias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lactancia">
+        <PropertyRef Name="AgenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FormularioControl">
+    <End Role="Formulario" Type="ModeloBometrico.Store.Formularios" Multiplicity="1" />
+    <End Role="Control" Type="ModeloBometrico.Store.Controles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Control">
+        <PropertyRef Name="FormularioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubSectorAgente_SubSector">
+    <End Role="SubSector" Type="ModeloBometrico.Store.SubSectores" Multiplicity="1" />
+    <End Role="SubSectorAgente" Type="ModeloBometrico.Store.SubSectorAgente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubSector">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubSectorAgente">
+        <PropertyRef Name="SubSectores_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubSectorAgente_Agente">
+    <End Role="SubSectorAgente" Type="ModeloBometrico.Store.SubSectorAgente" Multiplicity="*" />
+    <End Role="Agente" Type="ModeloBometrico.Store.Agentes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Agente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubSectorAgente">
+        <PropertyRef Name="Agentes_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilFormulario_Perfil">
+    <End Role="Perfil" Type="ModeloBometrico.Store.Perfiles" Multiplicity="1" />
+    <End Role="PerfilFormulario" Type="ModeloBometrico.Store.PerfilFormulario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PerfilFormulario">
+        <PropertyRef Name="Perfiles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilFormulario_Formulario">
+    <End Role="PerfilFormulario" Type="ModeloBometrico.Store.PerfilFormulario" Multiplicity="*" />
+    <End Role="Formulario" Type="ModeloBometrico.Store.Formularios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PerfilFormulario">
+        <PropertyRef Name="Formularios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilUsuario_Perfil">
+    <End Role="Perfil" Type="ModeloBometrico.Store.Perfiles" Multiplicity="1" />
+    <End Role="PerfilUsuario" Type="ModeloBometrico.Store.PerfilUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PerfilUsuario">
+        <PropertyRef Name="Perfiles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilUsuario_Usuario">
+    <End Role="PerfilUsuario" Type="ModeloBometrico.Store.PerfilUsuario" Multiplicity="*" />
+    <End Role="Usuario" Type="ModeloBometrico.Store.Usuarios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PerfilUsuario">
+        <PropertyRef Name="Usuarios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilControl_Perfil">
+    <End Role="Perfil" Type="ModeloBometrico.Store.Perfiles" Multiplicity="1" />
+    <End Role="PerfilControl" Type="ModeloBometrico.Store.PerfilControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PerfilControl">
+        <PropertyRef Name="Perfiles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilControl_Control">
+    <End Role="PerfilControl" Type="ModeloBometrico.Store.PerfilControl" Multiplicity="*" />
+    <End Role="Control" Type="ModeloBometrico.Store.Controles" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Control">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PerfilControl">
+        <PropertyRef Name="Controles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModeloBometrico" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModeloBometricoContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Sectores" EntityType="ModeloBometrico.Sector" />
+          <EntitySet Name="SubSectores" EntityType="ModeloBometrico.SubSector" />
+          <AssociationSet Name="SectorSubSector" Association="ModeloBometrico.SectorSubSector">
+            <End Role="Sector" EntitySet="Sectores" />
+            <End Role="SubSector" EntitySet="SubSectores" />
+          </AssociationSet>
+          <EntitySet Name="Agentes" EntityType="ModeloBometrico.Agente" />
+          <AssociationSet Name="SubSectorAgente" Association="ModeloBometrico.SubSectorAgente">
+            <End Role="SubSector" EntitySet="SubSectores" />
+            <End Role="Agente" EntitySet="Agentes" />
+          </AssociationSet>
+          <EntitySet Name="Horarios" EntityType="ModeloBometrico.Horario" />
+          <AssociationSet Name="AgenteHorario" Association="ModeloBometrico.AgenteHorario">
+            <End Role="Agente" EntitySet="Agentes" />
+            <End Role="Horario" EntitySet="Horarios" />
+          </AssociationSet>
+          <EntitySet Name="Accesos" EntityType="ModeloBometrico.Acceso" />
+          <AssociationSet Name="AgenteAcceso" Association="ModeloBometrico.AgenteAcceso">
+            <End Role="Agente" EntitySet="Agentes" />
+            <End Role="Acceso" EntitySet="Accesos" />
+          </AssociationSet>
+          <EntitySet Name="Perfiles" EntityType="ModeloBometrico.Perfil" />
+          <EntitySet Name="Formularios" EntityType="ModeloBometrico.Formulario" />
+          <EntitySet Name="Usuarios" EntityType="ModeloBometrico.Usuario" />
+          <EntitySet Name="Controles" EntityType="ModeloBometrico.Control" />
+          <AssociationSet Name="PerfilFormulario" Association="ModeloBometrico.PerfilFormulario">
+            <End Role="Perfil" EntitySet="Perfiles" />
+            <End Role="Formulario" EntitySet="Formularios" />
+          </AssociationSet>
+          <AssociationSet Name="PerfilUsuario" Association="ModeloBometrico.PerfilUsuario">
+            <End Role="Perfil" EntitySet="Perfiles" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="PerfilControl" Association="ModeloBometrico.PerfilControl">
+            <End Role="Perfil" EntitySet="Perfiles" />
+            <End Role="Control" EntitySet="Controles" />
+          </AssociationSet>
+          <AssociationSet Name="AgenteUsuario" Association="ModeloBometrico.AgenteUsuario">
+            <End Role="Agente" EntitySet="Agentes" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <EntitySet Name="Configuraciones" EntityType="ModeloBometrico.Configuracion" />
+          <EntitySet Name="TipoNovedades" EntityType="ModeloBometrico.TipoNovedad" />
+          <EntitySet Name="Novedades" EntityType="ModeloBometrico.Novedad" />
+          <AssociationSet Name="TipoNovedadNovedad" Association="ModeloBometrico.TipoNovedadNovedad">
+            <End Role="TipoNovedad" EntitySet="TipoNovedades" />
+            <End Role="Novedad" EntitySet="Novedades" />
+          </AssociationSet>
+          <AssociationSet Name="AgenteNovedad" Association="ModeloBometrico.AgenteNovedad">
+            <End Role="Agente" EntitySet="Agentes" />
+            <End Role="Novedad" EntitySet="Novedades" />
+          </AssociationSet>
+          <EntitySet Name="ComisionServicios" EntityType="ModeloBometrico.ComisionServicio" />
+          <AssociationSet Name="AgenteComisionServicio" Association="ModeloBometrico.AgenteComisionServicio">
+            <End Role="Agente" EntitySet="Agentes" />
+            <End Role="ComisionServicio" EntitySet="ComisionServicios" />
+          </AssociationSet>
+          <EntitySet Name="Lactancias" EntityType="ModeloBometrico.Lactancia" />
+          <AssociationSet Name="AgenteLactancia" Association="ModeloBometrico.AgenteLactancia">
+            <End Role="Agente" EntitySet="Agentes" />
+            <End Role="Lactancia" EntitySet="Lactancias" />
+          </AssociationSet>
+          <AssociationSet Name="FormularioControl" Association="ModeloBometrico.FormularioControl">
+            <End Role="Formulario" EntitySet="Formularios" />
+            <End Role="Control" EntitySet="Controles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Sector">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="SubSectores" Relationship="ModeloBometrico.SectorSubSector" FromRole="Sector" ToRole="SubSector" />
+        </EntityType>
+        <EntityType Name="SubSector">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Abreviatura" Type="String" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sector" Relationship="ModeloBometrico.SectorSubSector" FromRole="SubSector" ToRole="Sector" />
+          <Property Name="SectorId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Agentes" Relationship="ModeloBometrico.SubSectorAgente" FromRole="SubSector" ToRole="Agente" />
+        </EntityType>
+        <Association Name="SectorSubSector">
+          <End Type="ModeloBometrico.Sector" Role="Sector" Multiplicity="1" />
+          <End Type="ModeloBometrico.SubSector" Role="SubSector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sector">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubSector">
+              <PropertyRef Name="SectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Agente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Legajo" Type="String" Nullable="false" Unicode="false" ConcurrencyMode="None" />
+          <NavigationProperty Name="SubSectores" Relationship="ModeloBometrico.SubSectorAgente" FromRole="Agente" ToRole="SubSector" />
+          <Property Name="Apellido" Type="String" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="DNI" Type="String" Nullable="false" />
+          <NavigationProperty Name="Horarios" Relationship="ModeloBometrico.AgenteHorario" FromRole="Agente" ToRole="Horario" />
+          <NavigationProperty Name="Accesos" Relationship="ModeloBometrico.AgenteAcceso" FromRole="Agente" ToRole="Acceso" />
+          <NavigationProperty Name="Usuarios" Relationship="ModeloBometrico.AgenteUsuario" FromRole="Agente" ToRole="Usuario" />
+          <NavigationProperty Name="Novedades" Relationship="ModeloBometrico.AgenteNovedad" FromRole="Agente" ToRole="Novedad" />
+          <NavigationProperty Name="ComisionesServicios" Relationship="ModeloBometrico.AgenteComisionServicio" FromRole="Agente" ToRole="ComisionServicio" />
+          <NavigationProperty Name="Lactancias" Relationship="ModeloBometrico.AgenteLactancia" FromRole="Agente" ToRole="Lactancia" />
+          <Property Name="Telefono" Type="String" Nullable="false" />
+          <Property Name="Celular" Type="String" Nullable="false" />
+          <Property Name="Mail" Type="String" Nullable="false" />
+          <Property Name="Visualizar" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="SubSectorAgente">
+          <End Type="ModeloBometrico.SubSector" Role="SubSector" Multiplicity="*" />
+          <End Type="ModeloBometrico.Agente" Role="Agente" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Horario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgenteId" Type="Int64" Nullable="false" />
+          <Property Name="HoraEntrada" Type="Time" Nullable="false" />
+          <Property Name="HoraSalidaParcial" Type="Time" Nullable="true" />
+          <Property Name="HoraEntradaParcial" Type="Time" Nullable="true" />
+          <Property Name="HoraSalida" Type="Time" Nullable="false" />
+          <Property Name="Lunes" Type="Boolean" Nullable="false" />
+          <Property Name="Martes" Type="Boolean" Nullable="false" />
+          <Property Name="Miercoles" Type="Boolean" Nullable="false" />
+          <Property Name="Jueves" Type="Boolean" Nullable="false" />
+          <Property Name="Viernes" Type="Boolean" Nullable="false" />
+          <Property Name="Sabado" Type="Boolean" Nullable="false" />
+          <Property Name="Domingo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Agente" Relationship="ModeloBometrico.AgenteHorario" FromRole="Horario" ToRole="Agente" />
+          <Property Name="FechaActualizacion" Type="DateTime" Nullable="false" />
+          <Property Name="FechaDesde" Type="DateTime" Nullable="false" />
+          <Property Name="FechaHasta" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <Association Name="AgenteHorario">
+          <End Type="ModeloBometrico.Agente" Role="Agente" Multiplicity="1" />
+          <End Type="ModeloBometrico.Horario" Role="Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horario">
+              <PropertyRef Name="AgenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Acceso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgenteId" Type="Int64" Nullable="false" />
+          <Property Name="FechaHora" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Agente" Relationship="ModeloBometrico.AgenteAcceso" FromRole="Acceso" ToRole="Agente" />
+          <Property Name="TipoAcceso" Type="ModeloBometrico.TipoAcceso" Nullable="false" />
+          <Property Name="NroReloj" Type="String" Nullable="false" />
+        </EntityType>
+        <EnumType Name="TipoAcceso">
+          <Member Name="Entrada" Value="1" />
+          <Member Name="SalidaParcial" Value="2" />
+          <Member Name="EntradaParacial" Value="3" />
+          <Member Name="Salida" Value="4" />
+        </EnumType>
+        <Association Name="AgenteAcceso">
+          <End Type="ModeloBometrico.Agente" Role="Agente" Multiplicity="1" />
+          <End Type="ModeloBometrico.Acceso" Role="Acceso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Acceso">
+              <PropertyRef Name="AgenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="Formularios" Relationship="ModeloBometrico.PerfilFormulario" FromRole="Perfil" ToRole="Formulario" />
+          <NavigationProperty Name="Usuarios" Relationship="ModeloBometrico.PerfilUsuario" FromRole="Perfil" ToRole="Usuario" />
+          <NavigationProperty Name="Controles" Relationship="ModeloBometrico.PerfilControl" FromRole="Perfil" ToRole="Control" />
+        </EntityType>
+        <EntityType Name="Formulario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <Property Name="DescripcionCompleta" Type="String" Nullable="false" />
+          <NavigationProperty Name="Perfiles" Relationship="ModeloBometrico.PerfilFormulario" FromRole="Formulario" ToRole="Perfil" />
+          <NavigationProperty Name="Controles" Relationship="ModeloBometrico.FormularioControl" FromRole="Formulario" ToRole="Control" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <Property Name="EstaBloqueado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Perfiles" Relationship="ModeloBometrico.PerfilUsuario" FromRole="Usuario" ToRole="Perfil" />
+          <NavigationProperty Name="Agente" Relationship="ModeloBometrico.AgenteUsuario" FromRole="Usuario" ToRole="Agente" />
+          <Property Name="AgenteId" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Control">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="Perfiles" Relationship="ModeloBometrico.PerfilControl" FromRole="Control" ToRole="Perfil" />
+          <NavigationProperty Name="Formulario" Relationship="ModeloBometrico.FormularioControl" FromRole="Control" ToRole="Formulario" />
+          <Property Name="FormularioId" Type="Int64" Nullable="false" />
+        </EntityType>
+        <Association Name="PerfilFormulario">
+          <End Type="ModeloBometrico.Perfil" Role="Perfil" Multiplicity="*" />
+          <End Type="ModeloBometrico.Formulario" Role="Formulario" Multiplicity="*" />
+        </Association>
+        <Association Name="PerfilUsuario">
+          <End Type="ModeloBometrico.Perfil" Role="Perfil" Multiplicity="*" />
+          <End Type="ModeloBometrico.Usuario" Role="Usuario" Multiplicity="*" />
+        </Association>
+        <Association Name="PerfilControl">
+          <End Type="ModeloBometrico.Perfil" Role="Perfil" Multiplicity="*" />
+          <End Type="ModeloBometrico.Control" Role="Control" Multiplicity="*" />
+        </Association>
+        <Association Name="AgenteUsuario">
+          <End Type="ModeloBometrico.Agente" Role="Agente" Multiplicity="1" />
+          <End Type="ModeloBometrico.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="AgenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Configuracion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MinutosToleranciaLlegadaTarde" Type="Int32" Nullable="false" />
+          <Property Name="MinutosToleranciaAusente" Type="Int32" Nullable="false" />
+          <Property Name="HoraEntradaPorDefecto" Type="String" Nullable="false" />
+          <Property Name="HoraSalidaPorDefecto" Type="String" Nullable="false" />
+          <Property Name="MinutosLactancia" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoNovedad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Abreviatura" Type="String" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <Property Name="EsJornadaCompleta" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Novedades" Relationship="ModeloBometrico.TipoNovedadNovedad" FromRole="TipoNovedad" ToRole="Novedad" />
+        </EntityType>
+        <EntityType Name="Novedad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgenteId" Type="Int64" Nullable="false" />
+          <Property Name="TipoNovedadId" Type="Int64" Nullable="false" />
+          <Property Name="FechaDesde" Type="DateTime" Nullable="false" />
+          <Property Name="FechaHasta" Type="DateTime" Nullable="true" />
+          <Property Name="HoraDesde" Type="String" Nullable="false" />
+          <Property Name="HoraHasta" Type="String" Nullable="false" />
+          <NavigationProperty Name="TipoNovedad" Relationship="ModeloBometrico.TipoNovedadNovedad" FromRole="Novedad" ToRole="TipoNovedad" />
+          <NavigationProperty Name="Agente" Relationship="ModeloBometrico.AgenteNovedad" FromRole="Novedad" ToRole="Agente" />
+          <Property Name="Observacion" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="TipoNovedadNovedad">
+          <End Type="ModeloBometrico.TipoNovedad" Role="TipoNovedad" Multiplicity="1" />
+          <End Type="ModeloBometrico.Novedad" Role="Novedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoNovedad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Novedad">
+              <PropertyRef Name="TipoNovedadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AgenteNovedad">
+          <End Type="ModeloBometrico.Agente" Role="Agente" Multiplicity="1" />
+          <End Type="ModeloBometrico.Novedad" Role="Novedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Novedad">
+              <PropertyRef Name="AgenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ComisionServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Agente" Relationship="ModeloBometrico.AgenteComisionServicio" FromRole="ComisionServicio" ToRole="Agente" />
+          <Property Name="AgenteId" Type="Int64" Nullable="false" />
+          <Property Name="FechaDesde" Type="DateTime" Nullable="false" />
+          <Property Name="FechaHasta" Type="DateTime" Nullable="true" />
+          <Property Name="HoraDesde" Type="Time" Nullable="false" />
+          <Property Name="HoraHasta" Type="Time" Nullable="false" />
+          <Property Name="EsJornadaCompleta" Type="Boolean" Nullable="false" />
+          <Property Name="Observacion" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="AgenteComisionServicio">
+          <End Type="ModeloBometrico.Agente" Role="Agente" Multiplicity="1" />
+          <End Type="ModeloBometrico.ComisionServicio" Role="ComisionServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ComisionServicio">
+              <PropertyRef Name="AgenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Lactancia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgenteId" Type="Int64" Nullable="false" />
+          <Property Name="Lunes" Type="Boolean" Nullable="false" />
+          <Property Name="Martes" Type="Boolean" Nullable="false" />
+          <Property Name="Miercoles" Type="Boolean" Nullable="false" />
+          <Property Name="Jueves" Type="Boolean" Nullable="false" />
+          <Property Name="Viernes" Type="String" Nullable="false" />
+          <Property Name="Sabado" Type="Boolean" Nullable="false" />
+          <Property Name="Domingo" Type="Boolean" Nullable="false" />
+          <Property Name="FechaDesde" Type="DateTime" Nullable="false" />
+          <Property Name="FechaHasta" Type="DateTime" Nullable="false" />
+          <Property Name="HoraInicio" Type="Time" Nullable="false" />
+          <Property Name="FechaActualizacion" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Agente" Relationship="ModeloBometrico.AgenteLactancia" FromRole="Lactancia" ToRole="Agente" />
+        </EntityType>
+        <Association Name="AgenteLactancia">
+          <End Type="ModeloBometrico.Agente" Role="Agente" Multiplicity="1" />
+          <End Type="ModeloBometrico.Lactancia" Role="Lactancia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Lactancia">
+              <PropertyRef Name="AgenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FormularioControl">
+          <End Type="ModeloBometrico.Formulario" Role="Formulario" Multiplicity="1" />
+          <End Type="ModeloBometrico.Control" Role="Control" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formulario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Control">
+              <PropertyRef Name="FormularioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModeloBometricoStoreContainer" CdmEntityContainer="ModeloBometricoContainer">
+    <EntitySetMapping Name="Sectores">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.Sector)">
+        <MappingFragment StoreEntitySet="Sectores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubSectores">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.SubSector)">
+        <MappingFragment StoreEntitySet="SubSectores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agentes">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.Agente)">
+        <MappingFragment StoreEntitySet="Agentes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Legajo" ColumnName="Legajo" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Visualizar" ColumnName="Visualizar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Horarios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.Horario)">
+        <MappingFragment StoreEntitySet="Horarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AgenteId" ColumnName="AgenteId" />
+          <ScalarProperty Name="HoraEntrada" ColumnName="HoraEntrada" />
+          <ScalarProperty Name="HoraSalidaParcial" ColumnName="HoraSalidaParcial" />
+          <ScalarProperty Name="HoraEntradaParcial" ColumnName="HoraEntradaParcial" />
+          <ScalarProperty Name="HoraSalida" ColumnName="HoraSalida" />
+          <ScalarProperty Name="Lunes" ColumnName="Lunes" />
+          <ScalarProperty Name="Martes" ColumnName="Martes" />
+          <ScalarProperty Name="Miercoles" ColumnName="Miercoles" />
+          <ScalarProperty Name="Jueves" ColumnName="Jueves" />
+          <ScalarProperty Name="Viernes" ColumnName="Viernes" />
+          <ScalarProperty Name="Sabado" ColumnName="Sabado" />
+          <ScalarProperty Name="Domingo" ColumnName="Domingo" />
+          <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+          <ScalarProperty Name="FechaDesde" ColumnName="FechaDesde" />
+          <ScalarProperty Name="FechaHasta" ColumnName="FechaHasta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accesos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.Acceso)">
+        <MappingFragment StoreEntitySet="Accesos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AgenteId" ColumnName="AgenteId" />
+          <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
+          <ScalarProperty Name="TipoAcceso" ColumnName="TipoAcceso" />
+          <ScalarProperty Name="NroReloj" ColumnName="NroReloj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Perfiles">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.Perfil)">
+        <MappingFragment StoreEntitySet="Perfiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Formularios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.Formulario)">
+        <MappingFragment StoreEntitySet="Formularios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="DescripcionCompleta" ColumnName="DescripcionCompleta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.Usuario)">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EstaBloqueado" ColumnName="EstaBloqueado" />
+          <ScalarProperty Name="AgenteId" ColumnName="AgenteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Controles">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.Control)">
+        <MappingFragment StoreEntitySet="Controles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FormularioId" ColumnName="FormularioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configuraciones">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.Configuracion)">
+        <MappingFragment StoreEntitySet="Configuraciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MinutosToleranciaLlegadaTarde" ColumnName="MinutosToleranciaLlegadaTarde" />
+          <ScalarProperty Name="MinutosToleranciaAusente" ColumnName="MinutosToleranciaAusente" />
+          <ScalarProperty Name="HoraEntradaPorDefecto" ColumnName="HoraEntradaPorDefecto" />
+          <ScalarProperty Name="HoraSalidaPorDefecto" ColumnName="HoraSalidaPorDefecto" />
+          <ScalarProperty Name="MinutosLactancia" ColumnName="MinutosLactancia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoNovedades">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.TipoNovedad)">
+        <MappingFragment StoreEntitySet="TipoNovedades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="EsJornadaCompleta" ColumnName="EsJornadaCompleta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Novedades">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.Novedad)">
+        <MappingFragment StoreEntitySet="Novedades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AgenteId" ColumnName="AgenteId" />
+          <ScalarProperty Name="TipoNovedadId" ColumnName="TipoNovedadId" />
+          <ScalarProperty Name="FechaDesde" ColumnName="FechaDesde" />
+          <ScalarProperty Name="FechaHasta" ColumnName="FechaHasta" />
+          <ScalarProperty Name="HoraDesde" ColumnName="HoraDesde" />
+          <ScalarProperty Name="HoraHasta" ColumnName="HoraHasta" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComisionServicios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.ComisionServicio)">
+        <MappingFragment StoreEntitySet="ComisionServicios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AgenteId" ColumnName="AgenteId" />
+          <ScalarProperty Name="FechaDesde" ColumnName="FechaDesde" />
+          <ScalarProperty Name="FechaHasta" ColumnName="FechaHasta" />
+          <ScalarProperty Name="HoraDesde" ColumnName="HoraDesde" />
+          <ScalarProperty Name="HoraHasta" ColumnName="HoraHasta" />
+          <ScalarProperty Name="EsJornadaCompleta" ColumnName="EsJornadaCompleta" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lactancias">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.Lactancia)">
+        <MappingFragment StoreEntitySet="Lactancias">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AgenteId" ColumnName="AgenteId" />
+          <ScalarProperty Name="Lunes" ColumnName="Lunes" />
+          <ScalarProperty Name="Martes" ColumnName="Martes" />
+          <ScalarProperty Name="Miercoles" ColumnName="Miercoles" />
+          <ScalarProperty Name="Jueves" ColumnName="Jueves" />
+          <ScalarProperty Name="Viernes" ColumnName="Viernes" />
+          <ScalarProperty Name="Sabado" ColumnName="Sabado" />
+          <ScalarProperty Name="Domingo" ColumnName="Domingo" />
+          <ScalarProperty Name="FechaDesde" ColumnName="FechaDesde" />
+          <ScalarProperty Name="FechaHasta" ColumnName="FechaHasta" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SubSectorAgente" TypeName="ModeloBometrico.SubSectorAgente" StoreEntitySet="SubSectorAgente">
+      <EndProperty Name="SubSector">
+        <ScalarProperty Name="Id" ColumnName="SubSectores_Id" />
+      </EndProperty>
+      <EndProperty Name="Agente">
+        <ScalarProperty Name="Id" ColumnName="Agentes_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PerfilFormulario" TypeName="ModeloBometrico.PerfilFormulario" StoreEntitySet="PerfilFormulario">
+      <EndProperty Name="Perfil">
+        <ScalarProperty Name="Id" ColumnName="Perfiles_Id" />
+      </EndProperty>
+      <EndProperty Name="Formulario">
+        <ScalarProperty Name="Id" ColumnName="Formularios_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PerfilUsuario" TypeName="ModeloBometrico.PerfilUsuario" StoreEntitySet="PerfilUsuario">
+      <EndProperty Name="Perfil">
+        <ScalarProperty Name="Id" ColumnName="Perfiles_Id" />
+      </EndProperty>
+      <EndProperty Name="Usuario">
+        <ScalarProperty Name="Id" ColumnName="Usuarios_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PerfilControl" TypeName="ModeloBometrico.PerfilControl" StoreEntitySet="PerfilControl">
+      <EndProperty Name="Perfil">
+        <ScalarProperty Name="Id" ColumnName="Perfiles_Id" />
+      </EndProperty>
+      <EndProperty Name="Control">
+        <ScalarProperty Name="Id" ColumnName="Controles_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

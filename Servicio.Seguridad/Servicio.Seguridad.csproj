@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{149ACA03-B945-4F62-AA97-A9F464EFC55E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Servicio.Seguridad</RootNamespace>
+    <AssemblyName>Servicio.Seguridad</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccesoControles\AccesoControlesServicio.cs" />
+    <Compile Include="AccesoFormulario\AccesoFormularioServicio.cs" />
+    <Compile Include="AgenteSubSectorServicio.cs" />
+    <Compile Include="Controles\ControlSistemaServicio.cs" />
+    <Compile Include="Controles\DTOs\ControlSistemaDTO.cs" />
+    <Compile Include="Controles\IControlSistemaServicio.cs" />
+    <Compile Include="Formulario\DTOs\FormularioDTO.cs" />
+    <Compile Include="Formulario\FormularioServicio.cs" />
+    <Compile Include="Formulario\IFormularioServicio.cs" />
+    <Compile Include="LogIn\ILogInServicio.cs" />
+    <Compile Include="LogIn\LogInServicio.cs" />
+    <Compile Include="PerfilControles\DTOs\PerfilControlDTO.cs" />
+    <Compile Include="PerfilControles\IPerfilControlServicio.cs" />
+    <Compile Include="PerfilControles\PerfilControlServicio.cs" />
+    <Compile Include="PerfilFormulario\DTOs\PerfilFormularioDTO.cs" />
+    <Compile Include="PerfilFormulario\IPerfilFormularioServicio.cs" />
+    <Compile Include="PerfilFormulario\PerfilFormularioServicio.cs" />
+    <Compile Include="PerfilUsuario\DTOs\PerfilUsuarioDTO.cs" />
+    <Compile Include="PerfilUsuario\IPerfilUsuarioServicio.cs" />
+    <Compile Include="PerfilUsuario\PerfilUsuarioServicio.cs" />
+    <Compile Include="Perfil\DTOs\PerfilDTO.cs" />
+    <Compile Include="Perfil\IServicioPerfil.cs" />
+    <Compile Include="Perfil\ServicioPerfil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario\ConstantesSeguridad.cs" />
+    <Compile Include="Usuario\DTOs\UsuarioDTO.cs" />
+    <Compile Include="Usuario\Identidad.cs" />
+    <Compile Include="Usuario\IServicioUsuario.cs" />
+    <Compile Include="Usuario\ServicioUsuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
+      <Project>{71bdc5c4-8837-4b0b-89dd-d1eb81a1a694}</Project>
+      <Name>AccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicioSeguridad\Servicio.RecursoHumano.csproj">
+      <Project>{463c6186-24d0-48c3-9eb8-61ed2bafd4a7}</Project>
+      <Name>Servicio.RecursoHumano</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D278930-A5F9-4733-89B8-C42E6E01279B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Presentacion.Seguridad</RootNamespace>
+    <AssemblyName>Presentacion.Seguridad</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SeguridadAssembly.cs" />
+    <Compile Include="_90005_AsignarFormularioPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_90005_AsignarFormularioPerfil.Designer.cs">
+      <DependentUpon>_90005_AsignarFormularioPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_90006_AsignarControlPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_90006_AsignarControlPerfil.Designer.cs">
+      <DependentUpon>_90006_AsignarControlPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_90004_AsignarUsuarioPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_90004_AsignarUsuarioPerfil.Designer.cs">
+      <DependentUpon>_90004_AsignarUsuarioPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_90001_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_90001_Usuario.Designer.cs">
+      <DependentUpon>_90001_Usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_90002_Perfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_90002_Perfiles.Designer.cs">
+      <DependentUpon>_90002_Perfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_90003_ABM_Perfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_90003_ABM_Perfil.Designer.cs">
+      <DependentUpon>_90003_ABM_Perfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_90007_Formularios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_90007_Formularios.Designer.cs">
+      <DependentUpon>_90007_Formularios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_90008_Controles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_90008_Controles.Designer.cs">
+      <DependentUpon>_90008_Controles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_90009_CambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_90009_CambiarPassword.Designer.cs">
+      <DependentUpon>_90009_CambiarPassword.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
+      <Project>{71bdc5c4-8837-4b0b-89dd-d1eb81a1a694}</Project>
+      <Name>AccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PresentacionBase\PresentacionBase.csproj">
+      <Project>{71710be8-ed22-4dfa-99ea-0c7697df9131}</Project>
+      <Name>PresentacionBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servicio.Seguridad\Servicio.Seguridad.csproj">
+      <Project>{149aca03-b945-4f62-aa97-a9f464efc55e}</Project>
+      <Name>Servicio.Seguridad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicioSeguridad\Servicio.RecursoHumano.csproj">
+      <Project>{463c6186-24d0-48c3-9eb8-61ed2bafd4a7}</Project>
+      <Name>Servicio.RecursoHumano</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_90001_Usuario.resx">
+      <DependentUpon>_90001_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_90002_Perfiles.resx">
+      <DependentUpon>_90002_Perfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_90003_ABM_Perfil.resx">
+      <DependentUpon>_90003_ABM_Perfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_90005_AsignarFormularioPerfil.resx">
+      <DependentUpon>_90005_AsignarFormularioPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_90006_AsignarControlPerfil.resx">
+      <DependentUpon>_90006_AsignarControlPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_90004_AsignarUsuarioPerfil.resx">
+      <DependentUpon>_90004_AsignarUsuarioPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_90007_Formularios.resx">
+      <DependentUpon>_90007_Formularios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_90008_Controles.resx">
+      <DependentUpon>_90008_Controles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_90009_CambiarPassword.resx">
+      <DependentUpon>_90009_CambiarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

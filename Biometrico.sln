@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentacion", "1 - Presentacion", "{5E9108A2-85C9-4BA6-B8C0-C457DC506667}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Servicio", "2 - Servicio", "{86C4FE86-5629-4262-A56A-3129FC8A4BB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - AccesoADatos", "3 - AccesoADatos", "{794177E6-A03B-434A-918D-EB3EEA8321D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentacionBase", "PresentacionBase\PresentacionBase.csproj", "{71710BE8-ED22-4DFA-99EA-0C7697DF9131}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiometricoWF", "BiometricoWF\BiometricoWF.csproj", "{24405CBF-F985-41C2-A32E-0AD171D3BD24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentacionRecursoHumano", "PresentacionSeguridad\PresentacionRecursoHumano.csproj", "{B63C1698-7ED0-4191-BBB4-F3008944C935}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatos", "AccesoDatos\AccesoDatos.csproj", "{71BDC5C4-8837-4B0B-89DD-D1EB81A1A694}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicio.RecursoHumano", "ServicioSeguridad\Servicio.RecursoHumano.csproj", "{463C6186-24D0-48C3-9EB8-61ED2BAFD4A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion.Seguridad", "Presentacion.Seguridad\Presentacion.Seguridad.csproj", "{4D278930-A5F9-4733-89B8-C42E6E01279B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicio.Seguridad", "Servicio.Seguridad\Servicio.Seguridad.csproj", "{149ACA03-B945-4F62-AA97-A9F464EFC55E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion.Core", "Presentacion.Core\Presentacion.Core.csproj", "{45367D01-8C35-4099-922E-FAD253698905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicio.Core", "Servicio.Core\Servicio.Core.csproj", "{9D88A75A-76AF-4FAA-9B35-D7D4CAD6A6AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71710BE8-ED22-4DFA-99EA-0C7697DF9131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71710BE8-ED22-4DFA-99EA-0C7697DF9131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71710BE8-ED22-4DFA-99EA-0C7697DF9131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71710BE8-ED22-4DFA-99EA-0C7697DF9131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24405CBF-F985-41C2-A32E-0AD171D3BD24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24405CBF-F985-41C2-A32E-0AD171D3BD24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24405CBF-F985-41C2-A32E-0AD171D3BD24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24405CBF-F985-41C2-A32E-0AD171D3BD24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B63C1698-7ED0-4191-BBB4-F3008944C935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B63C1698-7ED0-4191-BBB4-F3008944C935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B63C1698-7ED0-4191-BBB4-F3008944C935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B63C1698-7ED0-4191-BBB4-F3008944C935}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71BDC5C4-8837-4B0B-89DD-D1EB81A1A694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71BDC5C4-8837-4B0B-89DD-D1EB81A1A694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71BDC5C4-8837-4B0B-89DD-D1EB81A1A694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71BDC5C4-8837-4B0B-89DD-D1EB81A1A694}.Release|Any CPU.Build.0 = Release|Any CPU
+		{463C6186-24D0-48C3-9EB8-61ED2BAFD4A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{463C6186-24D0-48C3-9EB8-61ED2BAFD4A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{463C6186-24D0-48C3-9EB8-61ED2BAFD4A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{463C6186-24D0-48C3-9EB8-61ED2BAFD4A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D278930-A5F9-4733-89B8-C42E6E01279B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D278930-A5F9-4733-89B8-C42E6E01279B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D278930-A5F9-4733-89B8-C42E6E01279B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D278930-A5F9-4733-89B8-C42E6E01279B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{149ACA03-B945-4F62-AA97-A9F464EFC55E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{149ACA03-B945-4F62-AA97-A9F464EFC55E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{149ACA03-B945-4F62-AA97-A9F464EFC55E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{149ACA03-B945-4F62-AA97-A9F464EFC55E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45367D01-8C35-4099-922E-FAD253698905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45367D01-8C35-4099-922E-FAD253698905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45367D01-8C35-4099-922E-FAD253698905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45367D01-8C35-4099-922E-FAD253698905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D88A75A-76AF-4FAA-9B35-D7D4CAD6A6AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D88A75A-76AF-4FAA-9B35-D7D4CAD6A6AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D88A75A-76AF-4FAA-9B35-D7D4CAD6A6AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D88A75A-76AF-4FAA-9B35-D7D4CAD6A6AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{71710BE8-ED22-4DFA-99EA-0C7697DF9131} = {5E9108A2-85C9-4BA6-B8C0-C457DC506667}
+		{24405CBF-F985-41C2-A32E-0AD171D3BD24} = {5E9108A2-85C9-4BA6-B8C0-C457DC506667}
+		{B63C1698-7ED0-4191-BBB4-F3008944C935} = {5E9108A2-85C9-4BA6-B8C0-C457DC506667}
+		{71BDC5C4-8837-4B0B-89DD-D1EB81A1A694} = {794177E6-A03B-434A-918D-EB3EEA8321D5}
+		{463C6186-24D0-48C3-9EB8-61ED2BAFD4A7} = {86C4FE86-5629-4262-A56A-3129FC8A4BB7}
+		{4D278930-A5F9-4733-89B8-C42E6E01279B} = {5E9108A2-85C9-4BA6-B8C0-C457DC506667}
+		{149ACA03-B945-4F62-AA97-A9F464EFC55E} = {86C4FE86-5629-4262-A56A-3129FC8A4BB7}
+		{45367D01-8C35-4099-922E-FAD253698905} = {5E9108A2-85C9-4BA6-B8C0-C457DC506667}
+		{9D88A75A-76AF-4FAA-9B35-D7D4CAD6A6AF} = {86C4FE86-5629-4262-A56A-3129FC8A4BB7}
+	EndGlobalSection
+EndGlobal
