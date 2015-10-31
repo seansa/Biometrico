@@ -34,15 +34,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtApyNom = new System.Windows.Forms.TextBox();
-            this.txtLegajo = new System.Windows.Forms.TextBox();
             this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtLegajo = new System.Windows.Forms.TextBox();
+            this.txtApyNom = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblNombreFormulario = new System.Windows.Forms.Label();
             this.dgvLactancia = new PresentacionBase.Clases.Control.DataGridView();
@@ -65,6 +65,19 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.AutoSize = false;
+            this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
+            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(53, 49);
+            this.btnNuevo.Text = "Nueva";
+            this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // btnSalir
             // 
             this.btnSalir.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -78,19 +91,6 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.AutoSize = false;
-            this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
-            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(53, 49);
-            this.btnNuevo.Text = "Nueva";
-            this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // panel1
             // 
@@ -106,23 +106,26 @@
             this.panel1.Size = new System.Drawing.Size(526, 73);
             this.panel1.TabIndex = 1;
             // 
-            // label1
+            // txtDni
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Legajo";
+            this.txtDni.Location = new System.Drawing.Point(269, 13);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(235, 20);
+            this.txtDni.TabIndex = 5;
             // 
-            // label2
+            // txtLegajo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(237, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "DNI";
+            this.txtLegajo.Location = new System.Drawing.Point(59, 13);
+            this.txtLegajo.Name = "txtLegajo";
+            this.txtLegajo.Size = new System.Drawing.Size(150, 20);
+            this.txtLegajo.TabIndex = 4;
+            // 
+            // txtApyNom
+            // 
+            this.txtApyNom.Location = new System.Drawing.Point(59, 41);
+            this.txtApyNom.Name = "txtApyNom";
+            this.txtApyNom.Size = new System.Drawing.Size(445, 20);
+            this.txtApyNom.TabIndex = 3;
             // 
             // label3
             // 
@@ -133,26 +136,23 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Agente";
             // 
-            // txtApyNom
+            // label2
             // 
-            this.txtApyNom.Location = new System.Drawing.Point(59, 41);
-            this.txtApyNom.Name = "txtApyNom";
-            this.txtApyNom.Size = new System.Drawing.Size(445, 20);
-            this.txtApyNom.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(237, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "DNI";
             // 
-            // txtLegajo
+            // label1
             // 
-            this.txtLegajo.Location = new System.Drawing.Point(59, 13);
-            this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(150, 20);
-            this.txtLegajo.TabIndex = 4;
-            // 
-            // txtDni
-            // 
-            this.txtDni.Location = new System.Drawing.Point(269, 13);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(235, 20);
-            this.txtDni.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Legajo";
             // 
             // panel2
             // 
@@ -185,6 +185,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLactancia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLactancia.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLactancia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,8 +229,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "_00012_Lactancia";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lactancia Agente";
+            this.Load += new System.EventHandler(this._00012_Lactancia_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -254,6 +255,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblNombreFormulario;
-        public System.Windows.Forms.DataGridView dgvLactancia;
+        public PresentacionBase.Clases.Control.DataGridView dgvLactancia;
     }
 }
