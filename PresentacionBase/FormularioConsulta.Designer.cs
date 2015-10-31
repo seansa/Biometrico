@@ -50,6 +50,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblBuscar = new System.Windows.Forms.Label();
+            this.btnLactancia = new System.Windows.Forms.ToolStripButton();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.pnlBuscar.SuspendLayout();
@@ -68,7 +69,8 @@
             this.btnActualizar,
             this.btnSalir,
             this.btnImprimir,
-            this.btnHorarios});
+            this.btnHorarios,
+            this.btnLactancia});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(784, 52);
@@ -191,6 +193,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGrilla.BackgroundColor = System.Drawing.Color.White;
+            this.dgvGrilla.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -270,6 +273,15 @@
             this.lblBuscar.TabIndex = 0;
             this.lblBuscar.Text = "Busqueda";
             // 
+            // btnLactancia
+            // 
+            this.btnLactancia.Image = ((System.Drawing.Image)(resources.GetObject("btnLactancia.Image")));
+            this.btnLactancia.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLactancia.Name = "btnLactancia";
+            this.btnLactancia.Size = new System.Drawing.Size(61, 49);
+            this.btnLactancia.Text = "Lactancia";
+            this.btnLactancia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // FormularioConsulta
             // 
             this.AcceptButton = this.btnBuscar;
@@ -307,7 +319,6 @@
         public System.Windows.Forms.ToolStripButton btnActualizar;
         public System.Windows.Forms.ToolStripButton btnSalir;
         private System.Windows.Forms.Label lblTitulo;
-        public System.Windows.Forms.DataGridView dgvGrilla;
         private System.Windows.Forms.Panel pnlBuscar;
         private System.Windows.Forms.PictureBox imgBuscar;
         private System.Windows.Forms.Button btnBuscar;
@@ -317,5 +328,7 @@
         public System.Windows.Forms.ToolStripMenuItem btnImprimirSelección;
         public System.Windows.Forms.ToolStripSplitButton btnImprimir;
         private System.Windows.Forms.ToolStripButton btnHorarios;
+        private System.Windows.Forms.ToolStripButton btnLactancia;
+        public Clases.Control.DataGridView dgvGrilla;
     }
 }

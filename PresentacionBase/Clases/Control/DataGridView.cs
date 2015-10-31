@@ -20,6 +20,7 @@ namespace PresentacionBase.Clases.Control
             // En Teoria Esto Cambia el tamaño de las columnas a automatico y Fill. yambe
             this.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.None;
         }
     }
 }

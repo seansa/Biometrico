@@ -131,6 +131,12 @@
     <Compile Include="_00012_Lactancia.Designer.cs">
       <DependentUpon>_00012_Lactancia.cs</DependentUpon>
     </Compile>
+    <Compile Include="_00013_Novedades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_00013_Novedades.Designer.cs">
+      <DependentUpon>_00013_Novedades.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
