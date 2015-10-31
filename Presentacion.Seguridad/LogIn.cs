@@ -27,7 +27,7 @@ namespace Presentacion.Seguridad
 
             this.PuedeIngresarAlSistema = false;
             this.imgLogo.Image = PresentacionBase.Imagenes.BotonLogin;
-            lblTitulo.Font = new FormularioBase().myFont;
+            lblTitulo.Font = new FormularioBase().NuevaFuente(RecursosCompartidos.OpenSans_Light, (long)25.0);
         }
 
         protected override CreateParams CreateParams

@@ -13,15 +13,7 @@ namespace PresentacionBase
         //MIO
         public long idmio { get; set; }
         public PrivateFontCollection fuentes;
-        public Font HelveticaRoman;
-        public Font HelveticaItalic;
-        public Font HelveticaBold;
-        public Font HelveticaBoldItalic;
-        public Font HelveticaLightItalic;
-        public Font HelveticaLight;
-        public Font HelveticaThin;
-        public Font HelveticaThinItalic;
-        public FontFamily[] Helvetica;
+        //public FontFamily[] Helvetica;
 
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
@@ -29,24 +21,11 @@ namespace PresentacionBase
 
         private PrivateFontCollection fonts = new PrivateFontCollection();
 
-        public Font myFont;
+        // public Font myFont;
 
         public FormularioBase()
         {
             InitializeComponent();
-
-            this.BackColor = Colores.ColorFondoFormulario;
-            this.fuentes = new PrivateFontCollection();
-
-            byte[] fontData = RecursosCompartidos.OpenSans_ExtraBold;
-            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            uint dummy = 0;
-            fonts.AddMemoryFont(fontPtr, RecursosCompartidos.OpenSans_ExtraBold.Length);
-            AddFontMemResourceEx(fontPtr, (uint)RecursosCompartidos.OpenSans_ExtraBold.Length, IntPtr.Zero, ref dummy);
-            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
-
-            myFont = new Font(fonts.Families[0], 20.0F);
         }
 
         public FormularioBase(Color colorFondoForm)             
@@ -320,32 +299,24 @@ namespace PresentacionBase
             }
         }
 
-        protected void CargarFuente(byte[] fuente)
+        public Font NuevaFuente(byte[] fuente, long size)
         {
-            
+            this.BackColor = Colores.ColorFondoFormulario;
+            this.fuentes = new PrivateFontCollection();
+
+            byte[] fontData = fuente;
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            uint dummy = 0;
+            fonts.AddMemoryFont(fontPtr, fuente.Length);
+            AddFontMemResourceEx(fontPtr, (uint)fuente.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+
+            return new Font(fonts.Families[0], size);
         }
 
         private void FormularioBase_Load(object sender, EventArgs e)
         {
-            CargarFuente(RecursosCompartidos.HelveticaNeue_Bold);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_BoldItalic);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_Italic);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_Light);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_LightItalic);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_Roman);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_Thin);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_ThinItalic);
-
-            //Helvetica = fuentes.Families;
-            /*
-            this.HelveticaBold = new  Font(fuentes.Families[0], 16f, FontStyle.Bold);
-            this.HelveticaBoldItalic = new Font(fuentes.Families[1], 16, FontStyle.Italic, GraphicsUnit.Pixel);
-            this.HelveticaItalic = new Font(fuentes.Families[2], 16, FontStyle.Italic, GraphicsUnit.Pixel);
-            this.HelveticaLight = new Font(fuentes.Families[3], 16, FontStyle.Regular, GraphicsUnit.Pixel);
-            this.HelveticaLightItalic = new Font(fuentes.Families[4], 16, FontStyle.Italic, GraphicsUnit.Pixel);
-            this.HelveticaRoman = new Font(fuentes.Families[5], 16, FontStyle.Regular, GraphicsUnit.Pixel);
-            this.HelveticaThin = new Font(fuentes.Families[6], 16, FontStyle.Regular, GraphicsUnit.Pixel);
-            this.HelveticaThinItalic = new Font(fuentes.Families[7], 16, FontStyle.Italic, GraphicsUnit.Pixel);
-     */   }
+        }
     }
 }

@@ -92,7 +92,7 @@
       <DependentUpon>FormularioConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosCompartidos.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>RecursosCompartidos.Designer.cs</LastGenOutput>
     </EmbeddedResource>

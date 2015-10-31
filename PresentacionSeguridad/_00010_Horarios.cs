@@ -32,7 +32,7 @@ namespace PresentacionRecursoHumano
         public _00010_Horarios(string Titulo):this()
         {
             this.lblTitle.Text = Titulo;
-            lblTitulo.Font = HelveticaRoman;
+            lblTitulo.Font = NuevaFuente(RecursosCompartidos.OpenSans_Light, (long)20);
         }
 
         private void _00010_Horarios_Load(object sender, EventArgs e)

@@ -22,7 +22,7 @@ namespace PresentacionBase {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class RecursosCompartidos {
+    public class RecursosCompartidos {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace PresentacionBase {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PresentacionBase.RecursosCompartidos", typeof(RecursosCompartidos).Assembly);
@@ -51,7 +51,7 @@ namespace PresentacionBase {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Actualizar {
+        public static System.Drawing.Bitmap Actualizar {
             get {
                 object obj = ResourceManager.GetObject("Actualizar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Borrar {
+        public static System.Drawing.Bitmap Borrar {
             get {
                 object obj = ResourceManager.GetObject("Borrar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Buscar {
+        public static System.Drawing.Bitmap Buscar {
             get {
                 object obj = ResourceManager.GetObject("Buscar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Editar {
+        public static System.Drawing.Bitmap Editar {
             get {
                 object obj = ResourceManager.GetObject("Editar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Guardar {
+        public static System.Drawing.Bitmap Guardar {
             get {
                 object obj = ResourceManager.GetObject("Guardar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HelveticaNeue_Bold {
+        public static byte[] HelveticaNeue_Bold {
             get {
                 object obj = ResourceManager.GetObject("HelveticaNeue_Bold", resourceCulture);
                 return ((byte[])(obj));
@@ -123,7 +123,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HelveticaNeue_BoldItalic {
+        public static byte[] HelveticaNeue_BoldItalic {
             get {
                 object obj = ResourceManager.GetObject("HelveticaNeue_BoldItalic", resourceCulture);
                 return ((byte[])(obj));
@@ -133,7 +133,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HelveticaNeue_Italic {
+        public static byte[] HelveticaNeue_Italic {
             get {
                 object obj = ResourceManager.GetObject("HelveticaNeue_Italic", resourceCulture);
                 return ((byte[])(obj));
@@ -143,7 +143,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HelveticaNeue_Light {
+        public static byte[] HelveticaNeue_Light {
             get {
                 object obj = ResourceManager.GetObject("HelveticaNeue_Light", resourceCulture);
                 return ((byte[])(obj));
@@ -153,7 +153,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HelveticaNeue_LightItalic {
+        public static byte[] HelveticaNeue_LightItalic {
             get {
                 object obj = ResourceManager.GetObject("HelveticaNeue_LightItalic", resourceCulture);
                 return ((byte[])(obj));
@@ -163,7 +163,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HelveticaNeue_Roman {
+        public static byte[] HelveticaNeue_Roman {
             get {
                 object obj = ResourceManager.GetObject("HelveticaNeue_Roman", resourceCulture);
                 return ((byte[])(obj));
@@ -173,7 +173,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HelveticaNeue_Thin {
+        public static byte[] HelveticaNeue_Thin {
             get {
                 object obj = ResourceManager.GetObject("HelveticaNeue_Thin", resourceCulture);
                 return ((byte[])(obj));
@@ -183,7 +183,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HelveticaNeue_ThinItalic {
+        public static byte[] HelveticaNeue_ThinItalic {
             get {
                 object obj = ResourceManager.GetObject("HelveticaNeue_ThinItalic", resourceCulture);
                 return ((byte[])(obj));
@@ -193,7 +193,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Impresora {
+        public static System.Drawing.Bitmap Impresora {
             get {
                 object obj = ResourceManager.GetObject("Impresora", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +203,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Limpiar {
+        public static System.Drawing.Bitmap Limpiar {
             get {
                 object obj = ResourceManager.GetObject("Limpiar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +213,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Login {
+        public static System.Drawing.Bitmap Login {
             get {
                 object obj = ResourceManager.GetObject("Login", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +223,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Nuevo {
+        public static System.Drawing.Bitmap Nuevo {
             get {
                 object obj = ResourceManager.GetObject("Nuevo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +233,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] OpenSans_Bold {
+        public static byte[] OpenSans_Bold {
             get {
                 object obj = ResourceManager.GetObject("OpenSans_Bold", resourceCulture);
                 return ((byte[])(obj));
@@ -243,7 +243,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] OpenSans_BoldItalic {
+        public static byte[] OpenSans_BoldItalic {
             get {
                 object obj = ResourceManager.GetObject("OpenSans_BoldItalic", resourceCulture);
                 return ((byte[])(obj));
@@ -253,7 +253,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] OpenSans_ExtraBold {
+        public static byte[] OpenSans_ExtraBold {
             get {
                 object obj = ResourceManager.GetObject("OpenSans_ExtraBold", resourceCulture);
                 return ((byte[])(obj));
@@ -263,7 +263,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] OpenSans_ExtraBoldItalic {
+        public static byte[] OpenSans_ExtraBoldItalic {
             get {
                 object obj = ResourceManager.GetObject("OpenSans_ExtraBoldItalic", resourceCulture);
                 return ((byte[])(obj));
@@ -273,7 +273,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] OpenSans_Italic {
+        public static byte[] OpenSans_Italic {
             get {
                 object obj = ResourceManager.GetObject("OpenSans_Italic", resourceCulture);
                 return ((byte[])(obj));
@@ -283,7 +283,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] OpenSans_Light {
+        public static byte[] OpenSans_Light {
             get {
                 object obj = ResourceManager.GetObject("OpenSans_Light", resourceCulture);
                 return ((byte[])(obj));
@@ -293,7 +293,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] OpenSans_LightItalic {
+        public static byte[] OpenSans_LightItalic {
             get {
                 object obj = ResourceManager.GetObject("OpenSans_LightItalic", resourceCulture);
                 return ((byte[])(obj));
@@ -303,7 +303,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] OpenSans_Regular {
+        public static byte[] OpenSans_Regular {
             get {
                 object obj = ResourceManager.GetObject("OpenSans_Regular", resourceCulture);
                 return ((byte[])(obj));
@@ -313,7 +313,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] OpenSans_Semibold {
+        public static byte[] OpenSans_Semibold {
             get {
                 object obj = ResourceManager.GetObject("OpenSans_Semibold", resourceCulture);
                 return ((byte[])(obj));
@@ -323,7 +323,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] OpenSans_SemiboldItalic {
+        public static byte[] OpenSans_SemiboldItalic {
             get {
                 object obj = ResourceManager.GetObject("OpenSans_SemiboldItalic", resourceCulture);
                 return ((byte[])(obj));
@@ -333,7 +333,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Password {
+        public static System.Drawing.Bitmap Password {
             get {
                 object obj = ResourceManager.GetObject("Password", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -343,7 +343,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Salir {
+        public static System.Drawing.Bitmap Salir {
             get {
                 object obj = ResourceManager.GetObject("Salir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -353,7 +353,7 @@ namespace PresentacionBase {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Usuario {
+        public static System.Drawing.Bitmap Usuario {
             get {
                 object obj = ResourceManager.GetObject("Usuario", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
