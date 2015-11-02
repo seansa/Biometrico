@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AccesoDatos;
 using Servicio.RecursoHumano.Lactancia.DTOs;
+using System.Globalization;
 
 namespace Servicio.RecursoHumano.Lactancia
 {
@@ -242,7 +243,23 @@ namespace Servicio.RecursoHumano.Lactancia
             }
             return false;
         }
-       
+        
+
+        public string ComprobarDiaExisteEnRango(DateTime inicio, DateTime fin, int dia)
+        {
+            DateTime diaAux = inicio;
+            do
+            {
+                if ((int)diaAux.DayOfWeek == dia)
+                {
+                    return diaAux.ToString("dddd", new CultureInfo("es-Es"));
+                }
+                
+                    diaAux = diaAux.AddDays(1);
+                
+            } while (diaAux.Date <= fin.Date);
+            return "No";
+        }
     }
 
 }

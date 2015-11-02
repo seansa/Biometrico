@@ -224,6 +224,7 @@
             this.dtpFechaHasta.Name = "dtpFechaHasta";
             this.dtpFechaHasta.Size = new System.Drawing.Size(82, 20);
             this.dtpFechaHasta.TabIndex = 1;
+            this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
             // 
             // dtpFechaDesde
             // 
@@ -232,6 +233,7 @@
             this.dtpFechaDesde.Name = "dtpFechaDesde";
             this.dtpFechaDesde.Size = new System.Drawing.Size(109, 20);
             this.dtpFechaDesde.TabIndex = 0;
+            this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
             // 
             // btnAgregar
             // 
@@ -256,6 +258,7 @@
             // chkLunes
             // 
             this.chkLunes.AutoSize = true;
+            this.chkLunes.Enabled = false;
             this.chkLunes.Location = new System.Drawing.Point(58, 13);
             this.chkLunes.Name = "chkLunes";
             this.chkLunes.Size = new System.Drawing.Size(55, 17);
@@ -266,6 +269,7 @@
             // chkMartes
             // 
             this.chkMartes.AutoSize = true;
+            this.chkMartes.Enabled = false;
             this.chkMartes.Location = new System.Drawing.Point(144, 13);
             this.chkMartes.Name = "chkMartes";
             this.chkMartes.Size = new System.Drawing.Size(58, 17);
@@ -276,16 +280,18 @@
             // chkMiercoles
             // 
             this.chkMiercoles.AutoSize = true;
+            this.chkMiercoles.Enabled = false;
             this.chkMiercoles.Location = new System.Drawing.Point(246, 13);
             this.chkMiercoles.Name = "chkMiercoles";
             this.chkMiercoles.Size = new System.Drawing.Size(71, 17);
             this.chkMiercoles.TabIndex = 9;
-            this.chkMiercoles.Text = "Miercoles";
+            this.chkMiercoles.Text = "Miércoles";
             this.chkMiercoles.UseVisualStyleBackColor = true;
             // 
             // chkJueves
             // 
             this.chkJueves.AutoSize = true;
+            this.chkJueves.Enabled = false;
             this.chkJueves.Location = new System.Drawing.Point(333, 13);
             this.chkJueves.Name = "chkJueves";
             this.chkJueves.Size = new System.Drawing.Size(60, 17);
@@ -296,6 +302,7 @@
             // chkViernes
             // 
             this.chkViernes.AutoSize = true;
+            this.chkViernes.Enabled = false;
             this.chkViernes.Location = new System.Drawing.Point(419, 13);
             this.chkViernes.Name = "chkViernes";
             this.chkViernes.Size = new System.Drawing.Size(61, 17);
@@ -306,21 +313,23 @@
             // chkSabado
             // 
             this.chkSabado.AutoSize = true;
+            this.chkSabado.Enabled = false;
             this.chkSabado.Location = new System.Drawing.Point(505, 13);
             this.chkSabado.Name = "chkSabado";
             this.chkSabado.Size = new System.Drawing.Size(63, 17);
             this.chkSabado.TabIndex = 12;
-            this.chkSabado.Text = "Sabado";
+            this.chkSabado.Text = "Sábado";
             this.chkSabado.UseVisualStyleBackColor = true;
             // 
             // chkDomingo
             // 
             this.chkDomingo.AutoSize = true;
+            this.chkDomingo.Enabled = false;
             this.chkDomingo.Location = new System.Drawing.Point(591, 13);
             this.chkDomingo.Name = "chkDomingo";
-            this.chkDomingo.Size = new System.Drawing.Size(62, 17);
+            this.chkDomingo.Size = new System.Drawing.Size(68, 17);
             this.chkDomingo.TabIndex = 13;
-            this.chkDomingo.Text = "Domigo";
+            this.chkDomingo.Text = "Domingo";
             this.chkDomingo.UseVisualStyleBackColor = true;
             // 
             // btnMarcarSemana

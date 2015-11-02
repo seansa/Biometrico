@@ -47,6 +47,7 @@ namespace PresentacionRecursoHumano
         {
             this.dgvLactancia.DataSource = _listaLactancia.ToList();
             FormatearGrilla(this.dgvLactancia);
+            this.dgvLactancia.Select();
         }
         public override void FormatearGrilla(DataGridView dgv)
         {
@@ -78,13 +79,13 @@ namespace PresentacionRecursoHumano
         {
             var arrayDias = new bool[7];
 
-            arrayDias[0]= this.chkLunes.Checked;
-            arrayDias[1]=this.chkMartes.Checked;
-            arrayDias[2]=this.chkMiercoles.Checked;
-            arrayDias[3]=this.chkJueves.Checked;
-            arrayDias[4]=this.chkViernes.Checked;
-            arrayDias[5]=this.chkSabado.Checked;
-            arrayDias[6]=this.chkDomingo.Checked;
+            arrayDias[0] = this.chkLunes.Checked;
+            arrayDias[1] = this.chkMartes.Checked;
+            arrayDias[2] = this.chkMiercoles.Checked;
+            arrayDias[3] = this.chkJueves.Checked;
+            arrayDias[4] = this.chkViernes.Checked;
+            arrayDias[5] = this.chkSabado.Checked;
+            arrayDias[6] = this.chkDomingo.Checked;
             if (_lactanciaServicio.VerificarAlgunDiaCargado(arrayDias))
             {
                 if (_lactanciaServicio.VerificarNoEsteRepetidoMemoria(_listaLactancia, this.dtpFechaDesde.Value, this.dtpFechaHasta.Value, arrayDias))
@@ -131,7 +132,8 @@ namespace PresentacionRecursoHumano
             this.chkMiercoles.Checked = true;
             this.chkJueves.Checked = true;
             this.chkViernes.Checked = true;
-            
+            this.dgvLactancia.Select();
+
         }
 
         private void btnDesmarcar_Click(object sender, EventArgs e)
@@ -143,21 +145,72 @@ namespace PresentacionRecursoHumano
             this.chkViernes.Checked = false;
             this.chkSabado.Checked = false;
             this.chkDomingo.Checked = false;
+            this.dgvLactancia.Select();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dgvLactancia.RowCount>0)
+            if (this.dgvLactancia.RowCount > 0)
             {
-                _listaLactancia.Remove((LactanciaDTO)this.dgvLactancia.CurrentRow.DataBoundItem);
+                _listaLactancia.Remove(_lactanciaSeleccionada);
             }
             Actualizar();
         }
 
         private void dgvLactancia_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            if (this.dgvLactancia.RowCount>0)
+            {
+                _lactanciaSeleccionada = (LactanciaDTO)this.dgvLactancia.CurrentRow.DataBoundItem;
+            }
 
-         
+        }
+
+        private void dtpFechaHasta_ValueChanged(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(this.dtpFechaHasta.Value.Date, this.dtpFechaDesde.Value.Date) < 0)
+            {
+                this.dtpFechaHasta.Value = DateTime.Now;
+                MessageBox.Show("La fecha Hasta no puede ser anterior a la fecha Desde");
+
+            }
+            HabilitarCheckBoxDias();
+            this.dgvLactancia.Select();
+        }
+
+        private void HabilitarCheckBoxDias()
+        {
+            DeshabilitarCheckBoxDias();
+            for (int i = 0; i < 7; i++)
+            {
+                foreach (var chk in this.pnlDias.Controls)
+                {
+
+                    if (_lactanciaServicio.ComprobarDiaExisteEnRango(this.dtpFechaDesde.Value, this.dtpFechaHasta.Value, i) == ((CheckBox)chk).Text.ToLower())
+                    {
+                        ((CheckBox)chk).Enabled = true;
+                    }
+                }
+            }
+        }
+        private void DeshabilitarCheckBoxDias()
+        {
+            foreach (var chk in this.pnlDias.Controls)
+            {
+                ((CheckBox)chk).Enabled = false;
+            }
+        }
+
+        private void dtpFechaDesde_ValueChanged(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(this.dtpFechaHasta.Value.Date, this.dtpFechaDesde.Value.Date) < 0)
+            {
+                this.dtpFechaDesde.Value = DateTime.Now;
+                MessageBox.Show("La fecha Hasta no puede ser anterior a la fecha Desde");
+
+            }
+            HabilitarCheckBoxDias();
+            this.dgvLactancia.Select();
         }
     }
 }
