@@ -10,7 +10,7 @@ namespace Servicio.RecursoHumano.Lactancia
     public interface ILactanciaServicio
     {
 
-        void Insertar(long agenteid, DateTime fechaDesde, DateTime fechaHasta, TimeSpan horaInicio, bool lunes, bool martes, bool miercoles, bool jueves, bool viernes, bool sabado, bool domingo);
+        void Insertar(List<LactanciaDTO> lista);
         void Eliminar(long id);
         IEnumerable<Lactancia.DTOs.LactanciaDTO> ObtenerTodo();
         AccesoDatos.Lactancia ObtenerPorId(long id);

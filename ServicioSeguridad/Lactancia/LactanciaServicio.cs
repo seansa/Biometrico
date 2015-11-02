@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AccesoDatos;
 using Servicio.RecursoHumano.Lactancia.DTOs;
 using System.Globalization;
+using System.Transactions;
 
 namespace Servicio.RecursoHumano.Lactancia
 {
@@ -30,36 +31,45 @@ namespace Servicio.RecursoHumano.Lactancia
             }
         }
 
-        public void Insertar(long agenteid, DateTime fechaDesde, DateTime fechaHasta, TimeSpan horaInicio, bool lunes, bool martes, bool miercoles, bool jueves, bool viernes, bool sabado, bool domingo)
+        public void Insertar(List<LactanciaDTO> lista)
         {
-            try
+            using (var tran= new TransactionScope())
             {
-                using (var _context= new ModeloBometricoContainer())
+
+                try
                 {
-                    var _lactancia = new AccesoDatos.Lactancia()
+                    foreach (var lact in lista)
                     {
-                        AgenteId = agenteid,
-                        FechaDesde = fechaDesde,
-                        FechaHasta = fechaHasta,
-                        FechaActualizacion = DateTime.Now,
-                        HoraInicio=horaInicio,
-                        Lunes=lunes,
-                        Martes=martes,
-                        Miercoles=miercoles,
-                        Jueves=jueves,
-                        Viernes=viernes,
-                        Sabado=sabado,
-                        Domingo=domingo,
 
-                    };
-                    _context.Lactancias.Add(_lactancia);
-                    _context.SaveChanges();
+                        using (var _context = new ModeloBometricoContainer())
+                        {
+                            var _lactancia = new AccesoDatos.Lactancia()
+                            {
+                                AgenteId = lact.AgenteId,
+                                FechaDesde = lact.FechaDesde,
+                                FechaHasta = lact.FechaHasta,
+                                FechaActualizacion = DateTime.Now,
+                                HoraInicio = lact.HoraInicio,
+                                Lunes = lact.Lunes,
+                                Martes = lact.Martes,
+                                Miercoles = lact.Miercoles,
+                                Jueves = lact.Jueves,
+                                Viernes = lact.Viernes,
+                                Sabado = lact.Sabado,
+                                Domingo = lact.Domingo,
+
+                            };
+                            _context.Lactancias.Add(_lactancia);
+                            _context.SaveChanges();
+                        } 
+                    }
+                    tran.Complete();
                 }
-            }
-            catch (Exception)
-            {
+                catch (Exception)
+                {
 
-                throw;
+                    throw;
+                } 
             }
         }
 

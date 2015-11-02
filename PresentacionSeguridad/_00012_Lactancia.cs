@@ -75,6 +75,7 @@ namespace PresentacionRecursoHumano
             var _formulario = new _00014_ABM_Lactancia();
             _formulario.AgenteId = AgenteId;
             _formulario.ShowDialog();
+            Actualizar();
        }
 
         private void btnSalir_Click(object sender, EventArgs e)

@@ -20,6 +20,8 @@ namespace PresentacionRecursoHumano
         private ILactanciaServicio _lactanciaServicio;
         private List<LactanciaDTO> _listaLactancia;
         private LactanciaDTO _lactanciaSeleccionada;
+        private int _indice;
+
         public _00014_ABM_Lactancia()
         {
             InitializeComponent();
@@ -40,6 +42,7 @@ namespace PresentacionRecursoHumano
             this.txtApyNom.Text = _agente.Apellido + ", " + _agente.Nombre;
             this.txtLegajo.Text = _agente.Legajo;
             this.txtDni.Text = _agente.DNI;
+            HabilitarCheckBoxDias();
             Actualizar();
 
         }
@@ -47,7 +50,7 @@ namespace PresentacionRecursoHumano
         {
             this.dgvLactancia.DataSource = _listaLactancia.ToList();
             FormatearGrilla(this.dgvLactancia);
-            this.dgvLactancia.Select();
+            
         }
         public override void FormatearGrilla(DataGridView dgv)
         {
@@ -127,12 +130,29 @@ namespace PresentacionRecursoHumano
 
         private void btnMarcarSemana_Click(object sender, EventArgs e)
         {
-            this.chkLunes.Checked = true;
-            this.chkMartes.Checked = true;
-            this.chkMiercoles.Checked = true;
-            this.chkJueves.Checked = true;
-            this.chkViernes.Checked = true;
-            this.dgvLactancia.Select();
+            if (this.chkLunes.Enabled)
+            {
+                this.chkLunes.Checked = true; 
+            }
+            if (this.chkMartes.Enabled)
+            {
+                this.chkMartes.Checked = true; 
+            }
+            if (this.chkMiercoles.Enabled)
+            {
+                this.chkMiercoles.Checked = true;
+            }
+            if (this.chkJueves.Enabled)
+            {
+
+                this.chkJueves.Checked = true;
+            }
+            if (this.chkViernes.Enabled)
+            {
+
+                this.chkViernes.Checked = true; 
+            }
+           // this.dgvLactancia.Select();
 
         }
 
@@ -145,14 +165,16 @@ namespace PresentacionRecursoHumano
             this.chkViernes.Checked = false;
             this.chkSabado.Checked = false;
             this.chkDomingo.Checked = false;
-            this.dgvLactancia.Select();
+            //this.dgvLactancia.Select();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (this.dgvLactancia.RowCount > 0)
+            //if(this.dgvLactancia.CurrentRow.Index <= 0)
             {
-                _listaLactancia.Remove(_lactanciaSeleccionada);
+                // _listaLactancia.Remove((LactanciaDTO)this.dgvLactancia.CurrentRow.DataBoundItem);
+                _listaLactancia.Remove((LactanciaDTO)this.dgvLactancia.Rows[_indice].DataBoundItem);
             }
             Actualizar();
         }
@@ -161,9 +183,13 @@ namespace PresentacionRecursoHumano
         {
             if (this.dgvLactancia.RowCount>0)
             {
-                _lactanciaSeleccionada = (LactanciaDTO)this.dgvLactancia.CurrentRow.DataBoundItem;
-            }
+                _indice = e.RowIndex;
 
+            }
+            else
+            {
+                _indice = -1;
+            }
         }
 
         private void dtpFechaHasta_ValueChanged(object sender, EventArgs e)
@@ -175,7 +201,7 @@ namespace PresentacionRecursoHumano
 
             }
             HabilitarCheckBoxDias();
-            this.dgvLactancia.Select();
+            //this.dgvLactancia.Select();
         }
 
         private void HabilitarCheckBoxDias()
@@ -210,7 +236,13 @@ namespace PresentacionRecursoHumano
 
             }
             HabilitarCheckBoxDias();
-            this.dgvLactancia.Select();
+            //this.dgvLactancia.Select();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            _lactanciaServicio.Insertar(_listaLactancia);
+            this.Close();
         }
     }
 }
