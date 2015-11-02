@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Servicio.RecursoHumano.Lactancia.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace Servicio.RecursoHumano.Lactancia
         AccesoDatos.Lactancia ObtenerPorId(long id);
         IEnumerable<Lactancia.DTOs.LactanciaDTO> ObtenerPorFiltro(long agenteId);
         IEnumerable<Lactancia.DTOs.LactanciaDTO> ObtenerPorFiltro(long agenteId, DateTime fechaDesde, DateTime fechaHasta);
-
+        bool VerificarNoEsteRepetidoMemoria(List<LactanciaDTO> lista, DateTime fechaDesde, DateTime fechaHasta, bool[] arrayDias);
 
     }
 }

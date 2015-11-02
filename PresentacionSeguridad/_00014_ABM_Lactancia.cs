@@ -75,21 +75,38 @@ namespace PresentacionRecursoHumano
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            var _nuevaLactancia = new LactanciaDTO()
+            var arrayDias = new bool[7];
+
+            arrayDias[0]= this.chkLunes.Checked;
+            arrayDias[1]=this.chkMartes.Checked;
+            arrayDias[2]=this.chkMiercoles.Checked;
+            arrayDias[3]=this.chkJueves.Checked;
+            arrayDias[4]=this.chkViernes.Checked;
+            arrayDias[5]=this.chkSabado.Checked;
+            arrayDias[6]=this.chkDomingo.Checked;
+            if (_lactanciaServicio.VerificarNoEsteRepetidoMemoria(_listaLactancia,this.dtpFechaDesde.Value,this.dtpFechaHasta.Value,arrayDias))
             {
-                AgenteId = AgenteId,
-                FechaDesde = this.dtpFechaDesde.Value,
-                FechaHasta = this.dtpFechaHasta.Value,
-                HoraInicio = this.dtpHoraInicio.Value.TimeOfDay,
-                Lunes=this.chkLunes.Checked,
-                Martes=this.chkMartes.Checked,
-                Miercoles=this.chkMiercoles.Checked,
-                Jueves=this.chkJueves.Checked,
-                Viernes=this.chkViernes.Checked,
-                Sabado=this.chkSabado.Checked,
-                Domingo=this.chkDomingo.Checked
-            };
-            _listaLactancia.Add(_nuevaLactancia);
+
+                var _nuevaLactancia = new LactanciaDTO()
+                {
+                    AgenteId = AgenteId,
+                    FechaDesde = this.dtpFechaDesde.Value,
+                    FechaHasta = this.dtpFechaHasta.Value,
+                    HoraInicio = this.dtpHoraInicio.Value.TimeOfDay,
+                    Lunes = this.chkLunes.Checked,
+                    Martes = this.chkMartes.Checked,
+                    Miercoles = this.chkMiercoles.Checked,
+                    Jueves = this.chkJueves.Checked,
+                    Viernes = this.chkViernes.Checked,
+                    Sabado = this.chkSabado.Checked,
+                    Domingo = this.chkDomingo.Checked
+                };
+                _listaLactancia.Add(_nuevaLactancia); 
+            }
+            else
+            {
+                MessageBox.Show("NO");
+            }
             LimpiarControles(this.pnlDias);
             LimpiarControles(this.pnlFechas);
             Actualizar();
@@ -129,15 +146,7 @@ namespace PresentacionRecursoHumano
         private void dgvLactancia_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
 
-                //{
-        //    if (this.dgvLactancia.RowCount>0)
-        //    {
-        //        _lactanciaSeleccionada = (LactanciaDTO)this.dgvLactancia.Rows.[e.RowIndex].
-        //    }
-        //    else
-        //    {
-        //        _lactanciaSeleccionada =(LactanciaDTO)null;
-        //    }
+         
         }
     }
 }
