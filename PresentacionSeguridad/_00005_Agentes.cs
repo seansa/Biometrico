@@ -120,8 +120,19 @@ namespace PresentacionRecursoHumano
         }
         public override void btnLactancia_Click(object sender, EventArgs e)
         {
-            var _formaulario = new _00012_Lactancia();
-            _formaulario.ShowDialog();
+
+
+            if (this.dgvGrilla.RowCount > 0)
+            {
+                var _formaulario = new _00012_Lactancia();
+                _formaulario.AgenteId = agentesel;
+                _formaulario.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("No se puede Agregar Lactancia si no Seleccionó ningún Agente");
+            }
         }
 
     }

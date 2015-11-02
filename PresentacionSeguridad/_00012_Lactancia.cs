@@ -1,4 +1,5 @@
-﻿using Servicio.RecursoHumano.Lactancia;
+﻿using Servicio.RecursoHumano.Agente;
+using Servicio.RecursoHumano.Lactancia;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,13 @@ namespace PresentacionRecursoHumano
     public partial class _00012_Lactancia : PresentacionBase.FormularioBase
     {
         private ILactanciaServicio _lactanciaServicio;
+        private IAgenteServicio _agenteServicio;
+        public long AgenteId { get; set; }
         public _00012_Lactancia()
         {
             InitializeComponent();
             _lactanciaServicio = new LactanciaServicio();
-           
+            _agenteServicio = new AgenteServicio();
 
 
         }
@@ -26,17 +29,17 @@ namespace PresentacionRecursoHumano
         public override void FormatearGrilla(DataGridView dgv)
         {
             base.FormatearGrilla(dgv);
-            this.dgvLactancia.Columns["FechaDesdeStr"].Visible = false;
-            this.dgvLactancia.Columns["FechaHastaStr"].Visible = false;
-            this.dgvLactancia.Columns["HoraInicioStr"].Visible = false;
-            this.dgvLactancia.Columns["LunesStr"].Visible = false;
-            this.dgvLactancia.Columns["MartesStr"].Visible = false;
-            this.dgvLactancia.Columns["MiercolesStr"].Visible = false;
-            this.dgvLactancia.Columns["JuevesStr"].Visible = false;
-            this.dgvLactancia.Columns["ViernesStr"].Visible = false;
-            this.dgvLactancia.Columns["SabadoStr"].Visible = false;
-            this.dgvLactancia.Columns["DomingoStr"].Visible = false;
-            this.dgvLactancia.Columns["FechaActualizacionStr"].Visible = false;
+            this.dgvLactancia.Columns["FechaDesdeStr"].Visible = true;
+            this.dgvLactancia.Columns["FechaHastaStr"].Visible = true;
+            this.dgvLactancia.Columns["HoraInicioStr"].Visible = true;
+            this.dgvLactancia.Columns["LunesStr"].Visible = true;
+            this.dgvLactancia.Columns["MartesStr"].Visible = true;
+            this.dgvLactancia.Columns["MiercolesStr"].Visible = true;
+            this.dgvLactancia.Columns["JuevesStr"].Visible = true;
+            this.dgvLactancia.Columns["ViernesStr"].Visible = true;
+            this.dgvLactancia.Columns["SabadoStr"].Visible = true;
+            this.dgvLactancia.Columns["DomingoStr"].Visible = true;
+            this.dgvLactancia.Columns["FechaActualizacionStr"].Visible = true;
             this.dgvLactancia.Columns["FechaDesdeStr"].HeaderText = "Fecha Desde";
             this.dgvLactancia.Columns["FechaHastaStr"].HeaderText = "Fecha Hasta";
             this.dgvLactancia.Columns["HoraInicioStr"].HeaderText = "Hora Inicio";
@@ -51,19 +54,33 @@ namespace PresentacionRecursoHumano
 
         private void _00012_Lactancia_Load(object sender, EventArgs e)
         {
+
+          
+                var _agente = _agenteServicio.ObtenerPorId(AgenteId);
+                this.txtApyNom.Text = _agente.Apellido + ", " + _agente.Nombre;
+                this.txtDni.Text = _agente.DNI;
+                this.txtLegajo.Text = _agente.Legajo; 
+            
             Actualizar();
         }
 
         private void Actualizar()
         {
-            this.dgvLactancia.DataSource = _lactanciaServicio.ObtenerTodo();
+            this.dgvLactancia.DataSource = _lactanciaServicio.ObtenerPorFiltro(AgenteId);
             FormatearGrilla(this.dgvLactancia);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             var _formulario = new _00014_ABM_Lactancia();
+            _formulario.AgenteId = AgenteId;
             _formulario.ShowDialog();
+            Actualizar();
        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
