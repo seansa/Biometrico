@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AccesoDatos;
 using Servicio.RecursoHumano.Lactancia.DTOs;
+using System.Globalization;
+using System.Transactions;
 
 namespace Servicio.RecursoHumano.Lactancia
 {
@@ -29,36 +31,45 @@ namespace Servicio.RecursoHumano.Lactancia
             }
         }
 
-        public void Insertar(long agenteid, DateTime fechaDesde, DateTime fechaHasta, TimeSpan horaInicio, bool lunes, bool martes, bool miercoles, bool jueves, bool viernes, bool sabado, bool domingo)
+        public void Insertar(List<LactanciaDTO> lista)
         {
-            try
+            using (var tran= new TransactionScope())
             {
-                using (var _context= new ModeloBometricoContainer())
+
+                try
                 {
-                    var _lactancia = new AccesoDatos.Lactancia()
+                    foreach (var lact in lista)
                     {
-                        AgenteId = agenteid,
-                        FechaDesde = fechaDesde,
-                        FechaHasta = fechaHasta,
-                        FechaActualizacion = DateTime.Now,
-                        HoraInicio=horaInicio,
-                        Lunes=lunes,
-                        Martes=martes,
-                        Miercoles=miercoles,
-                        Jueves=jueves,
-                        Viernes=viernes,
-                        Sabado=sabado,
-                        Domingo=domingo,
 
-                    };
-                    _context.Lactancias.Add(_lactancia);
-                    _context.SaveChanges();
+                        using (var _context = new ModeloBometricoContainer())
+                        {
+                            var _lactancia = new AccesoDatos.Lactancia()
+                            {
+                                AgenteId = lact.AgenteId,
+                                FechaDesde = lact.FechaDesde,
+                                FechaHasta = lact.FechaHasta,
+                                FechaActualizacion = DateTime.Now,
+                                HoraInicio = lact.HoraInicio,
+                                Lunes = lact.Lunes,
+                                Martes = lact.Martes,
+                                Miercoles = lact.Miercoles,
+                                Jueves = lact.Jueves,
+                                Viernes = lact.Viernes,
+                                Sabado = lact.Sabado,
+                                Domingo = lact.Domingo,
+
+                            };
+                            _context.Lactancias.Add(_lactancia);
+                            _context.SaveChanges();
+                        } 
+                    }
+                    tran.Complete();
                 }
-            }
-            catch (Exception)
-            {
+                catch (Exception)
+                {
 
-                throw;
+                    throw;
+                } 
             }
         }
 
@@ -178,5 +189,87 @@ namespace Servicio.RecursoHumano.Lactancia
                 throw;
             }
         }
+
+        public bool VerificarAlgunDiaCargado(bool[] arrayDias)
+        {
+            try
+            {
+                for (int i = 0; i < arrayDias.Length; i++)
+                {
+                    if (arrayDias[i])
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool VerificarNoEsteRepetidoMemoria(List<LactanciaDTO> lista, DateTime fechaDesde, DateTime fechaHasta, bool[] arrayDias)
+        {
+            try
+            {
+                foreach (var lact in lista)
+                {
+                    if (IsDateInRange(fechaDesde,lact.FechaDesde,lact.FechaHasta)
+                        ||IsDateInRange(fechaHasta,lact.FechaDesde,lact.FechaHasta)
+                        ||IsDateInRange(lact.FechaDesde,fechaDesde,fechaHasta))
+                    {
+                        var _arrayDias =new bool[7];
+                        _arrayDias[0] = lact.Lunes;
+                        _arrayDias[1]= lact.Martes;
+                        _arrayDias[2] = lact.Miercoles;
+                        _arrayDias[3] = lact.Jueves;
+                        _arrayDias[4] = lact.Viernes;
+                        _arrayDias[5] = lact.Sabado;
+                        _arrayDias[6] = lact.Domingo;
+                        for (int i = 0; i < _arrayDias.Length; i++)
+                        {
+                            if (_arrayDias[i]&&arrayDias[i])
+                            {
+                                return false;
+                            }
+                        }
+                    } 
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private bool IsDateInRange(DateTime fecha, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            if (DateTime.Compare(fecha.Date,fechaDesde.Date)>=0 && DateTime.Compare(fecha.Date,fechaHasta.Date)<=0)
+            {
+                return true;   
+            }
+            return false;
+        }
+        
+
+        public string ComprobarDiaExisteEnRango(DateTime inicio, DateTime fin, int dia)
+        {
+            DateTime diaAux = inicio;
+            do
+            {
+                if ((int)diaAux.DayOfWeek == dia)
+                {
+                    return diaAux.ToString("dddd", new CultureInfo("es-Es"));
+                }
+                
+                    diaAux = diaAux.AddDays(1);
+                
+            } while (diaAux.Date <= fin.Date);
+            return "No";
+        }
     }
+
 }
