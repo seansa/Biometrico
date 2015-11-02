@@ -32,6 +32,7 @@ namespace PresentacionRecursoHumano
         public _00010_Horarios(string Titulo):this()
         {
             this.lblTitle.Text = Titulo;
+            lblTitulo.Font = HelveticaRoman;
         }
 
         private void _00010_Horarios_Load(object sender, EventArgs e)
@@ -49,6 +50,15 @@ namespace PresentacionRecursoHumano
             fhorarios.IdAgente = this.IdAgente;
             fhorarios.ShowDialog();
             ActualizarGrilla();
+        }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
         }
         private void ActualizarGrilla()
         {

@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_00011_ABM_Horario));
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
@@ -52,19 +53,20 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvgrilla = new PresentacionBase.Clases.Control.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkFechaHasta = new System.Windows.Forms.CheckBox();
             this.dtpHoraEntrada = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraEntradaParcial = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraSalidaParcial = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraSalida = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.chkHorariosParciales = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.ToolStrip();
             this.btnGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnSemana.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvgrilla)).BeginInit();
@@ -74,10 +76,12 @@
             // 
             // dtpFechaHasta
             // 
+            this.dtpFechaHasta.Enabled = false;
             this.dtpFechaHasta.Location = new System.Drawing.Point(426, 3);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
             this.dtpFechaHasta.Size = new System.Drawing.Size(206, 20);
             this.dtpFechaHasta.TabIndex = 18;
+            this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
             // 
             // dtpFechaDesde
             // 
@@ -85,6 +89,7 @@
             this.dtpFechaDesde.Name = "dtpFechaDesde";
             this.dtpFechaDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaDesde.TabIndex = 17;
+            this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
             // 
             // btnSemana
             // 
@@ -267,11 +272,20 @@
             // 
             // dgvgrilla
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
-            this.dgvgrilla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Blue;
+            this.dgvgrilla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvgrilla.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvgrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvgrilla.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvgrilla.GridColor = System.Drawing.Color.White;
             this.dgvgrilla.Location = new System.Drawing.Point(9, 296);
             this.dgvgrilla.Name = "dgvgrilla";
@@ -289,21 +303,24 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Fecha Inicial";
             // 
-            // checkBox1
+            // chkFechaHasta
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(330, 6);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(81, 17);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "Fecha Final";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkFechaHasta.AutoSize = true;
+            this.chkFechaHasta.Location = new System.Drawing.Point(330, 6);
+            this.chkFechaHasta.Name = "chkFechaHasta";
+            this.chkFechaHasta.Size = new System.Drawing.Size(81, 17);
+            this.chkFechaHasta.TabIndex = 22;
+            this.chkFechaHasta.Text = "Fecha Final";
+            this.chkFechaHasta.UseVisualStyleBackColor = true;
+            this.chkFechaHasta.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // dtpHoraEntrada
             // 
+            this.dtpHoraEntrada.CustomFormat = "";
             this.dtpHoraEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpHoraEntrada.Location = new System.Drawing.Point(82, 40);
             this.dtpHoraEntrada.Name = "dtpHoraEntrada";
+            this.dtpHoraEntrada.ShowUpDown = true;
             this.dtpHoraEntrada.Size = new System.Drawing.Size(112, 20);
             this.dtpHoraEntrada.TabIndex = 23;
             this.dtpHoraEntrada.ValueChanged += new System.EventHandler(this.dpHorarioEntrada_ValueChanged);
@@ -311,24 +328,30 @@
             // dtpHoraEntradaParcial
             // 
             this.dtpHoraEntradaParcial.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraEntradaParcial.Location = new System.Drawing.Point(503, 40);
+            this.dtpHoraEntradaParcial.Location = new System.Drawing.Point(503, 80);
             this.dtpHoraEntradaParcial.Name = "dtpHoraEntradaParcial";
+            this.dtpHoraEntradaParcial.ShowUpDown = true;
             this.dtpHoraEntradaParcial.Size = new System.Drawing.Size(129, 20);
             this.dtpHoraEntradaParcial.TabIndex = 24;
+            this.dtpHoraEntradaParcial.ValueChanged += new System.EventHandler(this.dtpHoraEntradaParcial_ValueChanged);
             // 
             // dtpHoraSalidaParcial
             // 
             this.dtpHoraSalidaParcial.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraSalidaParcial.Location = new System.Drawing.Point(503, 76);
+            this.dtpHoraSalidaParcial.Location = new System.Drawing.Point(506, 53);
+            this.dtpHoraSalidaParcial.MinDate = new System.DateTime(2015, 10, 31, 0, 0, 0, 0);
             this.dtpHoraSalidaParcial.Name = "dtpHoraSalidaParcial";
+            this.dtpHoraSalidaParcial.ShowUpDown = true;
             this.dtpHoraSalidaParcial.Size = new System.Drawing.Size(129, 20);
             this.dtpHoraSalidaParcial.TabIndex = 25;
+            this.dtpHoraSalidaParcial.ValueChanged += new System.EventHandler(this.dtpHoraSalidaParcial_ValueChanged);
             // 
             // dtpHoraSalida
             // 
             this.dtpHoraSalida.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpHoraSalida.Location = new System.Drawing.Point(82, 76);
             this.dtpHoraSalida.Name = "dtpHoraSalida";
+            this.dtpHoraSalida.ShowUpDown = true;
             this.dtpHoraSalida.Size = new System.Drawing.Size(112, 20);
             this.dtpHoraSalida.TabIndex = 26;
             this.dtpHoraSalida.ValueChanged += new System.EventHandler(this.dtpHoraSalida_ValueChanged);
@@ -343,27 +366,16 @@
             this.label5.Text = "Hora Entrada";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // checkBox2
+            // chkHorariosParciales
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(373, 42);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(124, 17);
-            this.checkBox2.TabIndex = 31;
-            this.checkBox2.Text = "Hora Entrada Parcial";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(376, 76);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(116, 17);
-            this.checkBox3.TabIndex = 32;
-            this.checkBox3.Text = "Hora Salida Parcial";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.chkHorariosParciales.AutoSize = true;
+            this.chkHorariosParciales.Location = new System.Drawing.Point(369, 29);
+            this.chkHorariosParciales.Name = "chkHorariosParciales";
+            this.chkHorariosParciales.Size = new System.Drawing.Size(111, 17);
+            this.chkHorariosParciales.TabIndex = 31;
+            this.chkHorariosParciales.Text = "Horarios Parciales";
+            this.chkHorariosParciales.UseVisualStyleBackColor = true;
+            this.chkHorariosParciales.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // label6
             // 
@@ -387,6 +399,7 @@
             this.btnSalir.Size = new System.Drawing.Size(656, 47);
             this.btnSalir.TabIndex = 34;
             this.btnSalir.Text = "toolStrip1";
+            this.btnSalir.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.btnSalir_ItemClicked);
             // 
             // btnGuardar
             // 
@@ -415,22 +428,41 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.checkBox3);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.dtpFechaDesde);
             this.panel2.Controls.Add(this.dtpFechaHasta);
-            this.panel2.Controls.Add(this.checkBox2);
+            this.panel2.Controls.Add(this.chkHorariosParciales);
             this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.dtpHoraEntradaParcial);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.chkFechaHasta);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.dtpHoraEntrada);
             this.panel2.Controls.Add(this.dtpHoraSalida);
-            this.panel2.Controls.Add(this.dtpHoraEntradaParcial);
             this.panel2.Controls.Add(this.dtpHoraSalidaParcial);
             this.panel2.Location = new System.Drawing.Point(9, 142);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(639, 106);
             this.panel2.TabIndex = 35;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(394, 53);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 13);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "Hora Salida Parcial";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(386, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(105, 13);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Hora Entrada Parcial";
             // 
             // _00011_ABM_Horario
             // 
@@ -479,24 +511,25 @@
         private System.Windows.Forms.CheckBox chkLunes;
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.DataGridView dgvgrilla;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkFechaHasta;
         private System.Windows.Forms.DateTimePicker dtpHoraEntrada;
         private System.Windows.Forms.DateTimePicker dtpHoraEntradaParcial;
         private System.Windows.Forms.DateTimePicker dtpHoraSalidaParcial;
         private System.Windows.Forms.DateTimePicker dtpHoraSalida;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox chkHorariosParciales;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStrip btnSalir;
         private System.Windows.Forms.ToolStripButton btnGuardar;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
+        private PresentacionBase.Clases.Control.DataGridView dgvgrilla;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }

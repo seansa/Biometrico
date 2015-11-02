@@ -13,7 +13,12 @@ namespace Servicio.RecursoHumano.Horario.DTOs
         public DateTime FechaDesde { get; set; }
         public string FechaDesdeStr { get { return FechaDesde.ToShortDateString(); ; } }
         public DateTime FechaHasta { get; set; }
-        public string FechaHastaStr { get { return FechaHasta.ToShortDateString(); ; } }
+        public string FechaHastaStr {
+            get {
+                if (FechaHasta.Year > 9000) return "No Asignada";
+                else
+                return FechaHasta.ToShortDateString(); ; }
+        }
         public TimeSpan? HoraEntrada { get; set; }
         public string HoraEntradaStr
         {
