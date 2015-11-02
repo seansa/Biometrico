@@ -179,6 +179,26 @@ namespace Servicio.RecursoHumano.Lactancia
             }
         }
 
+        public bool VerificarAlgunDiaCargado(bool[] arrayDias)
+        {
+            try
+            {
+                for (int i = 0; i < arrayDias.Length; i++)
+                {
+                    if (arrayDias[i])
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public bool VerificarNoEsteRepetidoMemoria(List<LactanciaDTO> lista, DateTime fechaDesde, DateTime fechaHasta, bool[] arrayDias)
         {
             try
@@ -210,15 +230,13 @@ namespace Servicio.RecursoHumano.Lactancia
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
 
         private bool IsDateInRange(DateTime fecha, DateTime fechaDesde, DateTime fechaHasta)
         {
-            if (DateTime.Compare(fecha,fechaDesde)>=0 && DateTime.Compare(fecha,fechaHasta)<=0)
+            if (DateTime.Compare(fecha.Date,fechaDesde.Date)>=0 && DateTime.Compare(fecha.Date,fechaHasta.Date)<=0)
             {
                 return true;   
             }

@@ -17,6 +17,6 @@ namespace Servicio.RecursoHumano.Lactancia
         IEnumerable<Lactancia.DTOs.LactanciaDTO> ObtenerPorFiltro(long agenteId);
         IEnumerable<Lactancia.DTOs.LactanciaDTO> ObtenerPorFiltro(long agenteId, DateTime fechaDesde, DateTime fechaHasta);
         bool VerificarNoEsteRepetidoMemoria(List<LactanciaDTO> lista, DateTime fechaDesde, DateTime fechaHasta, bool[] arrayDias);
-
+        bool VerificarAlgunDiaCargado(bool[] arrayDias);
     }
 }

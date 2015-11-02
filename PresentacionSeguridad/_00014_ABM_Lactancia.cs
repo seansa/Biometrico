@@ -40,6 +40,7 @@ namespace PresentacionRecursoHumano
             this.txtApyNom.Text = _agente.Apellido + ", " + _agente.Nombre;
             this.txtLegajo.Text = _agente.Legajo;
             this.txtDni.Text = _agente.DNI;
+            Actualizar();
 
         }
         private void Actualizar()
@@ -84,28 +85,35 @@ namespace PresentacionRecursoHumano
             arrayDias[4]=this.chkViernes.Checked;
             arrayDias[5]=this.chkSabado.Checked;
             arrayDias[6]=this.chkDomingo.Checked;
-            if (_lactanciaServicio.VerificarNoEsteRepetidoMemoria(_listaLactancia,this.dtpFechaDesde.Value,this.dtpFechaHasta.Value,arrayDias))
+            if (_lactanciaServicio.VerificarAlgunDiaCargado(arrayDias))
             {
-
-                var _nuevaLactancia = new LactanciaDTO()
+                if (_lactanciaServicio.VerificarNoEsteRepetidoMemoria(_listaLactancia, this.dtpFechaDesde.Value, this.dtpFechaHasta.Value, arrayDias))
                 {
-                    AgenteId = AgenteId,
-                    FechaDesde = this.dtpFechaDesde.Value,
-                    FechaHasta = this.dtpFechaHasta.Value,
-                    HoraInicio = this.dtpHoraInicio.Value.TimeOfDay,
-                    Lunes = this.chkLunes.Checked,
-                    Martes = this.chkMartes.Checked,
-                    Miercoles = this.chkMiercoles.Checked,
-                    Jueves = this.chkJueves.Checked,
-                    Viernes = this.chkViernes.Checked,
-                    Sabado = this.chkSabado.Checked,
-                    Domingo = this.chkDomingo.Checked
-                };
-                _listaLactancia.Add(_nuevaLactancia); 
+
+                    var _nuevaLactancia = new LactanciaDTO()
+                    {
+                        AgenteId = AgenteId,
+                        FechaDesde = this.dtpFechaDesde.Value,
+                        FechaHasta = this.dtpFechaHasta.Value,
+                        HoraInicio = this.dtpHoraInicio.Value.TimeOfDay,
+                        Lunes = this.chkLunes.Checked,
+                        Martes = this.chkMartes.Checked,
+                        Miercoles = this.chkMiercoles.Checked,
+                        Jueves = this.chkJueves.Checked,
+                        Viernes = this.chkViernes.Checked,
+                        Sabado = this.chkSabado.Checked,
+                        Domingo = this.chkDomingo.Checked
+                    };
+                    _listaLactancia.Add(_nuevaLactancia);
+                }
+                else
+                {
+                    MessageBox.Show("Se Repite");
+                }
             }
             else
             {
-                MessageBox.Show("NO");
+                MessageBox.Show("NO Hay dias Seleccionados");
             }
             LimpiarControles(this.pnlDias);
             LimpiarControles(this.pnlFechas);
@@ -139,7 +147,10 @@ namespace PresentacionRecursoHumano
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            _listaLactancia.RemoveAt(this.dgvLactancia.CurrentRow.Index);
+            if (this.dgvLactancia.RowCount>0)
+            {
+                _listaLactancia.Remove((LactanciaDTO)this.dgvLactancia.CurrentRow.DataBoundItem);
+            }
             Actualizar();
         }
 

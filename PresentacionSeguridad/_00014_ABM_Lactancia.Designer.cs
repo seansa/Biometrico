@@ -102,6 +102,7 @@
             this.dgvLactancia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLactancia.Location = new System.Drawing.Point(0, 225);
             this.dgvLactancia.Name = "dgvLactancia";
+            this.dgvLactancia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLactancia.Size = new System.Drawing.Size(642, 201);
             this.dgvLactancia.TabIndex = 1;
             this.dgvLactancia.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLactancia_RowEnter);
