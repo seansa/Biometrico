@@ -43,6 +43,7 @@
             this.btnImprimirSelección = new System.Windows.Forms.ToolStripMenuItem();
             this.btnImprmirListaCompleta = new System.Windows.Forms.ToolStripMenuItem();
             this.btnHorarios = new System.Windows.Forms.ToolStripButton();
+            this.btnLactancia = new System.Windows.Forms.ToolStripButton();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvGrilla = new PresentacionBase.Clases.Control.DataGridView();
             this.pnlBuscar = new System.Windows.Forms.Panel();
@@ -68,7 +69,8 @@
             this.btnActualizar,
             this.btnSalir,
             this.btnImprimir,
-            this.btnHorarios});
+            this.btnHorarios,
+            this.btnLactancia});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(784, 52);
@@ -168,6 +170,16 @@
             this.btnHorarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnHorarios.Click += new System.EventHandler(this.btnHorarios_Click);
             // 
+            // btnLactancia
+            // 
+            this.btnLactancia.Image = ((System.Drawing.Image)(resources.GetObject("btnLactancia.Image")));
+            this.btnLactancia.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLactancia.Name = "btnLactancia";
+            this.btnLactancia.Size = new System.Drawing.Size(61, 49);
+            this.btnLactancia.Text = "Lactancia";
+            this.btnLactancia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnLactancia.Click += new System.EventHandler(this.btnLactancia_Click);
+            // 
             // lblTitulo
             // 
             this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -191,6 +203,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGrilla.BackgroundColor = System.Drawing.Color.White;
+            this.dgvGrilla.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -307,7 +320,6 @@
         public System.Windows.Forms.ToolStripButton btnActualizar;
         public System.Windows.Forms.ToolStripButton btnSalir;
         private System.Windows.Forms.Label lblTitulo;
-        public System.Windows.Forms.DataGridView dgvGrilla;
         private System.Windows.Forms.Panel pnlBuscar;
         private System.Windows.Forms.PictureBox imgBuscar;
         private System.Windows.Forms.Button btnBuscar;
@@ -317,5 +329,7 @@
         public System.Windows.Forms.ToolStripMenuItem btnImprimirSelección;
         public System.Windows.Forms.ToolStripSplitButton btnImprimir;
         private System.Windows.Forms.ToolStripButton btnHorarios;
+        private System.Windows.Forms.ToolStripButton btnLactancia;
+        public Clases.Control.DataGridView dgvGrilla;
     }
 }
