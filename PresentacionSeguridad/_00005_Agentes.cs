@@ -25,6 +25,7 @@ namespace PresentacionRecursoHumano
             this.btnImprimir.Visible = false;
             
             this.WindowState = FormWindowState.Maximized;
+            this.btnLactancia.Visible = true;
         }
 
         protected override CreateParams CreateParams

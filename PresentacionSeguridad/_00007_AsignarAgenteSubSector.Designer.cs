@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_00007_AsignarAgenteSubSector));
             this.tabUsuarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -83,10 +89,10 @@
             this.tabUsuarios.Controls.Add(this.tabPage1);
             this.tabUsuarios.Controls.Add(this.tabPage2);
             this.tabUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabUsuarios.Location = new System.Drawing.Point(0, 126);
+            this.tabUsuarios.Location = new System.Drawing.Point(0, 137);
             this.tabUsuarios.Name = "tabUsuarios";
             this.tabUsuarios.SelectedIndex = 0;
-            this.tabUsuarios.Size = new System.Drawing.Size(784, 435);
+            this.tabUsuarios.Size = new System.Drawing.Size(915, 510);
             this.tabUsuarios.TabIndex = 7;
             // 
             // tabPage1
@@ -94,10 +100,10 @@
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.pnlBuscar);
             this.tabPage1.Controls.Add(this.lblNoAsignados);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(776, 409);
+            this.tabPage1.Size = new System.Drawing.Size(907, 482);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agentes No Asignados";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -108,17 +114,18 @@
             this.panel1.Controls.Add(this.btnMarcaNoAsignados);
             this.panel1.Controls.Add(this.dgvGrillaNoAsignados);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 33);
+            this.panel1.Location = new System.Drawing.Point(3, 38);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(770, 309);
+            this.panel1.Size = new System.Drawing.Size(901, 367);
             this.panel1.TabIndex = 7;
             // 
             // btnDesmarcarNoAsignado
             // 
             this.btnDesmarcarNoAsignado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDesmarcarNoAsignado.Location = new System.Drawing.Point(174, 274);
+            this.btnDesmarcarNoAsignado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesmarcarNoAsignado.Location = new System.Drawing.Point(203, 326);
             this.btnDesmarcarNoAsignado.Name = "btnDesmarcarNoAsignado";
-            this.btnDesmarcarNoAsignado.Size = new System.Drawing.Size(159, 29);
+            this.btnDesmarcarNoAsignado.Size = new System.Drawing.Size(185, 33);
             this.btnDesmarcarNoAsignado.TabIndex = 4;
             this.btnDesmarcarNoAsignado.Text = "Desmarcar Todos";
             this.btnDesmarcarNoAsignado.UseVisualStyleBackColor = true;
@@ -127,9 +134,10 @@
             // btnMarcaNoAsignados
             // 
             this.btnMarcaNoAsignados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMarcaNoAsignados.Location = new System.Drawing.Point(9, 274);
+            this.btnMarcaNoAsignados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMarcaNoAsignados.Location = new System.Drawing.Point(10, 326);
             this.btnMarcaNoAsignados.Name = "btnMarcaNoAsignados";
-            this.btnMarcaNoAsignados.Size = new System.Drawing.Size(159, 29);
+            this.btnMarcaNoAsignados.Size = new System.Drawing.Size(185, 33);
             this.btnMarcaNoAsignados.TabIndex = 3;
             this.btnMarcaNoAsignados.Text = "Marcar Todos";
             this.btnMarcaNoAsignados.UseVisualStyleBackColor = true;
@@ -137,15 +145,38 @@
             // 
             // dgvGrillaNoAsignados
             // 
+            this.dgvGrillaNoAsignados.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvGrillaNoAsignados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGrillaNoAsignados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGrillaNoAsignados.BackgroundColor = System.Drawing.Color.White;
+            this.dgvGrillaNoAsignados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrillaNoAsignados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGrillaNoAsignados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGrillaNoAsignados.Location = new System.Drawing.Point(5, 6);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGrillaNoAsignados.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvGrillaNoAsignados.Location = new System.Drawing.Point(6, 7);
+            this.dgvGrillaNoAsignados.MultiSelect = false;
             this.dgvGrillaNoAsignados.Name = "dgvGrillaNoAsignados";
+            this.dgvGrillaNoAsignados.RowHeadersVisible = false;
             this.dgvGrillaNoAsignados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGrillaNoAsignados.Size = new System.Drawing.Size(758, 262);
+            this.dgvGrillaNoAsignados.Size = new System.Drawing.Size(887, 312);
             this.dgvGrillaNoAsignados.TabIndex = 0;
             this.dgvGrillaNoAsignados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrillaNoAsignados_CellContentClick);
             // 
@@ -156,16 +187,16 @@
             this.pnlBuscar.Controls.Add(this.txtBuscarNoAsignado);
             this.pnlBuscar.Controls.Add(this.lblBuscar);
             this.pnlBuscar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBuscar.Location = new System.Drawing.Point(3, 342);
+            this.pnlBuscar.Location = new System.Drawing.Point(3, 405);
             this.pnlBuscar.Name = "pnlBuscar";
-            this.pnlBuscar.Size = new System.Drawing.Size(770, 64);
+            this.pnlBuscar.Size = new System.Drawing.Size(901, 74);
             this.pnlBuscar.TabIndex = 6;
             // 
             // imgBuscarNoAsignados
             // 
-            this.imgBuscarNoAsignados.Location = new System.Drawing.Point(8, 7);
+            this.imgBuscarNoAsignados.Location = new System.Drawing.Point(9, 8);
             this.imgBuscarNoAsignados.Name = "imgBuscarNoAsignados";
-            this.imgBuscarNoAsignados.Size = new System.Drawing.Size(54, 50);
+            this.imgBuscarNoAsignados.Size = new System.Drawing.Size(63, 58);
             this.imgBuscarNoAsignados.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgBuscarNoAsignados.TabIndex = 3;
             this.imgBuscarNoAsignados.TabStop = false;
@@ -173,9 +204,10 @@
             // btnBuscarNoAsignado
             // 
             this.btnBuscarNoAsignado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscarNoAsignado.Location = new System.Drawing.Point(676, 24);
+            this.btnBuscarNoAsignado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarNoAsignado.Location = new System.Drawing.Point(792, 28);
             this.btnBuscarNoAsignado.Name = "btnBuscarNoAsignado";
-            this.btnBuscarNoAsignado.Size = new System.Drawing.Size(74, 29);
+            this.btnBuscarNoAsignado.Size = new System.Drawing.Size(86, 33);
             this.btnBuscarNoAsignado.TabIndex = 2;
             this.btnBuscarNoAsignado.Text = "Buscar";
             this.btnBuscarNoAsignado.UseVisualStyleBackColor = true;
@@ -185,9 +217,9 @@
             // 
             this.txtBuscarNoAsignado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscarNoAsignado.Location = new System.Drawing.Point(76, 30);
+            this.txtBuscarNoAsignado.Location = new System.Drawing.Point(89, 35);
             this.txtBuscarNoAsignado.Name = "txtBuscarNoAsignado";
-            this.txtBuscarNoAsignado.Size = new System.Drawing.Size(591, 20);
+            this.txtBuscarNoAsignado.Size = new System.Drawing.Size(692, 23);
             this.txtBuscarNoAsignado.TabIndex = 1;
             this.txtBuscarNoAsignado.Enter += new System.EventHandler(this.txtBuscarNoAsignado_Enter);
             this.txtBuscarNoAsignado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarNoAsignado_KeyPress);
@@ -196,9 +228,9 @@
             // lblBuscar
             // 
             this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Location = new System.Drawing.Point(73, 14);
+            this.lblBuscar.Location = new System.Drawing.Point(85, 16);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(55, 13);
+            this.lblBuscar.Size = new System.Drawing.Size(59, 15);
             this.lblBuscar.TabIndex = 0;
             this.lblBuscar.Text = "Busqueda";
             // 
@@ -209,7 +241,7 @@
             this.lblNoAsignados.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblNoAsignados.Location = new System.Drawing.Point(3, 3);
             this.lblNoAsignados.Name = "lblNoAsignados";
-            this.lblNoAsignados.Size = new System.Drawing.Size(770, 30);
+            this.lblNoAsignados.Size = new System.Drawing.Size(901, 35);
             this.lblNoAsignados.TabIndex = 4;
             this.lblNoAsignados.Text = "Lista de Agentes No Asignados";
             this.lblNoAsignados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -219,10 +251,10 @@
             this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Controls.Add(this.lblAsignados);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(776, 409);
+            this.tabPage2.Size = new System.Drawing.Size(907, 474);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Agentes Asignados";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -233,17 +265,17 @@
             this.panel2.Controls.Add(this.btnMarcarAsignados);
             this.panel2.Controls.Add(this.dgvGrillaAsignados);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 33);
+            this.panel2.Location = new System.Drawing.Point(3, 38);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(770, 309);
+            this.panel2.Size = new System.Drawing.Size(901, 359);
             this.panel2.TabIndex = 9;
             // 
             // btnDesmarcarAsignados
             // 
             this.btnDesmarcarAsignados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDesmarcarAsignados.Location = new System.Drawing.Point(174, 274);
+            this.btnDesmarcarAsignados.Location = new System.Drawing.Point(203, 318);
             this.btnDesmarcarAsignados.Name = "btnDesmarcarAsignados";
-            this.btnDesmarcarAsignados.Size = new System.Drawing.Size(159, 29);
+            this.btnDesmarcarAsignados.Size = new System.Drawing.Size(185, 33);
             this.btnDesmarcarAsignados.TabIndex = 4;
             this.btnDesmarcarAsignados.Text = "Desmarcar Todos";
             this.btnDesmarcarAsignados.UseVisualStyleBackColor = true;
@@ -252,9 +284,9 @@
             // btnMarcarAsignados
             // 
             this.btnMarcarAsignados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMarcarAsignados.Location = new System.Drawing.Point(9, 274);
+            this.btnMarcarAsignados.Location = new System.Drawing.Point(10, 318);
             this.btnMarcarAsignados.Name = "btnMarcarAsignados";
-            this.btnMarcarAsignados.Size = new System.Drawing.Size(159, 29);
+            this.btnMarcarAsignados.Size = new System.Drawing.Size(185, 33);
             this.btnMarcarAsignados.TabIndex = 3;
             this.btnMarcarAsignados.Text = "Marcar Todos";
             this.btnMarcarAsignados.UseVisualStyleBackColor = true;
@@ -262,15 +294,38 @@
             // 
             // dgvGrillaAsignados
             // 
+            this.dgvGrillaAsignados.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgvGrillaAsignados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGrillaAsignados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGrillaAsignados.BackgroundColor = System.Drawing.Color.White;
+            this.dgvGrillaAsignados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrillaAsignados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvGrillaAsignados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGrillaAsignados.Location = new System.Drawing.Point(5, 6);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGrillaAsignados.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvGrillaAsignados.Location = new System.Drawing.Point(6, 7);
+            this.dgvGrillaAsignados.MultiSelect = false;
             this.dgvGrillaAsignados.Name = "dgvGrillaAsignados";
+            this.dgvGrillaAsignados.RowHeadersVisible = false;
             this.dgvGrillaAsignados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGrillaAsignados.Size = new System.Drawing.Size(758, 262);
+            this.dgvGrillaAsignados.Size = new System.Drawing.Size(887, 304);
             this.dgvGrillaAsignados.TabIndex = 0;
             this.dgvGrillaAsignados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrillaAsignados_CellContentClick);
             // 
@@ -281,16 +336,16 @@
             this.panel3.Controls.Add(this.txtBuscarAsignados);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 342);
+            this.panel3.Location = new System.Drawing.Point(3, 397);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(770, 64);
+            this.panel3.Size = new System.Drawing.Size(901, 74);
             this.panel3.TabIndex = 8;
             // 
             // imgBuscarAsignados
             // 
-            this.imgBuscarAsignados.Location = new System.Drawing.Point(8, 7);
+            this.imgBuscarAsignados.Location = new System.Drawing.Point(9, 8);
             this.imgBuscarAsignados.Name = "imgBuscarAsignados";
-            this.imgBuscarAsignados.Size = new System.Drawing.Size(54, 50);
+            this.imgBuscarAsignados.Size = new System.Drawing.Size(63, 58);
             this.imgBuscarAsignados.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgBuscarAsignados.TabIndex = 3;
             this.imgBuscarAsignados.TabStop = false;
@@ -298,9 +353,9 @@
             // btnBuscarAsignados
             // 
             this.btnBuscarAsignados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscarAsignados.Location = new System.Drawing.Point(676, 24);
+            this.btnBuscarAsignados.Location = new System.Drawing.Point(792, 28);
             this.btnBuscarAsignados.Name = "btnBuscarAsignados";
-            this.btnBuscarAsignados.Size = new System.Drawing.Size(74, 29);
+            this.btnBuscarAsignados.Size = new System.Drawing.Size(86, 33);
             this.btnBuscarAsignados.TabIndex = 2;
             this.btnBuscarAsignados.Text = "Buscar";
             this.btnBuscarAsignados.UseVisualStyleBackColor = true;
@@ -310,9 +365,9 @@
             // 
             this.txtBuscarAsignados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscarAsignados.Location = new System.Drawing.Point(76, 30);
+            this.txtBuscarAsignados.Location = new System.Drawing.Point(89, 35);
             this.txtBuscarAsignados.Name = "txtBuscarAsignados";
-            this.txtBuscarAsignados.Size = new System.Drawing.Size(591, 20);
+            this.txtBuscarAsignados.Size = new System.Drawing.Size(692, 23);
             this.txtBuscarAsignados.TabIndex = 1;
             this.txtBuscarAsignados.Enter += new System.EventHandler(this.txtBuscarNoAsignado_Enter);
             this.txtBuscarAsignados.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarAsignados_KeyPress);
@@ -321,9 +376,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 14);
+            this.label2.Location = new System.Drawing.Point(85, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(59, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Busqueda";
             // 
@@ -334,7 +389,7 @@
             this.lblAsignados.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblAsignados.Location = new System.Drawing.Point(3, 3);
             this.lblAsignados.Name = "lblAsignados";
-            this.lblAsignados.Size = new System.Drawing.Size(770, 30);
+            this.lblAsignados.Size = new System.Drawing.Size(901, 35);
             this.lblAsignados.TabIndex = 5;
             this.lblAsignados.Text = "Lista de Agentes Asignados";
             this.lblAsignados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -350,15 +405,15 @@
             this.pnlPerfil.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlPerfil.Location = new System.Drawing.Point(0, 52);
             this.pnlPerfil.Name = "pnlPerfil";
-            this.pnlPerfil.Size = new System.Drawing.Size(784, 74);
+            this.pnlPerfil.Size = new System.Drawing.Size(915, 85);
             this.pnlPerfil.TabIndex = 6;
             // 
             // lblSubSector
             // 
             this.lblSubSector.AutoSize = true;
-            this.lblSubSector.Location = new System.Drawing.Point(30, 45);
+            this.lblSubSector.Location = new System.Drawing.Point(35, 52);
             this.lblSubSector.Name = "lblSubSector";
-            this.lblSubSector.Size = new System.Drawing.Size(60, 13);
+            this.lblSubSector.Size = new System.Drawing.Size(65, 15);
             this.lblSubSector.TabIndex = 5;
             this.lblSubSector.Text = "Sub-Sector";
             // 
@@ -366,17 +421,18 @@
             // 
             this.cmbSubSector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSubSector.FormattingEnabled = true;
-            this.cmbSubSector.Location = new System.Drawing.Point(96, 41);
+            this.cmbSubSector.Location = new System.Drawing.Point(112, 47);
             this.cmbSubSector.Name = "cmbSubSector";
-            this.cmbSubSector.Size = new System.Drawing.Size(384, 21);
+            this.cmbSubSector.Size = new System.Drawing.Size(447, 23);
             this.cmbSubSector.TabIndex = 4;
             this.cmbSubSector.SelectionChangeCommitted += new System.EventHandler(this.cmbSubSector_SelectionChangeCommitted);
             // 
             // btnNuevoSubSector
             // 
-            this.btnNuevoSubSector.Location = new System.Drawing.Point(486, 40);
+            this.btnNuevoSubSector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoSubSector.Location = new System.Drawing.Point(567, 46);
             this.btnNuevoSubSector.Name = "btnNuevoSubSector";
-            this.btnNuevoSubSector.Size = new System.Drawing.Size(34, 23);
+            this.btnNuevoSubSector.Size = new System.Drawing.Size(40, 27);
             this.btnNuevoSubSector.TabIndex = 3;
             this.btnNuevoSubSector.Text = "...";
             this.btnNuevoSubSector.UseVisualStyleBackColor = true;
@@ -384,9 +440,9 @@
             // lblGrupo
             // 
             this.lblGrupo.AutoSize = true;
-            this.lblGrupo.Location = new System.Drawing.Point(52, 17);
+            this.lblGrupo.Location = new System.Drawing.Point(61, 20);
             this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(38, 13);
+            this.lblGrupo.Size = new System.Drawing.Size(40, 15);
             this.lblGrupo.TabIndex = 2;
             this.lblGrupo.Text = "Sector";
             // 
@@ -394,9 +450,9 @@
             // 
             this.cmbSector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSector.FormattingEnabled = true;
-            this.cmbSector.Location = new System.Drawing.Point(96, 14);
+            this.cmbSector.Location = new System.Drawing.Point(112, 16);
             this.cmbSector.Name = "cmbSector";
-            this.cmbSector.Size = new System.Drawing.Size(384, 21);
+            this.cmbSector.Size = new System.Drawing.Size(447, 23);
             this.cmbSector.TabIndex = 1;
             this.cmbSector.SelectedIndexChanged += new System.EventHandler(this.cmbSector_SelectedIndexChanged);
             this.cmbSector.SelectionChangeCommitted += new System.EventHandler(this.cmbSector_SelectionChangeCommitted);
@@ -404,16 +460,17 @@
             // 
             // btnNuevoSector
             // 
-            this.btnNuevoSector.Location = new System.Drawing.Point(486, 13);
+            this.btnNuevoSector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoSector.Location = new System.Drawing.Point(567, 15);
             this.btnNuevoSector.Name = "btnNuevoSector";
-            this.btnNuevoSector.Size = new System.Drawing.Size(34, 23);
+            this.btnNuevoSector.Size = new System.Drawing.Size(40, 27);
             this.btnNuevoSector.TabIndex = 0;
             this.btnNuevoSector.Text = "...";
             this.btnNuevoSector.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 
-            this.Menu.BackColor = System.Drawing.Color.SteelBlue;
+            this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.Menu.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnEjecutar,
@@ -421,13 +478,13 @@
             this.btnSalir});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(784, 52);
+            this.Menu.Size = new System.Drawing.Size(915, 52);
             this.Menu.TabIndex = 5;
             this.Menu.Text = "toolStrip1";
             // 
             // btnEjecutar
             // 
-            this.btnEjecutar.ForeColor = System.Drawing.Color.White;
+            this.btnEjecutar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnEjecutar.Image = ((System.Drawing.Image)(resources.GetObject("btnEjecutar.Image")));
             this.btnEjecutar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEjecutar.Name = "btnEjecutar";
@@ -438,7 +495,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
             this.btnActualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnActualizar.Name = "btnActualizar";
@@ -450,7 +507,7 @@
             // btnSalir
             // 
             this.btnSalir.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalir.Name = "btnSalir";
@@ -461,13 +518,13 @@
             // 
             // _00007_AsignarAgenteSubSector
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(915, 647);
             this.Controls.Add(this.tabUsuarios);
             this.Controls.Add(this.pnlPerfil);
             this.Controls.Add(this.Menu);
-            this.MinimumSize = new System.Drawing.Size(800, 600);
+            this.MinimumSize = new System.Drawing.Size(931, 686);
             this.Name = "_00007_AsignarAgenteSubSector";
             this.Text = "Asignar o Quitar Agentes a Sub-Sectores";
             this.Load += new System.EventHandler(this._00007_AsignarAgenteSubSector_Load);
@@ -500,7 +557,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnDesmarcarNoAsignado;
         private System.Windows.Forms.Button btnMarcaNoAsignados;
-        private System.Windows.Forms.DataGridView dgvGrillaNoAsignados;
         private System.Windows.Forms.Panel pnlBuscar;
         private System.Windows.Forms.PictureBox imgBuscarNoAsignados;
         private System.Windows.Forms.Button btnBuscarNoAsignado;
@@ -511,7 +567,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnDesmarcarAsignados;
         private System.Windows.Forms.Button btnMarcarAsignados;
-        private System.Windows.Forms.DataGridView dgvGrillaAsignados;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox imgBuscarAsignados;
         private System.Windows.Forms.Button btnBuscarAsignados;
@@ -529,5 +584,7 @@
         private System.Windows.Forms.Label lblSubSector;
         private System.Windows.Forms.ComboBox cmbSubSector;
         private System.Windows.Forms.Button btnNuevoSubSector;
+        private PresentacionBase.Clases.Control.DataGridView dgvGrillaNoAsignados;
+        private PresentacionBase.Clases.Control.DataGridView dgvGrillaAsignados;
     }
 }
