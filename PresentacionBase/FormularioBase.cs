@@ -318,5 +318,10 @@ namespace PresentacionBase
         private void FormularioBase_Load(object sender, EventArgs e)
         {
         }
+
+        private void FormularioBase_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

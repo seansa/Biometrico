@@ -19,5 +19,6 @@ namespace Servicio.RecursoHumano.Lactancia
         bool VerificarNoEsteRepetidoMemoria(List<LactanciaDTO> lista, DateTime fechaDesde, DateTime fechaHasta, bool[] arrayDias);
         bool VerificarAlgunDiaCargado(bool[] arrayDias);
         string ComprobarDiaExisteEnRango(DateTime inicio, DateTime fin, int dia);
+        
     }
 }
