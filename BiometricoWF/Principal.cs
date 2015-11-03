@@ -206,5 +206,10 @@ namespace BiometricoWF
             var fhorarios = new PresentacionRecursoHumano._00011_ABM_Horario();
             fhorarios.ShowDialog();
         }
+
+        private void novedadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EjecutarFormulario(new PresentacionRecursoHumano._00013_Novedades("Novedades"));
+        }
     }
 }
