@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace Presentacion.Seguridad
     {
         public bool PuedeIngresarAlSistema { get; set; }
         private int _cantidadErrores = 0;
+        private TextRenderingHint _hint = TextRenderingHint.ClearTypeGridFit;
+        public TextRenderingHint TextRenderingHint;
 
         public LogIn()
         {
@@ -27,6 +30,16 @@ namespace Presentacion.Seguridad
 
             this.PuedeIngresarAlSistema = false;
             this.imgLogo.Image = PresentacionBase.Imagenes.BotonLogin;
+            lblTitulo.Font = Fuentes.NuevaFuente(RecursosCompartidos.Helvetica_Neue_UltraLight, (long)27.0);
+            lblTitulo2.Font = Fuentes.NuevaFuente(RecursosCompartidos.Helvetica_Neue_UltraLight, (long)27.0);
+            lblUsuario.Font = Fuentes.NuevaFuente(RecursosCompartidos.Helvetica_Neue_Medium, (long)10.0);
+            lblPassword.Font = Fuentes.NuevaFuente(RecursosCompartidos.Helvetica_Neue_Medium, (long)10.0);
+        }
+
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            pe.Graphics.TextRenderingHint = TextRenderingHint;
+            base.OnPaint(pe);
         }
 
         protected override CreateParams CreateParams
@@ -163,7 +176,6 @@ namespace Presentacion.Seguridad
         {
             this.txtUsuario.Text = "ADMIN";
             this.txtPassword.Text = "123";
-            lblTitulo.Font = new FormularioBase().myFont;
         }
     }
 }

@@ -47,7 +47,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(407, 156);
+            this.label2.Location = new System.Drawing.Point(475, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(15, 20);
             this.label2.TabIndex = 14;
@@ -57,7 +57,7 @@
             // 
             this.lbl1.AutoSize = true;
             this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1.Location = new System.Drawing.Point(182, 131);
+            this.lbl1.Location = new System.Drawing.Point(212, 151);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(15, 20);
             this.lbl1.TabIndex = 13;
@@ -65,16 +65,16 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(90, 154);
+            this.txtDescripcion.Location = new System.Drawing.Point(105, 178);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(313, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(364, 23);
             this.txtDescripcion.TabIndex = 10;
             this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
             this.txtDescripcion.Validating += new System.ComponentModel.CancelEventHandler(this.nudCodigo_Validating);
             // 
             // nudCodigo
             // 
-            this.nudCodigo.Location = new System.Drawing.Point(90, 128);
+            this.nudCodigo.Location = new System.Drawing.Point(105, 148);
             this.nudCodigo.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -86,7 +86,7 @@
             0,
             0});
             this.nudCodigo.Name = "nudCodigo";
-            this.nudCodigo.Size = new System.Drawing.Size(87, 20);
+            this.nudCodigo.Size = new System.Drawing.Size(101, 23);
             this.nudCodigo.TabIndex = 9;
             this.nudCodigo.Value = new decimal(new int[] {
             1,
@@ -98,27 +98,27 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(19, 157);
+            this.lblDescripcion.Location = new System.Drawing.Point(22, 181);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
+            this.lblDescripcion.Size = new System.Drawing.Size(69, 15);
             this.lblDescripcion.TabIndex = 12;
             this.lblDescripcion.Text = "Descripción";
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(42, 130);
+            this.lblCodigo.Location = new System.Drawing.Point(49, 150);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(40, 13);
+            this.lblCodigo.Size = new System.Drawing.Size(46, 15);
             this.lblCodigo.TabIndex = 11;
             this.lblCodigo.Text = "Código";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 104);
+            this.label3.Location = new System.Drawing.Point(51, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(40, 15);
             this.label3.TabIndex = 15;
             this.label3.Text = "Sector";
             // 
@@ -126,16 +126,17 @@
             // 
             this.cmbSector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSector.FormattingEnabled = true;
-            this.cmbSector.Location = new System.Drawing.Point(90, 101);
+            this.cmbSector.Location = new System.Drawing.Point(105, 117);
             this.cmbSector.Name = "cmbSector";
-            this.cmbSector.Size = new System.Drawing.Size(276, 21);
+            this.cmbSector.Size = new System.Drawing.Size(321, 23);
             this.cmbSector.TabIndex = 16;
             // 
             // btnNuevoSector
             // 
-            this.btnNuevoSector.Location = new System.Drawing.Point(372, 99);
+            this.btnNuevoSector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoSector.Location = new System.Drawing.Point(434, 114);
             this.btnNuevoSector.Name = "btnNuevoSector";
-            this.btnNuevoSector.Size = new System.Drawing.Size(31, 24);
+            this.btnNuevoSector.Size = new System.Drawing.Size(36, 28);
             this.btnNuevoSector.TabIndex = 17;
             this.btnNuevoSector.Text = "...";
             this.btnNuevoSector.UseVisualStyleBackColor = true;
@@ -143,26 +144,26 @@
             // 
             // txtAbreviatura
             // 
-            this.txtAbreviatura.Location = new System.Drawing.Point(90, 180);
+            this.txtAbreviatura.Location = new System.Drawing.Point(105, 208);
             this.txtAbreviatura.Name = "txtAbreviatura";
-            this.txtAbreviatura.Size = new System.Drawing.Size(313, 20);
+            this.txtAbreviatura.Size = new System.Drawing.Size(364, 23);
             this.txtAbreviatura.TabIndex = 18;
             this.txtAbreviatura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAbreviatura_KeyPress);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 183);
+            this.label5.Location = new System.Drawing.Point(24, 211);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.Size = new System.Drawing.Size(68, 15);
             this.label5.TabIndex = 19;
             this.label5.Text = "Abreviatura";
             // 
             // _00004_ABM_SubSector
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 231);
+            this.ClientSize = new System.Drawing.Size(518, 267);
             this.Controls.Add(this.txtAbreviatura);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnNuevoSector);
@@ -174,7 +175,7 @@
             this.Controls.Add(this.nudCodigo);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblCodigo);
-            this.MaximumSize = new System.Drawing.Size(460, 270);
+            this.MaximumSize = new System.Drawing.Size(534, 306);
             this.Name = "_00004_ABM_SubSector";
             this.Controls.SetChildIndex(this.lblCodigo, 0);
             this.Controls.SetChildIndex(this.lblDescripcion, 0);

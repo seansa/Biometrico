@@ -50,6 +50,8 @@
     <Compile Include="Clases\Control\DataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Clases\Extensiones.cs" />
+    <Compile Include="Clases\Fuentes.cs" />
     <Compile Include="Clases\Imagenes.cs" />
     <Compile Include="Clases\InicializadorDiccionarioABM.cs" />
     <Compile Include="Clases\Mensaje.cs" />
@@ -92,12 +94,11 @@
       <DependentUpon>FormularioConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosCompartidos.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>RecursosCompartidos.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="RecursoImagenes\Actualizar.png" />
     <Content Include="RecursoImagenes\Borrar.png" />
@@ -111,6 +112,44 @@
     <Content Include="RecursoImagenes\Password.png" />
     <Content Include="RecursoImagenes\Salir.png" />
     <Content Include="RecursoImagenes\Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-Bold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-BoldItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-ExtraBold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-ExtraBoldItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-Light.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-LightItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-Regular.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-Semibold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\OpenSans-SemiboldItalic.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Bold Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Bold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Condensed Black.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Condensed Bold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Light Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Light.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Medium.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue UltraLight Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Helvetica Neue UltraLight.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Black.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-BlackItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Bold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-BoldItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Light.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-LightItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Medium.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-MediumItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Regular.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Thin.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-ThinItalic.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -25,6 +25,7 @@ namespace PresentacionRecursoHumano
             this.btnImprimir.Visible = false;
             
             this.WindowState = FormWindowState.Maximized;
+            this.btnLactancia.Visible = true;
         }
 
         protected override CreateParams CreateParams
@@ -117,6 +118,22 @@ namespace PresentacionRecursoHumano
             var fhorarios = new PresentacionRecursoHumano._00010_Horarios("Lista de Horarios");
             fhorarios.IdAgente = agentesel;
             fhorarios.ShowDialog();
+        }
+        public override void btnLactancia_Click(object sender, EventArgs e)
+        {
+
+
+            if (this.dgvGrilla.RowCount > 0)
+            {
+                var _formaulario = new _00012_Lactancia();
+                _formaulario.AgenteId = agentesel;
+                _formaulario.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("No se puede Agregar Lactancia si no Seleccionó ningún Agente");
+            }
         }
 
     }

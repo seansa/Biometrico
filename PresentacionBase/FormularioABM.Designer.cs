@@ -42,7 +42,7 @@
             // 
             // Menu
             // 
-            this.Menu.BackColor = System.Drawing.Color.SteelBlue;
+            this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.Menu.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnEjecutar,
@@ -50,13 +50,13 @@
             this.btnSalir});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(444, 52);
+            this.Menu.Size = new System.Drawing.Size(518, 52);
             this.Menu.TabIndex = 1;
             this.Menu.Text = "toolStrip1";
             // 
             // btnEjecutar
             // 
-            this.btnEjecutar.ForeColor = System.Drawing.Color.White;
+            this.btnEjecutar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnEjecutar.Image = ((System.Drawing.Image)(resources.GetObject("btnEjecutar.Image")));
             this.btnEjecutar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEjecutar.Name = "btnEjecutar";
@@ -67,7 +67,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.Image")));
             this.btnLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLimpiar.Name = "btnLimpiar";
@@ -79,7 +79,7 @@
             // btnSalir
             // 
             this.btnSalir.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalir.Name = "btnSalir";
@@ -93,7 +93,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(301, 58);
+            this.label1.Location = new System.Drawing.Point(351, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 16);
             this.label1.TabIndex = 2;
@@ -105,12 +105,12 @@
             // 
             // FormularioABM
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 231);
+            this.ClientSize = new System.Drawing.Size(518, 267);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Menu);
-            this.MinimumSize = new System.Drawing.Size(460, 270);
+            this.MinimumSize = new System.Drawing.Size(534, 306);
             this.Name = "FormularioABM";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormularioABM_FormClosing);
             this.Load += new System.EventHandler(this.FormularioABM_Load);

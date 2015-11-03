@@ -4,48 +4,39 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using PresentacionBase.Clases;
 
 namespace PresentacionBase
 {
     public partial class FormularioBase : Form
     {
 
-        //MIO
         public long idmio { get; set; }
-        public PrivateFontCollection fuentes;
-        public Font HelveticaRoman;
-        public Font HelveticaItalic;
-        public Font HelveticaBold;
-        public Font HelveticaBoldItalic;
-        public Font HelveticaLightItalic;
-        public Font HelveticaLight;
-        public Font HelveticaThin;
-        public Font HelveticaThinItalic;
-        public FontFamily[] Helvetica;
-
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
-            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-
-        private PrivateFontCollection fonts = new PrivateFontCollection();
-
-        public Font myFont;
+        private TextRenderingHint _hint = TextRenderingHint.ClearTypeGridFit;
+        public TextRenderingHint TextRenderingHint
+        {
+            get { return this._hint; }
+            set { this._hint = value; }
+        }
 
         public FormularioBase()
         {
             InitializeComponent();
-
             this.BackColor = Colores.ColorFondoFormulario;
-            this.fuentes = new PrivateFontCollection();
-
-            
+            this.ForeColor = Colores.ColorTexto;
         }
 
         public FormularioBase(Color colorFondoForm)             
         {
             this.BackColor = colorFondoForm;
         }
-        
+
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            pe.Graphics.TextRenderingHint = TextRenderingHint;
+            base.OnPaint(pe);
+        }
+
         public void PoblarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
         {
             cmb.DataSource = lista;
@@ -312,32 +303,8 @@ namespace PresentacionBase
             }
         }
 
-        protected void CargarFuente(byte[] fuente)
-        {
-            
-        }
-
         private void FormularioBase_Load(object sender, EventArgs e)
         {
-            CargarFuente(RecursosCompartidos.HelveticaNeue_Bold);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_BoldItalic);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_Italic);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_Light);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_LightItalic);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_Roman);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_Thin);
-            CargarFuente(RecursosCompartidos.HelveticaNeue_ThinItalic);
-
-            //Helvetica = fuentes.Families;
-            /*
-            this.HelveticaBold = new  Font(fuentes.Families[0], 16f, FontStyle.Bold);
-            this.HelveticaBoldItalic = new Font(fuentes.Families[1], 16, FontStyle.Italic, GraphicsUnit.Pixel);
-            this.HelveticaItalic = new Font(fuentes.Families[2], 16, FontStyle.Italic, GraphicsUnit.Pixel);
-            this.HelveticaLight = new Font(fuentes.Families[3], 16, FontStyle.Regular, GraphicsUnit.Pixel);
-            this.HelveticaLightItalic = new Font(fuentes.Families[4], 16, FontStyle.Italic, GraphicsUnit.Pixel);
-            this.HelveticaRoman = new Font(fuentes.Families[5], 16, FontStyle.Regular, GraphicsUnit.Pixel);
-            this.HelveticaThin = new Font(fuentes.Families[6], 16, FontStyle.Regular, GraphicsUnit.Pixel);
-            this.HelveticaThinItalic = new Font(fuentes.Families[7], 16, FontStyle.Italic, GraphicsUnit.Pixel);
-     */   }
+        }
     }
 }

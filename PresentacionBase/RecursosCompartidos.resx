@@ -133,29 +133,35 @@
   <data name="Guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>RecursoImagenes\Guardar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="HelveticaNeue_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-bold.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_BoldItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-bolditalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Bold_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Bold Italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-italic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Condensed_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Condensed Black.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-light.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Condensed_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Condensed Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_LightItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-lightitalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_Roman" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-roman.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Light.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_Thin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-thin.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Light_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Light Italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HelveticaNeue_ThinItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>recursofuentes\helveticaneue-thinitalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Helvetica_Neue_Medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue Medium.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Helvetica_Neue_UltraLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue UltraLight.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Helvetica_Neue_UltraLight_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Helvetica Neue UltraLight Italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Impresora" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>RecursoImagenes\Impresora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +175,74 @@
   <data name="Nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>RecursoImagenes\Nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="OpenSans_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>recursofuentes\opensans-bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenSans_BoldItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>recursofuentes\opensans-bolditalic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenSans_ExtraBold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>recursofuentes\opensans-extrabold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenSans_ExtraBoldItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>recursofuentes\opensans-extrabolditalic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenSans_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>recursofuentes\opensans-italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenSans_Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>recursofuentes\opensans-light.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenSans_LightItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>recursofuentes\opensans-lightitalic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenSans_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>recursofuentes\opensans-regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenSans_Semibold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>recursofuentes\opensans-semibold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenSans_SemiboldItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>recursofuentes\opensans-semibolditalic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Password" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>RecursoImagenes\Password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Roboto_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-Black.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto_BlackItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-BlackItalic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto_BoldItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-BoldItalic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto_Italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-Italic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto_Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-Light.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto_LightItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-LightItalic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto_Medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-Medium.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto_MediumItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-MediumItalic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto_Thin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-Thin.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Roboto_ThinItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>RecursoFuentes\Roboto-ThinItalic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>RecursoImagenes\Salir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

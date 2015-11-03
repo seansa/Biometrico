@@ -12,9 +12,14 @@ namespace PresentacionRecursoHumano
 {
     public partial class _00013_Novedades : PresentacionBase.FormularioBase
     {
-        public _00013_Novedades()
+        public _00013_Novedades() : base()
         {
             InitializeComponent();
+        }
+
+        public _00013_Novedades(string titulo) : this()
+        {
+            this.Text = titulo;
         }
     }
 }
