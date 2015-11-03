@@ -56,13 +56,13 @@
             this.asignarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asginarFormulariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignarControlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.horariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.horariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +76,8 @@
             this.salirDelSistemaToolStripMenuItem});
             this.menuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuPrincipal.Name = "menuPrincipal";
-            this.menuPrincipal.Size = new System.Drawing.Size(920, 24);
+            this.menuPrincipal.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuPrincipal.Size = new System.Drawing.Size(1073, 24);
             this.menuPrincipal.TabIndex = 0;
             // 
             // agenteToolStripMenuItem
@@ -120,7 +121,7 @@
             this.consultaDeSectoresToolStripMenuItem,
             this.nuevoSectorToolStripMenuItem});
             this.sectorToolStripMenuItem.Name = "sectorToolStripMenuItem";
-            this.sectorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sectorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.sectorToolStripMenuItem.Text = "Sector";
             // 
             // consultaDeSectoresToolStripMenuItem
@@ -145,7 +146,7 @@
             this.toolStripMenuItem4,
             this.asignarAgentesToolStripMenuItem});
             this.subSectorToolStripMenuItem.Name = "subSectorToolStripMenuItem";
-            this.subSectorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.subSectorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.subSectorToolStripMenuItem.Text = "Sub-Sector";
             // 
             // consultaDeSubSectoresToolStripMenuItem
@@ -177,7 +178,7 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(129, 6);
             // 
             // seguridadToolStripMenuItem
             // 
@@ -188,7 +189,7 @@
             this.toolStripMenuItem3,
             this.perfilToolStripMenuItem});
             this.seguridadToolStripMenuItem.Name = "seguridadToolStripMenuItem";
-            this.seguridadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.seguridadToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.seguridadToolStripMenuItem.Text = "Seguridad";
             // 
             // usuariosToolStripMenuItem
@@ -286,6 +287,13 @@
             this.asignarControlesToolStripMenuItem.Text = "Asignar Controles";
             this.asignarControlesToolStripMenuItem.Click += new System.EventHandler(this.asignarControlesToolStripMenuItem_Click);
             // 
+            // horariosToolStripMenuItem
+            // 
+            this.horariosToolStripMenuItem.Name = "horariosToolStripMenuItem";
+            this.horariosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.horariosToolStripMenuItem.Text = "Horarios";
+            this.horariosToolStripMenuItem.Click += new System.EventHandler(this.horariosToolStripMenuItem_Click);
+            // 
             // salirDelSistemaToolStripMenuItem
             // 
             this.salirDelSistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -320,9 +328,10 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 383);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 566);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(920, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1073, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -332,19 +341,12 @@
             this.lblUsuario.Size = new System.Drawing.Size(50, 17);
             this.lblUsuario.Text = "Usuario:";
             // 
-            // horariosToolStripMenuItem
-            // 
-            this.horariosToolStripMenuItem.Name = "horariosToolStripMenuItem";
-            this.horariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.horariosToolStripMenuItem.Text = "Horarios";
-            this.horariosToolStripMenuItem.Click += new System.EventHandler(this.horariosToolStripMenuItem_Click);
-            // 
             // Principal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(920, 405);
+            this.ClientSize = new System.Drawing.Size(1073, 588);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;

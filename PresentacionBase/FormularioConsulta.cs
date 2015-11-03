@@ -69,11 +69,12 @@ namespace PresentacionBase
             ImagenBuscar = Imagenes.BotonBuscar;
 
             this.Menu.BackColor = Colores.ColorMenuAccesoRapido;
+            this.Menu.ForeColor = Colores.ColorTexto;
 
             this.txtBuscar.Enter += new EventHandler(Control_Enter);
             this.txtBuscar.Leave += new EventHandler(Control_Leave);
 
-
+            dgvGrilla.ResetStyles();
         }
 
         /// <summary>
@@ -172,7 +173,7 @@ namespace PresentacionBase
 
         public virtual void dgvGrilla_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.dgvGrilla.RowCount > 0)
+            if (this.dgvGrilla.RowCount > 0 && e.RowIndex >= 0)
             {
                 EntidadSeleccionada = this.dgvGrilla.Rows[e.RowIndex].DataBoundItem;
             }
