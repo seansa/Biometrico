@@ -196,6 +196,9 @@
     <EmbeddedResource Include="_00012_Lactancia.resx">
       <DependentUpon>_00012_Lactancia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_00013_Novedades.resx">
+      <DependentUpon>_00013_Novedades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_00014_ABM_Lactancia.resx">
       <DependentUpon>_00014_ABM_Lactancia.cs</DependentUpon>
     </EmbeddedResource>

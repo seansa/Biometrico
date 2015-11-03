@@ -4,35 +4,39 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using PresentacionBase.Clases;
 
 namespace PresentacionBase
 {
     public partial class FormularioBase : Form
     {
 
-        //MIO
         public long idmio { get; set; }
-        public PrivateFontCollection fuentes;
-        //public FontFamily[] Helvetica;
-
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
-            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-
-        private PrivateFontCollection fonts = new PrivateFontCollection();
-
-        // public Font myFont;
+        private TextRenderingHint _hint = TextRenderingHint.ClearTypeGridFit;
+        public TextRenderingHint TextRenderingHint
+        {
+            get { return this._hint; }
+            set { this._hint = value; }
+        }
 
         public FormularioBase()
         {
             InitializeComponent();
+            this.BackColor = Colores.ColorFondoFormulario;
+            this.ForeColor = Colores.ColorTexto;
         }
 
         public FormularioBase(Color colorFondoForm)             
         {
             this.BackColor = colorFondoForm;
         }
-        
+
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            pe.Graphics.TextRenderingHint = TextRenderingHint;
+            base.OnPaint(pe);
+        }
+
         public void PoblarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
         {
             cmb.DataSource = lista;
@@ -297,22 +301,6 @@ namespace PresentacionBase
             {
                 ((NumericUpDown)sender).BackColor = colorControl;
             }
-        }
-
-        public Font NuevaFuente(byte[] fuente, long size)
-        {
-            this.BackColor = Colores.ColorFondoFormulario;
-            this.fuentes = new PrivateFontCollection();
-
-            byte[] fontData = fuente;
-            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            uint dummy = 0;
-            fonts.AddMemoryFont(fontPtr, fuente.Length);
-            AddFontMemResourceEx(fontPtr, (uint)fuente.Length, IntPtr.Zero, ref dummy);
-            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
-
-            return new Font(fonts.Families[0], size);
         }
 
         private void FormularioBase_Load(object sender, EventArgs e)

@@ -50,6 +50,8 @@
     <Compile Include="Clases\Control\DataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Clases\Extensiones.cs" />
+    <Compile Include="Clases\Fuentes.cs" />
     <Compile Include="Clases\Imagenes.cs" />
     <Compile Include="Clases\InicializadorDiccionarioABM.cs" />
     <Compile Include="Clases\Mensaje.cs" />
@@ -134,6 +136,20 @@
     <EmbeddedResource Include="RecursoFuentes\Helvetica Neue Medium.ttf" />
     <EmbeddedResource Include="RecursoFuentes\Helvetica Neue UltraLight Italic.ttf" />
     <EmbeddedResource Include="RecursoFuentes\Helvetica Neue UltraLight.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Black.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-BlackItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Bold.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-BoldItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Italic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Light.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-LightItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Medium.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-MediumItalic.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Regular.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-Thin.ttf" />
+    <EmbeddedResource Include="RecursoFuentes\Roboto-ThinItalic.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
