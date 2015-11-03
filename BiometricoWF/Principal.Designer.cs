@@ -63,6 +63,7 @@
             this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.novedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +85,8 @@
             // 
             this.agenteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consultaDeAgentesToolStripMenuItem,
-            this.nuevoAgenteToolStripMenuItem});
+            this.nuevoAgenteToolStripMenuItem,
+            this.novedadesToolStripMenuItem});
             this.agenteToolStripMenuItem.Name = "agenteToolStripMenuItem";
             this.agenteToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.agenteToolStripMenuItem.Text = "Agente";
@@ -341,6 +343,13 @@
             this.lblUsuario.Size = new System.Drawing.Size(50, 17);
             this.lblUsuario.Text = "Usuario:";
             // 
+            // novedadesToolStripMenuItem
+            // 
+            this.novedadesToolStripMenuItem.Name = "novedadesToolStripMenuItem";
+            this.novedadesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.novedadesToolStripMenuItem.Text = "Novedades";
+            this.novedadesToolStripMenuItem.Click += new System.EventHandler(this.novedadesToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -404,5 +413,6 @@
         private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel lblUsuario;
         private System.Windows.Forms.ToolStripMenuItem horariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem novedadesToolStripMenuItem;
     }
 }
