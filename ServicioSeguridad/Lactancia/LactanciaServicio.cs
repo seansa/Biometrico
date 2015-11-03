@@ -270,6 +270,8 @@ namespace Servicio.RecursoHumano.Lactancia
             } while (diaAux.Date <= fin.Date);
             return "No";
         }
+
+     
     }
 
 }
