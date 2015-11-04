@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_00011_ABM_Horario));
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
@@ -53,19 +54,20 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvgrilla = new PresentacionBase.Clases.Control.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkFechaHasta = new System.Windows.Forms.CheckBox();
             this.dtpHoraEntrada = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraEntradaParcial = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraSalidaParcial = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraSalida = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.chkHorariosParciales = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.ToolStrip();
             this.btnGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnSemana.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvgrilla)).BeginInit();
@@ -75,17 +77,19 @@
             // 
             // dtpFechaHasta
             // 
-            this.dtpFechaHasta.Location = new System.Drawing.Point(426, 3);
+            this.dtpFechaHasta.Enabled = false;
+            this.dtpFechaHasta.Location = new System.Drawing.Point(497, 3);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(206, 20);
+            this.dtpFechaHasta.Size = new System.Drawing.Size(240, 23);
             this.dtpFechaHasta.TabIndex = 18;
+            this.dtpFechaHasta.Visible = false;
             this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
             // 
             // dtpFechaDesde
             // 
-            this.dtpFechaDesde.Location = new System.Drawing.Point(79, 3);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(92, 3);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaDesde.Size = new System.Drawing.Size(233, 23);
             this.dtpFechaDesde.TabIndex = 17;
             this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
             // 
@@ -98,9 +102,9 @@
             this.btnSemana.Controls.Add(this.txtApyNom);
             this.btnSemana.Controls.Add(this.txtDni);
             this.btnSemana.Enabled = false;
-            this.btnSemana.Location = new System.Drawing.Point(9, 51);
+            this.btnSemana.Location = new System.Drawing.Point(10, 59);
             this.btnSemana.Name = "btnSemana";
-            this.btnSemana.Size = new System.Drawing.Size(639, 87);
+            this.btnSemana.Size = new System.Drawing.Size(745, 100);
             this.btnSemana.TabIndex = 16;
             this.btnSemana.TabStop = false;
             this.btnSemana.Text = "Datos del Agente";
@@ -108,57 +112,57 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(444, 23);
+            this.label3.Location = new System.Drawing.Point(518, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(27, 15);
             this.label3.TabIndex = 11;
             this.label3.Text = "DNI";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 55);
+            this.label2.Location = new System.Drawing.Point(7, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 13);
+            this.label2.Size = new System.Drawing.Size(107, 15);
             this.label2.TabIndex = 10;
             this.label2.Text = "Apellido y Nombre";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 22);
+            this.label1.Location = new System.Drawing.Point(69, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.Size = new System.Drawing.Size(42, 15);
             this.label1.TabIndex = 9;
             this.label1.Text = "Legajo";
             // 
             // txtLegajo
             // 
-            this.txtLegajo.Location = new System.Drawing.Point(104, 19);
+            this.txtLegajo.Location = new System.Drawing.Point(121, 22);
             this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(204, 20);
+            this.txtLegajo.Size = new System.Drawing.Size(237, 23);
             this.txtLegajo.TabIndex = 6;
             // 
             // txtApyNom
             // 
-            this.txtApyNom.Location = new System.Drawing.Point(104, 54);
+            this.txtApyNom.Location = new System.Drawing.Point(121, 62);
             this.txtApyNom.Name = "txtApyNom";
-            this.txtApyNom.Size = new System.Drawing.Size(528, 20);
+            this.txtApyNom.Size = new System.Drawing.Size(615, 23);
             this.txtApyNom.TabIndex = 7;
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(476, 19);
+            this.txtDni.Location = new System.Drawing.Point(555, 22);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(156, 20);
+            this.txtDni.Size = new System.Drawing.Size(181, 23);
             this.txtDni.TabIndex = 8;
             // 
             // chkSabado
             // 
             this.chkSabado.AutoSize = true;
-            this.chkSabado.Location = new System.Drawing.Point(356, 10);
+            this.chkSabado.Location = new System.Drawing.Point(415, 12);
             this.chkSabado.Name = "chkSabado";
-            this.chkSabado.Size = new System.Drawing.Size(63, 17);
+            this.chkSabado.Size = new System.Drawing.Size(65, 19);
             this.chkSabado.TabIndex = 5;
             this.chkSabado.Text = "Sábado";
             this.chkSabado.UseVisualStyleBackColor = true;
@@ -173,16 +177,16 @@
             this.panel1.Controls.Add(this.chkMiercoles);
             this.panel1.Controls.Add(this.chkMartes);
             this.panel1.Controls.Add(this.chkLunes);
-            this.panel1.Location = new System.Drawing.Point(9, 254);
+            this.panel1.Location = new System.Drawing.Point(10, 293);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(639, 36);
+            this.panel1.Size = new System.Drawing.Size(745, 42);
             this.panel1.TabIndex = 19;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(499, 3);
+            this.button1.Location = new System.Drawing.Point(582, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 29);
+            this.button1.Size = new System.Drawing.Size(155, 33);
             this.button1.TabIndex = 7;
             this.button1.Text = "Marcar Semana";
             this.button1.UseVisualStyleBackColor = true;
@@ -191,9 +195,9 @@
             // chkDomingo
             // 
             this.chkDomingo.AutoSize = true;
-            this.chkDomingo.Location = new System.Drawing.Point(425, 10);
+            this.chkDomingo.Location = new System.Drawing.Point(496, 12);
             this.chkDomingo.Name = "chkDomingo";
-            this.chkDomingo.Size = new System.Drawing.Size(68, 17);
+            this.chkDomingo.Size = new System.Drawing.Size(76, 19);
             this.chkDomingo.TabIndex = 6;
             this.chkDomingo.Text = "Domingo";
             this.chkDomingo.UseVisualStyleBackColor = true;
@@ -201,9 +205,9 @@
             // chkViernes
             // 
             this.chkViernes.AutoSize = true;
-            this.chkViernes.Location = new System.Drawing.Point(289, 10);
+            this.chkViernes.Location = new System.Drawing.Point(337, 12);
             this.chkViernes.Name = "chkViernes";
-            this.chkViernes.Size = new System.Drawing.Size(61, 17);
+            this.chkViernes.Size = new System.Drawing.Size(64, 19);
             this.chkViernes.TabIndex = 4;
             this.chkViernes.Text = "Viernes";
             this.chkViernes.UseVisualStyleBackColor = true;
@@ -211,9 +215,9 @@
             // chkJueves
             // 
             this.chkJueves.AutoSize = true;
-            this.chkJueves.Location = new System.Drawing.Point(223, 10);
+            this.chkJueves.Location = new System.Drawing.Point(260, 12);
             this.chkJueves.Name = "chkJueves";
-            this.chkJueves.Size = new System.Drawing.Size(60, 17);
+            this.chkJueves.Size = new System.Drawing.Size(60, 19);
             this.chkJueves.TabIndex = 3;
             this.chkJueves.Text = "Jueves";
             this.chkJueves.UseVisualStyleBackColor = true;
@@ -221,9 +225,9 @@
             // chkMiercoles
             // 
             this.chkMiercoles.AutoSize = true;
-            this.chkMiercoles.Location = new System.Drawing.Point(146, 10);
+            this.chkMiercoles.Location = new System.Drawing.Point(170, 12);
             this.chkMiercoles.Name = "chkMiercoles";
-            this.chkMiercoles.Size = new System.Drawing.Size(71, 17);
+            this.chkMiercoles.Size = new System.Drawing.Size(77, 19);
             this.chkMiercoles.TabIndex = 2;
             this.chkMiercoles.Text = "Miércoles";
             this.chkMiercoles.UseVisualStyleBackColor = true;
@@ -231,9 +235,9 @@
             // chkMartes
             // 
             this.chkMartes.AutoSize = true;
-            this.chkMartes.Location = new System.Drawing.Point(82, 10);
+            this.chkMartes.Location = new System.Drawing.Point(96, 12);
             this.chkMartes.Name = "chkMartes";
-            this.chkMartes.Size = new System.Drawing.Size(58, 17);
+            this.chkMartes.Size = new System.Drawing.Size(62, 19);
             this.chkMartes.TabIndex = 1;
             this.chkMartes.Text = "Martes";
             this.chkMartes.UseVisualStyleBackColor = true;
@@ -241,18 +245,18 @@
             // chkLunes
             // 
             this.chkLunes.AutoSize = true;
-            this.chkLunes.Location = new System.Drawing.Point(14, 10);
+            this.chkLunes.Location = new System.Drawing.Point(16, 12);
             this.chkLunes.Name = "chkLunes";
-            this.chkLunes.Size = new System.Drawing.Size(55, 17);
+            this.chkLunes.Size = new System.Drawing.Size(57, 19);
             this.chkLunes.TabIndex = 0;
             this.chkLunes.Text = "Lunes";
             this.chkLunes.UseVisualStyleBackColor = true;
             // 
             // btnQuitar
             // 
-            this.btnQuitar.Location = new System.Drawing.Point(591, 366);
+            this.btnQuitar.Location = new System.Drawing.Point(689, 422);
             this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(58, 74);
+            this.btnQuitar.Size = new System.Drawing.Size(68, 85);
             this.btnQuitar.TabIndex = 15;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
@@ -260,9 +264,9 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(590, 296);
+            this.btnAgregar.Location = new System.Drawing.Point(688, 342);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(58, 64);
+            this.btnAgregar.Size = new System.Drawing.Size(68, 74);
             this.btnAgregar.TabIndex = 14;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -270,119 +274,130 @@
             // 
             // dgvgrilla
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Blue;
-            this.dgvgrilla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvgrilla.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Blue;
+            this.dgvgrilla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvgrilla.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgvgrilla.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvgrilla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvgrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvgrilla.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvgrilla.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvgrilla.GridColor = System.Drawing.Color.White;
-            this.dgvgrilla.Location = new System.Drawing.Point(9, 296);
+            this.dgvgrilla.Location = new System.Drawing.Point(10, 342);
+            this.dgvgrilla.MultiSelect = false;
             this.dgvgrilla.Name = "dgvgrilla";
             this.dgvgrilla.RowHeadersVisible = false;
             this.dgvgrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvgrilla.Size = new System.Drawing.Size(576, 144);
+            this.dgvgrilla.Size = new System.Drawing.Size(672, 166);
             this.dgvgrilla.TabIndex = 13;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 9);
+            this.label4.Location = new System.Drawing.Point(7, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
+            this.label4.Size = new System.Drawing.Size(72, 15);
             this.label4.TabIndex = 20;
             this.label4.Text = "Fecha Inicial";
             // 
-            // checkBox1
+            // chkFechaHasta
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(330, 6);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(81, 17);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "Fecha Final";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkFechaHasta.AutoSize = true;
+            this.chkFechaHasta.Location = new System.Drawing.Point(385, 7);
+            this.chkFechaHasta.Name = "chkFechaHasta";
+            this.chkFechaHasta.Size = new System.Drawing.Size(85, 19);
+            this.chkFechaHasta.TabIndex = 22;
+            this.chkFechaHasta.Text = "Fecha Final";
+            this.chkFechaHasta.UseVisualStyleBackColor = true;
+            this.chkFechaHasta.CheckedChanged += new System.EventHandler(this.chkFechaHasta_CheckedChanged);
             // 
             // dtpHoraEntrada
             // 
+            this.dtpHoraEntrada.CustomFormat = "";
             this.dtpHoraEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraEntrada.Location = new System.Drawing.Point(82, 40);
+            this.dtpHoraEntrada.Location = new System.Drawing.Point(96, 46);
             this.dtpHoraEntrada.Name = "dtpHoraEntrada";
-            this.dtpHoraEntrada.Size = new System.Drawing.Size(112, 20);
+            this.dtpHoraEntrada.ShowUpDown = true;
+            this.dtpHoraEntrada.Size = new System.Drawing.Size(130, 23);
             this.dtpHoraEntrada.TabIndex = 23;
             this.dtpHoraEntrada.ValueChanged += new System.EventHandler(this.dpHorarioEntrada_ValueChanged);
             // 
             // dtpHoraEntradaParcial
             // 
+            this.dtpHoraEntradaParcial.Enabled = false;
             this.dtpHoraEntradaParcial.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraEntradaParcial.Location = new System.Drawing.Point(503, 40);
+            this.dtpHoraEntradaParcial.Location = new System.Drawing.Point(587, 92);
             this.dtpHoraEntradaParcial.Name = "dtpHoraEntradaParcial";
-            this.dtpHoraEntradaParcial.Size = new System.Drawing.Size(129, 20);
+            this.dtpHoraEntradaParcial.ShowUpDown = true;
+            this.dtpHoraEntradaParcial.Size = new System.Drawing.Size(150, 23);
             this.dtpHoraEntradaParcial.TabIndex = 24;
+            this.dtpHoraEntradaParcial.ValueChanged += new System.EventHandler(this.dtpHoraEntradaParcial_ValueChanged);
             // 
             // dtpHoraSalidaParcial
             // 
+            this.dtpHoraSalidaParcial.Enabled = false;
             this.dtpHoraSalidaParcial.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraSalidaParcial.Location = new System.Drawing.Point(503, 76);
+            this.dtpHoraSalidaParcial.Location = new System.Drawing.Point(590, 61);
+            this.dtpHoraSalidaParcial.MinDate = new System.DateTime(2015, 10, 31, 0, 0, 0, 0);
             this.dtpHoraSalidaParcial.Name = "dtpHoraSalidaParcial";
-            this.dtpHoraSalidaParcial.Size = new System.Drawing.Size(129, 20);
+            this.dtpHoraSalidaParcial.ShowUpDown = true;
+            this.dtpHoraSalidaParcial.Size = new System.Drawing.Size(150, 23);
             this.dtpHoraSalidaParcial.TabIndex = 25;
+            this.dtpHoraSalidaParcial.ValueChanged += new System.EventHandler(this.dtpHoraSalidaParcial_ValueChanged);
             // 
             // dtpHoraSalida
             // 
             this.dtpHoraSalida.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraSalida.Location = new System.Drawing.Point(82, 76);
+            this.dtpHoraSalida.Location = new System.Drawing.Point(96, 88);
             this.dtpHoraSalida.Name = "dtpHoraSalida";
-            this.dtpHoraSalida.Size = new System.Drawing.Size(112, 20);
+            this.dtpHoraSalida.ShowUpDown = true;
+            this.dtpHoraSalida.Size = new System.Drawing.Size(130, 23);
             this.dtpHoraSalida.TabIndex = 26;
             this.dtpHoraSalida.ValueChanged += new System.EventHandler(this.dtpHoraSalida_ValueChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 43);
+            this.label5.Location = new System.Drawing.Point(3, 50);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.Size = new System.Drawing.Size(76, 15);
             this.label5.TabIndex = 27;
             this.label5.Text = "Hora Entrada";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // checkBox2
+            // chkHorariosParciales
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(373, 42);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(124, 17);
-            this.checkBox2.TabIndex = 31;
-            this.checkBox2.Text = "Hora Entrada Parcial";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(376, 76);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(116, 17);
-            this.checkBox3.TabIndex = 32;
-            this.checkBox3.Text = "Hora Salida Parcial";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.chkHorariosParciales.AutoSize = true;
+            this.chkHorariosParciales.Location = new System.Drawing.Point(430, 33);
+            this.chkHorariosParciales.Name = "chkHorariosParciales";
+            this.chkHorariosParciales.Size = new System.Drawing.Size(120, 19);
+            this.chkHorariosParciales.TabIndex = 31;
+            this.chkHorariosParciales.Text = "Horarios Parciales";
+            this.chkHorariosParciales.UseVisualStyleBackColor = true;
+            this.chkHorariosParciales.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 80);
+            this.label6.Location = new System.Drawing.Point(13, 92);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.Size = new System.Drawing.Size(67, 15);
             this.label6.TabIndex = 27;
             this.label6.Text = "Hora Salida";
             this.label6.Click += new System.EventHandler(this.label5_Click);
@@ -396,7 +411,7 @@
             this.toolStripButton2});
             this.btnSalir.Location = new System.Drawing.Point(0, 0);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(656, 47);
+            this.btnSalir.Size = new System.Drawing.Size(765, 47);
             this.btnSalir.TabIndex = 34;
             this.btnSalir.Text = "toolStrip1";
             // 
@@ -427,28 +442,47 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.checkBox3);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.dtpFechaDesde);
             this.panel2.Controls.Add(this.dtpFechaHasta);
-            this.panel2.Controls.Add(this.checkBox2);
+            this.panel2.Controls.Add(this.chkHorariosParciales);
             this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.dtpHoraEntradaParcial);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.chkFechaHasta);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.dtpHoraEntrada);
             this.panel2.Controls.Add(this.dtpHoraSalida);
-            this.panel2.Controls.Add(this.dtpHoraEntradaParcial);
             this.panel2.Controls.Add(this.dtpHoraSalidaParcial);
-            this.panel2.Location = new System.Drawing.Point(9, 142);
+            this.panel2.Location = new System.Drawing.Point(10, 164);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(639, 106);
+            this.panel2.Size = new System.Drawing.Size(745, 122);
             this.panel2.TabIndex = 35;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(460, 61);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 15);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "Hora Salida Parcial";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(450, 97);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(114, 15);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Hora Entrada Parcial";
             // 
             // _00011_ABM_Horario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 452);
+            this.ClientSize = new System.Drawing.Size(765, 522);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnSemana);
@@ -495,14 +529,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkFechaHasta;
         private System.Windows.Forms.DateTimePicker dtpHoraEntrada;
         private System.Windows.Forms.DateTimePicker dtpHoraEntradaParcial;
         private System.Windows.Forms.DateTimePicker dtpHoraSalidaParcial;
         private System.Windows.Forms.DateTimePicker dtpHoraSalida;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox chkHorariosParciales;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStrip btnSalir;
         private System.Windows.Forms.ToolStripButton btnGuardar;
@@ -510,5 +543,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private PresentacionBase.Clases.Control.DataGridView dgvgrilla;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }
