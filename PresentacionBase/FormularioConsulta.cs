@@ -1,6 +1,8 @@
 ﻿using PresentacionBase.Clases;
 using System;
 using System.Drawing;
+using System.Reflection;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace PresentacionBase
@@ -60,6 +62,7 @@ namespace PresentacionBase
         {
             InitializeComponent();
 
+
             ImagenBotonNuevo = Imagenes.BotonNuevo;
             ImagenBotonEliminar = Imagenes.BotonBorrar;
             ImagenBotonModificar = Imagenes.BotonModificar;
@@ -91,6 +94,15 @@ namespace PresentacionBase
             this._formularioABM = formularioABM;
             Text = tituloFormulario;
             this.lblTitulo.Text = tituloGrilla;
+        }
+
+        public virtual void AgregarBotonMenu(ToolStripButton boton, Size? tamaño = null)
+        {
+            boton.ForeColor = Colores.ColorTexto;
+            boton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            boton.Size = tamaño ?? new System.Drawing.Size(46, 49);
+            boton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            Menu.Items.Add(boton);
         }
 
         public virtual void btnSalir_Click(object sender, EventArgs e)
