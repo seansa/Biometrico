@@ -114,7 +114,7 @@ namespace PresentacionRecursoHumano
 
         private void Comisiones_Click(object sender, EventArgs e)
         {
-            var formComisiones = new _00015_ComisionServicio("Comisiones de Sevicio");
+            var formComisiones = new _00015_ComisionServicio("Comisiones de Servicio");
             formComisiones.ShowDialog();
         }
       
