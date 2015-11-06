@@ -143,6 +143,12 @@
     <Compile Include="_00014_ABM_Lactancia.Designer.cs">
       <DependentUpon>_00014_ABM_Lactancia.cs</DependentUpon>
     </Compile>
+    <Compile Include="_00015_ComisionServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_00015_ComisionServicio.Designer.cs">
+      <DependentUpon>_00015_ComisionServicio.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

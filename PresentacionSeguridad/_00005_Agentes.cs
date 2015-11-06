@@ -1,4 +1,5 @@
-﻿using Servicio.RecursoHumano.Agente;
+﻿using PresentacionBase;
+using Servicio.RecursoHumano.Agente;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,16 @@ namespace PresentacionRecursoHumano
             this.WindowState = FormWindowState.Maximized;
             this.btnLactancia.Visible = true;
         }
+
+        public virtual void AgregarBotonMenu(ToolStripButton boton, Size? tamaño = null)
+        {
+            boton.ForeColor = Colores.ColorTexto;
+            boton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            boton.Size = tamaño ?? new System.Drawing.Size(46, 49);
+            boton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            Menu.Items.Add(boton);
+        }
+
 
         protected override CreateParams CreateParams
         {
@@ -95,7 +106,16 @@ namespace PresentacionRecursoHumano
 
         private void _00005_Agentes_Load(object sender, EventArgs e)
         {
+            base.FormularioConsulta_Load(sender, e);
 
+            ToolStripButton btnComisiones = new ToolStripButton("Comisiones", null, Comisiones_Click);
+            AgregarBotonMenu(btnComisiones);
+        }
+
+        private void Comisiones_Click(object sender, EventArgs e)
+        {
+            var formComisiones = new _00015_ComisionServicio("Comisiones de Sevicio");
+            formComisiones.ShowDialog();
         }
       
         public override void dgvGrilla_RowEnter(object sender, DataGridViewCellEventArgs e)

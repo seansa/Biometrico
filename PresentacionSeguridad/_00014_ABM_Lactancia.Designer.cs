@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_00014_ABM_Lactancia));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnGuardar = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
-            this.dgvLactancia = new System.Windows.Forms.DataGridView();
+            this.dgvLactancia = new PresentacionBase.Clases.Control.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtApyNom = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -73,7 +76,7 @@
             this.btnSalir});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(745, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(852, 38);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -100,12 +103,35 @@
             // 
             // dgvLactancia
             // 
+            this.dgvLactancia.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.dgvLactancia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvLactancia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dgvLactancia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLactancia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvLactancia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLactancia.Location = new System.Drawing.Point(0, 225);
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLactancia.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvLactancia.Location = new System.Drawing.Point(0, 260);
+            this.dgvLactancia.MultiSelect = false;
             this.dgvLactancia.Name = "dgvLactancia";
             this.dgvLactancia.RowHeadersVisible = false;
             this.dgvLactancia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLactancia.Size = new System.Drawing.Size(642, 201);
+            this.dgvLactancia.Size = new System.Drawing.Size(749, 232);
             this.dgvLactancia.TabIndex = 1;
             this.dgvLactancia.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLactancia_RowEnter);
             // 
@@ -118,56 +144,56 @@
             this.panel1.Controls.Add(this.txtLegajo);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(0, 41);
+            this.panel1.Location = new System.Drawing.Point(0, 47);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(742, 80);
+            this.panel1.Size = new System.Drawing.Size(866, 92);
             this.panel1.TabIndex = 2;
             // 
             // txtApyNom
             // 
-            this.txtApyNom.Location = new System.Drawing.Point(53, 34);
+            this.txtApyNom.Location = new System.Drawing.Point(62, 39);
             this.txtApyNom.Name = "txtApyNom";
-            this.txtApyNom.Size = new System.Drawing.Size(387, 20);
+            this.txtApyNom.Size = new System.Drawing.Size(451, 23);
             this.txtApyNom.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 37);
+            this.label3.Location = new System.Drawing.Point(14, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(45, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Agente";
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(217, 8);
+            this.txtDni.Location = new System.Drawing.Point(253, 9);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(100, 20);
+            this.txtDni.Size = new System.Drawing.Size(116, 23);
             this.txtDni.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(176, 11);
+            this.label2.Location = new System.Drawing.Point(205, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(27, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "DNI";
             // 
             // txtLegajo
             // 
-            this.txtLegajo.Location = new System.Drawing.Point(53, 8);
+            this.txtLegajo.Location = new System.Drawing.Point(62, 9);
             this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(100, 20);
+            this.txtLegajo.Size = new System.Drawing.Size(116, 23);
             this.txtLegajo.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 11);
+            this.label1.Location = new System.Drawing.Point(14, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.Size = new System.Drawing.Size(42, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Legajo";
             // 
@@ -179,69 +205,70 @@
             this.pnlFechas.Controls.Add(this.label4);
             this.pnlFechas.Controls.Add(this.dtpFechaHasta);
             this.pnlFechas.Controls.Add(this.dtpFechaDesde);
-            this.pnlFechas.Location = new System.Drawing.Point(0, 126);
+            this.pnlFechas.Location = new System.Drawing.Point(0, 145);
             this.pnlFechas.Name = "pnlFechas";
-            this.pnlFechas.Size = new System.Drawing.Size(739, 59);
+            this.pnlFechas.Size = new System.Drawing.Size(862, 68);
             this.pnlFechas.TabIndex = 3;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 35);
+            this.label6.Location = new System.Drawing.Point(34, 40);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.Size = new System.Drawing.Size(65, 15);
             this.label6.TabIndex = 9;
             this.label6.Text = "Hora Inicio";
             // 
             // dtpHoraInicio
             // 
             this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicio.Location = new System.Drawing.Point(93, 29);
+            this.dtpHoraInicio.Location = new System.Drawing.Point(108, 33);
             this.dtpHoraInicio.Name = "dtpHoraInicio";
-            this.dtpHoraInicio.Size = new System.Drawing.Size(109, 20);
+            this.dtpHoraInicio.Size = new System.Drawing.Size(126, 23);
             this.dtpHoraInicio.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(284, 15);
+            this.label5.Location = new System.Drawing.Point(331, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 13);
+            this.label5.Size = new System.Drawing.Size(71, 15);
             this.label5.TabIndex = 7;
             this.label5.Text = "Fecha Hasta";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 9);
+            this.label4.Location = new System.Drawing.Point(19, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.Size = new System.Drawing.Size(73, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "Fecha Desde";
             // 
             // dtpFechaHasta
             // 
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(358, 9);
+            this.dtpFechaHasta.Location = new System.Drawing.Point(418, 10);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(82, 20);
+            this.dtpFechaHasta.Size = new System.Drawing.Size(95, 23);
             this.dtpFechaHasta.TabIndex = 1;
             this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
             // 
             // dtpFechaDesde
             // 
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(93, 3);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(108, 3);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(109, 20);
+            this.dtpFechaDesde.Size = new System.Drawing.Size(126, 23);
             this.dtpFechaDesde.TabIndex = 0;
             this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(648, 225);
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Location = new System.Drawing.Point(756, 260);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 50);
+            this.btnAgregar.Size = new System.Drawing.Size(87, 58);
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -249,9 +276,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(648, 375);
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Location = new System.Drawing.Point(756, 433);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 51);
+            this.btnEliminar.Size = new System.Drawing.Size(87, 59);
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -261,9 +289,9 @@
             // 
             this.chkLunes.AutoSize = true;
             this.chkLunes.Enabled = false;
-            this.chkLunes.Location = new System.Drawing.Point(58, 13);
+            this.chkLunes.Location = new System.Drawing.Point(17, 11);
             this.chkLunes.Name = "chkLunes";
-            this.chkLunes.Size = new System.Drawing.Size(55, 17);
+            this.chkLunes.Size = new System.Drawing.Size(57, 19);
             this.chkLunes.TabIndex = 7;
             this.chkLunes.Text = "Lunes";
             this.chkLunes.UseVisualStyleBackColor = true;
@@ -272,9 +300,9 @@
             // 
             this.chkMartes.AutoSize = true;
             this.chkMartes.Enabled = false;
-            this.chkMartes.Location = new System.Drawing.Point(144, 13);
+            this.chkMartes.Location = new System.Drawing.Point(88, 11);
             this.chkMartes.Name = "chkMartes";
-            this.chkMartes.Size = new System.Drawing.Size(58, 17);
+            this.chkMartes.Size = new System.Drawing.Size(62, 19);
             this.chkMartes.TabIndex = 8;
             this.chkMartes.Text = "Martes";
             this.chkMartes.UseVisualStyleBackColor = true;
@@ -283,9 +311,9 @@
             // 
             this.chkMiercoles.AutoSize = true;
             this.chkMiercoles.Enabled = false;
-            this.chkMiercoles.Location = new System.Drawing.Point(246, 13);
+            this.chkMiercoles.Location = new System.Drawing.Point(164, 11);
             this.chkMiercoles.Name = "chkMiercoles";
-            this.chkMiercoles.Size = new System.Drawing.Size(71, 17);
+            this.chkMiercoles.Size = new System.Drawing.Size(77, 19);
             this.chkMiercoles.TabIndex = 9;
             this.chkMiercoles.Text = "Miércoles";
             this.chkMiercoles.UseVisualStyleBackColor = true;
@@ -294,9 +322,9 @@
             // 
             this.chkJueves.AutoSize = true;
             this.chkJueves.Enabled = false;
-            this.chkJueves.Location = new System.Drawing.Point(333, 13);
+            this.chkJueves.Location = new System.Drawing.Point(255, 11);
             this.chkJueves.Name = "chkJueves";
-            this.chkJueves.Size = new System.Drawing.Size(60, 17);
+            this.chkJueves.Size = new System.Drawing.Size(60, 19);
             this.chkJueves.TabIndex = 10;
             this.chkJueves.Text = "Jueves";
             this.chkJueves.UseVisualStyleBackColor = true;
@@ -305,9 +333,9 @@
             // 
             this.chkViernes.AutoSize = true;
             this.chkViernes.Enabled = false;
-            this.chkViernes.Location = new System.Drawing.Point(419, 13);
+            this.chkViernes.Location = new System.Drawing.Point(329, 11);
             this.chkViernes.Name = "chkViernes";
-            this.chkViernes.Size = new System.Drawing.Size(61, 17);
+            this.chkViernes.Size = new System.Drawing.Size(64, 19);
             this.chkViernes.TabIndex = 11;
             this.chkViernes.Text = "Viernes";
             this.chkViernes.UseVisualStyleBackColor = true;
@@ -316,9 +344,9 @@
             // 
             this.chkSabado.AutoSize = true;
             this.chkSabado.Enabled = false;
-            this.chkSabado.Location = new System.Drawing.Point(505, 13);
+            this.chkSabado.Location = new System.Drawing.Point(407, 11);
             this.chkSabado.Name = "chkSabado";
-            this.chkSabado.Size = new System.Drawing.Size(63, 17);
+            this.chkSabado.Size = new System.Drawing.Size(65, 19);
             this.chkSabado.TabIndex = 12;
             this.chkSabado.Text = "Sábado";
             this.chkSabado.UseVisualStyleBackColor = true;
@@ -327,18 +355,19 @@
             // 
             this.chkDomingo.AutoSize = true;
             this.chkDomingo.Enabled = false;
-            this.chkDomingo.Location = new System.Drawing.Point(591, 13);
+            this.chkDomingo.Location = new System.Drawing.Point(486, 11);
             this.chkDomingo.Name = "chkDomingo";
-            this.chkDomingo.Size = new System.Drawing.Size(68, 17);
+            this.chkDomingo.Size = new System.Drawing.Size(76, 19);
             this.chkDomingo.TabIndex = 13;
             this.chkDomingo.Text = "Domingo";
             this.chkDomingo.UseVisualStyleBackColor = true;
             // 
             // btnMarcarSemana
             // 
-            this.btnMarcarSemana.Location = new System.Drawing.Point(648, 277);
+            this.btnMarcarSemana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMarcarSemana.Location = new System.Drawing.Point(756, 323);
             this.btnMarcarSemana.Name = "btnMarcarSemana";
-            this.btnMarcarSemana.Size = new System.Drawing.Size(75, 43);
+            this.btnMarcarSemana.Size = new System.Drawing.Size(87, 50);
             this.btnMarcarSemana.TabIndex = 14;
             this.btnMarcarSemana.Text = "Marcar Semana";
             this.btnMarcarSemana.UseVisualStyleBackColor = true;
@@ -346,9 +375,10 @@
             // 
             // btnDesmarcar
             // 
-            this.btnDesmarcar.Location = new System.Drawing.Point(648, 326);
+            this.btnDesmarcar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesmarcar.Location = new System.Drawing.Point(756, 378);
             this.btnDesmarcar.Name = "btnDesmarcar";
-            this.btnDesmarcar.Size = new System.Drawing.Size(75, 43);
+            this.btnDesmarcar.Size = new System.Drawing.Size(87, 50);
             this.btnDesmarcar.TabIndex = 15;
             this.btnDesmarcar.Text = "Desmarcar Todo";
             this.btnDesmarcar.UseVisualStyleBackColor = true;
@@ -363,16 +393,16 @@
             this.pnlDias.Controls.Add(this.chkSabado);
             this.pnlDias.Controls.Add(this.chkJueves);
             this.pnlDias.Controls.Add(this.chkViernes);
-            this.pnlDias.Location = new System.Drawing.Point(2, 191);
+            this.pnlDias.Location = new System.Drawing.Point(2, 220);
             this.pnlDias.Name = "pnlDias";
-            this.pnlDias.Size = new System.Drawing.Size(740, 33);
+            this.pnlDias.Size = new System.Drawing.Size(747, 38);
             this.pnlDias.TabIndex = 16;
             // 
             // _00014_ABM_Lactancia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 428);
+            this.ClientSize = new System.Drawing.Size(852, 499);
             this.Controls.Add(this.pnlDias);
             this.Controls.Add(this.btnDesmarcar);
             this.Controls.Add(this.btnMarcarSemana);
@@ -404,7 +434,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnGuardar;
         private System.Windows.Forms.ToolStripButton btnSalir;
-        private System.Windows.Forms.DataGridView dgvLactancia;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtApyNom;
         private System.Windows.Forms.Label label3;
@@ -431,5 +460,6 @@
         private System.Windows.Forms.Button btnMarcarSemana;
         private System.Windows.Forms.Button btnDesmarcar;
         private System.Windows.Forms.Panel pnlDias;
+        private PresentacionBase.Clases.Control.DataGridView dgvLactancia;
     }
 }
