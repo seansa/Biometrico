@@ -31,11 +31,6 @@ namespace PresentacionBase
             this.BackColor = colorFondoForm;
         }
 
-        public FormularioBase(string titulo)
-        {
-            this.Text = titulo;
-        }
-
         protected override void OnPaint(PaintEventArgs pe)
         {
             pe.Graphics.TextRenderingHint = TextRenderingHint;

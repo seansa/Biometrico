@@ -12,12 +12,18 @@ namespace PresentacionRecursoHumano
 {
     public partial class _00015_ComisionServicio : PresentacionBase.FormularioBase
     {
-        public _00015_ComisionServicio() : base()
+        public _00015_ComisionServicio()
         {
             InitializeComponent();
         }
-        public _00015_ComisionServicio(string titulo) : base(titulo)
+        public _00015_ComisionServicio(string titulo) : this()
         {
+            this.Text = titulo;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
