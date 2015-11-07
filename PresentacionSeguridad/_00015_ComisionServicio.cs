@@ -25,5 +25,11 @@ namespace PresentacionRecursoHumano
         {
             Close();
         }
+
+        private void btnNuevaComsion_Click(object sender, EventArgs e)
+        {
+            var formABM = new _00016_ABM_ComisionServicio("Modificar Comisiones de Servicio");
+            formABM.ShowDialog();
+        }
     }
 }

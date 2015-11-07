@@ -149,6 +149,12 @@
     <Compile Include="_00015_ComisionServicio.Designer.cs">
       <DependentUpon>_00015_ComisionServicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="_00016_ABM_ComisionServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_00016_ABM_ComisionServicio.Designer.cs">
+      <DependentUpon>_00016_ABM_ComisionServicio.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -210,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_00015_ComisionServicio.resx">
       <DependentUpon>_00015_ComisionServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_00016_ABM_ComisionServicio.resx">
+      <DependentUpon>_00016_ABM_ComisionServicio.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnNuevaComsion = new System.Windows.Forms.ToolStripButton();
+            this.btnNuevaComision = new System.Windows.Forms.ToolStripButton();
             this.dgvGrilla = new PresentacionBase.Clases.Control.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNuevaComsion,
+            this.btnNuevaComision,
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -61,16 +61,17 @@
             this.toolStrip1.TabIndex = 22;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnNuevaComsion
+            // btnNuevaComision
             // 
-            this.btnNuevaComsion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnNuevaComsion.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevaComsion.Image")));
-            this.btnNuevaComsion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevaComsion.Name = "btnNuevaComsion";
-            this.btnNuevaComsion.Size = new System.Drawing.Size(45, 44);
-            this.btnNuevaComsion.Text = "Nueva";
-            this.btnNuevaComsion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnNuevaComsion.ToolTipText = "Crear una nueva comisión de servicio";
+            this.btnNuevaComision.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnNuevaComision.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevaComision.Image")));
+            this.btnNuevaComision.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevaComision.Name = "btnNuevaComision";
+            this.btnNuevaComision.Size = new System.Drawing.Size(62, 44);
+            this.btnNuevaComision.Text = "Modificar";
+            this.btnNuevaComision.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNuevaComision.ToolTipText = "Crear una nueva comisión de servicio";
+            this.btnNuevaComision.Click += new System.EventHandler(this.btnNuevaComsion_Click);
             // 
             // dgvGrilla
             // 
@@ -216,7 +217,7 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnNuevaComsion;
+        private System.Windows.Forms.ToolStripButton btnNuevaComision;
         public PresentacionBase.Clases.Control.DataGridView dgvGrilla;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblDNI;
