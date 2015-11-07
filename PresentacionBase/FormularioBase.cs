@@ -228,6 +228,8 @@ namespace PresentacionBase
             for (int i = 0; i < dgv.ColumnCount; i++)
             {
                 dgv.Columns[i].Visible = false;
+                dgv.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                dgv.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
         }
 

@@ -18,6 +18,10 @@ namespace Servicio.RecursoHumano.ComisionServicio.DTOs
         public string FechaHastaStr { get { return ((DateTime)FechaHasta).ToShortDateString(); } }
         public TimeSpan HoraInicio { get; set; }
         public string HoraInicioStr { get { return HoraInicio.Hours.ToString() + ":" + HoraInicio.Minutes.ToString(); } }
-        public string Observacion { get; set; }
+        public TimeSpan HoraFin { get; set; }
+        public string HoraFinStr { get { return HoraFin.Hours.ToString() + ":" + HoraFin.Minutes.ToString(); } }
+        public bool JornadaCompleta { get; set; }
+        public string JornadaCompletaStr { get { return JornadaCompleta ? "SI" : "NO"; } }
+        public string Observaciones { get; set; }
     }
 }
