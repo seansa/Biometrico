@@ -22,7 +22,7 @@ public partial class ComisionServicio
 
     public long AgenteId { get; set; }
 
-    public System.DateTime FechaDesde { get; set; }
+    public DateTime FechaDesde { get; set; }
 
     public Nullable<System.DateTime> FechaHasta { get; set; }
 
@@ -33,8 +33,6 @@ public partial class ComisionServicio
     public bool EsJornadaCompleta { get; set; }
 
     public string Observacion { get; set; }
-
-
 
     public virtual Agente Agente { get; set; }
 
