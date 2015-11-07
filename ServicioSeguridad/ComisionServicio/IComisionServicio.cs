@@ -12,11 +12,10 @@ namespace Servicio.RecursoHumano.ComisionServicio
 
         void Insertar(List<ComisionServicioDTO> lista);
         void Eliminar(long id);
-        IEnumerable<ComisionServicio.DTOs.ComisionServicioDTO> ObtenerTodo();
+        IEnumerable<ComisionServicioDTO> ObtenerTodo();
         AccesoDatos.ComisionServicio ObtenerPorId(long id);
-        IEnumerable<ComisionServicio.DTOs.ComisionServicioDTO> ObtenerPorFiltro(long agenteId);
-        IEnumerable<ComisionServicio.DTOs.ComisionServicioDTO> ObtenerPorFiltro(long agenteId, DateTime fechaDesde, DateTime? fechaHasta);
+        IEnumerable<ComisionServicioDTO> ObtenerPorFiltro(long agenteId);
+        IEnumerable<ComisionServicioDTO> ObtenerPorFiltro(long agenteId, DateTime fechaDesde, DateTime? fechaHasta);
         bool VerificarNoEsteRepetidoMemoria(List<ComisionServicioDTO> lista, DateTime fechaDesde, DateTime? fechaHasta);
-        bool VerificarAlgunDiaCargado(bool[] arrayDias);
     }
 }

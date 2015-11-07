@@ -11,7 +11,7 @@ using Servicio.RecursoHumano.ComisionServicio.DTOs;
 
 namespace Servicio.RecursoHumano.ComisionServicio
 {
-    public class ComsionServicio : IComisionServicio
+    public class ComisionServicio : IComisionServicio
     {
         public void Eliminar(long id)
         {
@@ -204,26 +204,6 @@ namespace Servicio.RecursoHumano.ComisionServicio
             return false;
         }
        
-
-        IEnumerable<ComisionServicioDTO> IComisionServicio.ObtenerTodo()
-        {
-            throw new NotImplementedException();
-        }
-
-        AccesoDatos.ComisionServicio IComisionServicio.ObtenerPorId(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<ComisionServicioDTO> IComisionServicio.ObtenerPorFiltro(long agenteId)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<ComisionServicioDTO> IComisionServicio.ObtenerPorFiltro(long agenteId, DateTime fechaDesde, DateTime? fechaHasta)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }
