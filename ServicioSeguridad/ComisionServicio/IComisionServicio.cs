@@ -16,6 +16,6 @@ namespace Servicio.RecursoHumano.ComisionServicio
         AccesoDatos.ComisionServicio ObtenerPorId(long id);
         IEnumerable<ComisionServicioDTO> ObtenerPorFiltro(long agenteId);
         IEnumerable<ComisionServicioDTO> ObtenerPorFiltro(long agenteId, DateTime fechaDesde, DateTime? fechaHasta);
-        bool VerificarNoEsteRepetidoMemoria(List<ComisionServicioDTO> lista, DateTime fechaDesde, DateTime? fechaHasta);
+        bool VerificarNoEsteRepetidoMemoria(List<ComisionServicioDTO> lista, DateTime fechaDesde, DateTime? fechaHasta, bool jornadaCompleta, TimeSpan horaInicio, TimeSpan horaFin);
     }
 }
