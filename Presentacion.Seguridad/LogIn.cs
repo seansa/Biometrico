@@ -176,7 +176,7 @@ namespace Presentacion.Seguridad
         {
             this.txtUsuario.Text = "ADMIN";
             this.txtPassword.Text = "123";
-            lblTitulo.Font = new FormularioBase().myFont;
+            lblTitulo.Font = PresentacionBase.Clases.Fuentes.NuevaFuente(PresentacionBase.RecursosCompartidos.Helvetica_Neue_UltraLight, 22L);
         }
     }
 }
