@@ -23,5 +23,6 @@ namespace Servicio.RecursoHumano.ComisionServicio.DTOs
         public bool JornadaCompleta { get; set; }
         public string JornadaCompletaStr { get { return JornadaCompleta ? "SI" : "NO"; } }
         public string Observaciones { get; set; }
+        public string Descripcion { get; set; }
     }
 }
