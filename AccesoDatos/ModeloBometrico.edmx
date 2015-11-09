@@ -235,6 +235,7 @@
     <Property Name="HoraHasta" Type="time" Nullable="false" />
     <Property Name="EsJornadaCompleta" Type="bit" Nullable="false" />
     <Property Name="Observacion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Lactancias">
     <Key>
@@ -823,6 +824,7 @@
           <Property Name="HoraHasta" Type="Time" Nullable="false" />
           <Property Name="EsJornadaCompleta" Type="Boolean" Nullable="false" />
           <Property Name="Observacion" Type="String" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="AgenteComisionServicio">
           <End Type="ModeloBometrico.Agente" Role="Agente" Multiplicity="1" />
@@ -1038,6 +1040,7 @@
           <ScalarProperty Name="HoraHasta" ColumnName="HoraHasta" />
           <ScalarProperty Name="EsJornadaCompleta" ColumnName="EsJornadaCompleta" />
           <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
