@@ -18,6 +18,7 @@ namespace PresentacionRecursoHumano
         AgenteServicio _agenteServicio;
         IComisionServicio _comisionServicio;
         List<ComisionServicioDTO> listaComisiones;
+        List<ComisionServicioDTO> listaComisionesEliminar;
         DateTime? fechaHasta;
         int i;
 
@@ -28,7 +29,7 @@ namespace PresentacionRecursoHumano
             InitializeComponent();
             _agenteServicio = new AgenteServicio();
             _comisionServicio = new ComisionServicio();
-            
+            listaComisionesEliminar = new List<ComisionServicioDTO>();   
         }
         public _00016_ABM_ComisionServicio(string titulo) : this()
         {
@@ -37,8 +38,6 @@ namespace PresentacionRecursoHumano
 
         public override void FormatearGrilla(DataGridView dgv)
         {
-            //base.FormatearGrilla(dgvGrilla);
-
             this.dgvGrilla.Columns["Descripcion"].Visible = true;
             this.dgvGrilla.Columns["Descripcion"].HeaderText = "Descripción";
             this.dgvGrilla.Columns["Descripcion"].Width = 111;
@@ -74,12 +73,26 @@ namespace PresentacionRecursoHumano
             this.dgvGrilla.Columns["Observaciones"].HeaderText = "Observaciones";
             this.dgvGrilla.Columns["Observaciones"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             this.dgvGrilla.Columns["Observaciones"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+            this.dgvGrilla.Columns["FechaDesde"].Visible = false;
+            this.dgvGrilla.Columns["FechaHasta"].Visible = false;
+            this.dgvGrilla.Columns["HoraInicio"].Visible = false;
+            this.dgvGrilla.Columns["HoraFin"].Visible = false;
+            this.dgvGrilla.Columns["JornadaCompleta"].Visible = false;
         }
 
         private void Actualizar()
         {
             this.dgvGrilla.DataSource = listaComisiones;
             FormatearGrilla(this.dgvGrilla);
+        }
+
+        private void Eliminar(List<ComisionServicioDTO> lista)
+        {
+            foreach (var comision in lista)
+            {
+                _comisionServicio.Eliminar(comision.Id);
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -135,9 +148,9 @@ namespace PresentacionRecursoHumano
         {
             if (this.dgvGrilla.RowCount > 0)
             {
+                listaComisionesEliminar.Add((ComisionServicioDTO)this.dgvGrilla.CurrentRow.DataBoundItem);
                 listaComisiones.RemoveAt(this.dgvGrilla.CurrentRow.Index);
                 this.dgvGrilla.DataSource = listaComisiones.ToList();
-
             }
         }
 
@@ -183,6 +196,7 @@ namespace PresentacionRecursoHumano
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             _comisionServicio.Insertar(listaComisiones);
+            Eliminar(listaComisionesEliminar);
             this.Close();
         }
     }
