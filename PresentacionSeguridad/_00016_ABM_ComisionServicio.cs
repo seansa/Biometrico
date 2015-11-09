@@ -19,6 +19,7 @@ namespace PresentacionRecursoHumano
         IComisionServicio _comisionServicio;
         List<ComisionServicioDTO> listaComisiones;
         List<ComisionServicioDTO> listaComisionesEliminar;
+        List<ComisionServicioDTO> listaComisionesAgregar;
         DateTime? fechaHasta;
         int i;
 
@@ -29,7 +30,8 @@ namespace PresentacionRecursoHumano
             InitializeComponent();
             _agenteServicio = new AgenteServicio();
             _comisionServicio = new ComisionServicio();
-            listaComisionesEliminar = new List<ComisionServicioDTO>();   
+            listaComisionesEliminar = new List<ComisionServicioDTO>();
+            listaComisionesAgregar = new List<ComisionServicioDTO>();
         }
         public _00016_ABM_ComisionServicio(string titulo) : this()
         {
@@ -79,11 +81,13 @@ namespace PresentacionRecursoHumano
             this.dgvGrilla.Columns["HoraInicio"].Visible = false;
             this.dgvGrilla.Columns["HoraFin"].Visible = false;
             this.dgvGrilla.Columns["JornadaCompleta"].Visible = false;
+            this.dgvGrilla.Columns["AgenteId"].Visible = false;
+            this.dgvGrilla.Columns["Id"].Visible = false;
         }
 
         private void Actualizar()
         {
-            this.dgvGrilla.DataSource = listaComisiones;
+            this.dgvGrilla.DataSource = listaComisiones.Concat(listaComisionesAgregar).ToList();
             FormatearGrilla(this.dgvGrilla);
         }
 
@@ -134,7 +138,7 @@ namespace PresentacionRecursoHumano
                         HoraInicio = this.dtpHoraInicio.Value.TimeOfDay,
                         Descripcion = this.txtDescripcion.Text,
                     };
-                    listaComisiones.Add(_nuevaComision);
+                    listaComisionesAgregar.Add(_nuevaComision);
                     Actualizar();
                 }
                 else
@@ -195,7 +199,7 @@ namespace PresentacionRecursoHumano
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            _comisionServicio.Insertar(listaComisiones);
+            _comisionServicio.Insertar(listaComisionesAgregar);
             Eliminar(listaComisionesEliminar);
             this.Close();
         }
