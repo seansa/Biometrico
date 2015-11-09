@@ -32,8 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_00016_ABM_ComisionServicio));
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.dgvGrilla = new PresentacionBase.Clases.Control.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblDNI = new System.Windows.Forms.Label();
@@ -45,37 +43,27 @@
             this.Menu = new System.Windows.Forms.ToolStrip();
             this.btnGuardar = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
-            this.chkFechaHasta = new System.Windows.Forms.CheckBox();
-            this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
-            this.cmbComision = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.chkJornadaCompleta = new System.Windows.Forms.CheckBox();
+            this.dtpHoraFin = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dtpHoraInicio = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.chkFechaHasta = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.Menu.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 15);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Desde";
-            // 
-            // dtpFechaDesde
-            // 
-            this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(53, 68);
-            this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(111, 23);
-            this.dtpFechaDesde.TabIndex = 10;
             // 
             // dgvGrilla
             // 
@@ -102,13 +90,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvGrilla.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGrilla.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvGrilla.Location = new System.Drawing.Point(0, 208);
+            this.dgvGrilla.Location = new System.Drawing.Point(0, 232);
             this.dgvGrilla.MultiSelect = false;
             this.dgvGrilla.Name = "dgvGrilla";
             this.dgvGrilla.RowHeadersVisible = false;
             this.dgvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGrilla.Size = new System.Drawing.Size(824, 284);
+            this.dgvGrilla.Size = new System.Drawing.Size(824, 260);
             this.dgvGrilla.TabIndex = 12;
+            this.dgvGrilla.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrilla_RowEnter);
             // 
             // groupBox1
             // 
@@ -204,6 +193,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnGuardar.ToolTipText = "Crear una nueva comisión de servicio";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnSalir
             // 
@@ -218,108 +208,181 @@
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // chkFechaHasta
-            // 
-            this.chkFechaHasta.AutoSize = true;
-            this.chkFechaHasta.Location = new System.Drawing.Point(185, 71);
-            this.chkFechaHasta.Name = "chkFechaHasta";
-            this.chkFechaHasta.Size = new System.Drawing.Size(56, 19);
-            this.chkFechaHasta.TabIndex = 28;
-            this.chkFechaHasta.Text = "Hasta";
-            this.chkFechaHasta.UseVisualStyleBackColor = true;
-            // 
-            // dtpFechaHasta
-            // 
-            this.dtpFechaHasta.Enabled = false;
-            this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(244, 68);
-            this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(111, 23);
-            this.dtpFechaHasta.TabIndex = 29;
-            // 
             // btnAgregar
             // 
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Location = new System.Drawing.Point(742, 108);
+            this.btnAgregar.Location = new System.Drawing.Point(731, 119);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(73, 44);
+            this.btnAgregar.Size = new System.Drawing.Size(84, 48);
             this.btnAgregar.TabIndex = 31;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Location = new System.Drawing.Point(742, 158);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(73, 44);
-            this.btnEliminar.TabIndex = 42;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
             // txtObservaciones
             // 
-            this.txtObservaciones.Location = new System.Drawing.Point(361, 39);
+            this.txtObservaciones.Location = new System.Drawing.Point(443, 119);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(359, 52);
+            this.txtObservaciones.Size = new System.Drawing.Size(282, 105);
             this.txtObservaciones.TabIndex = 44;
-            // 
-            // cmbComision
-            // 
-            this.cmbComision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbComision.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cmbComision.FormattingEnabled = true;
-            this.cmbComision.Location = new System.Drawing.Point(6, 39);
-            this.cmbComision.Name = "cmbComision";
-            this.cmbComision.Size = new System.Drawing.Size(349, 23);
-            this.cmbComision.TabIndex = 43;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 21);
+            this.label6.Location = new System.Drawing.Point(9, 101);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 15);
+            this.label6.Size = new System.Drawing.Size(69, 15);
             this.label6.TabIndex = 40;
-            this.label6.Text = "Comisión";
+            this.label6.Text = "Descripción";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(361, 21);
+            this.label8.Location = new System.Drawing.Point(440, 101);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 15);
             this.label8.TabIndex = 45;
             this.label8.Text = "Observaciones";
             // 
-            // groupBox2
+            // txtDescripcion
             // 
-            this.groupBox2.Controls.Add(this.cmbComision);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.dtpFechaDesde);
-            this.groupBox2.Controls.Add(this.txtObservaciones);
-            this.groupBox2.Controls.Add(this.dtpFechaHasta);
-            this.groupBox2.Controls.Add(this.chkFechaHasta);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(10, 100);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(726, 102);
-            this.groupBox2.TabIndex = 46;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Asignación";
+            this.txtDescripcion.Location = new System.Drawing.Point(12, 119);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(425, 23);
+            this.txtDescripcion.TabIndex = 46;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Location = new System.Drawing.Point(731, 176);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(84, 48);
+            this.btnEliminar.TabIndex = 42;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.chkJornadaCompleta);
+            this.groupBox6.Controls.Add(this.dtpHoraFin);
+            this.groupBox6.Controls.Add(this.dtpFechaHasta);
+            this.groupBox6.Controls.Add(this.label11);
+            this.groupBox6.Controls.Add(this.label10);
+            this.groupBox6.Controls.Add(this.label12);
+            this.groupBox6.Controls.Add(this.dtpHoraInicio);
+            this.groupBox6.Controls.Add(this.dtpFechaDesde);
+            this.groupBox6.Controls.Add(this.chkFechaHasta);
+            this.groupBox6.Location = new System.Drawing.Point(12, 148);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(425, 76);
+            this.groupBox6.TabIndex = 48;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Duración";
+            // 
+            // chkJornadaCompleta
+            // 
+            this.chkJornadaCompleta.AutoSize = true;
+            this.chkJornadaCompleta.Location = new System.Drawing.Point(300, 19);
+            this.chkJornadaCompleta.Name = "chkJornadaCompleta";
+            this.chkJornadaCompleta.Size = new System.Drawing.Size(122, 19);
+            this.chkJornadaCompleta.TabIndex = 52;
+            this.chkJornadaCompleta.Text = "Jornada Completa";
+            this.chkJornadaCompleta.UseVisualStyleBackColor = true;
+            // 
+            // dtpHoraFin
+            // 
+            this.dtpHoraFin.CustomFormat = "HH:mm";
+            this.dtpHoraFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHoraFin.Location = new System.Drawing.Point(228, 44);
+            this.dtpHoraFin.Name = "dtpHoraFin";
+            this.dtpHoraFin.ShowUpDown = true;
+            this.dtpHoraFin.Size = new System.Drawing.Size(60, 23);
+            this.dtpHoraFin.TabIndex = 55;
+            this.dtpHoraFin.ValueChanged += new System.EventHandler(this.dtpHoraFin_ValueChanged);
+            // 
+            // dtpFechaHasta
+            // 
+            this.dtpFechaHasta.Enabled = false;
+            this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaHasta.Location = new System.Drawing.Point(69, 44);
+            this.dtpFechaHasta.Name = "dtpFechaHasta";
+            this.dtpFechaHasta.Size = new System.Drawing.Size(95, 23);
+            this.dtpFechaHasta.TabIndex = 33;
+            this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(175, 21);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 15);
+            this.label11.TabIndex = 53;
+            this.label11.Text = "Entrada";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(24, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(39, 15);
+            this.label10.TabIndex = 31;
+            this.label10.Text = "Desde";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(184, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(38, 15);
+            this.label12.TabIndex = 54;
+            this.label12.Text = "Salida";
+            // 
+            // dtpHoraInicio
+            // 
+            this.dtpHoraInicio.CustomFormat = "HH:mm";
+            this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHoraInicio.Location = new System.Drawing.Point(228, 17);
+            this.dtpHoraInicio.Name = "dtpHoraInicio";
+            this.dtpHoraInicio.ShowUpDown = true;
+            this.dtpHoraInicio.Size = new System.Drawing.Size(60, 23);
+            this.dtpHoraInicio.TabIndex = 52;
+            this.dtpHoraInicio.ValueChanged += new System.EventHandler(this.dtpHoraInicio_ValueChanged);
+            // 
+            // dtpFechaDesde
+            // 
+            this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaDesde.Location = new System.Drawing.Point(69, 17);
+            this.dtpFechaDesde.Name = "dtpFechaDesde";
+            this.dtpFechaDesde.Size = new System.Drawing.Size(95, 23);
+            this.dtpFechaDesde.TabIndex = 30;
+            this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
+            // 
+            // chkFechaHasta
+            // 
+            this.chkFechaHasta.AutoSize = true;
+            this.chkFechaHasta.Location = new System.Drawing.Point(10, 47);
+            this.chkFechaHasta.Name = "chkFechaHasta";
+            this.chkFechaHasta.Size = new System.Drawing.Size(56, 19);
+            this.chkFechaHasta.TabIndex = 32;
+            this.chkFechaHasta.Text = "Hasta";
+            this.chkFechaHasta.UseVisualStyleBackColor = true;
+            this.chkFechaHasta.CheckedChanged += new System.EventHandler(this.chkFechaHasta_CheckedChanged);
             // 
             // _00016_ABM_ComisionServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 492);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.Menu);
+            this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvGrilla);
             this.Name = "_00016_ABM_ComisionServicio";
@@ -330,16 +393,14 @@
             this.groupBox1.PerformLayout();
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpFechaDesde;
         private PresentacionBase.Clases.Control.DataGridView dgvGrilla;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblDNI;
@@ -351,14 +412,21 @@
         private System.Windows.Forms.ToolStrip Menu;
         private System.Windows.Forms.ToolStripButton btnGuardar;
         private System.Windows.Forms.ToolStripButton btnSalir;
-        private System.Windows.Forms.CheckBox chkFechaHasta;
-        private System.Windows.Forms.DateTimePicker dtpFechaHasta;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtObservaciones;
-        private System.Windows.Forms.ComboBox cmbComision;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox chkJornadaCompleta;
+        private System.Windows.Forms.DateTimePicker dtpHoraFin;
+        private System.Windows.Forms.DateTimePicker dtpFechaHasta;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker dtpHoraInicio;
+        private System.Windows.Forms.DateTimePicker dtpFechaDesde;
+        private System.Windows.Forms.CheckBox chkFechaHasta;
     }
 }

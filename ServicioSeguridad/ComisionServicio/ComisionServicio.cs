@@ -8,6 +8,7 @@ using System.Globalization;
 using System.Transactions;
 using Servicio.RecursoHumano.ComisionServicio;
 using Servicio.RecursoHumano.ComisionServicio.DTOs;
+using System.ComponentModel;
 
 namespace Servicio.RecursoHumano.ComisionServicio
 {
@@ -39,16 +40,22 @@ namespace Servicio.RecursoHumano.ComisionServicio
 
                 try
                 {
-                    foreach (var lact in lista)
+                    foreach (var x in lista)
                     {
 
                         using (var _context = new ModeloBometricoContainer())
                         {
                             var _ComisionServicio = new AccesoDatos.ComisionServicio()
                             {
-                                AgenteId = lact.AgenteId,
-                                FechaDesde = lact.FechaDesde,
-                                FechaHasta = lact.FechaHasta,
+                                Id = x.Id,
+                                AgenteId = x.AgenteId,
+                                FechaDesde = x.FechaDesde,
+                                FechaHasta = x.FechaHasta,
+                                HoraDesde = x.HoraFin,
+                                HoraHasta = x.HoraInicio,
+                                Descripcion = x.Descripcion,
+                                EsJornadaCompleta = x.JornadaCompleta,
+                                Observacion = x.Observaciones
                             };
                             _context.ComisionServicios.Add(_ComisionServicio);
                             _context.SaveChanges();
@@ -77,6 +84,11 @@ namespace Servicio.RecursoHumano.ComisionServicio
                         AgenteId = x.AgenteId,
                         FechaDesde = x.FechaDesde,
                         FechaHasta = x.FechaHasta,
+                        HoraFin = x.HoraHasta,
+                        HoraInicio = x.HoraDesde,
+                        Descripcion = x.Descripcion,
+                        JornadaCompleta = x.EsJornadaCompleta,
+                        Observaciones = x.Observacion
                     }).ToList();
 
                     return _listaComisionServicio;
@@ -100,8 +112,13 @@ namespace Servicio.RecursoHumano.ComisionServicio
                         {
                             Id = x.Id,
                             AgenteId = x.AgenteId,
-                            FechaHasta = x.FechaHasta,
                             FechaDesde = x.FechaDesde,
+                            FechaHasta = x.FechaHasta,
+                            HoraFin = x.HoraHasta,
+                            HoraInicio = x.HoraDesde,
+                            Descripcion = x.Descripcion,
+                            JornadaCompleta = x.EsJornadaCompleta,
+                            Observaciones = x.Observacion
                         }).ToList();
                     return _listaComisionServicio;
                 }
@@ -143,6 +160,11 @@ namespace Servicio.RecursoHumano.ComisionServicio
                         AgenteId = x.AgenteId,
                         FechaDesde = x.FechaDesde,
                         FechaHasta = x.FechaHasta,
+                        HoraFin = x.HoraHasta,
+                        HoraInicio = x.HoraDesde,
+                        Descripcion = x.Descripcion,
+                        JornadaCompleta = x.EsJornadaCompleta,
+                        Observaciones = x.Observacion
                     }).ToList();
                     return _lista;
                 }                
