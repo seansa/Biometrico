@@ -154,7 +154,7 @@ namespace Servicio.RecursoHumano.ComisionServicio
             }
         }
 
-        public bool VerificarNoEsteRepetidoMemoria(List<ComisionServicioDTO> lista, DateTime fechaDesde, DateTime? fechaHasta)
+        public bool VerificarNoEsteRepetidoMemoria(List<ComisionServicioDTO> lista, DateTime fechaDesde, DateTime? fechaHasta, bool jornadaCompleta, TimeSpan horaInicio, TimeSpan horaFin)
         {
             try
             {
@@ -164,7 +164,18 @@ namespace Servicio.RecursoHumano.ComisionServicio
                         ||IsDateInRange((DateTime)fechaHasta, comision.FechaDesde, comision.FechaHasta)
                         ||IsDateInRange(comision.FechaDesde,fechaDesde,fechaHasta))
                     {
-
+                        if (jornadaCompleta) return false;
+                        else if (lista.Any(e =>
+                           (horaInicio < e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin < e.HoraFin) ||
+                           (horaInicio == e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin < e.HoraFin) ||
+                           (horaInicio < e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin == e.HoraFin) ||
+                           (horaInicio > e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin > e.HoraFin) ||
+                           (horaInicio == e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin == e.HoraFin) ||
+                           (horaInicio > e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin < e.HoraFin) ||
+                           (horaInicio < e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin > e.HoraFin) ||
+                           (horaInicio == e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin > e.HoraFin) ||
+                           (horaInicio > e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin == e.HoraFin))) return false;
+                        else return true;
                     } 
                 }
                 return true;
