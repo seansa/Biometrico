@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PresentacionBase;
 
+
 namespace BiometricoWF
 {
     public partial class Principal : PresentacionBase.FormularioBase
@@ -61,7 +62,7 @@ namespace BiometricoWF
             else
             {
                 PresentacionBase.Mensaje.Mostrar("Acceso Denegado", PresentacionBase.TipoMensaje.Aviso);
-            }            
+            }
         }
 
 
@@ -93,7 +94,7 @@ namespace BiometricoWF
         private void consultaDeAgentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EjecutarFormulario(new PresentacionRecursoHumano._00005_Agentes());
-            
+
         }
 
         private void nuevoAgenteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,7 +104,7 @@ namespace BiometricoWF
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void consultaDePerfilToolStripMenuItem_Click(object sender, EventArgs e)
@@ -210,6 +211,14 @@ namespace BiometricoWF
         private void novedadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EjecutarFormulario(new PresentacionRecursoHumano._00013_Novedades("Novedades"));
+        }
+
+        private void accesoDelAgenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           //_10001_Acceso _formulario = new _10001_Acceso();
+
+           // _formulario.ShowDialog();
+
         }
     }
 }

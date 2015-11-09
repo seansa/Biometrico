@@ -125,6 +125,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Presentacion.Core\Presentacion.Core.csproj">
+      <Project>{45367d01-8c35-4099-922e-fad253698905}</Project>
+      <Name>Presentacion.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Presentacion.Seguridad\Presentacion.Seguridad.csproj">
       <Project>{4d278930-a5f9-4733-89b8-c42e6e01279b}</Project>
       <Name>Presentacion.Seguridad</Name>
@@ -136,6 +140,10 @@
     <ProjectReference Include="..\PresentacionSeguridad\PresentacionRecursoHumano.csproj">
       <Project>{b63c1698-7ed0-4191-bbb4-f3008944c935}</Project>
       <Name>PresentacionRecursoHumano</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servicio.Core\Servicio.Core.csproj">
+      <Project>{9d88a75a-76af-4faa-9b35-d7d4cad6a6af}</Project>
+      <Name>Servicio.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Servicio.Seguridad\Servicio.Seguridad.csproj">
       <Project>{149aca03-b945-4f62-aa97-a9f464efc55e}</Project>

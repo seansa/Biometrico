@@ -43,7 +43,6 @@
             this.MinimizeBox = false;
             this.Name = "FormularioBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Load += new System.EventHandler(this.FormularioBase_Load_1);
             this.ResumeLayout(false);
 
         }

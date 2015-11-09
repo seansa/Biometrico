@@ -7,8 +7,8 @@
     <ProjectGuid>{9D88A75A-76AF-4FAA-9B35-D7D4CAD6A6AF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Servicio.Core</RootNamespace>
-    <AssemblyName>Servicio.Core</AssemblyName>
+    <RootNamespace>Presentacion.Core</RootNamespace>
+    <AssemblyName>Presentacion.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -32,6 +32,7 @@
             this.agenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaDeAgentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoAgenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaDeSectoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +64,8 @@
             this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.novedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accesoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accesoDelAgenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +76,7 @@
             this.menuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agenteToolStripMenuItem,
             this.administraciónToolStripMenuItem,
+            this.accesoToolStripMenuItem,
             this.salirDelSistemaToolStripMenuItem});
             this.menuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuPrincipal.Name = "menuPrincipal";
@@ -104,6 +107,13 @@
             this.nuevoAgenteToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.nuevoAgenteToolStripMenuItem.Text = "Nuevo Agente";
             this.nuevoAgenteToolStripMenuItem.Click += new System.EventHandler(this.nuevoAgenteToolStripMenuItem_Click);
+            // 
+            // novedadesToolStripMenuItem
+            // 
+            this.novedadesToolStripMenuItem.Name = "novedadesToolStripMenuItem";
+            this.novedadesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.novedadesToolStripMenuItem.Text = "Novedades";
+            this.novedadesToolStripMenuItem.Click += new System.EventHandler(this.novedadesToolStripMenuItem_Click);
             // 
             // administraciónToolStripMenuItem
             // 
@@ -310,19 +320,19 @@
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(140, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(149, 6);
             // 
             // salirToolStripMenuItem2
             // 
             this.salirToolStripMenuItem2.Name = "salirToolStripMenuItem2";
-            this.salirToolStripMenuItem2.Size = new System.Drawing.Size(143, 22);
+            this.salirToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem2.Text = "Salir";
             this.salirToolStripMenuItem2.Click += new System.EventHandler(this.salirToolStripMenuItem2_Click);
             // 
@@ -343,12 +353,20 @@
             this.lblUsuario.Size = new System.Drawing.Size(50, 17);
             this.lblUsuario.Text = "Usuario:";
             // 
-            // novedadesToolStripMenuItem
+            // accesoToolStripMenuItem
             // 
-            this.novedadesToolStripMenuItem.Name = "novedadesToolStripMenuItem";
-            this.novedadesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.novedadesToolStripMenuItem.Text = "Novedades";
-            this.novedadesToolStripMenuItem.Click += new System.EventHandler(this.novedadesToolStripMenuItem_Click);
+            this.accesoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.accesoDelAgenteToolStripMenuItem});
+            this.accesoToolStripMenuItem.Name = "accesoToolStripMenuItem";
+            this.accesoToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.accesoToolStripMenuItem.Text = "Acceso";
+            // 
+            // accesoDelAgenteToolStripMenuItem
+            // 
+            this.accesoDelAgenteToolStripMenuItem.Name = "accesoDelAgenteToolStripMenuItem";
+            this.accesoDelAgenteToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.accesoDelAgenteToolStripMenuItem.Text = "Acceso del Agente";
+            this.accesoDelAgenteToolStripMenuItem.Click += new System.EventHandler(this.accesoDelAgenteToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -414,5 +432,7 @@
         private System.Windows.Forms.ToolStripStatusLabel lblUsuario;
         private System.Windows.Forms.ToolStripMenuItem horariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novedadesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem accesoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem accesoDelAgenteToolStripMenuItem;
     }
 }

@@ -41,6 +41,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,10 +52,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_10001_Acceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_10001_Acceso.Designer.cs">
+      <DependentUpon>_10001_Acceso.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="_10001_Acceso.resx">
+      <DependentUpon>_10001_Acceso.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PresentacionBase\PresentacionBase.csproj">
+      <Project>{71710be8-ed22-4dfa-99ea-0c7697df9131}</Project>
+      <Name>PresentacionBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servicio.Core\Servicio.Core.csproj">
+      <Project>{9d88a75a-76af-4faa-9b35-d7d4cad6a6af}</Project>
+      <Name>Servicio.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servicio.Seguridad\Servicio.Seguridad.csproj">
+      <Project>{149aca03-b945-4f62-aa97-a9f464efc55e}</Project>
+      <Name>Servicio.Seguridad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicioSeguridad\Servicio.RecursoHumano.csproj">
+      <Project>{463c6186-24d0-48c3-9eb8-61ed2bafd4a7}</Project>
+      <Name>Servicio.RecursoHumano</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
