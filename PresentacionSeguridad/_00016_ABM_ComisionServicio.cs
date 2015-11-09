@@ -32,6 +32,7 @@ namespace PresentacionRecursoHumano
             _comisionServicio = new ComisionServicio();
             listaComisionesEliminar = new List<ComisionServicioDTO>();
             listaComisionesAgregar = new List<ComisionServicioDTO>();
+            listaComisiones = new List<ComisionServicioDTO>();
         }
         public _00016_ABM_ComisionServicio(string titulo) : this()
         {
@@ -40,6 +41,8 @@ namespace PresentacionRecursoHumano
 
         public override void FormatearGrilla(DataGridView dgv)
         {
+            base.FormatearGrilla(dgvGrilla);
+
             this.dgvGrilla.Columns["Descripcion"].Visible = true;
             this.dgvGrilla.Columns["Descripcion"].HeaderText = "Descripción";
             this.dgvGrilla.Columns["Descripcion"].Width = 111;
@@ -75,14 +78,6 @@ namespace PresentacionRecursoHumano
             this.dgvGrilla.Columns["Observaciones"].HeaderText = "Observaciones";
             this.dgvGrilla.Columns["Observaciones"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             this.dgvGrilla.Columns["Observaciones"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
-
-            this.dgvGrilla.Columns["FechaDesde"].Visible = false;
-            this.dgvGrilla.Columns["FechaHasta"].Visible = false;
-            this.dgvGrilla.Columns["HoraInicio"].Visible = false;
-            this.dgvGrilla.Columns["HoraFin"].Visible = false;
-            this.dgvGrilla.Columns["JornadaCompleta"].Visible = false;
-            this.dgvGrilla.Columns["AgenteId"].Visible = false;
-            this.dgvGrilla.Columns["Id"].Visible = false;
         }
 
         private void Actualizar()
@@ -125,7 +120,7 @@ namespace PresentacionRecursoHumano
             }
             else
             {
-                if (_comisionServicio.VerificarNoEsteRepetidoMemoria(listaComisiones, this.dtpFechaDesde.Value, fechaHasta, chkJornadaCompleta.Checked, dtpHoraInicio.Value.TimeOfDay, dtpHoraFin.Value.TimeOfDay))
+                if (_comisionServicio.VerificarNoEsteRepetidoMemoria(listaComisiones.Concat(listaComisionesAgregar).ToList(), this.dtpFechaDesde.Value, fechaHasta, chkJornadaCompleta.Checked, dtpHoraInicio.Value.TimeOfDay, dtpHoraFin.Value.TimeOfDay))
                 {
                     var _nuevaComision = new ComisionServicioDTO()
                     {
@@ -152,9 +147,25 @@ namespace PresentacionRecursoHumano
         {
             if (this.dgvGrilla.RowCount > 0)
             {
-                listaComisionesEliminar.Add((ComisionServicioDTO)this.dgvGrilla.CurrentRow.DataBoundItem);
-                listaComisiones.RemoveAt(this.dgvGrilla.CurrentRow.Index);
-                this.dgvGrilla.DataSource = listaComisiones.ToList();
+                listaComisionesEliminar.Add((ComisionServicioDTO)this.dgvGrilla.SelectedRows[0].DataBoundItem);
+
+                if (listaComisionesAgregar.Contains((ComisionServicioDTO)this.dgvGrilla.SelectedRows[0].DataBoundItem))
+                {
+                    listaComisionesAgregar.Remove((ComisionServicioDTO)this.dgvGrilla.SelectedRows[0].DataBoundItem);
+                }
+                else
+                {
+                    listaComisiones.Remove((ComisionServicioDTO)this.dgvGrilla.SelectedRows[0].DataBoundItem);
+                }
+
+                //this.dgvGrilla.DataSource = listaComisiones.Concat(listaComisionesAgregar).ToList();
+                Actualizar();
+            }
+            else
+            {
+                listaComisionesEliminar = new List<ComisionServicioDTO>();
+                listaComisionesAgregar = new List<ComisionServicioDTO>();
+                listaComisiones = new List<ComisionServicioDTO>();
             }
         }
 
@@ -200,7 +211,8 @@ namespace PresentacionRecursoHumano
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             _comisionServicio.Insertar(listaComisionesAgregar);
-            Eliminar(listaComisionesEliminar);
+
+            if (listaComisionesEliminar.Count() > 0) Eliminar(listaComisionesEliminar);
             this.Close();
         }
     }

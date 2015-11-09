@@ -137,7 +137,7 @@ namespace Servicio.RecursoHumano.ComisionServicio
                 using (var _context= new ModeloBometricoContainer())
                 {
                     var _ComisionServicio = _context.ComisionServicios.Find(id);
-                    if (_ComisionServicio == null) throw new Exception("No se encontro ninguna comisión de servicio");
+                    if (_ComisionServicio == null) throw new Exception("No se encontró ninguna comisión de servicio");
                     return _ComisionServicio;
                 }
             }
