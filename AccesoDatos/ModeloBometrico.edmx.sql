@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/31/2015 05:33:44
--- Generated from EDMX file: C:\Users\User\OneDrive\Documents\Programacion\Laboratorio 2\GitHub\Biometrico\AccesoDatos\ModeloBometrico.edmx
+-- Date Created: 11/09/2015 00:28:38
+-- Generated from EDMX file: D:\Documentos\GitHubVisualStudio\Biometrico\AccesoDatos\ModeloBometrico.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -271,7 +271,8 @@ CREATE TABLE [dbo].[ComisionServicios] (
     [HoraDesde] time  NOT NULL,
     [HoraHasta] time  NOT NULL,
     [EsJornadaCompleta] bit  NOT NULL,
-    [Observacion] nvarchar(max)  NOT NULL
+    [Observacion] nvarchar(max)  NOT NULL,
+    [Descripcion] nvarchar(max)  NOT NULL
 );
 GO
 
