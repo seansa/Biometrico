@@ -78,7 +78,7 @@ namespace PresentacionRecursoHumano
 
         private void btnNuevaComsion_Click(object sender, EventArgs e)
         {
-            var formABM = new _00016_ABM_ComisionServicio("Modificar Comisiones de Servicio");
+            var formABM = new _00016_ABM_ComisionServicio("Modificar comisiones de servicio");
             formABM.AgenteId = AgenteId;
             formABM.ShowDialog();
             Actualizar();

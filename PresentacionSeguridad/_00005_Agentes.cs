@@ -114,9 +114,14 @@ namespace PresentacionRecursoHumano
 
         private void Comisiones_Click(object sender, EventArgs e)
         {
-            var formComisiones = new _00015_ComisionServicio("Comisiones de Servicio");
-            formComisiones.AgenteId = agentesel;
-            formComisiones.ShowDialog();
+            if (dgvGrilla.RowCount > 0)
+            {
+                var formComisiones = new _00015_ComisionServicio("Comisiones de Servicio");
+                formComisiones.AgenteId = agentesel;
+                formComisiones.ShowDialog();
+            }
+            else MessageBox.Show("No hay agentes");
+
         }
       
         public override void dgvGrilla_RowEnter(object sender, DataGridViewCellEventArgs e)
