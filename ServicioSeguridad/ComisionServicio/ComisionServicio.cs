@@ -154,26 +154,6 @@ namespace Servicio.RecursoHumano.ComisionServicio
             }
         }
 
-        public bool VerificarAlgunDiaCargado(bool[] arrayDias)
-        {
-            try
-            {
-                for (int i = 0; i < arrayDias.Length; i++)
-                {
-                    if (arrayDias[i])
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         public bool VerificarNoEsteRepetidoMemoria(List<ComisionServicioDTO> lista, DateTime fechaDesde, DateTime? fechaHasta)
         {
             try
