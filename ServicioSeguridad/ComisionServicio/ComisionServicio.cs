@@ -51,8 +51,8 @@ namespace Servicio.RecursoHumano.ComisionServicio
                                 AgenteId = x.AgenteId,
                                 FechaDesde = x.FechaDesde,
                                 FechaHasta = x.FechaHasta,
-                                HoraDesde = x.HoraFin,
-                                HoraHasta = x.HoraInicio,
+                                HoraDesde = x.HoraInicio,
+                                HoraHasta = x.HoraFin,
                                 Descripcion = x.Descripcion,
                                 EsJornadaCompleta = x.JornadaCompleta,
                                 Observacion = x.Observaciones

@@ -114,7 +114,7 @@ namespace PresentacionRecursoHumano
             if (dtpFechaDesde.Enabled) fechaHasta = dtpFechaHasta.Value;
             else fechaHasta = null;
 
-            if (txtDescripcion.Text.Length == 0) MessageBox.Show("La descripción no debe estar vacía");
+            if (txtDescripcion.Text.Trim().Length == 0) MessageBox.Show("La descripción no debe estar vacía");
             else if (dtpHoraInicio.Value.ToShortTimeString() == dtpHoraFin.Value.ToShortTimeString()) {
                 MessageBox.Show("La hora de entrada y salida es la misma");
             }
@@ -158,7 +158,6 @@ namespace PresentacionRecursoHumano
                     listaComisiones.Remove((ComisionServicioDTO)this.dgvGrilla.SelectedRows[0].DataBoundItem);
                 }
 
-                //this.dgvGrilla.DataSource = listaComisiones.Concat(listaComisionesAgregar).ToList();
                 Actualizar();
             }
             else
