@@ -198,4 +198,4 @@ FakesAssemblies/
 #Custom ignore
 *.config
 *.DS_Store
-App.config/
+AccesoDatos/*.cs
