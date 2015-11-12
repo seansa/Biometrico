@@ -8,6 +8,7 @@ namespace Servicio.RecursoHumano.NovedadAgente.DTOs
 {
     public class NovedadAgenteDTO
     {
+        public long Id { get; set; }
         public long AngenteId { get; set; }
         public long TipoNovedadId { get; set; }
         public DateTime FechaDesde { get; set; }

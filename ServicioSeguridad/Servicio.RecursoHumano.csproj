@@ -83,6 +83,7 @@
     <Compile Include="SubSector\DTOs\SubSectorDTO.cs" />
     <Compile Include="SubSector\ISubSectorServicio.cs" />
     <Compile Include="SubSector\SubSectorServicio.cs" />
+    <Compile Include="TipoNovedadAgente\DTOs\TipoNovedadAgente.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
