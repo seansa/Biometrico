@@ -34,6 +34,7 @@ namespace PresentacionRecursoHumano
             listaTemporal = new List<DetalleHorarioDTO>();
             _horaEntradaParcial = new TimeSpan?();
             _horaSalidaParcial = new TimeSpan?();
+
         }
 
         private void _00011_ABM_Horario_Load(object sender, EventArgs e)
@@ -43,6 +44,7 @@ namespace PresentacionRecursoHumano
             this.txtLegajo.Text = agente.Legajo.ToString();
             this.txtDni.Text = agente.DNI.ToString();
             ResetearHorayFecha();
+            HabilitarTodosLosDIas();
         }
 
         private void ResetearHorayFecha()
@@ -224,12 +226,14 @@ namespace PresentacionRecursoHumano
         {
             dtpFechaHasta.MinDate = dtpFechaDesde.Value;
             if (dtpFechaHasta.Value < dtpFechaDesde.Value) dtpFechaHasta.Value = dtpFechaDesde.Value;
+            HabilitarDias();
         }
 
         private void dtpFechaHasta_ValueChanged(object sender, EventArgs e)
         {
             dtpFechaDesde.MaxDate = dtpFechaHasta.Value;
             if (dtpFechaDesde.Value > dtpFechaHasta.Value) dtpFechaDesde.Value = dtpFechaHasta.Value;
+            HabilitarDias();
         }
 
         private void dtpHoraEntradaParcial_ValueChanged(object sender, EventArgs e)
@@ -253,12 +257,15 @@ namespace PresentacionRecursoHumano
                 this.dtpFechaHasta.Enabled = true;
                 this.dtpFechaHasta.Visible = true;
                 this.dtpFechaHasta.Value = dtpFechaHasta.MinDate;
+                HabilitarDias();
+                
             }
             else
             {
                 this.dtpFechaHasta.Enabled = false;
                 this.dtpFechaHasta.Visible = false;
                 this.dtpFechaHasta.Value = dtpFechaHasta.MaxDate;
+                HabilitarTodosLosDIas();
             }
         }
         private void DeshabilitarDias()
@@ -278,10 +285,24 @@ namespace PresentacionRecursoHumano
             {
                 foreach (var chk in pnlDias.Controls)
                 {
-                    if ()
+                    if (chk is CheckBox)
                     {
 
+                        if (_horarioServicio.VerificarDiasDelRango(this.dtpFechaDesde.Value, this.dtpFechaHasta.Value, i).ToLower() == ((CheckBox)chk).Text.ToLower())
+                        {
+                            ((CheckBox)chk).Enabled = true;
+                        } 
                     }
+                }
+            }
+        }
+        private void HabilitarTodosLosDIas()
+        {
+            foreach (var chk in this.pnlDias.Controls)
+            {
+                if (chk is CheckBox)
+                {
+                    ((CheckBox)chk).Enabled = true; 
                 }
             }
         }
