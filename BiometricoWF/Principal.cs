@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PresentacionBase;
+using Presentacion.Core;
 
 
 namespace BiometricoWF
@@ -215,10 +216,8 @@ namespace BiometricoWF
 
         private void accesoDelAgenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           //_10001_Acceso _formulario = new _10001_Acceso();
-
-           // _formulario.ShowDialog();
-
+            var _formulario = new _10001_Acceso();
+            _formulario.ShowDialog();
         }
     }
 }
