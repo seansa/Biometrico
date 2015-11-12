@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Servicio.RecursoHumano.TipoNovedadAgente.DTOs
 {
-    public class TipoNovedadAgente
+    public class TipoNovedadAgenteDTO
     {
         public long Id { get; set; }
         public string Abreviatura { get; set; }
