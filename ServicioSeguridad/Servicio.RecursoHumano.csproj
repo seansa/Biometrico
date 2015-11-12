@@ -71,6 +71,9 @@
     <Compile Include="Lactancia\ILactanciaServicio.cs" />
     <Compile Include="Lactancia\LactanciaServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelojDefectuoso\DTOs\RelojDefectuosoDTO.cs" />
+    <Compile Include="RelojDefectuoso\IRelojDefectuoso.cs" />
+    <Compile Include="RelojDefectuoso\RelojDefectuosoServicio.cs" />
     <Compile Include="Sector\DTOs\SectorDTO.cs" />
     <Compile Include="Sector\ISectorServicio.cs" />
     <Compile Include="Sector\SectorServicio.cs" />

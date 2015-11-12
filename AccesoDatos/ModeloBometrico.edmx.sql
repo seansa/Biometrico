@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/09/2015 00:28:38
--- Generated from EDMX file: D:\Documentos\GitHubVisualStudio\Biometrico\AccesoDatos\ModeloBometrico.edmx
+-- Date Created: 11/11/2015 22:07:53
+-- Generated from EDMX file: C:\Users\DIEGO\Documents\GITHUB REPOSITORIO\LABORATORIO\AccesoDatos\ModeloBometrico.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -114,6 +114,9 @@ IF OBJECT_ID(N'[dbo].[ComisionServicios]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Lactancias]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Lactancias];
+GO
+IF OBJECT_ID(N'[dbo].[RelojDefectuosos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RelojDefectuosos];
 GO
 IF OBJECT_ID(N'[dbo].[SubSectorAgente]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SubSectorAgente];
@@ -294,6 +297,16 @@ CREATE TABLE [dbo].[Lactancias] (
 );
 GO
 
+-- Creating table 'RelojDefectuosos'
+CREATE TABLE [dbo].[RelojDefectuosos] (
+    [Id] bigint IDENTITY(1,1) NOT NULL,
+    [Fecha] datetime  NOT NULL,
+    [HoraDesde] time  NULL,
+    [HoraHasta] time  NULL,
+    [JornadaCompleta] bit  NULL
+);
+GO
+
 -- Creating table 'SubSectorAgente'
 CREATE TABLE [dbo].[SubSectorAgente] (
     [SubSectores_Id] bigint  NOT NULL,
@@ -407,6 +420,12 @@ GO
 -- Creating primary key on [Id] in table 'Lactancias'
 ALTER TABLE [dbo].[Lactancias]
 ADD CONSTRAINT [PK_Lactancias]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'RelojDefectuosos'
+ALTER TABLE [dbo].[RelojDefectuosos]
+ADD CONSTRAINT [PK_RelojDefectuosos]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

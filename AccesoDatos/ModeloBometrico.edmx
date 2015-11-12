@@ -20,6 +20,7 @@
     <EntitySet Name="Novedades" EntityType="ModeloBometrico.Store.Novedades" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ComisionServicios" EntityType="ModeloBometrico.Store.ComisionServicios" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Lactancias" EntityType="ModeloBometrico.Store.Lactancias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RelojDefectuosos" EntityType="ModeloBometrico.Store.RelojDefectuosos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SubSectorAgente" EntityType="ModeloBometrico.Store.SubSectorAgente" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PerfilFormulario" EntityType="ModeloBometrico.Store.PerfilFormulario" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PerfilUsuario" EntityType="ModeloBometrico.Store.PerfilUsuario" store:Type="Tables" Schema="dbo" />
@@ -254,6 +255,16 @@
     <Property Name="FechaHasta" Type="datetime" Nullable="false" />
     <Property Name="HoraInicio" Type="time" Nullable="false" />
     <Property Name="FechaActualizacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RelojDefectuosos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="HoraDesde" Type="time" Nullable="true" />
+    <Property Name="HoraHasta" Type="time" Nullable="true" />
+    <Property Name="JornadaCompleta" Type="bit" Nullable="true" />
   </EntityType>
   <EntityType Name="SubSectorAgente">
     <Key>
@@ -562,6 +573,7 @@
             <End Role="Formulario" EntitySet="Formularios" />
             <End Role="Control" EntitySet="Controles" />
           </AssociationSet>
+          <EntitySet Name="RelojDefectuosos" EntityType="ModeloBometrico.RelojDefectuoso" />
         </EntityContainer>
         <EntityType Name="Sector">
           <Key>
@@ -881,6 +893,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="RelojDefectuoso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" />
+          <Property Name="HoraDesde" Type="Time" Nullable="true" />
+          <Property Name="HoraHasta" Type="Time" Nullable="true" />
+          <Property Name="JornadaCompleta" Type="Boolean" Nullable="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1060,6 +1082,17 @@
           <ScalarProperty Name="FechaHasta" ColumnName="FechaHasta" />
           <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
           <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelojDefectuosos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloBometrico.RelojDefectuoso)">
+        <MappingFragment StoreEntitySet="RelojDefectuosos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="HoraDesde" ColumnName="HoraDesde" />
+          <ScalarProperty Name="HoraHasta" ColumnName="HoraHasta" />
+          <ScalarProperty Name="JornadaCompleta" ColumnName="JornadaCompleta" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

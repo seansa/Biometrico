@@ -220,5 +220,10 @@ namespace BiometricoWF
            // _formulario.ShowDialog();
 
         }
+
+        private void relojDefectuosoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EjecutarFormulario(new PresentacionRecursoHumano._00013_Novedades("Reloj Defectuoso"));
+        }
     }
 }

@@ -39,5 +39,6 @@ namespace AccesoDatos
         public virtual DbSet<Novedad> Novedades { get; set; }
         public virtual DbSet<ComisionServicio> ComisionServicios { get; set; }
         public virtual DbSet<Lactancia> Lactancias { get; set; }
+        public virtual DbSet<RelojDefectuoso> RelojDefectuosos { get; set; }
     }
 }

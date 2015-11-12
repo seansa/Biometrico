@@ -44,6 +44,7 @@
         <EntityTypeShape EntityType="ModeloBometrico.Lactancia" Width="1.875" PointX="5.125" PointY="10.5" />
         <AssociationConnector Association="ModeloBometrico.AgenteLactancia" />
         <AssociationConnector Association="ModeloBometrico.FormularioControl" />
+        <EntityTypeShape EntityType="ModeloBometrico.RelojDefectuoso" Width="1.5" PointX="11.375" PointY="9.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
