@@ -199,3 +199,4 @@ FakesAssemblies/
 *.config
 *.DS_Store
 AccesoDatos/*.cs
+*.sql
