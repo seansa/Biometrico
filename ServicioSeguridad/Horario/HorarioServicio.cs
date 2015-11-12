@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AccesoDatos;
 using Servicio.RecursoHumano.Horario.DTOs;
+using System.Globalization;
 
 namespace Servicio.RecursoHumano.Horario
 {
@@ -110,6 +111,20 @@ namespace Servicio.RecursoHumano.Horario
 
                 return resultado;
             }
+        }
+
+        public string VerificarDiasDelRango(DateTime inicio, DateTime fin, int dias)
+        {
+            DateTime _diaAux = inicio;
+            do
+            {
+                if ((int)_diaAux.DayOfWeek==dias)
+                {
+                    return _diaAux.ToString("dddd", new CultureInfo("es-ES"));
+                }
+                _diaAux = _diaAux.AddDays(1);
+            } while (_diaAux.Date<=fin.Date);
+            return "NO";
         }
 
         public bool VerificarExiste(List<DetalleHorarioDTO> lista, DateTime fechadesde, DateTime fechahasta, TimeSpan? horaentrada, TimeSpan? horasalidaparcial, TimeSpan? horaentradaparcial, TimeSpan? horasalida, bool[] listaDias)

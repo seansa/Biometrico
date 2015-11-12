@@ -261,5 +261,29 @@ namespace PresentacionRecursoHumano
                 this.dtpFechaHasta.Value = dtpFechaHasta.MaxDate;
             }
         }
+        private void DeshabilitarDias()
+        {
+            foreach (var chk in this.pnlDias.Controls)
+            {
+                if (chk is CheckBox)
+                {
+                    ((CheckBox)chk).Enabled = false;
+                }
+            }
+        }
+        private void HabilitarDias()
+        {
+            DeshabilitarDias();
+            for (int i = 0; i < 7; i++)
+            {
+                foreach (var chk in pnlDias.Controls)
+                {
+                    if ()
+                    {
+
+                    }
+                }
+            }
+        }
     }
 }
