@@ -215,11 +215,28 @@ namespace PresentacionRecursoHumano
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            this.chkLunes.Checked = true;
-            this.chkMartes.Checked = true;
-            this.chkMiercoles.Checked = true;
-            this.chkJueves.Checked = true;
-            this.chkViernes.Checked = true;
+            if (this.chkLunes.Enabled)
+            {
+                this.chkLunes.Checked = true; 
+            }
+            if (this.chkMartes.Enabled)
+            {
+
+                this.chkMartes.Checked = true; 
+            }
+
+            if (this.chkMiercoles.Enabled)
+            {
+                this.chkMiercoles.Checked = true; 
+            }
+            if (this.chkJueves.Enabled)
+            {
+                this.chkJueves.Checked = true; 
+            }
+            if (this.chkViernes.Enabled)
+            {
+                this.chkViernes.Checked = true; 
+            }
         }
 
         private void dtpFechaDesde_ValueChanged(object sender, EventArgs e)
