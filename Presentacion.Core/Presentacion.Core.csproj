@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Inicializador\InicializadorAccesos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_10001_Acceso.cs">
       <SubType>Form</SubType>
@@ -69,6 +70,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
+      <Project>{71bdc5c4-8837-4b0b-89dd-d1eb81a1a694}</Project>
+      <Name>AccesoDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PresentacionBase\PresentacionBase.csproj">
       <Project>{71710be8-ed22-4dfa-99ea-0c7697df9131}</Project>
       <Name>PresentacionBase</Name>
