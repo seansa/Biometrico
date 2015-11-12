@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_00011_ABM_Horario));
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
@@ -42,7 +42,7 @@
             this.txtApyNom = new System.Windows.Forms.TextBox();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.chkSabado = new System.Windows.Forms.CheckBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlDias = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.chkDomingo = new System.Windows.Forms.CheckBox();
             this.chkViernes = new System.Windows.Forms.CheckBox();
@@ -69,7 +69,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnSemana.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlDias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvgrilla)).BeginInit();
             this.btnSalir.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -167,20 +167,20 @@
             this.chkSabado.Text = "Sábado";
             this.chkSabado.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // pnlDias
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.chkDomingo);
-            this.panel1.Controls.Add(this.chkSabado);
-            this.panel1.Controls.Add(this.chkViernes);
-            this.panel1.Controls.Add(this.chkJueves);
-            this.panel1.Controls.Add(this.chkMiercoles);
-            this.panel1.Controls.Add(this.chkMartes);
-            this.panel1.Controls.Add(this.chkLunes);
-            this.panel1.Location = new System.Drawing.Point(10, 293);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(745, 42);
-            this.panel1.TabIndex = 19;
+            this.pnlDias.Controls.Add(this.button1);
+            this.pnlDias.Controls.Add(this.chkDomingo);
+            this.pnlDias.Controls.Add(this.chkSabado);
+            this.pnlDias.Controls.Add(this.chkViernes);
+            this.pnlDias.Controls.Add(this.chkJueves);
+            this.pnlDias.Controls.Add(this.chkMiercoles);
+            this.pnlDias.Controls.Add(this.chkMartes);
+            this.pnlDias.Controls.Add(this.chkLunes);
+            this.pnlDias.Location = new System.Drawing.Point(10, 293);
+            this.pnlDias.Name = "pnlDias";
+            this.pnlDias.Size = new System.Drawing.Size(745, 42);
+            this.pnlDias.TabIndex = 19;
             // 
             // button1
             // 
@@ -275,29 +275,29 @@
             // dgvgrilla
             // 
             this.dgvgrilla.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Blue;
-            this.dgvgrilla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            this.dgvgrilla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvgrilla.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgvgrilla.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvgrilla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvgrilla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvgrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvgrilla.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvgrilla.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvgrilla.GridColor = System.Drawing.Color.White;
             this.dgvgrilla.Location = new System.Drawing.Point(10, 342);
             this.dgvgrilla.MultiSelect = false;
@@ -486,7 +486,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnSemana);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlDias);
             this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvgrilla);
@@ -495,8 +495,8 @@
             this.Load += new System.EventHandler(this._00011_ABM_Horario_Load);
             this.btnSemana.ResumeLayout(false);
             this.btnSemana.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlDias.ResumeLayout(false);
+            this.pnlDias.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvgrilla)).EndInit();
             this.btnSalir.ResumeLayout(false);
             this.btnSalir.PerformLayout();
@@ -516,7 +516,7 @@
         private System.Windows.Forms.TextBox txtApyNom;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.CheckBox chkSabado;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlDias;
         private System.Windows.Forms.CheckBox chkDomingo;
         private System.Windows.Forms.CheckBox chkViernes;
         private System.Windows.Forms.CheckBox chkJueves;
