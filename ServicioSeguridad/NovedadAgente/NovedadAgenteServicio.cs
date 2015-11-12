@@ -8,5 +8,6 @@ namespace Servicio.RecursoHumano.NovedadAgente
 {
     class NovedadAgenteServicio : INovedadAgenteServicio
     {
+
     }
 }

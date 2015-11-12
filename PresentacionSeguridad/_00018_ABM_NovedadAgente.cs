@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PresentacionRecursoHumano
 {
-    public partial class _00018_ABM_NovedadAgente : Form
+    public partial class _00018_ABM_NovedadAgente : PresentacionBase.FormularioABM
     {
         public _00018_ABM_NovedadAgente()
         {
