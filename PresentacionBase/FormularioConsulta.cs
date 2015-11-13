@@ -253,5 +253,10 @@ namespace PresentacionBase
         {
 
         }
+
+        public virtual void btnNovedadAgente_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

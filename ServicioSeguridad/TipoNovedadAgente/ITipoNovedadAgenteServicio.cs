@@ -7,7 +7,7 @@ namespace Servicio.RecursoHumano.TipoNovedadAgente
 {
     public interface ITipoNovedadAgenteServicio
     {
-        void Insertar(long id, string abreviatura, string descripcion, bool esJornadaCompleta);
+        void Insertar(string abreviatura, string descripcion, bool esJornadaCompleta);
         IEnumerable<TipoNovedadAgenteDTO> ObtenerTodo();
         TipoNovedad ObtenerPorId(long id);
     }
