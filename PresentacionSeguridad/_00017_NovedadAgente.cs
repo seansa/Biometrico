@@ -91,15 +91,13 @@ namespace PresentacionRecursoHumano
         {
             var _tipoNovedad = _tipoNovedadAgente.ObtenerPorId(_tipoNovedadId);
 
-            var _nuevaNovedad = new NovedadAgenteDTO()
-            {
-                AngenteId = current_id,
-                Observacion = this.txtObservacion.Text,
-                TipoNovedadId = _tipoNovedadId,
-                FechaDesde = this.dtpFechaDesde.Value,
-                FechaHasta = this.dtpFechaHasta.Value,
-
-            };
+            var _nuevaNovedad = new NovedadAgenteDTO();
+            _nuevaNovedad.AngenteId = current_id;
+            _nuevaNovedad.Observacion = this.txtObservacion.Text;
+            _nuevaNovedad.TipoNovedadId = _tipoNovedadId;
+            _nuevaNovedad.FechaDesde = this.dtpFechaDesde.Value;
+            _nuevaNovedad.FechaHasta = this.dtpFechaHasta.Value;
+            //_nuevaNovedad.HoraDesde = _tipoNovedad.EsJornadaCompleta ? null : dtpHoraDesde.Value.TimeOfDay;
         }
 
         private void cmbTipoNovedadAgente_SelectedIndexChanged(object sender, EventArgs e)

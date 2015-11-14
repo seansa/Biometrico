@@ -793,8 +793,8 @@
           <Property Name="TipoNovedadId" Type="Int64" Nullable="false" />
           <Property Name="FechaDesde" Type="DateTime" Nullable="false" />
           <Property Name="FechaHasta" Type="DateTime" Nullable="true" />
-          <Property Name="HoraDesde" Type="String" Nullable="false" />
-          <Property Name="HoraHasta" Type="String" Nullable="false" />
+          <Property Name="HoraDesde" Type="Time" Nullable="true" />
+          <Property Name="HoraHasta" Type="Time" Nullable="true" />
           <NavigationProperty Name="TipoNovedad" Relationship="ModeloBometrico.TipoNovedadNovedad" FromRole="Novedad" ToRole="TipoNovedad" />
           <NavigationProperty Name="Agente" Relationship="ModeloBometrico.AgenteNovedad" FromRole="Novedad" ToRole="Agente" />
           <Property Name="Observacion" Type="String" Nullable="false" />
