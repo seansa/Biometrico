@@ -97,7 +97,9 @@ namespace PresentacionRecursoHumano
             _nuevaNovedad.TipoNovedadId = _tipoNovedadId;
             _nuevaNovedad.FechaDesde = this.dtpFechaDesde.Value;
             _nuevaNovedad.FechaHasta = this.dtpFechaHasta.Value;
-            //_nuevaNovedad.HoraDesde = _tipoNovedad.EsJornadaCompleta ? null : dtpHoraDesde.Value.TimeOfDay;
+            _nuevaNovedad.HoraDesde = (_tipoNovedad.EsJornadaCompleta) ? (TimeSpan?)null : dtpHoraDesde.Value.TimeOfDay;
+            _nuevaNovedad.HoraHasta = (_tipoNovedad.EsJornadaCompleta) ? (TimeSpan?)null : dtpHoraHasta.Value.TimeOfDay;
+
         }
 
         private void cmbTipoNovedadAgente_SelectedIndexChanged(object sender, EventArgs e)

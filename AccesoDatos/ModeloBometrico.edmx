@@ -220,8 +220,8 @@
     <Property Name="TipoNovedadId" Type="bigint" Nullable="false" />
     <Property Name="FechaDesde" Type="datetime" Nullable="false" />
     <Property Name="FechaHasta" Type="datetime" Nullable="true" />
-    <Property Name="HoraDesde" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="HoraHasta" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HoraDesde" Type="time" Nullable="true" />
+    <Property Name="HoraHasta" Type="time" Nullable="true" />
     <Property Name="Observacion" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ComisionServicios">

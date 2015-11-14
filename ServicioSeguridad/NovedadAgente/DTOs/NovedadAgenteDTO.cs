@@ -12,9 +12,9 @@ namespace Servicio.RecursoHumano.NovedadAgente.DTOs
         public long AngenteId { get; set; }
         public long TipoNovedadId { get; set; }
         public DateTime FechaDesde { get; set; }
-        public DateTime FechaHasta { get; set; }
-        public TimeSpan HoraDesde { get; set; }
-        public TimeSpan HoraHasta { get; set; }
+        public DateTime? FechaHasta { get; set; }
+        public TimeSpan? HoraDesde { get; set; }
+        public TimeSpan? HoraHasta { get; set; }
         public string Observacion { get; set; }
     }
 }
