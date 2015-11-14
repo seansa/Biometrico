@@ -2,17 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
-<<<<<<< HEAD
-<<<<<<< HEAD
--- Date Created: 11/11/2015 23:15:29
+-- Date Created: 11/14/2015 02:31:56
 -- Generated from EDMX file: C:\Users\sna19_000\Documents\GitHubVisualStudio\Biometrico\AccesoDatos\ModeloBometrico.edmx
-=======
--- Date Created: 11/11/2015 23:22:39
-=======
--- Date Created: 11/13/2015 22:38:33
->>>>>>> [HoraDesde y Hasta a timespan]
--- Generated from EDMX file: C:\Users\Sebastian\Documents\GitHubVisualStudio\Biometrico\AccesoDatos\ModeloBometrico.edmx
->>>>>>> [bootstrap NovedadAgente]
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
