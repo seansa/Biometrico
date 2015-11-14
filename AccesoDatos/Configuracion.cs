@@ -17,8 +17,8 @@ namespace AccesoDatos
         public long Id { get; set; }
         public int MinutosToleranciaLlegadaTarde { get; set; }
         public int MinutosToleranciaAusente { get; set; }
-        public string HoraEntradaPorDefecto { get; set; }
-        public string HoraSalidaPorDefecto { get; set; }
-        public string MinutosLactancia { get; set; }
+        public System.TimeSpan HoraEntradaPorDefecto { get; set; }
+        public System.TimeSpan HoraSalidaPorDefecto { get; set; }
+        public int MinutosLactancia { get; set; }
     }
 }

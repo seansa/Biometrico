@@ -122,7 +122,9 @@ namespace Servicio.RecursoHumano.RelojDefectuoso
                     var _afectado = new RelojDefectuosoDTO();
                     _afectado.IdAgente = agente.Id;
                     _afectado.IdHorario = horarioaplicado.Id;
+                    _afectado.Legajo = agente.Legajo;
                     _afectado.Nombre = agente.Nombre;
+                    _afectado.Apellido = agente.Apellido;
                     _afectado.RelojDefectuosoEntrada = false;
                     _afectado.RelojDefectuosoEntradaParcial = false;
                     _afectado.RelojDefectuosoSalidaParcial = false;
@@ -139,7 +141,9 @@ namespace Servicio.RecursoHumano.RelojDefectuoso
                         var _afectado = new RelojDefectuosoDTO();
                         _afectado.IdAgente = agente.Id;
                         _afectado.IdHorario = horarioaplicado.Id;
+                        _afectado.Legajo = agente.Legajo;
                         _afectado.Nombre = agente.Nombre;
+                        _afectado.Apellido = agente.Apellido;
                         //veo si esta totalmente dentro del horario de rotura
                         if (horarioaplicado.HoraEntrada >= horadesde && horarioaplicado.HoraSalida <= horahasta)
                         {

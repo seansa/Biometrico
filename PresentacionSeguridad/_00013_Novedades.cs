@@ -1,4 +1,5 @@
 ﻿using Servicio.RecursoHumano.RelojDefectuoso;
+using Servicio.RecursoHumano.RelojDefectuoso.DTOs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,8 @@ namespace PresentacionRecursoHumano
         private void _00013_Novedades_Load(object sender, EventArgs e)
         {
             DeshabilitarControles(true);
+            this.dgvGrilla.DataSource = new List<RelojDefectuosoDTO>();
+            FormatearGrilla(this.dgvGrilla);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -54,8 +57,10 @@ namespace PresentacionRecursoHumano
         public override void FormatearGrilla(DataGridView dgv)
         {
             base.FormatearGrilla(dgv);
-            this.dgvGrilla.Columns["Nombre"].Visible = true;
-            this.dgvGrilla.Columns["Nombre"].Width = 150;
+            this.dgvGrilla.Columns["Legajo"].Visible = true;
+            this.dgvGrilla.Columns["Legajo"].Width = 150;
+            this.dgvGrilla.Columns["ApyNom"].Visible = true;
+            this.dgvGrilla.Columns["ApyNom"].Width = 150;
             this.dgvGrilla.Columns["RelojDefectuosoEntrada"].Width = 150;
             this.dgvGrilla.Columns["RelojDefectuosoEntrada"].HeaderText = "Reloj Entrada";
             this.dgvGrilla.Columns["RelojDefectuosoEntrada"].Visible = true;

@@ -198,9 +198,9 @@
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MinutosToleranciaLlegadaTarde" Type="int" Nullable="false" />
     <Property Name="MinutosToleranciaAusente" Type="int" Nullable="false" />
-    <Property Name="HoraEntradaPorDefecto" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="HoraSalidaPorDefecto" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="MinutosLactancia" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HoraEntradaPorDefecto" Type="time" Nullable="false" />
+    <Property Name="HoraSalidaPorDefecto" Type="time" Nullable="false" />
+    <Property Name="MinutosLactancia" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TipoNovedades">
     <Key>
@@ -770,9 +770,9 @@
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MinutosToleranciaLlegadaTarde" Type="Int32" Nullable="false" />
           <Property Name="MinutosToleranciaAusente" Type="Int32" Nullable="false" />
-          <Property Name="HoraEntradaPorDefecto" Type="String" Nullable="false" />
-          <Property Name="HoraSalidaPorDefecto" Type="String" Nullable="false" />
-          <Property Name="MinutosLactancia" Type="String" Nullable="false" />
+          <Property Name="HoraEntradaPorDefecto" Type="Time" Nullable="false" />
+          <Property Name="HoraSalidaPorDefecto" Type="Time" Nullable="false" />
+          <Property Name="MinutosLactancia" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoNovedad">
           <Key>

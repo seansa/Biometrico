@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/14/2015 02:31:56
--- Generated from EDMX file: C:\Users\sna19_000\Documents\GitHubVisualStudio\Biometrico\AccesoDatos\ModeloBometrico.edmx
+-- Date Created: 11/12/2015 20:24:29
+-- Generated from EDMX file: C:\Users\DIEGO\Documents\GITHUB REPOSITORIO\LABORATORIO\AccesoDatos\ModeloBometrico.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -237,9 +237,9 @@ CREATE TABLE [dbo].[Configuraciones] (
     [Id] bigint IDENTITY(1,1) NOT NULL,
     [MinutosToleranciaLlegadaTarde] int  NOT NULL,
     [MinutosToleranciaAusente] int  NOT NULL,
-    [HoraEntradaPorDefecto] nvarchar(max)  NOT NULL,
-    [HoraSalidaPorDefecto] nvarchar(max)  NOT NULL,
-    [MinutosLactancia] nvarchar(max)  NOT NULL
+    [HoraEntradaPorDefecto] time  NOT NULL,
+    [HoraSalidaPorDefecto] time  NOT NULL,
+    [MinutosLactancia] int  NOT NULL
 );
 GO
 
@@ -259,8 +259,8 @@ CREATE TABLE [dbo].[Novedades] (
     [TipoNovedadId] bigint  NOT NULL,
     [FechaDesde] datetime  NOT NULL,
     [FechaHasta] datetime  NULL,
-    [HoraDesde] time  NULL,
-    [HoraHasta] time  NULL,
+    [HoraDesde] nvarchar(max)  NOT NULL,
+    [HoraHasta] nvarchar(max)  NOT NULL,
     [Observacion] nvarchar(max)  NOT NULL
 );
 GO
