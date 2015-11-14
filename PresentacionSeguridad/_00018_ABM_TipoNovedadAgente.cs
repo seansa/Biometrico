@@ -4,11 +4,11 @@ using System;
 
 namespace PresentacionRecursoHumano
 {
-    public partial class _00019_ABM_TipoNovedadAgente : FormularioABM
+    public partial class _00018_ABM_TipoNovedadAgente : FormularioABM
     {
         TipoNovedadAgenteServicio _tipoNovedadAgente;
 
-        public _00019_ABM_TipoNovedadAgente()
+        public _00018_ABM_TipoNovedadAgente()
             : base("ABM Tipo de Novedad")
         {
             InitializeComponent();

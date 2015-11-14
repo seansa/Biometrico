@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Servicio.RecursoHumano.NovedadAgente
 {
-    class NovedadAgenteServicio : INovedadAgenteServicio
+    public class NovedadAgenteServicio : INovedadAgenteServicio
     {
 
     }

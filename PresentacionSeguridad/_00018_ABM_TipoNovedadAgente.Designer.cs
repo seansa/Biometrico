@@ -1,6 +1,6 @@
 ﻿namespace PresentacionRecursoHumano
 {
-    partial class _00019_ABM_TipoNovedadAgente
+    partial class _00018_ABM_TipoNovedadAgente
     {
         /// <summary>
         /// Required designer variable.

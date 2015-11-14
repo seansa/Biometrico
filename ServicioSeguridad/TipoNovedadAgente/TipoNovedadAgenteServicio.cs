@@ -35,7 +35,21 @@ namespace Servicio.RecursoHumano.TipoNovedadAgente
 
         public TipoNovedad ObtenerPorId(long id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var _context = new ModeloBometricoContainer())
+                {
+                    var _tipo = _context.TipoNovedades.Find(id);
+
+                    if (_tipo == null) throw new Exception("No se encontro el tipo de novedad");
+
+                    return _tipo;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public IEnumerable<TipoNovedadAgenteDTO> ObtenerTodo()

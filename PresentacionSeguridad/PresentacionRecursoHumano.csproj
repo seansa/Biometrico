@@ -166,17 +166,11 @@
     <Compile Include="_00017_NovedadAgente.Designer.cs">
       <DependentUpon>_00017_NovedadAgente.cs</DependentUpon>
     </Compile>
-    <Compile Include="_00018_ABM_NovedadAgente.cs">
+    <Compile Include="_00018_ABM_TipoNovedadAgente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_00018_ABM_NovedadAgente.Designer.cs">
-      <DependentUpon>_00018_ABM_NovedadAgente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_00019_ABM_TipoNovedadAgente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="_00019_ABM_TipoNovedadAgente.Designer.cs">
-      <DependentUpon>_00019_ABM_TipoNovedadAgente.cs</DependentUpon>
+    <Compile Include="_00018_ABM_TipoNovedadAgente.Designer.cs">
+      <DependentUpon>_00018_ABM_TipoNovedadAgente.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -250,8 +244,8 @@
     <EmbeddedResource Include="_00017_NovedadAgente.resx">
       <DependentUpon>_00017_NovedadAgente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="_00019_ABM_TipoNovedadAgente.resx">
-      <DependentUpon>_00019_ABM_TipoNovedadAgente.cs</DependentUpon>
+    <EmbeddedResource Include="_00018_ABM_TipoNovedadAgente.resx">
+      <DependentUpon>_00018_ABM_TipoNovedadAgente.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,7 @@
 ﻿using Servicio.RecursoHumano.Agente;
 using Servicio.RecursoHumano.Agente.DTOs;
+using Servicio.RecursoHumano.NovedadAgente;
+using Servicio.RecursoHumano.NovedadAgente.DTOs;
 using Servicio.RecursoHumano.TipoNovedadAgente;
 using System;
 using System.Collections.Generic;
@@ -17,21 +19,23 @@ namespace PresentacionRecursoHumano
     {
         private readonly IAgenteServicio _agenteServicio;
         TipoNovedadAgenteServicio _tipoNovedadAgente;
+        NovedadAgenteServicio _novedadAgente;
+        private long current_id;
+        private long _tipoNovedadId;
 
         public _00017_NovedadAgente()
         {
-            _agenteServicio = new AgenteServicio();
             InitializeComponent();
+            _agenteServicio = new AgenteServicio();
             _tipoNovedadAgente = new TipoNovedadAgenteServicio();
+            _novedadAgente = new NovedadAgenteServicio();
+
             PoblarGrilla();
             FormatearGrilla(this.dgvNovedadAgente);
             PoblarComboBox(this.cmbTipoNovedadAgente, _tipoNovedadAgente.ObtenerTodo(), "Descripcion");
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
 
-        }
         public override void FormatearGrilla(DataGridView dgv)
         {
             base.FormatearGrilla(dgv);
@@ -62,7 +66,7 @@ namespace PresentacionRecursoHumano
 
         private void btnTipoNovedad_Click(object sender, EventArgs e)
         {
-            var _formulario = new _00019_ABM_TipoNovedadAgente();
+            var _formulario = new _00018_ABM_TipoNovedadAgente();
             _formulario.TipoOperacion = PresentacionBase.TipoOperacion.Insertar;
             _formulario.ShowDialog();
         }
@@ -76,11 +80,39 @@ namespace PresentacionRecursoHumano
         {
             if (this.dgvNovedadAgente.RowCount > 0)
             {
-                var _id = (long)this.dgvNovedadAgente["Id",e.RowIndex].Value;
-                var agente = _agenteServicio.ObtenerPorId(_id);
+                current_id = (long)this.dgvNovedadAgente["Id", e.RowIndex].Value;
+                var agente = _agenteServicio.ObtenerPorId(current_id);
                 this.txtApyNom.Text = agente.Apellido + " " + agente.Nombre;
                 this.txtLegajo.Text = agente.Legajo;
             }
+        }
+
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            var _tipoNovedad = _tipoNovedadAgente.ObtenerPorId(_tipoNovedadId);
+
+            var _nuevaNovedad = new NovedadAgenteDTO()
+            {
+                AngenteId = current_id,
+                Observacion = this.txtObservacion.Text,
+                TipoNovedadId = _tipoNovedadId,
+                FechaDesde = this.dtpFechaDesde.Value,
+                FechaHasta = this.dtpFechaHasta.Value,
+
+            };
+        }
+
+        private void cmbTipoNovedadAgente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTipoNovedadAgente.SelectedIndex > 0)
+            {
+                _tipoNovedadId = (long)this.cmbTipoNovedadAgente.SelectedValue;
+                var _tipoNovedad = _tipoNovedadAgente.ObtenerPorId(_tipoNovedadId);
+
+                this.dtpHoraDesde.Enabled = _tipoNovedad.EsJornadaCompleta ? true : false;
+                this.dtpHoraHasta.Enabled = _tipoNovedad.EsJornadaCompleta ? true : false;
+            }
+
         }
     }
 }
