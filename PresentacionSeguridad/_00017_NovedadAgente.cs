@@ -107,16 +107,24 @@ namespace PresentacionRecursoHumano
             {
                 if (HorasValidas(_tipoNovedad))
                 {
-                    var _nuevaNovedad = new NovedadAgenteDTO();
-                    _nuevaNovedad.AngenteId = current_id;
-                    _nuevaNovedad.Observacion = this.txtObservacion.Text;
-                    _nuevaNovedad.TipoNovedadId = _tipoNovedadId;
-                    _nuevaNovedad.FechaDesde = this.dtpFechaDesde.Value;
-                    _nuevaNovedad.FechaHasta = this.dtpFechaHasta.Value;
-                    _nuevaNovedad.HoraDesde = (_tipoNovedad.EsJornadaCompleta) ? dtpHoraDesde.Value.TimeOfDay : (TimeSpan?)null;
-                    _nuevaNovedad.HoraHasta = (_tipoNovedad.EsJornadaCompleta) ? dtpHoraHasta.Value.TimeOfDay : (TimeSpan?)null;
-                    _novedadAgente.Insertar(_nuevaNovedad);
-                    LimpiarControles(this);
+                    if (VerificarDatosObligatorios(new object[] { this.txtObservacion }))
+                    {
+                        var _nuevaNovedad = new NovedadAgenteDTO();
+                        _nuevaNovedad.AngenteId = current_id;
+                        _nuevaNovedad.Observacion = this.txtObservacion.Text;
+                        _nuevaNovedad.TipoNovedadId = _tipoNovedadId;
+                        _nuevaNovedad.FechaDesde = this.dtpFechaDesde.Value;
+                        _nuevaNovedad.FechaHasta = this.dtpFechaHasta.Value;
+                        _nuevaNovedad.HoraDesde = (_tipoNovedad.EsJornadaCompleta) ? dtpHoraDesde.Value.TimeOfDay : (TimeSpan?)null;
+                        _nuevaNovedad.HoraHasta = (_tipoNovedad.EsJornadaCompleta) ? dtpHoraHasta.Value.TimeOfDay : (TimeSpan?)null;
+                        _novedadAgente.Insertar(_nuevaNovedad);
+                        LimpiarControles(this);
+                    }
+                    else
+                    {
+                        Mensaje.Mostrar("Debe escribir una Observacion", TipoMensaje.Aviso);
+                        txtObservacion.Focus();
+                    }
                 }
                 else
                 {
