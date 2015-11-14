@@ -36,6 +36,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMensaje)).BeginInit();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            this.label1.TabIndex = 4;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -50,15 +54,14 @@
             this.txtTipoNovedadAgente.Location = new System.Drawing.Point(130, 123);
             this.txtTipoNovedadAgente.Name = "txtTipoNovedadAgente";
             this.txtTipoNovedadAgente.Size = new System.Drawing.Size(338, 23);
-            this.txtTipoNovedadAgente.TabIndex = 4;
+            this.txtTipoNovedadAgente.TabIndex = 0;
             // 
             // txtAbreviaturaCodigo
             // 
             this.txtAbreviaturaCodigo.Location = new System.Drawing.Point(130, 163);
             this.txtAbreviaturaCodigo.Name = "txtAbreviaturaCodigo";
             this.txtAbreviaturaCodigo.Size = new System.Drawing.Size(158, 23);
-            this.txtAbreviaturaCodigo.TabIndex = 6;
-            this.txtAbreviaturaCodigo.TabStop = false;
+            this.txtAbreviaturaCodigo.TabIndex = 1;
             // 
             // label3
             // 
@@ -75,7 +78,7 @@
             this.cbJornadaCompleta.Location = new System.Drawing.Point(15, 202);
             this.cbJornadaCompleta.Name = "cbJornadaCompleta";
             this.cbJornadaCompleta.Size = new System.Drawing.Size(120, 19);
-            this.cbJornadaCompleta.TabIndex = 7;
+            this.cbJornadaCompleta.TabIndex = 2;
             this.cbJornadaCompleta.Text = "Jornada completa";
             this.cbJornadaCompleta.UseVisualStyleBackColor = true;
             // 

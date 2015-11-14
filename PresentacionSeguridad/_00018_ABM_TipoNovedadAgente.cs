@@ -12,25 +12,31 @@ namespace PresentacionRecursoHumano
             : base("ABM Tipo de Novedad")
         {
             InitializeComponent();
-            this.label1.Visible = false;
             _tipoNovedadAgente = new TipoNovedadAgenteServicio();
         }
 
         public override void InsertarRegistro()
         {
-            try
+            if (VerificarDatosObligatorios(new object[] { this.txtAbreviaturaCodigo, this.txtTipoNovedadAgente }))
             {
-                _tipoNovedadAgente.Insertar(
-                    this.txtAbreviaturaCodigo.Text,
-                    this.txtTipoNovedadAgente.Text,
-                    this.cbJornadaCompleta.Checked);
+                try
+                {
+                    _tipoNovedadAgente.Insertar(
+                        this.txtAbreviaturaCodigo.Text,
+                        this.txtTipoNovedadAgente.Text,
+                        this.cbJornadaCompleta.Checked);
 
-                RealizoAlgunaOperacion = true;
-                CargarDatos();
+                    RealizoAlgunaOperacion = true;
+                    CargarDatos();
+                }
+                catch (Exception)
+                {
+                    Mensaje.Mostrar("Ocurrió un error al insertar un el Tipo de novedad", TipoMensaje.Error);
+                }
             }
-            catch (Exception)
+            else
             {
-                Mensaje.Mostrar("Ocurrió un error al insertar un el Tipo de novedad", TipoMensaje.Error);
+                Mensaje.Mostrar("Falto completar datos obligatorios.", TipoMensaje.Aviso);
             }
         }
     }
