@@ -33,6 +33,7 @@
             this.consultaDeAgentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoAgenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novedadesAgenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaDeSectoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +67,9 @@
             this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.novedadesAgenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mensualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mensualToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -116,6 +119,13 @@
             this.novedadesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.novedadesToolStripMenuItem.Text = "Novedades";
             this.novedadesToolStripMenuItem.Click += new System.EventHandler(this.novedadesToolStripMenuItem_Click);
+            // 
+            // novedadesAgenteToolStripMenuItem
+            // 
+            this.novedadesAgenteToolStripMenuItem.Name = "novedadesAgenteToolStripMenuItem";
+            this.novedadesAgenteToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.novedadesAgenteToolStripMenuItem.Text = "Novedades Agente";
+            this.novedadesAgenteToolStripMenuItem.Click += new System.EventHandler(this.novedadesAgenteToolStripMenuItem_Click);
             // 
             // administraciónToolStripMenuItem
             // 
@@ -304,7 +314,8 @@
             // 
             this.accesoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.accesoDelAgenteToolStripMenuItem,
-            this.relojDefectuosoToolStripMenuItem});
+            this.relojDefectuosoToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.accesoToolStripMenuItem.Name = "accesoToolStripMenuItem";
             this.accesoToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.accesoToolStripMenuItem.Text = "Acceso";
@@ -370,12 +381,27 @@
             this.lblUsuario.Size = new System.Drawing.Size(50, 17);
             this.lblUsuario.Text = "Usuario:";
             // 
-            // novedadesAgenteToolStripMenuItem
+            // reportesToolStripMenuItem
             // 
-            this.novedadesAgenteToolStripMenuItem.Name = "novedadesAgenteToolStripMenuItem";
-            this.novedadesAgenteToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.novedadesAgenteToolStripMenuItem.Text = "Novedades Agente";
-            this.novedadesAgenteToolStripMenuItem.Click += new System.EventHandler(this.novedadesAgenteToolStripMenuItem_Click);
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mensualToolStripMenuItem,
+            this.mensualToolStripMenuItem1});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // mensualToolStripMenuItem
+            // 
+            this.mensualToolStripMenuItem.Name = "mensualToolStripMenuItem";
+            this.mensualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mensualToolStripMenuItem.Text = "Diario";
+            // 
+            // mensualToolStripMenuItem1
+            // 
+            this.mensualToolStripMenuItem1.Name = "mensualToolStripMenuItem1";
+            this.mensualToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.mensualToolStripMenuItem1.Text = "Mensual";
+            this.mensualToolStripMenuItem1.Click += new System.EventHandler(this.mensualToolStripMenuItem1_Click);
             // 
             // Principal
             // 
@@ -444,5 +470,8 @@
         private System.Windows.Forms.ToolStripMenuItem accesoDelAgenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relojDefectuosoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novedadesAgenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mensualToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mensualToolStripMenuItem1;
     }
 }

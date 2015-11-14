@@ -178,6 +178,12 @@
     <Compile Include="_00020_Configuracion.Designer.cs">
       <DependentUpon>_00020_Configuracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="_00021_ReporteMensual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_00021_ReporteMensual.Designer.cs">
+      <DependentUpon>_00021_ReporteMensual.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
