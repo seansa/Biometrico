@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_00017_NovedadAgente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dtpHoraDesde = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
@@ -53,10 +57,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvNovedadAgente = new PresentacionBase.Clases.Control.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dtpHoraDesde = new System.Windows.Forms.DateTimePicker();
-            this.dtpHoraHasta = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNovedadAgente)).BeginInit();
@@ -83,6 +83,43 @@
             this.groupBox1.Size = new System.Drawing.Size(723, 218);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(368, 190);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 15);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Hora Salida";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(35, 190);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 15);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Hora Entrada";
+            // 
+            // dtpHoraDesde
+            // 
+            this.dtpHoraDesde.CustomFormat = "";
+            this.dtpHoraDesde.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraDesde.Location = new System.Drawing.Point(121, 184);
+            this.dtpHoraDesde.Name = "dtpHoraDesde";
+            this.dtpHoraDesde.ShowUpDown = true;
+            this.dtpHoraDesde.Size = new System.Drawing.Size(130, 23);
+            this.dtpHoraDesde.TabIndex = 28;
+            // 
+            // dtpHoraHasta
+            // 
+            this.dtpHoraHasta.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraHasta.Location = new System.Drawing.Point(463, 184);
+            this.dtpHoraHasta.Name = "dtpHoraHasta";
+            this.dtpHoraHasta.ShowUpDown = true;
+            this.dtpHoraHasta.Size = new System.Drawing.Size(130, 23);
+            this.dtpHoraHasta.TabIndex = 29;
             // 
             // dtpFechaHasta
             // 
@@ -266,86 +303,49 @@
             this.dgvNovedadAgente.AllowUserToAddRows = false;
             this.dgvNovedadAgente.AllowUserToDeleteRows = false;
             this.dgvNovedadAgente.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Brown;
-            this.dgvNovedadAgente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Brown;
+            this.dgvNovedadAgente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNovedadAgente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvNovedadAgente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNovedadAgente.BackgroundColor = System.Drawing.Color.White;
             this.dgvNovedadAgente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNovedadAgente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNovedadAgente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNovedadAgente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNovedadAgente.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNovedadAgente.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvNovedadAgente.Location = new System.Drawing.Point(12, 81);
             this.dgvNovedadAgente.MultiSelect = false;
             this.dgvNovedadAgente.Name = "dgvNovedadAgente";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNovedadAgente.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNovedadAgente.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvNovedadAgente.RowHeadersVisible = false;
             this.dgvNovedadAgente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNovedadAgente.Size = new System.Drawing.Size(727, 107);
             this.dgvNovedadAgente.TabIndex = 30;
             this.dgvNovedadAgente.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNovedadAgente_RowEnter);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(368, 190);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 15);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "Hora Salida";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(35, 190);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 15);
-            this.label9.TabIndex = 31;
-            this.label9.Text = "Hora Entrada";
-            // 
-            // dtpHoraDesde
-            // 
-            this.dtpHoraDesde.CustomFormat = "";
-            this.dtpHoraDesde.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraDesde.Location = new System.Drawing.Point(121, 184);
-            this.dtpHoraDesde.Name = "dtpHoraDesde";
-            this.dtpHoraDesde.ShowUpDown = true;
-            this.dtpHoraDesde.Size = new System.Drawing.Size(130, 23);
-            this.dtpHoraDesde.TabIndex = 28;
-            // 
-            // dtpHoraHasta
-            // 
-            this.dtpHoraHasta.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraHasta.Location = new System.Drawing.Point(463, 184);
-            this.dtpHoraHasta.Name = "dtpHoraHasta";
-            this.dtpHoraHasta.ShowUpDown = true;
-            this.dtpHoraHasta.Size = new System.Drawing.Size(130, 23);
-            this.dtpHoraHasta.TabIndex = 29;
             // 
             // _00017_NovedadAgente
             // 
@@ -359,7 +359,7 @@
             this.Controls.Add(this.txtObservacion);
             this.Controls.Add(this.toolStrip1);
             this.Name = "_00017_NovedadAgente";
-            this.Text = "_00017_NovedadAgente";
+            this.Text = "Novedad del Agente";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

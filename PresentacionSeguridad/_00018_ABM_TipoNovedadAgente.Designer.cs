@@ -79,7 +79,7 @@
             this.cbJornadaCompleta.Text = "Jornada completa";
             this.cbJornadaCompleta.UseVisualStyleBackColor = true;
             // 
-            // _00019_ABM_TipoNovedadAgente
+            // _00018_ABM_TipoNovedadAgente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -89,8 +89,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTipoNovedadAgente);
             this.Controls.Add(this.label2);
-            this.Name = "_00019_ABM_TipoNovedadAgente";
-            this.Text = "_00019_ABM_TipoNovedadAgente";
+            this.Name = "_00018_ABM_TipoNovedadAgente";
+            this.Text = "Nuevo Tipo de Novedad";
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.txtTipoNovedadAgente, 0);
