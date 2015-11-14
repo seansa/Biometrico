@@ -40,7 +40,28 @@ namespace Servicio.RecursoHumano.TipoNovedadAgente
 
         public IEnumerable<TipoNovedadAgenteDTO> ObtenerTodo()
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var _context = new ModeloBometricoContainer())
+                {
+                    var _tipoNovedad = _context.TipoNovedades
+                        .AsNoTracking()
+                        .Select(x => new TipoNovedadAgenteDTO
+                        {
+                            Id = x.Id,
+                            Abreviatura = x.Abreviatura,
+                            Descripcion = x.Descripcion,
+                            EsJornadaCompleta = x.EsJornadaCompleta
+                        })
+                        .ToList();
+
+                    return _tipoNovedad;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

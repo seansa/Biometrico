@@ -29,42 +29,153 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_00017_NovedadAgente));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnGrabar = new System.Windows.Forms.ToolStripButton();
-            this.btnSalir = new System.Windows.Forms.ToolStripButton();
-            this.btnTipoNovedad = new System.Windows.Forms.ToolStripButton();
-            this.btnLimpiar = new System.Windows.Forms.ToolStripButton();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbTipoNovedadAgente = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.txtApyNom = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbTipoNovedadAgente = new System.Windows.Forms.ComboBox();
-            this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtObservacion = new System.Windows.Forms.TextBox();
-            this.toolStrip1.SuspendLayout();
+            this.btnGrabar = new System.Windows.Forms.ToolStripButton();
+            this.btnSalir = new System.Windows.Forms.ToolStripButton();
+            this.btnLimpiar = new System.Windows.Forms.ToolStripButton();
+            this.btnTipoNovedad = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dgvNovedadAgente = new PresentacionBase.Clases.Control.DataGridView();
             this.groupBox1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNovedadAgente)).BeginInit();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // groupBox1
             // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.BackColor = System.Drawing.Color.SteelBlue;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnGrabar,
-            this.btnSalir,
-            this.btnLimpiar,
-            this.btnTipoNovedad});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(661, 42);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.groupBox1.Controls.Add(this.dtpFechaHasta);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.dtpFechaDesde);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cmbTipoNovedadAgente);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtLegajo);
+            this.groupBox1.Controls.Add(this.txtApyNom);
+            this.groupBox1.Location = new System.Drawing.Point(12, 194);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(723, 188);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            // 
+            // dtpFechaHasta
+            // 
+            this.dtpFechaHasta.Location = new System.Drawing.Point(463, 147);
+            this.dtpFechaHasta.Name = "dtpFechaHasta";
+            this.dtpFechaHasta.Size = new System.Drawing.Size(206, 23);
+            this.dtpFechaHasta.TabIndex = 26;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(378, 154);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 15);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Fecha Inicial";
+            // 
+            // dtpFechaDesde
+            // 
+            this.dtpFechaDesde.Location = new System.Drawing.Point(121, 147);
+            this.dtpFechaDesde.Name = "dtpFechaDesde";
+            this.dtpFechaDesde.Size = new System.Drawing.Size(182, 23);
+            this.dtpFechaDesde.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(39, 153);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 15);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Fecha Inicial";
+            // 
+            // cmbTipoNovedadAgente
+            // 
+            this.cmbTipoNovedadAgente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoNovedadAgente.FormattingEnabled = true;
+            this.cmbTipoNovedadAgente.Location = new System.Drawing.Point(121, 112);
+            this.cmbTipoNovedadAgente.Name = "cmbTipoNovedadAgente";
+            this.cmbTipoNovedadAgente.Size = new System.Drawing.Size(596, 23);
+            this.cmbTipoNovedadAgente.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 120);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 15);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Tipo de Novedad";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 15);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Apellido y Nombre";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(69, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 15);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Legajo";
+            // 
+            // txtLegajo
+            // 
+            this.txtLegajo.Enabled = false;
+            this.txtLegajo.Location = new System.Drawing.Point(121, 22);
+            this.txtLegajo.Name = "txtLegajo";
+            this.txtLegajo.Size = new System.Drawing.Size(182, 23);
+            this.txtLegajo.TabIndex = 6;
+            // 
+            // txtApyNom
+            // 
+            this.txtApyNom.Enabled = false;
+            this.txtApyNom.Location = new System.Drawing.Point(121, 63);
+            this.txtApyNom.Name = "txtApyNom";
+            this.txtApyNom.Size = new System.Drawing.Size(596, 23);
+            this.txtApyNom.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 399);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 15);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Observacion";
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(93, 396);
+            this.txtObservacion.Multiline = true;
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(642, 80);
+            this.txtObservacion.TabIndex = 28;
             // 
             // btnGrabar
             // 
@@ -93,6 +204,17 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.Image")));
+            this.btnLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(51, 39);
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // btnTipoNovedad
             // 
@@ -105,163 +227,104 @@
             this.btnTipoNovedad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnTipoNovedad.Click += new System.EventHandler(this.btnTipoNovedad_Click);
             // 
-            // btnLimpiar
+            // toolStrip1
             // 
-            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.Image")));
-            this.btnLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(51, 39);
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStrip1.AutoSize = false;
+            this.toolStrip1.BackColor = System.Drawing.Color.SteelBlue;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnGrabar,
+            this.btnSalir,
+            this.btnLimpiar,
+            this.btnTipoNovedad});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(742, 42);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // groupBox1
+            // label7
             // 
-            this.groupBox1.Controls.Add(this.dtpFechaHasta);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.dtpFechaDesde);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cmbTipoNovedadAgente);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtLegajo);
-            this.groupBox1.Controls.Add(this.txtApyNom);
-            this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(7, 45);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(649, 188);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Novedades";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 48);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(161, 30);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Listado Agentes";
             // 
-            // label2
+            // dgvNovedadAgente
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 15);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Apellido y Nombre";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 15);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Legajo";
-            // 
-            // txtLegajo
-            // 
-            this.txtLegajo.Enabled = false;
-            this.txtLegajo.Location = new System.Drawing.Point(121, 22);
-            this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(182, 23);
-            this.txtLegajo.TabIndex = 6;
-            // 
-            // txtApyNom
-            // 
-            this.txtApyNom.Enabled = false;
-            this.txtApyNom.Location = new System.Drawing.Point(121, 63);
-            this.txtApyNom.Name = "txtApyNom";
-            this.txtApyNom.Size = new System.Drawing.Size(511, 23);
-            this.txtApyNom.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 120);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 15);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Tipo de Novedad";
-            // 
-            // cmbTipoNovedadAgente
-            // 
-            this.cmbTipoNovedadAgente.FormattingEnabled = true;
-            this.cmbTipoNovedadAgente.Location = new System.Drawing.Point(121, 112);
-            this.cmbTipoNovedadAgente.Name = "cmbTipoNovedadAgente";
-            this.cmbTipoNovedadAgente.Size = new System.Drawing.Size(511, 23);
-            this.cmbTipoNovedadAgente.TabIndex = 12;
-            // 
-            // dtpFechaDesde
-            // 
-            this.dtpFechaDesde.Location = new System.Drawing.Point(121, 147);
-            this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(182, 23);
-            this.dtpFechaDesde.TabIndex = 23;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 153);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 15);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Fecha Inicial";
-            // 
-            // dtpFechaHasta
-            // 
-            this.dtpFechaHasta.Location = new System.Drawing.Point(426, 148);
-            this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(206, 23);
-            this.dtpFechaHasta.TabIndex = 26;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(341, 155);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 15);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Fecha Inicial";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(45, 248);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 15);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Observacion";
-            // 
-            // txtObservacion
-            // 
-            this.txtObservacion.Location = new System.Drawing.Point(128, 248);
-            this.txtObservacion.Multiline = true;
-            this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(511, 201);
-            this.txtObservacion.TabIndex = 28;
+            this.dgvNovedadAgente.AllowUserToAddRows = false;
+            this.dgvNovedadAgente.AllowUserToDeleteRows = false;
+            this.dgvNovedadAgente.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Brown;
+            this.dgvNovedadAgente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvNovedadAgente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvNovedadAgente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNovedadAgente.BackgroundColor = System.Drawing.Color.White;
+            this.dgvNovedadAgente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNovedadAgente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvNovedadAgente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNovedadAgente.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvNovedadAgente.Location = new System.Drawing.Point(12, 81);
+            this.dgvNovedadAgente.MultiSelect = false;
+            this.dgvNovedadAgente.Name = "dgvNovedadAgente";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNovedadAgente.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvNovedadAgente.RowHeadersVisible = false;
+            this.dgvNovedadAgente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNovedadAgente.Size = new System.Drawing.Size(723, 107);
+            this.dgvNovedadAgente.TabIndex = 30;
+            this.dgvNovedadAgente.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNovedadAgente_RowEnter);
             // 
             // _00017_NovedadAgente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 458);
+            this.ClientSize = new System.Drawing.Size(742, 488);
+            this.Controls.Add(this.dgvNovedadAgente);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtObservacion);
             this.Controls.Add(this.toolStrip1);
             this.Name = "_00017_NovedadAgente";
             this.Text = "_00017_NovedadAgente";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNovedadAgente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnGrabar;
-        private System.Windows.Forms.ToolStripButton btnSalir;
-        private System.Windows.Forms.ToolStripButton btnTipoNovedad;
-        private System.Windows.Forms.ToolStripButton btnLimpiar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -275,5 +338,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtObservacion;
+        private System.Windows.Forms.ToolStripButton btnGrabar;
+        private System.Windows.Forms.ToolStripButton btnSalir;
+        private System.Windows.Forms.ToolStripButton btnLimpiar;
+        private System.Windows.Forms.ToolStripButton btnTipoNovedad;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.Label label7;
+        public PresentacionBase.Clases.Control.DataGridView dgvNovedadAgente;
     }
 }
