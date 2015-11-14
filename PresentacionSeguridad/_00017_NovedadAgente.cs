@@ -101,8 +101,8 @@ namespace PresentacionRecursoHumano
                 _nuevaNovedad.TipoNovedadId = _tipoNovedadId;
                 _nuevaNovedad.FechaDesde = this.dtpFechaDesde.Value;
                 _nuevaNovedad.FechaHasta = this.dtpFechaHasta.Value;
-                _nuevaNovedad.HoraDesde = (_tipoNovedad.EsJornadaCompleta) ? (TimeSpan?)null : dtpHoraDesde.Value.TimeOfDay;
-                _nuevaNovedad.HoraHasta = (_tipoNovedad.EsJornadaCompleta) ? (TimeSpan?)null : dtpHoraHasta.Value.TimeOfDay;
+                _nuevaNovedad.HoraDesde = (_tipoNovedad.EsJornadaCompleta) ? dtpHoraDesde.Value.TimeOfDay : (TimeSpan?)null;
+                _nuevaNovedad.HoraHasta = (_tipoNovedad.EsJornadaCompleta) ? dtpHoraHasta.Value.TimeOfDay : (TimeSpan?)null;
                 _novedadAgente.Insertar(_nuevaNovedad);
             }
             else
