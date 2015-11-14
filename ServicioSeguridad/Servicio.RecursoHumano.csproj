@@ -63,6 +63,8 @@
     <Compile Include="ComisionServicio\DTOs\ComisionServicioDTO.cs" />
     <Compile Include="ComisionServicio\IComisionServicio.cs" />
     <Compile Include="ComisionServicio\ComisionServicio.cs" />
+    <Compile Include="Configuracion\ConfiguracionServicio.cs" />
+    <Compile Include="Configuracion\IConfiguracionServicio.cs" />
     <Compile Include="Horario\DTOs\DetalleHorarioDTO.cs" />
     <Compile Include="Horario\DTOs\HorarioDTO.cs" />
     <Compile Include="Horario\HorarioServicio.cs" />

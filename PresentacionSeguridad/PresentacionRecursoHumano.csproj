@@ -172,6 +172,12 @@
     <Compile Include="_00018_ABM_TipoNovedadAgente.Designer.cs">
       <DependentUpon>_00018_ABM_TipoNovedadAgente.cs</DependentUpon>
     </Compile>
+    <Compile Include="_00020_Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_00020_Configuracion.Designer.cs">
+      <DependentUpon>_00020_Configuracion.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_00018_ABM_TipoNovedadAgente.resx">
       <DependentUpon>_00018_ABM_TipoNovedadAgente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_00020_Configuracion.resx">
+      <DependentUpon>_00020_Configuracion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
