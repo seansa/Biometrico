@@ -20,15 +20,16 @@ namespace Servicio.RecursoHumano.RelojDefectuoso
 
                     foreach (var agente in contexto.Agentes)
                     {
-                        var listahorarios = agente.Horarios.Where(x => fechareloj.Date >= x.FechaDesde.Date && (fechareloj.Date <= x.FechaHasta || x.FechaHasta == null)).OrderByDescending(x => x.FechaActualizacion.Date);
-
+                        var listahorarios = agente.Horarios.Where(x => fechareloj.Date >= x.FechaDesde.Date && (fechareloj.Date <= x.FechaHasta || x.FechaHasta == null)).OrderByDescending(x => x.FechaActualizacion);
+                        
 
 
                         var ultimohorario = listahorarios.FirstOrDefault();
+                        
 
                         if (ultimohorario != null)
                         {
-                            var listaultimohorario = listahorarios.Where(x => x.FechaActualizacion.Date == ultimohorario.FechaActualizacion.Date);
+                            var listaultimohorario = listahorarios.Where(x => x.FechaActualizacion == ultimohorario.FechaActualizacion);
 
 
                             if (diaDefectuoso == "LUNES")
@@ -122,9 +123,7 @@ namespace Servicio.RecursoHumano.RelojDefectuoso
                     var _afectado = new RelojDefectuosoDTO();
                     _afectado.IdAgente = agente.Id;
                     _afectado.IdHorario = horarioaplicado.Id;
-                    _afectado.Legajo = agente.Legajo;
                     _afectado.Nombre = agente.Nombre;
-                    _afectado.Apellido = agente.Apellido;
                     _afectado.RelojDefectuosoEntrada = false;
                     _afectado.RelojDefectuosoEntradaParcial = false;
                     _afectado.RelojDefectuosoSalidaParcial = false;
@@ -133,51 +132,25 @@ namespace Servicio.RecursoHumano.RelojDefectuoso
 
                     listafinal.Add(_afectado);
                 }
-                else  //ver las horas
+                else if (!(horarioaplicado.HoraSalida < horadesde || horarioaplicado.HoraEntrada > horahasta))
                 {
-                    //veo si esta fuera del horario de rotura
-                    if (!(horarioaplicado.HoraSalida < horadesde || horarioaplicado.HoraEntrada > horahasta))
+                    var _afectado = new RelojDefectuosoDTO();
+                    _afectado.IdAgente = agente.Id;
+                    _afectado.IdHorario = horarioaplicado.Id;
+                    _afectado.Nombre = agente.Nombre;
+                    _afectado.JornadaCompleta = false;
+                    _afectado.RelojDefectuosoEntrada = (horarioaplicado.HoraEntrada >= horadesde && horarioaplicado.HoraEntrada < horahasta) ? true : false;
+                    _afectado.RelojDefectuosoSalida = (horarioaplicado.HoraSalida >= horadesde && horarioaplicado.HoraSalida < horahasta) ? true : false;
+                    if (horarioaplicado.HoraSalidaParcial != null)
+
                     {
-                        var _afectado = new RelojDefectuosoDTO();
-                        _afectado.IdAgente = agente.Id;
-                        _afectado.IdHorario = horarioaplicado.Id;
-                        _afectado.Legajo = agente.Legajo;
-                        _afectado.Nombre = agente.Nombre;
-                        _afectado.Apellido = agente.Apellido;
-                        //veo si esta totalmente dentro del horario de rotura
-                        if (horarioaplicado.HoraEntrada >= horadesde && horarioaplicado.HoraSalida <= horahasta)
-                        {
-                            _afectado.RelojDefectuosoEntrada = true;
-                            _afectado.RelojDefectuosoEntradaParcial = true;
-                            _afectado.RelojDefectuosoSalidaParcial = true;
-                            _afectado.RelojDefectuosoSalida = true;
-                            _afectado.JornadaCompleta = false;
-                            listafinal.Add(_afectado);
-                            //horario salida dentro del horario roto
-                        }
-                        else if (horarioaplicado.HoraSalida >= horadesde && horarioaplicado.HoraSalida <= horahasta)
-                        {
-                            _afectado.RelojDefectuosoEntrada = false;
-                            _afectado.RelojDefectuosoEntradaParcial = false;
-                            _afectado.RelojDefectuosoSalidaParcial = false;
-                            _afectado.RelojDefectuosoSalida = true;
-                            _afectado.JornadaCompleta = false;
-                            listafinal.Add(_afectado);
-                            //horario de entrada dentro del horario roto
-                        }
-                        else if (horarioaplicado.HoraEntrada >= horadesde && horarioaplicado.HoraEntrada <= horahasta)
-                        {
-                            _afectado.RelojDefectuosoEntrada = true;
-                            _afectado.RelojDefectuosoEntradaParcial = false;
-                            _afectado.RelojDefectuosoSalidaParcial = false;
-                            _afectado.RelojDefectuosoSalida = false;
-                            _afectado.JornadaCompleta = false;
-                            listafinal.Add(_afectado);
-                        }
+                        _afectado.RelojDefectuosoSalidaParcial = (horarioaplicado.HoraSalidaParcial >= horadesde && horarioaplicado.HoraSalidaParcial < horahasta) ? true : false;
+                        _afectado.RelojDefectuosoEntradaParcial = (horarioaplicado.HoraEntradaParcial >= horadesde && horarioaplicado.HoraEntradaParcial < horahasta) ? true : false;
 
                     }
-                }
+                    listafinal.Add(_afectado);
 
+                }
 
             }
         }

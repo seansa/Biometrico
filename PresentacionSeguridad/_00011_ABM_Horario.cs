@@ -86,8 +86,11 @@ namespace PresentacionRecursoHumano
             {
                 _horaSalidaParcial = this.dtpHoraSalidaParcial.Value.TimeOfDay;
                 _horaEntradaParcial = this.dtpHoraEntradaParcial.Value.TimeOfDay;
+
                 if (_horarioServicio.VerificarExiste(listaTemporal, dtpFechaDesde.Value, dtpFechaHasta.Value, dtpHoraEntrada.Value.TimeOfDay, dtpHoraSalidaParcial.Value.TimeOfDay, dtpHoraEntradaParcial.Value.TimeOfDay, dtpHoraSalida.Value.TimeOfDay, listaDias))
                 {
+                    _horaEntradaParcial = (!this.chkHorariosParciales.Checked) ? (TimeSpan?)null : this.dtpHoraEntradaParcial.Value.TimeOfDay;
+                    _horaSalidaParcial = (!this.chkHorariosParciales.Checked) ? (TimeSpan?)null : this.dtpHoraSalidaParcial.Value.TimeOfDay;
                     listaTemporal = _horarioServicio.AgregarDetalleHorario(listaHorarios, IdAgente, dtpFechaDesde.Value, dtpFechaHasta.Value, dtpHoraEntrada.Value.TimeOfDay, _horaSalidaParcial, _horaEntradaParcial, dtpHoraSalida.Value.TimeOfDay, chkLunes.Checked, chkMartes.Checked, chkMiercoles.Checked, chkJueves.Checked, chkViernes.Checked, chkSabado.Checked, chkDomingo.Checked).ToList();
                 }
                 else MessageBox.Show("El Agente ya tiene asignado horarios en el/los dias ingresados.");
