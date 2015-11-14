@@ -224,5 +224,10 @@ namespace BiometricoWF
         {
             EjecutarFormulario(new PresentacionRecursoHumano._00013_Novedades("Reloj Defectuoso"));
         }
+
+        private void novedadesAgenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EjecutarFormulario(new PresentacionRecursoHumano._00017_NovedadAgente());
+        }
     }
 }

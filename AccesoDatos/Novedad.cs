@@ -19,8 +19,8 @@ namespace AccesoDatos
         public long TipoNovedadId { get; set; }
         public System.DateTime FechaDesde { get; set; }
         public Nullable<System.DateTime> FechaHasta { get; set; }
-        public string HoraDesde { get; set; }
-        public string HoraHasta { get; set; }
+        public Nullable<System.TimeSpan> HoraDesde { get; set; }
+        public Nullable<System.TimeSpan> HoraHasta { get; set; }
         public string Observacion { get; set; }
     
         public virtual TipoNovedad TipoNovedad { get; set; }

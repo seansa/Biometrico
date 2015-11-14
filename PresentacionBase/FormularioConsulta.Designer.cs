@@ -51,6 +51,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblBuscar = new System.Windows.Forms.Label();
+            this.btnNovedadAgente = new System.Windows.Forms.ToolStripButton();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.pnlBuscar.SuspendLayout();
@@ -70,7 +71,8 @@
             this.btnSalir,
             this.btnImprimir,
             this.btnHorarios,
-            this.btnLactancia});
+            this.btnLactancia,
+            this.btnNovedadAgente});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(915, 52);
@@ -282,6 +284,17 @@
             this.lblBuscar.TabIndex = 0;
             this.lblBuscar.Text = "Búsqueda";
             // 
+            // btnNovedadAgente
+            // 
+            this.btnNovedadAgente.Image = ((System.Drawing.Image)(resources.GetObject("btnNovedadAgente.Image")));
+            this.btnNovedadAgente.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNovedadAgente.Name = "btnNovedadAgente";
+            this.btnNovedadAgente.Size = new System.Drawing.Size(70, 49);
+            this.btnNovedadAgente.Text = "Novedades";
+            this.btnNovedadAgente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNovedadAgente.Visible = false;
+            this.btnNovedadAgente.Click += new System.EventHandler(this.btnNovedadAgente_Click);
+            // 
             // FormularioConsulta
             // 
             this.AcceptButton = this.btnBuscar;
@@ -330,5 +343,6 @@
         private System.Windows.Forms.ToolStripButton btnHorarios;
         public Clases.Control.DataGridView dgvGrilla;
         protected System.Windows.Forms.ToolStripButton btnLactancia;
+        protected System.Windows.Forms.ToolStripButton btnNovedadAgente;
     }
 }

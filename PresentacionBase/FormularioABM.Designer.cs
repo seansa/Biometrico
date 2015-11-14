@@ -128,7 +128,7 @@
         public System.Windows.Forms.ToolStripButton btnEjecutar;
         public System.Windows.Forms.ToolStripButton btnLimpiar;
         public System.Windows.Forms.ToolStripButton btnSalir;
-        private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ErrorProvider errorProviderMensaje;
+        public System.Windows.Forms.Label label1;
     }
 }

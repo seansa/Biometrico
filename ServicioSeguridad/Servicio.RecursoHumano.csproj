@@ -70,6 +70,9 @@
     <Compile Include="Lactancia\DTOs\LactanciaDTO.cs" />
     <Compile Include="Lactancia\ILactanciaServicio.cs" />
     <Compile Include="Lactancia\LactanciaServicio.cs" />
+    <Compile Include="NovedadAgente\DTOs\NovedadAgenteDTO.cs" />
+    <Compile Include="NovedadAgente\INovedadAgenteServicio.cs" />
+    <Compile Include="NovedadAgente\NovedadAgenteServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RelojDefectuoso\DTOs\RelojDefectuosoDTO.cs" />
     <Compile Include="RelojDefectuoso\IRelojDefectuoso.cs" />
@@ -80,6 +83,9 @@
     <Compile Include="SubSector\DTOs\SubSectorDTO.cs" />
     <Compile Include="SubSector\ISubSectorServicio.cs" />
     <Compile Include="SubSector\SubSectorServicio.cs" />
+    <Compile Include="TipoNovedadAgente\DTOs\TipoNovedadAgenteDTO.cs" />
+    <Compile Include="TipoNovedadAgente\ITipoNovedadAgenteServicio.cs" />
+    <Compile Include="TipoNovedadAgente\TipoNovedadAgenteServicio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
