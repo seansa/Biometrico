@@ -33,6 +33,9 @@
             this.txtAbreviaturaCodigo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbJornadaCompleta = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMensaje)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,11 +85,41 @@
             this.cbJornadaCompleta.Text = "Jornada completa";
             this.cbJornadaCompleta.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(474, 123);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(12, 15);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(294, 163);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(12, 15);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "*";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(127, 202);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(12, 15);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "*";
+            // 
             // _00018_ABM_TipoNovedadAgente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(518, 267);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cbJornadaCompleta);
             this.Controls.Add(this.txtAbreviaturaCodigo);
             this.Controls.Add(this.label3);
@@ -100,6 +133,9 @@
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.txtAbreviaturaCodigo, 0);
             this.Controls.SetChildIndex(this.cbJornadaCompleta, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.label5, 0);
+            this.Controls.SetChildIndex(this.label6, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMensaje)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -113,5 +149,8 @@
         private System.Windows.Forms.TextBox txtAbreviaturaCodigo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbJornadaCompleta;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

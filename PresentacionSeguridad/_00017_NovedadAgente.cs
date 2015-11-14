@@ -1,4 +1,5 @@
-﻿using Servicio.RecursoHumano.Agente;
+﻿using PresentacionBase;
+using Servicio.RecursoHumano.Agente;
 using Servicio.RecursoHumano.Agente.DTOs;
 using Servicio.RecursoHumano.NovedadAgente;
 using Servicio.RecursoHumano.NovedadAgente.DTOs;
@@ -36,6 +37,11 @@ namespace PresentacionRecursoHumano
             PoblarGrilla();
             FormatearGrilla(this.dgvNovedadAgente);
             PoblarComboBox(this.cmbTipoNovedadAgente, _tipoNovedadAgente.ObtenerTodo(), "Descripcion");
+
+            this.btnGrabar.Image = PresentacionBase.Imagenes.BotonEjecutar;
+            this.btnLimpiar.Image = PresentacionBase.Imagenes.BotonLimpiar;
+            this.btnTipoNovedad.Image = PresentacionBase.Imagenes.BotonModificar;
+            this.btnSalir.Image = PresentacionBase.Imagenes.BotonSalir;
         }
 
 
@@ -126,6 +132,11 @@ namespace PresentacionRecursoHumano
             {
                 bandera = true;
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarControles(this);
         }
     }
 }
