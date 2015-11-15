@@ -2,7 +2,9 @@
 using Servicio.RecursoHumano.Agente.DTOs;
 using Servicio.RecursoHumano.Reportes;
 using Servicio.RecursoHumano.Sector;
+using Servicio.RecursoHumano.Sector.DTOs;
 using Servicio.RecursoHumano.SubSector;
+using Servicio.RecursoHumano.SubSector.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -55,10 +57,20 @@ namespace PresentacionRecursoHumano
             this.dgvAgentes.Columns["ApyNom"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
         }
 
-        private void ActualizarGrillas()
+        private void Actualizar()
         {
-            _listaAgentes = _agenteServicio.ObtenerPorFiltro(cmbArea.SelectedText);
-            dgvAgentes.DataSource = _listaAgentes;
+            if (cmbArea.SelectedItem == null || cmbDireccion.SelectedItem == null) {
+                _listaAgentes = new List<AgenteDTO>();
+                dgvAgentes.DataSource = _listaAgentes;
+                CargarAutoComplete(true);
+            }
+            else
+            {
+                _listaAgentes = _agenteServicio.ObtenerPorFiltro(((SubSectorDTO)cmbArea.SelectedItem).Descripcion);
+                dgvAgentes.DataSource = _listaAgentes;
+                CargarAutoComplete();
+            }
+
             FormatearGrillas(dgvAgentes, dgvReporte, dgvDetalles);
         }
 
@@ -69,7 +81,7 @@ namespace PresentacionRecursoHumano
             cmb.ValueMember = propiedadDevolver;
         }
 
-        public void CargarAutoComplete()
+        public void CargarAutoComplete(bool vacio = false)
         {
             List<string> datos = new List<string>();
 
@@ -78,8 +90,11 @@ namespace PresentacionRecursoHumano
 
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
 
-            coleccion.AddRange(_listaAgentes.Select(agente => agente.ApyNom).ToArray());
-            coleccion.AddRange(_listaAgentes.Select(agente => agente.Legajo).ToArray());
+            if (!vacio)
+            {
+                coleccion.AddRange(_listaAgentes.Select(agente => agente.ApyNom).ToArray());
+                coleccion.AddRange(_listaAgentes.Select(agente => agente.Legajo).ToArray());
+            }
 
             txtBuscar.AutoCompleteCustomSource = coleccion;
         }
@@ -121,13 +136,24 @@ namespace PresentacionRecursoHumano
             cmbMes.DataSource = _listaMeses;
 
             CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
-            CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(), "Descripcion");
+            CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(((SectorDTO)cmbDireccion.SelectedItem).Id), "Descripcion");
 
             this.txtBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-            ActualizarGrillas();
-            CargarAutoComplete();
+            Actualizar();
+        }
+
+        private void cmbArea_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Actualizar();
+            
+        }
+
+        private void cmbDireccion_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(((SectorDTO)cmbDireccion.SelectedItem).Id), "Descripcion");
+            Actualizar();
         }
     }
 }
