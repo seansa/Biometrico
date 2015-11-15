@@ -50,24 +50,15 @@ namespace PresentacionRecursoHumano
 
             this.dgvAgentes.Columns["ApyNom"].Visible = true;
             this.dgvAgentes.Columns["ApyNom"].HeaderText = "Apellido y Nombre";
-            this.dgvAgentes.Columns["ApyNom"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvAgentes.Columns["ApyNom"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            this.dgvReporte.Columns["Legajo"].Visible = true;
-            this.dgvReporte.Columns["Legajo"].HeaderText = "Legajo";
-            this.dgvReporte.Columns["Legajo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvReporte.Columns["Legajo"].DisplayIndex = 1;
-                   
-            this.dgvReporte.Columns["ApyNom"].Visible = true;
-            this.dgvReporte.Columns["ApyNom"].HeaderText = "Apellido y Nombre";
-            this.dgvReporte.Columns["ApyNom"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvReporte.Columns["ApyNom"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvAgentes.Columns["ApyNom"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvAgentes.Columns["ApyNom"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvAgentes.Columns["ApyNom"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
         }
 
         private void Actualizar()
         {
-            this.dgvAgentes.DataSource = _agenteServicio.ObtenerTodo();
-            //FormatearGrilla(this.dgvGrilla);
+            dgvAgentes.DataSource = _agenteServicio.ObtenerPorFiltro(cmbArea.SelectedText);
+            FormatearGrillas(dgvAgentes, dgvReporte, dgvDetalles);
         }
 
         public void CargarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
@@ -89,6 +80,8 @@ namespace PresentacionRecursoHumano
 
             CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
             CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(), "Descripcion");
+
+            Actualizar();
         }
     }
 }

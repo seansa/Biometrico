@@ -25,7 +25,7 @@ namespace Servicio.RecursoHumano.Agente.DTOs
         {
             get
             {
-                return string.Format("{0} {1}", Apellido, Nombre);
+                return string.Format("{0}, {1}", Apellido, Nombre);
             }
         }
 
