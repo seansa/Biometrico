@@ -555,6 +555,7 @@
             this.Controls.Add(this.dgvReporte);
             this.Name = "_00021_ReporteMensual";
             this.Text = "_00021_ReporteMensual";
+            this.Load += new System.EventHandler(this._00021_ReporteMensual_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

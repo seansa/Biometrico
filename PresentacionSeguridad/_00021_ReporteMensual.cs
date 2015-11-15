@@ -1,4 +1,5 @@
 ﻿using Servicio.RecursoHumano.Agente;
+using Servicio.RecursoHumano.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,15 @@ namespace PresentacionRecursoHumano
     public partial class _00021_ReporteMensual : PresentacionBase.FormularioBase
     {
         private readonly IAgenteServicio _agenteServicio;
+        private readonly IReporteMensualServicio _reporteServicio;
+        private List<int> _listaAños;
 
         public _00021_ReporteMensual()
         {
             InitializeComponent();
             _agenteServicio = new AgenteServicio();
+            _reporteServicio = new ReporteMensualServicio();
+            _listaAños = _reporteServicio.ListaAños();
         }
 
         public _00021_ReporteMensual(string titulo) : this()
@@ -66,7 +71,8 @@ namespace PresentacionRecursoHumano
 
         private void _00021_ReporteMensual_Load(object sender, EventArgs e)
         {
-            
+            cmbAño.DataSource = _listaAños;
+            cmbMes.DataSource = _reporteServicio.ListaMeses();
         }
     }
 }

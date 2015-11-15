@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Servicio.RecursoHumano.Reportes
 {
-    public interface IReporteMensualServicio
+    public interface IReporteServicio
     {
-        List<string> ListaMeses();
-        List<int> ListaAños();
+
     }
 }
