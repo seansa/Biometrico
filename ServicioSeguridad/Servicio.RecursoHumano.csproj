@@ -79,6 +79,9 @@
     <Compile Include="RelojDefectuoso\DTOs\RelojDefectuosoDTO.cs" />
     <Compile Include="RelojDefectuoso\IRelojDefectuoso.cs" />
     <Compile Include="RelojDefectuoso\RelojDefectuosoServicio.cs" />
+    <Compile Include="Reportes\DTOs\ReporteMensualDTO.cs" />
+    <Compile Include="Reportes\IReporteMensualServicio.cs" />
+    <Compile Include="Reportes\ReporteMensualServicio.cs" />
     <Compile Include="Sector\DTOs\SectorDTO.cs" />
     <Compile Include="Sector\ISectorServicio.cs" />
     <Compile Include="Sector\SectorServicio.cs" />

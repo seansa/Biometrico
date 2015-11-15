@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Servicio.RecursoHumano.Agente;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,49 @@ namespace PresentacionRecursoHumano
 {
     public partial class _00021_ReporteMensual : PresentacionBase.FormularioBase
     {
+        private readonly IAgenteServicio _agenteServicio;
+
         public _00021_ReporteMensual()
         {
             InitializeComponent();
+            _agenteServicio = new AgenteServicio();
         }
 
         public _00021_ReporteMensual(string titulo) : this()
         {
             Text = titulo;
+        }
+
+        public void FormatearGrillas(DataGridView dgvAgentes, DataGridView dgvReporte, DataGridView dgvDetalles)
+        {
+            base.FormatearGrilla(dgvAgentes);
+            base.FormatearGrilla(dgvReporte);
+            base.FormatearGrilla(dgvDetalles);
+
+            this.dgvAgentes.Columns["Legajo"].Visible = true;
+            this.dgvAgentes.Columns["Legajo"].HeaderText = "Legajo";
+            this.dgvAgentes.Columns["Legajo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvAgentes.Columns["Legajo"].DisplayIndex = 1;
+
+            this.dgvAgentes.Columns["ApyNom"].Visible = true;
+            this.dgvAgentes.Columns["ApyNom"].HeaderText = "Apellido y Nombre";
+            this.dgvAgentes.Columns["ApyNom"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvAgentes.Columns["ApyNom"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            this.dgvReporte.Columns["Legajo"].Visible = true;
+            this.dgvReporte.Columns["Legajo"].HeaderText = "Legajo";
+            this.dgvReporte.Columns["Legajo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["Legajo"].DisplayIndex = 1;
+                   
+            this.dgvReporte.Columns["ApyNom"].Visible = true;
+            this.dgvReporte.Columns["ApyNom"].HeaderText = "Apellido y Nombre";
+            this.dgvReporte.Columns["ApyNom"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["ApyNom"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
