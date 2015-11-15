@@ -262,6 +262,9 @@
     <EmbeddedResource Include="_00020_Configuracion.resx">
       <DependentUpon>_00020_Configuracion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_00021_ReporteMensual.resx">
+      <DependentUpon>_00021_ReporteMensual.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
