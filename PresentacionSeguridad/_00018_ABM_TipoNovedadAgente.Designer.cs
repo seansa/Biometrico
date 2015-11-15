@@ -54,6 +54,7 @@
             // 
             // txtTipoNovedadAgente
             // 
+            this.txtTipoNovedadAgente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTipoNovedadAgente.Location = new System.Drawing.Point(130, 123);
             this.txtTipoNovedadAgente.Name = "txtTipoNovedadAgente";
             this.txtTipoNovedadAgente.Size = new System.Drawing.Size(338, 23);
@@ -61,6 +62,7 @@
             // 
             // txtAbreviaturaCodigo
             // 
+            this.txtAbreviaturaCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAbreviaturaCodigo.Location = new System.Drawing.Point(130, 163);
             this.txtAbreviaturaCodigo.Name = "txtAbreviaturaCodigo";
             this.txtAbreviaturaCodigo.Size = new System.Drawing.Size(158, 23);

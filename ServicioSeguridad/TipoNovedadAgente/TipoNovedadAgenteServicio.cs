@@ -33,6 +33,34 @@ namespace Servicio.RecursoHumano.TipoNovedadAgente
             }
         }
 
+        public IList<TipoNovedadAgenteDTO> ObtenerPorFiltro(string abreviatura, string descripcion)
+        {
+            try
+            {
+                using (var _context = new ModeloBometricoContainer())
+                {
+                    var _novedades = _context.TipoNovedades
+                        .AsNoTracking()
+                        .Where(x => x.Abreviatura.Contains(abreviatura)
+                        || x.Descripcion.Contains(descripcion))
+                        .Select(x => new TipoNovedadAgenteDTO
+                        {
+                            Id = x.Id,
+                            Abreviatura = x.Abreviatura,
+                            Descripcion = x.Descripcion,
+                            EsJornadaCompleta = x.EsJornadaCompleta
+                        })
+                        .ToList();
+
+                    return _novedades;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public TipoNovedad ObtenerPorId(long id)
         {
             try

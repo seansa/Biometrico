@@ -10,5 +10,6 @@ namespace Servicio.RecursoHumano.TipoNovedadAgente
         void Insertar(string abreviatura, string descripcion, bool esJornadaCompleta);
         IEnumerable<TipoNovedadAgenteDTO> ObtenerTodo();
         TipoNovedad ObtenerPorId(long id);
+        IList<TipoNovedadAgenteDTO> ObtenerPorFiltro(string abreviatura, string descripcion);
     }
 }

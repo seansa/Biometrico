@@ -1,6 +1,8 @@
 ﻿using PresentacionBase;
 using Servicio.RecursoHumano.TipoNovedadAgente;
+using Servicio.RecursoHumano.TipoNovedadAgente.DTOs;
 using System;
+using System.Collections.Generic;
 
 namespace PresentacionRecursoHumano
 {
@@ -21,13 +23,16 @@ namespace PresentacionRecursoHumano
             {
                 try
                 {
-                    _tipoNovedadAgente.Insertar(
+                    if (!VerificarSiExisteRegistro())
+                    {
+                        _tipoNovedadAgente.Insertar(
                         this.txtAbreviaturaCodigo.Text,
                         this.txtTipoNovedadAgente.Text,
                         this.cbJornadaCompleta.Checked);
 
-                    RealizoAlgunaOperacion = true;
-                    CargarDatos();
+                        RealizoAlgunaOperacion = true;
+                        CargarDatos();
+                    }
                 }
                 catch (Exception)
                 {
@@ -38,6 +43,11 @@ namespace PresentacionRecursoHumano
             {
                 Mensaje.Mostrar("Falto completar datos obligatorios.", TipoMensaje.Aviso);
             }
+        }
+
+        public override bool VerificarSiExisteRegistro()
+        {
+            return _tipoNovedadAgente.ObtenerPorFiltro(txtAbreviaturaCodigo.Text, txtTipoNovedadAgente.Text).Count > 0 ? true : false;
         }
     }
 }
