@@ -1,15 +1,12 @@
 ﻿using Servicio.RecursoHumano.Agente;
+using Servicio.RecursoHumano.Agente.DTOs;
 using Servicio.RecursoHumano.Reportes;
 using Servicio.RecursoHumano.Sector;
 using Servicio.RecursoHumano.SubSector;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentacionRecursoHumano
@@ -21,6 +18,8 @@ namespace PresentacionRecursoHumano
         private readonly ISectorServicio _sectorServicio;
         private readonly ISubSectorServicio _subsectorServicio;
         private List<int> _listaAños;
+        private List<string> _listaMeses;
+        private IEnumerable<AgenteDTO> _listaAgentes;
 
         public _00021_ReporteMensual()
         {
@@ -30,6 +29,7 @@ namespace PresentacionRecursoHumano
             _sectorServicio = new SectorServicio();
             _subsectorServicio = new SubSectorServicio();
             _listaAños = _reporteServicio.ListaAños();
+            _listaMeses = _reporteServicio.ListaMeses();
         }
 
         public _00021_ReporteMensual(string titulo) : this()
@@ -55,9 +55,10 @@ namespace PresentacionRecursoHumano
             this.dgvAgentes.Columns["ApyNom"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
         }
 
-        private void Actualizar()
+        private void ActualizarGrillas()
         {
-            dgvAgentes.DataSource = _agenteServicio.ObtenerPorFiltro(cmbArea.SelectedText);
+            _listaAgentes = _agenteServicio.ObtenerPorFiltro(cmbArea.SelectedText);
+            dgvAgentes.DataSource = _listaAgentes;
             FormatearGrillas(dgvAgentes, dgvReporte, dgvDetalles);
         }
 
@@ -68,6 +69,47 @@ namespace PresentacionRecursoHumano
             cmb.ValueMember = propiedadDevolver;
         }
 
+        public void CargarAutoComplete()
+        {
+            List<string> datos = new List<string>();
+
+            txtBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+
+            coleccion.AddRange(_listaAgentes.Select(agente => agente.ApyNom).ToArray());
+            coleccion.AddRange(_listaAgentes.Select(agente => agente.Legajo).ToArray());
+
+            txtBuscar.AutoCompleteCustomSource = coleccion;
+        }
+
+        public AgenteDTO BuscarAgente(object busqueda, string criterio)
+        {
+            foreach (var agente in _listaAgentes)
+            {
+                if (agente.GetType().GetProperty(criterio).GetValue(agente, null).ToString() == busqueda.ToString()) return agente;
+            }
+
+            return null;
+        }
+
+        private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                foreach (DataGridViewRow row in dgvAgentes.Rows)
+                {
+                    if ((row.Cells["ApyNom"].Value.ToString().ToLower() == txtBuscar.Text.ToLower()) || (row.Cells["Legajo"].Value.ToString().ToLower() == txtBuscar.Text.ToLower()))
+                    {
+                        dgvAgentes.CurrentCell = row.Cells["Legajo"];
+                        txtBuscar.Clear();
+                        dgvAgentes.Focus();
+                    }
+                }
+            }
+        }
+
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             Close();
@@ -76,12 +118,16 @@ namespace PresentacionRecursoHumano
         private void _00021_ReporteMensual_Load(object sender, EventArgs e)
         {
             cmbAño.DataSource = _listaAños;
-            cmbMes.DataSource = _reporteServicio.ListaMeses();
+            cmbMes.DataSource = _listaMeses;
 
             CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
             CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(), "Descripcion");
 
-            Actualizar();
+            this.txtBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            ActualizarGrillas();
+            CargarAutoComplete();
         }
     }
 }
