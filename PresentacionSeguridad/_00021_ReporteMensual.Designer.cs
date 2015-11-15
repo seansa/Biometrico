@@ -49,7 +49,7 @@
             this.cmbMes = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chkMarcaciones = new System.Windows.Forms.CheckBox();
+            this.chkAccesos = new System.Windows.Forms.CheckBox();
             this.chkComsiones = new System.Windows.Forms.CheckBox();
             this.chkNovedades = new System.Windows.Forms.CheckBox();
             this.chkLactancias = new System.Windows.Forms.CheckBox();
@@ -103,12 +103,12 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvReporte.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvReporte.Location = new System.Drawing.Point(329, 93);
+            this.dgvReporte.Location = new System.Drawing.Point(318, 100);
             this.dgvReporte.MultiSelect = false;
             this.dgvReporte.Name = "dgvReporte";
             this.dgvReporte.RowHeadersVisible = false;
             this.dgvReporte.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReporte.Size = new System.Drawing.Size(646, 430);
+            this.dgvReporte.Size = new System.Drawing.Size(655, 423);
             this.dgvReporte.TabIndex = 1;
             // 
             // groupBox2
@@ -117,9 +117,9 @@
             this.groupBox2.Controls.Add(this.lblLegajo);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(329, 43);
+            this.groupBox2.Location = new System.Drawing.Point(318, 50);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(646, 44);
+            this.groupBox2.Size = new System.Drawing.Size(655, 44);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             // 
@@ -137,7 +137,7 @@
             // 
             this.lblLegajo.AutoSize = true;
             this.lblLegajo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegajo.Location = new System.Drawing.Point(545, 13);
+            this.lblLegajo.Location = new System.Drawing.Point(585, 13);
             this.lblLegajo.Name = "lblLegajo";
             this.lblLegajo.Size = new System.Drawing.Size(64, 25);
             this.lblLegajo.TabIndex = 12;
@@ -156,7 +156,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(497, 19);
+            this.label7.Location = new System.Drawing.Point(537, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 15);
             this.label7.TabIndex = 9;
@@ -190,7 +190,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(213, 8);
+            this.label5.Location = new System.Drawing.Point(203, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 15);
             this.label5.TabIndex = 12;
@@ -200,7 +200,7 @@
             // 
             this.cmbAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAño.FormattingEnabled = true;
-            this.cmbAño.Location = new System.Drawing.Point(248, 5);
+            this.cmbAño.Location = new System.Drawing.Point(238, 5);
             this.cmbAño.Name = "cmbAño";
             this.cmbAño.Size = new System.Drawing.Size(59, 23);
             this.cmbAño.TabIndex = 11;
@@ -220,7 +220,7 @@
             this.cmbMes.FormattingEnabled = true;
             this.cmbMes.Location = new System.Drawing.Point(69, 5);
             this.cmbMes.Name = "cmbMes";
-            this.cmbMes.Size = new System.Drawing.Size(129, 23);
+            this.cmbMes.Size = new System.Drawing.Size(118, 23);
             this.cmbMes.TabIndex = 9;
             // 
             // txtBuscar
@@ -228,7 +228,7 @@
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.txtBuscar.Location = new System.Drawing.Point(9, 455);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(282, 23);
+            this.txtBuscar.Size = new System.Drawing.Size(262, 23);
             this.txtBuscar.TabIndex = 8;
             // 
             // groupBox1
@@ -237,28 +237,28 @@
             this.groupBox1.Controls.Add(this.chkLactancias);
             this.groupBox1.Controls.Add(this.chkNovedades);
             this.groupBox1.Controls.Add(this.chkComsiones);
-            this.groupBox1.Controls.Add(this.chkMarcaciones);
+            this.groupBox1.Controls.Add(this.chkAccesos);
             this.groupBox1.Location = new System.Drawing.Point(9, 484);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(298, 75);
+            this.groupBox1.Size = new System.Drawing.Size(288, 75);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Incluir";
             // 
-            // chkMarcaciones
+            // chkAccesos
             // 
-            this.chkMarcaciones.AutoSize = true;
-            this.chkMarcaciones.Location = new System.Drawing.Point(7, 22);
-            this.chkMarcaciones.Name = "chkMarcaciones";
-            this.chkMarcaciones.Size = new System.Drawing.Size(93, 19);
-            this.chkMarcaciones.TabIndex = 0;
-            this.chkMarcaciones.Text = "Marcaciones";
-            this.chkMarcaciones.UseVisualStyleBackColor = true;
+            this.chkAccesos.AutoSize = true;
+            this.chkAccesos.Location = new System.Drawing.Point(7, 22);
+            this.chkAccesos.Name = "chkAccesos";
+            this.chkAccesos.Size = new System.Drawing.Size(69, 19);
+            this.chkAccesos.TabIndex = 0;
+            this.chkAccesos.Text = "Accesos";
+            this.chkAccesos.UseVisualStyleBackColor = true;
             // 
             // chkComsiones
             // 
             this.chkComsiones.AutoSize = true;
-            this.chkComsiones.Location = new System.Drawing.Point(106, 22);
+            this.chkComsiones.Location = new System.Drawing.Point(96, 22);
             this.chkComsiones.Name = "chkComsiones";
             this.chkComsiones.Size = new System.Drawing.Size(148, 19);
             this.chkComsiones.TabIndex = 1;
@@ -278,7 +278,7 @@
             // chkLactancias
             // 
             this.chkLactancias.AutoSize = true;
-            this.chkLactancias.Location = new System.Drawing.Point(215, 47);
+            this.chkLactancias.Location = new System.Drawing.Point(203, 47);
             this.chkLactancias.Name = "chkLactancias";
             this.chkLactancias.Size = new System.Drawing.Size(81, 19);
             this.chkLactancias.TabIndex = 3;
@@ -288,7 +288,7 @@
             // chkObservaciones
             // 
             this.chkObservaciones.AutoSize = true;
-            this.chkObservaciones.Location = new System.Drawing.Point(106, 47);
+            this.chkObservaciones.Location = new System.Drawing.Point(96, 47);
             this.chkObservaciones.Name = "chkObservaciones";
             this.chkObservaciones.Size = new System.Drawing.Size(103, 19);
             this.chkObservaciones.TabIndex = 4;
@@ -319,7 +319,7 @@
             this.cmbArea.FormattingEnabled = true;
             this.cmbArea.Location = new System.Drawing.Point(69, 63);
             this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(238, 23);
+            this.cmbArea.Size = new System.Drawing.Size(228, 23);
             this.cmbArea.TabIndex = 3;
             // 
             // dgvAgentes
@@ -352,7 +352,7 @@
             this.dgvAgentes.Name = "dgvAgentes";
             this.dgvAgentes.RowHeadersVisible = false;
             this.dgvAgentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAgentes.Size = new System.Drawing.Size(298, 357);
+            this.dgvAgentes.Size = new System.Drawing.Size(288, 357);
             this.dgvAgentes.TabIndex = 0;
             // 
             // cmbDireccion
@@ -361,7 +361,7 @@
             this.cmbDireccion.FormattingEnabled = true;
             this.cmbDireccion.Location = new System.Drawing.Point(69, 34);
             this.cmbDireccion.Name = "cmbDireccion";
-            this.cmbDireccion.Size = new System.Drawing.Size(238, 23);
+            this.cmbDireccion.Size = new System.Drawing.Size(228, 23);
             this.cmbDireccion.TabIndex = 2;
             // 
             // panel1
@@ -380,13 +380,13 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Location = new System.Drawing.Point(0, 45);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 568);
+            this.panel1.Size = new System.Drawing.Size(306, 568);
             this.panel1.TabIndex = 34;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(326, 534);
+            this.label3.Location = new System.Drawing.Point(318, 535);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 15);
             this.label3.TabIndex = 24;
@@ -395,7 +395,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(475, 533);
+            this.label8.Location = new System.Drawing.Point(467, 534);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(13, 15);
             this.label8.TabIndex = 25;
@@ -404,7 +404,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(326, 559);
+            this.label10.Location = new System.Drawing.Point(318, 560);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(143, 15);
             this.label10.TabIndex = 26;
@@ -413,7 +413,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(475, 559);
+            this.label9.Location = new System.Drawing.Point(467, 560);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(13, 15);
             this.label9.TabIndex = 27;
@@ -422,7 +422,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(527, 534);
+            this.label12.Location = new System.Drawing.Point(519, 535);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 15);
             this.label12.TabIndex = 28;
@@ -431,7 +431,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(704, 534);
+            this.label11.Location = new System.Drawing.Point(696, 535);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(13, 15);
             this.label11.TabIndex = 29;
@@ -440,7 +440,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(326, 584);
+            this.label14.Location = new System.Drawing.Point(318, 585);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(122, 15);
             this.label14.TabIndex = 30;
@@ -449,7 +449,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(475, 584);
+            this.label13.Location = new System.Drawing.Point(467, 585);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(13, 15);
             this.label13.TabIndex = 31;
@@ -458,7 +458,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(527, 559);
+            this.label16.Location = new System.Drawing.Point(519, 560);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(171, 15);
             this.label16.TabIndex = 32;
@@ -467,7 +467,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(704, 559);
+            this.label15.Location = new System.Drawing.Point(696, 560);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(13, 15);
             this.label15.TabIndex = 33;
@@ -528,7 +528,7 @@
         private System.Windows.Forms.CheckBox chkLactancias;
         private System.Windows.Forms.CheckBox chkNovedades;
         private System.Windows.Forms.CheckBox chkComsiones;
-        private System.Windows.Forms.CheckBox chkMarcaciones;
+        private System.Windows.Forms.CheckBox chkAccesos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbArea;
