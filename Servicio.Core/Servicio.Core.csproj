@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acceso\DTOs\AccesoDTO.cs" />
     <Compile Include="Acces\AccesoServicio.cs" />
     <Compile Include="Acces\IAccesoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
