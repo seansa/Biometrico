@@ -102,6 +102,7 @@ namespace PresentacionRecursoHumano
         private void _00016_ABM_ComisionServicio_Load(object sender, EventArgs e)
         {
             var agente = _agenteServicio.ObtenerPorId(AgenteId);
+            this.lblApyNom.Text = string.Format("{0}, {1}", agente.Apellido, agente.Nombre);
             this.lblDNI.Text = string.Format("{0:##0,000,000}", Int32.Parse(agente.DNI));
             this.lblLegajo.Text = string.Format("{0:###,000}", Int32.Parse(agente.Legajo));
                         
