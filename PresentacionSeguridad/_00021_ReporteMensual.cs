@@ -53,9 +53,20 @@ namespace PresentacionRecursoHumano
             this.dgvReporte.Columns["ApyNom"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
+        private void Actualizar()
+        {
+            this.dgvAgentes.DataSource = _agenteServicio.ObtenerTodo();
+            //FormatearGrilla(this.dgvGrilla);
+        }
+
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void _00021_ReporteMensual_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

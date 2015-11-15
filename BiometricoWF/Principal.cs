@@ -25,11 +25,12 @@ namespace BiometricoWF
             this.BackgroundImage = Properties.Resources.Fondo;
         }
 
-        private void EjecutarFormulario(Form formulario)
+        private void EjecutarFormulario(Form formulario, bool mdi = true)
         {
             if (AccesoFormularioServicio.TienePermiso(formulario.Name, Identidad.NombreUsuario))
             {
-                formulario.MdiParent = this;
+                if (mdi) formulario.MdiParent = this;
+
                 formulario.Show();
             }
             else
@@ -232,7 +233,7 @@ namespace BiometricoWF
 
         private void mensualToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            EjecutarFormulario(new PresentacionRecursoHumano._00021_ReporteMensual("Reporte Mensual"));
+            EjecutarFormulario(new PresentacionRecursoHumano._00021_ReporteMensual("Reporte Mensual"), false);
         }
     }
 }
