@@ -1,5 +1,7 @@
 ﻿using Servicio.RecursoHumano.Agente;
 using Servicio.RecursoHumano.Reportes;
+using Servicio.RecursoHumano.Sector;
+using Servicio.RecursoHumano.SubSector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +18,8 @@ namespace PresentacionRecursoHumano
     {
         private readonly IAgenteServicio _agenteServicio;
         private readonly IReporteMensualServicio _reporteServicio;
+        private readonly ISectorServicio _sectorServicio;
+        private readonly ISubSectorServicio _subsectorServicio;
         private List<int> _listaAños;
 
         public _00021_ReporteMensual()
@@ -23,6 +27,8 @@ namespace PresentacionRecursoHumano
             InitializeComponent();
             _agenteServicio = new AgenteServicio();
             _reporteServicio = new ReporteMensualServicio();
+            _sectorServicio = new SectorServicio();
+            _subsectorServicio = new SubSectorServicio();
             _listaAños = _reporteServicio.ListaAños();
         }
 
@@ -64,6 +70,13 @@ namespace PresentacionRecursoHumano
             //FormatearGrilla(this.dgvGrilla);
         }
 
+        public void CargarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
+        {
+            cmb.DataSource = lista;
+            cmb.DisplayMember = propiedadMostrar;
+            cmb.ValueMember = propiedadDevolver;
+        }
+
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             Close();
@@ -73,6 +86,9 @@ namespace PresentacionRecursoHumano
         {
             cmbAño.DataSource = _listaAños;
             cmbMes.DataSource = _reporteServicio.ListaMeses();
+
+            CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
+            CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(), "Descripcion");
         }
     }
 }
