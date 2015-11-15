@@ -71,7 +71,7 @@ namespace PresentacionRecursoHumano
                 CargarAutoComplete();
             }
 
-            FormatearGrillas(dgvAgentes, dgvReporte, dgvDetalles);
+            FormatearGrillas(dgvAgentes, dgvReporte, dgvNovedades);
         }
 
         public void CargarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
