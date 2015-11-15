@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PresentacionRecursoHumano
 {
-    public partial class _00021_ReporteMensual : PresentacionBase.FormularioBase()
+    public partial class _00021_ReporteMensual : PresentacionBase.FormularioBase
     {
         public _00021_ReporteMensual()
         {
