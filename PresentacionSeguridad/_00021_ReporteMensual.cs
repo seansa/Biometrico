@@ -31,7 +31,12 @@ namespace PresentacionRecursoHumano
             _agenteServicio = new AgenteServicio();
             _sectorServicio = new SectorServicio();
             _subsectorServicio = new SubSectorServicio();
+
             _agenteSeleccionado = null;
+
+            _listaAños = ReporteMensualServicio.ListaAños();
+            _listaMeses = ReporteMensualServicio.ListaMeses();
+
             _filaAgente = -1;
         }
 
@@ -236,9 +241,6 @@ namespace PresentacionRecursoHumano
 
                 _reporteServicio = new ReporteMensualServicio(_agenteSeleccionado.Id);
 
-                _listaAños = _reporteServicio.ListaAños();
-                _listaMeses = _reporteServicio.ListaMeses();
-                
                 ActualizarReporte();
             }
             else

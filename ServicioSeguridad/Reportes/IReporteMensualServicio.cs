@@ -8,7 +8,6 @@ namespace Servicio.RecursoHumano.Reportes
 {
     public interface IReporteMensualServicio
     {
-        List<string> ListaMeses();
-        List<int> ListaAños();
+
     }
 }

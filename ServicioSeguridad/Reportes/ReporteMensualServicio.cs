@@ -21,8 +21,7 @@ namespace Servicio.RecursoHumano.Reportes
         private readonly IHorarioServicio _horarioServicio;
         private readonly IComisionServicio _comisionServicio;
         private readonly INovedadAgenteServicio _novedadesServicio;
-
-        private List<Tuple<string, int>> _listaMesesYAños;
+        
         private List<DetalleHorarioDTO> _listaHorarios;
         private List<AccesoDTO> _listaAccesos;
         private List<ComisionServicioDTO> _listaComisiones;
@@ -31,12 +30,13 @@ namespace Servicio.RecursoHumano.Reportes
         private int _minutosToleranciaLlegadaTarde;
         private int _minutosToleranciaAusente;
 
+        private static List<Tuple<string, int>> _listaMesesYAños = ListaMesesYAños();
+
 
         public ReporteMensualServicio(long AgenteId)
         {
             _agenteId = AgenteId;
-            _listaMesesYAños = ListaMesesYAños();
-
+            
             _accesoServicio = new AccesoServicio();
             _horarioServicio = new HorarioServicio();
             _comisionServicio = new ComisionServicio.ComisionServicio();
@@ -48,7 +48,7 @@ namespace Servicio.RecursoHumano.Reportes
             _listaNovedades = _novedadesServicio.ObtenerPorId(_agenteId).ToList();
         }
 
-        private DateTime FechaPrimerAcceso()
+        private static DateTime FechaPrimerAcceso()
         {
             try
             {
@@ -66,7 +66,7 @@ namespace Servicio.RecursoHumano.Reportes
             }
         }
 
-        private List<Tuple<string, int>> ListaMesesYAños()
+        private static List<Tuple<string, int>> ListaMesesYAños()
         {
             DateTime fechaInicio = FechaPrimerAcceso();
             DateTime fechaFin = DateTime.Today;
@@ -95,7 +95,7 @@ namespace Servicio.RecursoHumano.Reportes
             }  
         }
 
-        public List<string> ListaMeses()
+        public static List<string> ListaMeses()
         {
             var lista = new List<string>();
 
@@ -107,7 +107,7 @@ namespace Servicio.RecursoHumano.Reportes
             return lista;
         }
 
-        public List<int> ListaAños()
+        public static List<int> ListaAños()
         {
             var lista = new List<int>();
 
