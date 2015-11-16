@@ -79,7 +79,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.dgvNovedades = new PresentacionBase.Clases.Control.DataGridView();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tclDetalles = new System.Windows.Forms.TabControl();
             this.tbpNovedades = new System.Windows.Forms.TabPage();
             this.tbpComisiones = new System.Windows.Forms.TabPage();
             this.tbpLactancias = new System.Windows.Forms.TabPage();
@@ -92,7 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgentes)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNovedades)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.tclDetalles.SuspendLayout();
             this.tbpNovedades.SuspendLayout();
             this.tbpComisiones.SuspendLayout();
             this.tbpLactancias.SuspendLayout();
@@ -159,7 +159,7 @@
             // 
             this.lblLegajo.AutoSize = true;
             this.lblLegajo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegajo.Location = new System.Drawing.Point(598, 13);
+            this.lblLegajo.Location = new System.Drawing.Point(557, 13);
             this.lblLegajo.Name = "lblLegajo";
             this.lblLegajo.Size = new System.Drawing.Size(64, 25);
             this.lblLegajo.TabIndex = 12;
@@ -178,7 +178,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(550, 19);
+            this.label7.Location = new System.Drawing.Point(509, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 15);
             this.label7.TabIndex = 9;
@@ -376,6 +376,7 @@
             this.dgvAgentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAgentes.Size = new System.Drawing.Size(276, 346);
             this.dgvAgentes.TabIndex = 0;
+            this.dgvAgentes.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgentes_RowEnter);
             // 
             // cmbDireccion
             // 
@@ -529,17 +530,17 @@
             this.dgvNovedades.Size = new System.Drawing.Size(653, 66);
             this.dgvNovedades.TabIndex = 35;
             // 
-            // tabControl1
+            // tclDetalles
             // 
-            this.tabControl1.Controls.Add(this.tbpNovedades);
-            this.tabControl1.Controls.Add(this.tbpComisiones);
-            this.tabControl1.Controls.Add(this.tbpLactancias);
-            this.tabControl1.Location = new System.Drawing.Point(305, 442);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(669, 101);
-            this.tabControl1.TabIndex = 36;
+            this.tclDetalles.Controls.Add(this.tbpNovedades);
+            this.tclDetalles.Controls.Add(this.tbpComisiones);
+            this.tclDetalles.Controls.Add(this.tbpLactancias);
+            this.tclDetalles.Location = new System.Drawing.Point(305, 442);
+            this.tclDetalles.Multiline = true;
+            this.tclDetalles.Name = "tclDetalles";
+            this.tclDetalles.SelectedIndex = 0;
+            this.tclDetalles.Size = new System.Drawing.Size(669, 101);
+            this.tclDetalles.TabIndex = 36;
             // 
             // tbpNovedades
             // 
@@ -645,7 +646,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 611);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tclDetalles);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
@@ -674,7 +675,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNovedades)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.tclDetalles.ResumeLayout(false);
             this.tbpNovedades.ResumeLayout(false);
             this.tbpComisiones.ResumeLayout(false);
             this.tbpLactancias.ResumeLayout(false);
@@ -721,7 +722,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private PresentacionBase.Clases.Control.DataGridView dgvNovedades;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tclDetalles;
         private System.Windows.Forms.TabPage tbpNovedades;
         private System.Windows.Forms.TabPage tbpComisiones;
         private System.Windows.Forms.TabPage tbpLactancias;

@@ -101,6 +101,10 @@
       <Project>{71bdc5c4-8837-4b0b-89dd-d1eb81a1a694}</Project>
       <Name>AccesoDatos</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Servicio.Core\Servicio.Core.csproj">
+      <Project>{9d88a75a-76af-4faa-9b35-d7d4cad6a6af}</Project>
+      <Name>Servicio.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
