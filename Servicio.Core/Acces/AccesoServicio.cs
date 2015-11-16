@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AccesoDatos;
+using Servicio.Core.Acceso.DTOs;
 
 namespace Servicio.Core.Acces
 {
@@ -28,6 +29,25 @@ namespace Servicio.Core.Acces
             {
 
                 throw;
+            }
+        }
+
+        public IEnumerable<AccesoDTO> ObtenerPorId(long IdAgente)
+        {
+            using (var _context = new AccesoDatos.ModeloBometricoContainer())
+            {
+                var resultado = _context.Agentes
+                    .Find(IdAgente)
+                    .Accesos
+                    .Select(acceso => new AccesoDTO()
+                    {
+                        AgenteId = acceso.AgenteId,
+                        FechaHora = acceso.FechaHora,
+                        TipoAcceso = acceso.TipoAcceso.ToString(),
+                        NumeroReloj = acceso.NroReloj,
+                    }).ToList();
+
+                return resultado;
             }
         }
 

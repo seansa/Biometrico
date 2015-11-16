@@ -16,9 +16,9 @@ namespace PresentacionRecursoHumano
     public partial class _00021_ReporteMensual : PresentacionBase.FormularioBase
     {
         private readonly IAgenteServicio _agenteServicio;
-        private readonly IReporteMensualServicio _reporteServicio;
         private readonly ISectorServicio _sectorServicio;
         private readonly ISubSectorServicio _subsectorServicio;
+        private IReporteMensualServicio _reporteServicio;
         private List<int> _listaAños;
         private List<string> _listaMeses;
         private IEnumerable<AgenteDTO> _listaAgentes;
@@ -29,11 +29,8 @@ namespace PresentacionRecursoHumano
         {
             InitializeComponent();
             _agenteServicio = new AgenteServicio();
-            _reporteServicio = new ReporteMensualServicio();
             _sectorServicio = new SectorServicio();
             _subsectorServicio = new SubSectorServicio();
-            _listaAños = _reporteServicio.ListaAños();
-            _listaMeses = _reporteServicio.ListaMeses();
             _agenteSeleccionado = null;
             _filaAgente = -1;
         }
@@ -148,8 +145,6 @@ namespace PresentacionRecursoHumano
                 lblApyNom.Text = _agenteSeleccionado.ApyNom;
                 lblLegajo.Text = _agenteSeleccionado.Legajo;
             }
-
-            FormatearGrillaAgentes(dgvAgentes);
         }
 
         public void CargarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
@@ -225,7 +220,6 @@ namespace PresentacionRecursoHumano
         private void cmbArea_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ActualizarAgentes();
-            
         }
 
         private void cmbDireccion_SelectionChangeCommitted(object sender, EventArgs e)
@@ -240,6 +234,11 @@ namespace PresentacionRecursoHumano
                 _filaAgente = e.RowIndex;
                 _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[_filaAgente].DataBoundItem;
 
+                _reporteServicio = new ReporteMensualServicio(_agenteSeleccionado.Id);
+
+                _listaAños = _reporteServicio.ListaAños();
+                _listaMeses = _reporteServicio.ListaMeses();
+                
                 ActualizarReporte();
             }
             else

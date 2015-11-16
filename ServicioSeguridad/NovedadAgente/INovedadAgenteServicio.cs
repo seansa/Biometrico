@@ -10,5 +10,6 @@ namespace Servicio.RecursoHumano.NovedadAgente
     public interface INovedadAgenteServicio
     {
         void Insertar(NovedadAgenteDTO novedadAgente);
+        IEnumerable<NovedadAgenteDTO> ObtenerPorId(long agenteId);
     }
 }

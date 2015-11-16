@@ -1,4 +1,5 @@
 ﻿using AccesoDatos;
+using Servicio.Core.Acceso.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace Servicio.Core.Acces
         void Insertar(long agenteId, DateTime fechaHora, TipoAcceso tipoAcceso, string nroReloj);
         bool VerificarNoEsteRegistrado(long agenteId, DateTime fechaHora, TipoAcceso tipoAcceso, string nroReloj);
         bool VerificarTipoAccesoCorrecto(long agenteId, DateTime fechaHora, TipoAcceso tipoAcceso, string nroReloj);
+        IEnumerable<AccesoDTO> ObtenerPorId(long agenteid);
     }
 
 }

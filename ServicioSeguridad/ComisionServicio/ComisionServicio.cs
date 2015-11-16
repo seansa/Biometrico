@@ -96,7 +96,6 @@ namespace Servicio.RecursoHumano.ComisionServicio
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -125,7 +124,6 @@ namespace Servicio.RecursoHumano.ComisionServicio
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

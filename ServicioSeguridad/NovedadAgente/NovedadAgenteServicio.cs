@@ -38,5 +38,28 @@ namespace Servicio.RecursoHumano.NovedadAgente
                 throw;
             }
         }
+
+        public IEnumerable<NovedadAgenteDTO> ObtenerPorId(long IdAgente)
+        {
+            using (var _context = new AccesoDatos.ModeloBometricoContainer())
+            {
+                var resultado = _context.Agentes
+                    .Find(IdAgente)
+                    .Novedades
+                    .Select(novedad => new NovedadAgenteDTO()
+                    {
+                        Id = novedad.Id,
+                        AngenteId = novedad.Id,
+                        TipoNovedadId = novedad.TipoNovedadId,
+                        FechaDesde = novedad.FechaDesde,
+                        FechaHasta = novedad.FechaHasta,
+                        HoraDesde = novedad.HoraDesde,
+                        HoraHasta = novedad.HoraHasta,
+                        Observacion = novedad.Observacion
+                    }).ToList();
+
+                return resultado;
+            }
+        }
     }
 }
