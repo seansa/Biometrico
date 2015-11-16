@@ -191,13 +191,14 @@ namespace Servicio.RecursoHumano.Reportes
                 _hayNovedadHoraEntradaParcial = _listaNovedades.Count() > 0 ? (_listaNovedades.Where(novedad => (novedad.HoraDesde < horarioDia.HoraEntradaParcial) && ((novedad.HoraHasta == null) || (novedad.HoraHasta > horarioDia.HoraEntradaParcial))).Select(novedad => novedad).Count() > 0 ? true : false) : false;
                 _hayComisionServicioHoraEntradaParcial = _listaComisiones.Count() > 0 ? (_listaComisiones.Where(comision => (comision.HoraInicio < horarioDia.HoraEntradaParcial) && (comision.HoraFin > horarioDia.HoraEntradaParcial)).Select(comision => comision).Count() > 0 ? true : false) : false;
 
-                if (_hayNovedadHoraEntrada || _hayNovedadHoraEntradaParcial || _hayComisionServicioHoraEntrada || _hayComisionServicioHoraEntradaParcial) // Primer check (novedades y comision de servicio)
+                if (_hayNovedadHoraEntrada || _hayComisionServicioHoraEntrada) // Primer check (novedades y comision de servicio)
                 {
                     return false;
                 }
-                else if (_listaAccesosDía.Count() > 0 && _numeroEntradasDia == 2) // Segundo check (horarios y accesos)
+                else if (_listaAccesosDía.Count() > 0 && (_hayNovedadHoraEntradaParcial || _hayComisionServicioHoraEntradaParcial)) return false; // Segundo check (novedades y comisión de servicio por la tarde)
+                else if (_listaAccesosDía.Count() > 0 && _numeroEntradasDia == 2) // Tercer check (horarios y accesos)
                 {
-                    if (Tardanza(_listaAccesosDía, horarioDia) != null && TardanzaExtension(_listaAccesosDía, horarioDia) != null) // Tercer check (tardanza)
+                    if (Tardanza(_listaAccesosDía, horarioDia) != null && TardanzaExtension(_listaAccesosDía, horarioDia) != null) // Cuarto check (tardanza)
                     {
                         return false;
                     }
