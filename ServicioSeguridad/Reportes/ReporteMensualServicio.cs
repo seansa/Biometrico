@@ -317,29 +317,23 @@ namespace Servicio.RecursoHumano.Reportes
         private TimeSpan? Tardanza(List<AccesoDTO> accesosDia, DetalleHorarioDTO horarioDia)
         {
             TimeSpan? _horaEntradaAcceso = accesosDia.Where(acceso => acceso.TipoAcceso.Equals("Entrada")).Any() ? accesosDia.Where(acceso => acceso.TipoAcceso.Equals("Entrada")).Last().Hora : (TimeSpan?)null;
-            TimeSpan? _horaEntradaHorario = horarioDia.HoraEntrada ?? null;
+            TimeSpan _horaEntradaHorario = (TimeSpan)horarioDia.HoraEntrada;
 
-            if (_horaEntradaAcceso == null) return null;
-
-            if (_horaEntradaAcceso > ((TimeSpan)_horaEntradaHorario).Add(TimeSpan.FromMinutes(_minutosToleranciaAusente)))
+            if (_horaEntradaAcceso > _horaEntradaHorario && _horaEntradaAcceso != null)
             {
-                if (_horaEntradaAcceso > _horaEntradaHorario) return ((TimeSpan)_horaEntradaAcceso).Subtract((TimeSpan)_horaEntradaHorario);
-                else return TimeSpan.Zero;
+                return Diff(_horaEntradaHorario, (TimeSpan)_horaEntradaAcceso);
             }
             else return null;
         }
 
         private TimeSpan? TardanzaExtension(List<AccesoDTO> accesosDia, DetalleHorarioDTO horarioDia)
         {
-            TimeSpan? _horaEntradaExtensionAcceso = accesosDia.Where(acceso => acceso.TipoAcceso.Equals("EntradaParacial")).Any() ? accesosDia.Where(acceso => acceso.TipoAcceso.Equals("EntradaParacial")).Last().Hora : (TimeSpan?)null;
-            TimeSpan? _horaEntradaParcialHorario = horarioDia.HoraEntradaParcial ?? null;
+            TimeSpan? _horaEntradaParcialAcceso = accesosDia.Where(acceso => acceso.TipoAcceso.Equals("EntradaParacial")).Any() ? accesosDia.Where(acceso => acceso.TipoAcceso.Equals("EntradaParacial")).Last().Hora : (TimeSpan?)null;
+            TimeSpan _horaEntradaParcialHorario = (TimeSpan)horarioDia.HoraEntradaParcial;
 
-            if (_horaEntradaExtensionAcceso == null) return null;
-
-            if (_horaEntradaExtensionAcceso > ((TimeSpan)_horaEntradaParcialHorario).Add(TimeSpan.FromMinutes(_minutosToleranciaAusente)))
+            if (_horaEntradaParcialAcceso > _horaEntradaParcialHorario && _horaEntradaParcialAcceso != null)
             {
-                if (_horaEntradaExtensionAcceso > _horaEntradaParcialHorario) return ((TimeSpan)_horaEntradaExtensionAcceso).Subtract((TimeSpan)_horaEntradaParcialHorario);
-                else return TimeSpan.Zero;
+                return Diff(_horaEntradaParcialHorario, (TimeSpan)_horaEntradaParcialAcceso);
             }
             else return null;
         }
