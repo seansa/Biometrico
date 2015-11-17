@@ -61,7 +61,7 @@ namespace Servicio.RecursoHumano.Reportes.DTOs
         }
 
         public bool Ausente { get; set; }
-        public DateTime HoraEntrada { get; set; }
+        public DateTime? HoraEntrada { get; set; }
         public DateTime? HoraEntradaParcial { get; set; }
         public DateTime? HoraSalida { get; set; }
         public DateTime? HoraSalidaParcial { get; set; }

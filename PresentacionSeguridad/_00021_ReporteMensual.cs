@@ -1,6 +1,7 @@
 ﻿using Servicio.RecursoHumano.Agente;
 using Servicio.RecursoHumano.Agente.DTOs;
 using Servicio.RecursoHumano.Reportes;
+using Servicio.RecursoHumano.Reportes.DTOs;
 using Servicio.RecursoHumano.Sector;
 using Servicio.RecursoHumano.Sector.DTOs;
 using Servicio.RecursoHumano.SubSector;
@@ -24,6 +25,7 @@ namespace PresentacionRecursoHumano
         private List<string> _listaMeses;
         private IEnumerable<AgenteDTO> _listaAgentes;
         private AgenteDTO _agenteSeleccionado;
+        private List<ReporteMensualDTO> _reporteAgenteSeleccionado;
         private int _filaAgente;
 
         public _00021_ReporteMensual()
@@ -64,7 +66,7 @@ namespace PresentacionRecursoHumano
 
         public void FormatearGrillaReporte(DataGridView dgvReporte)
         {
-            base.FormatearGrilla(dgvAgentes);
+            base.FormatearGrilla(dgvReporte);
 
             this.dgvReporte.Columns["Numero"].Visible = true;
             this.dgvReporte.Columns["Numero"].HeaderText = "Nº";
@@ -127,16 +129,19 @@ namespace PresentacionRecursoHumano
             if (cmbArea.SelectedItem == null || cmbDireccion.SelectedItem == null) {
                 _listaAgentes = new List<AgenteDTO>();
                 dgvAgentes.DataSource = _listaAgentes;
+                dgvReporte.DataSource = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
                 CargarAutoComplete(true);
             }
             else
             {
                 _listaAgentes = _agenteServicio.ObtenerPorFiltro(((SubSectorDTO)cmbArea.SelectedItem).Descripcion);
                 dgvAgentes.DataSource = _listaAgentes;
+                dgvReporte.DataSource = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
                 CargarAutoComplete();
             }
 
             FormatearGrillaAgentes(dgvAgentes);
+            //FormatearGrillaReporte(dgvReporte);
         }
 
         private void ActualizarReporte()
@@ -151,6 +156,9 @@ namespace PresentacionRecursoHumano
                 lblApyNom.Text = _agenteSeleccionado.ApyNom;
                 lblLegajo.Text = _agenteSeleccionado.Legajo;
             }
+
+            dgvReporte.DataSource = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
+            //FormatearGrillaReporte(dgvReporte);
         }
 
         public void CargarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
@@ -251,7 +259,17 @@ namespace PresentacionRecursoHumano
 
                 _reporteServicio = new ReporteMensualServicio(_agenteSeleccionado.Id, MesReporte());
 
-                ActualizarReporte();
+                _reporteAgenteSeleccionado = new List<ReporteMensualDTO>();
+
+                foreach (var item in _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id))
+                {
+                    _reporteAgenteSeleccionado.Add(item);
+                }
+
+                //ActualizarReporte();
+
+                dgvReporte.DataSource = _reporteAgenteSeleccionado;
+                //MessageBox.Show("{0}", _reporteAgenteSeleccionado.First().FechaShortStr);
             }
             else
             {

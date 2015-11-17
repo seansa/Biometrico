@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="RecursoHumanoAssembly.cs" />
     <Compile Include="Reporte.cs" />
+    <Compile Include="ReporteDTO.cs" />
     <Compile Include="_00001_Sectores.cs">
       <SubType>Form</SubType>
     </Compile>
