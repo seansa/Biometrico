@@ -190,8 +190,8 @@ namespace Servicio.RecursoHumano.Reportes
 
                     reporte.MinutosTarde = Tardanza(listaAccesosDelDia, _horarioDia);
                     reporte.MinutosTardeExtension = TardanzaExtension(listaAccesosDelDia, _horarioDia);
-                    reporte.MinutosFaltantes = null;
-                    reporte.MinutosFaltantesExtension = null;
+                    reporte.MinutosFaltantes = (reporte.HoraSalidaParcial != null && reporte.HoraEntrada != null) ? Diff((DateTime)reporte.HoraEntrada, (DateTime)reporte.HoraSalidaParcial) : (TimeSpan?)null;
+                    reporte.MinutosFaltantesExtension = (reporte.HoraSalida != null && reporte.HoraEntradaParcial != null) ? Diff((DateTime)reporte.HoraEntradaParcial, (DateTime)reporte.HoraSalida) : (TimeSpan?)null;
 
                     enumerador.MoveNext();
 
@@ -200,6 +200,26 @@ namespace Servicio.RecursoHumano.Reportes
             }
 
             return lista;
+        }
+
+        private TimeSpan Diff(DateTime mayor, DateTime menor)
+        {
+            var minutosMayor = mayor.Minute;
+            var segundosMayor = mayor.Second;
+            var minutosMenor = menor.Minute;
+            var segundosMenor = menor.Second;
+
+            var MayorMinutos = TimeSpan.FromMinutes(minutosMayor);
+            var MayorSegundos = TimeSpan.FromSeconds(segundosMayor);
+
+            MayorMinutos.Add(MayorSegundos);
+
+            var MenorMinutos = TimeSpan.FromMinutes(minutosMenor);
+            var MenorSegundos = TimeSpan.FromSeconds(segundosMenor);
+
+            MenorMinutos.Add(MenorSegundos);
+
+            return MayorMinutos.Subtract(MenorMinutos);
         }
 
         private List<ComisionServicioDTO> ComisionesEnElMes(DateTime currentDia)
@@ -307,7 +327,7 @@ namespace Servicio.RecursoHumano.Reportes
 
         private TimeSpan? TardanzaExtension(List<AccesoDTO> accesosDia, DetalleHorarioDTO horarioDia)
         {
-            TimeSpan? _horaEntradaExtensionAcceso = accesosDia.Where(acceso => acceso.TipoAcceso.Equals("Entrada Parcial")).Any() ? accesosDia.Where(acceso => acceso.TipoAcceso.Equals("Entrada Parcial")).Last().FechaHora.TimeOfDay : (TimeSpan?)null;
+            TimeSpan? _horaEntradaExtensionAcceso = accesosDia.Where(acceso => acceso.TipoAcceso.Equals("EntradaParacial")).Any() ? accesosDia.Where(acceso => acceso.TipoAcceso.Equals("EntradaParacial")).Last().FechaHora.TimeOfDay : (TimeSpan?)null;
             TimeSpan? _horaEntradaParcialHorario = horarioDia.HoraEntradaParcial ?? null;
 
             if (_horaEntradaExtensionAcceso == null) return null;

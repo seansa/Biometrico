@@ -43,5 +43,7 @@ namespace Servicio.RecursoHumano.Reportes.DTOs
 
         public string MinutosTardeStr { get { return MinutosTarde == null ? "-" : String.Format("{0:mm\\:ss}", MinutosTarde); } }
         public string MinutosTardeExtensionStr { get { return MinutosTardeExtension == null ? "-" : String.Format("{0:mm\\:ss}", MinutosTardeExtension); } }
+        public string MinutosFaltantesStr { get { return MinutosFaltantes == null ? "-" : String.Format("{0:mm\\:ss}", MinutosFaltantes); } }
+        public string MinutosFaltantesExtensionStr { get { return MinutosFaltantesExtension == null ? "-" : String.Format("{0:mm\\:ss}", MinutosFaltantesExtension); } }
     }
 }
