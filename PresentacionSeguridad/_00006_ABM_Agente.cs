@@ -165,6 +165,7 @@ namespace PresentacionRecursoHumano
             Validacion.NoInyeccion(sender, e);
             Validacion.NoSimbolos(sender, e);
             Validacion.NoLetras(sender, e);
+
         }
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
@@ -175,7 +176,10 @@ namespace PresentacionRecursoHumano
 
         private void txtMail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            if (e.KeyChar == (int)Keys.Enter && VerificarDatosObligatorios(new object[] { this.txtLegajo, this.txtApellido,this.txtNombre, this.txtNroDocumento}))
+            {
+                InsertarRegistro();
+            }
         }
 
         private void txtLegajo_Validating(object sender, CancelEventArgs e)
