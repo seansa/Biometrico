@@ -15,50 +15,13 @@ namespace Servicio.RecursoHumano.Reportes.DTOs
         public int Numero { get; set; }
         public long AgenteId { get; set; }
 
-        public bool TieneAccesos
-        {
-            get
-            {
-                return Accesos.Count() > 0 ? true : false; 
-            }
-        }
-        public bool TieneNovedades {
-            get {
-                return Novedad != null ? true : false;
-            }
-        }
-        public bool TieneComisiones
-        {
-            get
-            {
-                return Comision != null ? true : false;
-            }
-        }
-        public bool TieneLactancias
-        {
-            get
-            {
-                return Lactancia != null ? true : false;
-            }
-        }
-
-        //public List<HorarioDTO> Horarios { get; set; }
-        public List<Core.Acceso.DTOs.AccesoDTO> Accesos { get; set; }  // Accesos de un día (1 fila) --> de 'Fecha'
-        public NovedadAgente.DTOs.NovedadAgenteDTO Novedad { get; set; }
-        public ComisionServicio.DTOs.ComisionServicioDTO Comision { get; set; }
-        public Lactancia.DTOs.LactanciaDTO Lactancia { get; set; }
+        public List<NovedadAgente.DTOs.NovedadAgenteDTO> Novedades { get; set; }
+        public List<ComisionServicio.DTOs.ComisionServicioDTO> Comisiones { get; set; }
+        public List<Lactancia.DTOs.LactanciaDTO> Lactancias { get; set; }
 
         public DateTime Fecha { get; set; }
-        public string Mes { get { return Fecha.Month.ToString("MMMM", new CultureInfo("es-AR")); } }
-        public string Año { get { return Fecha.Year.ToString(); } }
 
-
-        public string FechaShortStr {
-            get
-            {
-                return Fecha.Date.ToShortDateString();
-            }
-        }
+        public string FechaStr { get { return String.Format("{0:dd\\/MM\\/yy}", Fecha); } }
 
         public bool Ausente { get; set; }
         public string AusenteStr { get { return Ausente ? "Sí" : "No"; } }

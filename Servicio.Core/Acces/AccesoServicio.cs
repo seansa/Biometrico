@@ -67,6 +67,22 @@ namespace Servicio.Core.Acces
             }
         }
 
+        public bool HayAccesos()
+        {
+            try
+            {
+                using (var _context = new ModeloBometricoContainer())
+                {
+                    return _context.Accesos.Any();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public bool VerificarTipoAccesoCorrecto(long agenteId, DateTime fechaHora, TipoAcceso tipoAcceso, string nroReloj)
         {
             throw new NotImplementedException();

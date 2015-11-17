@@ -37,9 +37,6 @@ namespace PresentacionRecursoHumano
 
             _agenteSeleccionado = null;
 
-            _listaAños = ReporteMensualServicio.ListaAños();
-            _listaMeses = ReporteMensualServicio.ListaMeses();
-
             _filaAgente = -1;
         }
 
@@ -74,11 +71,11 @@ namespace PresentacionRecursoHumano
             this.dgvReporte.Columns["Numero"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvReporte.Columns["Numero"].DisplayIndex = 1;
                     
-            this.dgvReporte.Columns["FechaShortStr"].Visible = true;
-            this.dgvReporte.Columns["FechaShortStr"].HeaderText = "Fecha";
-            this.dgvReporte.Columns["FechaShortStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvReporte.Columns["FechaShortStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["FechaShortStr"].DisplayIndex = 2;
+            this.dgvReporte.Columns["FechaStr"].Visible = true;
+            this.dgvReporte.Columns["FechaStr"].HeaderText = "Fecha";
+            this.dgvReporte.Columns["FechaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvReporte.Columns["FechaStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvReporte.Columns["FechaStr"].DisplayIndex = 2;
 
             this.dgvReporte.Columns["AusenteStr"].Visible = true;
             this.dgvReporte.Columns["AusenteStr"].HeaderText = "Ausente";
@@ -152,7 +149,6 @@ namespace PresentacionRecursoHumano
             }
 
             FormatearGrillaAgentes(dgvAgentes);
-            //FormatearGrillaReporte(dgvReporte);
         }
 
         private void ActualizarReporte()
@@ -170,6 +166,14 @@ namespace PresentacionRecursoHumano
 
             dgvReporte.DataSource = _reporteAgenteSeleccionado;
             FormatearGrillaReporte(dgvReporte);
+
+            if (_reporteAgenteSeleccionado.First() != null)
+            {
+                if (_reporteAgenteSeleccionado.First().Novedades.Any())
+                {
+                    dgvNovedades.DataSource = _reporteAgenteSeleccionado.First().Novedades.ToList();
+                }
+            }
         }
 
         public void CargarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
@@ -216,6 +220,21 @@ namespace PresentacionRecursoHumano
             return new DateTime(year, month, day);
         }
 
+        private void VaciarForm()
+        {
+            cmbAño.DataSource = null;
+            cmbMes.DataSource = null;
+            dgvAgentes.DataSource = null;
+            dgvReporte.DataSource = null;
+            dgvNovedades.DataSource = null;
+            dgvComisiones.DataSource = null;
+            dgvLactancias.DataSource = null;
+            txtBuscar.AutoCompleteCustomSource = null;
+
+            MessageBox.Show("No hay accesos en la base de datos");
+            Close();
+        }
+
         private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -239,17 +258,28 @@ namespace PresentacionRecursoHumano
 
         private void _00021_ReporteMensual_Load(object sender, EventArgs e)
         {
-            cmbAño.DataSource = _listaAños;
-            cmbMes.DataSource = _listaMeses;
+            try
+            {
+                _listaAños = ReporteMensualServicio.ListaAños();
+                _listaMeses = ReporteMensualServicio.ListaMeses();
 
-            CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
-            CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(((SectorDTO)cmbDireccion.SelectedItem).Id), "Descripcion");
+                cmbAño.DataSource = _listaAños;
+                cmbMes.DataSource = _listaMeses;
 
-            this.txtBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
+                CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(((SectorDTO)cmbDireccion.SelectedItem).Id), "Descripcion");
 
-            ActualizarAgentes();
-            _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[0].DataBoundItem;
+                this.txtBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                ActualizarAgentes();
+                _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[0].DataBoundItem;
+            }
+            catch
+            {
+                MessageBox.Show("No hay accesos en la base de datos");
+                Close();
+            }
         }
 
         private void cmbArea_SelectionChangeCommitted(object sender, EventArgs e)
