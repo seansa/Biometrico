@@ -31,14 +31,17 @@ namespace Servicio.RecursoHumano.Reportes.DTOs
         public DateTime? HoraSalida { get; set; }
         public DateTime? HoraSalidaParcial { get; set; }
 
-        public string HoraEntradaStr { get { return String.Format("{0:hh\\:mm\\:ss}", HoraEntrada); } }
-        public string HoraSalidaStr { get { return String.Format("{0:hh\\:mm\\:ss}", HoraSalida); } }
-        public string HoraSalidaParcialStr { get { return String.Format("{0:hh\\:mm\\:ss}", HoraSalidaParcial); } }
-        public string HoraEntradaParcialStr { get { return String.Format("{0:hh\\:mm\\:ss}", HoraEntradaParcial); } }
+        public string HoraEntradaStr { get { return HoraEntrada == null ? "-" : String.Format("{0:hh\\:mm\\:ss}", HoraEntrada); } }
+        public string HoraSalidaStr { get { return HoraSalida == null ? "-" : String.Format("{0:hh\\:mm\\:ss}", HoraSalida); } }
+        public string HoraSalidaParcialStr { get { return HoraSalidaParcial == null ? "-" : String.Format("{0:hh\\:mm\\:ss}", HoraSalidaParcial); } }
+        public string HoraEntradaParcialStr { get { return HoraEntradaParcial == null ? "-" : String.Format("{0:hh\\:mm\\:ss}", HoraEntradaParcial); } }
 
         public TimeSpan? MinutosTarde { get; set; }
-        public TimeSpan? MinutosFaltantes { get; set; }
         public TimeSpan? MinutosTardeExtension { get; set; }
+        public TimeSpan? MinutosFaltantes { get; set; }
         public TimeSpan? MinutosFaltantesExtension { get; set; }
+
+        public string MinutosTardeStr { get { return MinutosTarde == null ? "-" : String.Format("{0:mm\\:ss}", MinutosTarde); } }
+        public string MinutosTardeExtensionStr { get { return MinutosTardeExtension == null ? "-" : String.Format("{0:mm\\:ss}", MinutosTardeExtension); } }
     }
 }

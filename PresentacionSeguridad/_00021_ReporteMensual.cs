@@ -88,17 +88,17 @@ namespace PresentacionRecursoHumano
             this.dgvReporte.Columns["HoraEntradaStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvReporte.Columns["HoraEntradaStr"].DisplayIndex = 4;
 
+            this.dgvReporte.Columns["MinutosTardeStr"].Visible = true;
+            this.dgvReporte.Columns["MinutosTardeStr"].HeaderText = "Tardanza";
+            this.dgvReporte.Columns["MinutosTardeStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["MinutosTardeStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvReporte.Columns["MinutosTardeStr"].DisplayIndex = 5;
+
             this.dgvReporte.Columns["HoraSalidaParcialStr"].Visible = true;
             this.dgvReporte.Columns["HoraSalidaParcialStr"].HeaderText = "Salida Parcial";
             this.dgvReporte.Columns["HoraSalidaParcialStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["HoraSalidaParcialStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["HoraSalidaParcialStr"].DisplayIndex = 5;
-
-            this.dgvReporte.Columns["MinutosTarde"].Visible = true;
-            this.dgvReporte.Columns["MinutosTarde"].HeaderText = "Tardanza";
-            this.dgvReporte.Columns["MinutosTarde"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvReporte.Columns["MinutosTarde"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["MinutosTarde"].DisplayIndex = 6;
+            this.dgvReporte.Columns["HoraSalidaParcialStr"].DisplayIndex = 6;
 
             this.dgvReporte.Columns["MinutosFaltantes"].Visible = true;
             this.dgvReporte.Columns["MinutosFaltantes"].HeaderText = "Faltante";
@@ -112,17 +112,17 @@ namespace PresentacionRecursoHumano
             this.dgvReporte.Columns["HoraEntradaParcialStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvReporte.Columns["HoraEntradaParcialStr"].DisplayIndex = 8;
 
+            this.dgvReporte.Columns["MinutosTardeExtensionStr"].Visible = true;
+            this.dgvReporte.Columns["MinutosTardeExtensionStr"].HeaderText = "Tardanza";
+            this.dgvReporte.Columns["MinutosTardeExtensionStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["MinutosTardeExtensionStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvReporte.Columns["MinutosTardeExtensionStr"].DisplayIndex = 9;
+
             this.dgvReporte.Columns["HoraSalidaStr"].Visible = true;
             this.dgvReporte.Columns["HoraSalidaStr"].HeaderText = "Salida";
             this.dgvReporte.Columns["HoraSalidaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["HoraSalidaStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["HoraSalidaStr"].DisplayIndex = 9;
-
-            this.dgvReporte.Columns["MinutosTardeExtension"].Visible = true;
-            this.dgvReporte.Columns["MinutosTardeExtension"].HeaderText = "Tardanza";
-            this.dgvReporte.Columns["MinutosTardeExtension"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvReporte.Columns["MinutosTardeExtension"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["MinutosTardeExtension"].DisplayIndex = 10;
+            this.dgvReporte.Columns["HoraSalidaStr"].DisplayIndex = 10;
 
             this.dgvReporte.Columns["MinutosFaltantesExtension"].Visible = true;
             this.dgvReporte.Columns["MinutosFaltantesExtension"].HeaderText = "Faltante";
