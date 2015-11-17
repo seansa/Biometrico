@@ -262,25 +262,34 @@ namespace PresentacionRecursoHumano
             {
                 _listaAños = ReporteMensualServicio.ListaAños();
                 _listaMeses = ReporteMensualServicio.ListaMeses();
-
-                cmbAño.DataSource = _listaAños;
-                cmbMes.DataSource = _listaMeses;
-
-                CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
-                CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(((SectorDTO)cmbDireccion.SelectedItem).Id), "Descripcion");
-
-                this.txtBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-                ActualizarAgentes();
-                _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[0].DataBoundItem;
             }
             catch
             {
                 MessageBox.Show("No hay accesos en la base de datos");
                 Close();
             }
+
+            cmbAño.DataSource = _listaAños;
+            cmbMes.DataSource = _listaMeses;
+
+            try
+            {
+                CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
+                CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(((SectorDTO)cmbDireccion.SelectedItem).Id), "Descripcion");
+            }
+            catch
+            {
+                MessageBox.Show("No hay sectores o subsectores en la base de datos");
+                Close();
+            }
+
+            this.txtBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            ActualizarAgentes();
+            _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[0].DataBoundItem;
         }
+   
 
         private void cmbArea_SelectionChangeCommitted(object sender, EventArgs e)
         {
