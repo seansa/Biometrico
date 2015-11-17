@@ -158,6 +158,9 @@ namespace Servicio.RecursoHumano.Reportes
 
             if (_horarioDia != null)
             {
+                var enumerador = Generador().GetEnumerator();
+                enumerador.MoveNext();
+
                 foreach (var dia in _listaDiasDelMes)
                 {
                     var reporte = new ReporteMensualDTO();
@@ -165,7 +168,7 @@ namespace Servicio.RecursoHumano.Reportes
 
                     reporte.AgenteId = _agenteId;
                     reporte.Accesos = listaAccesosDelDia;
-                    reporte.Numero = Generador().GetEnumerator().Current;
+                    reporte.Numero = enumerador.Current;
                     reporte.Ausente = Ausente(dia, _horarioDia, listaAccesosDelDia);
                     reporte.Comision = _listaComisiones.Where(comision => comision.FechaDesde.Date < _fecha && (comision.FechaHasta == null || ((DateTime)comision.FechaHasta).Date > _fecha)).SingleOrDefault();
                     reporte.Lactancia = _listaLactancias.Where(lactancia => lactancia.FechaDesde.Date < _fecha && (lactancia.FechaHasta == null || ((DateTime)lactancia.FechaHasta).Date > _fecha)).SingleOrDefault();
@@ -180,7 +183,7 @@ namespace Servicio.RecursoHumano.Reportes
                     reporte.MinutosFaltantes = null;
                     reporte.MinutosFaltantesExtension = null;
 
-                    Generador().GetEnumerator().MoveNext();
+                    enumerador.MoveNext();
 
                     lista.Add(reporte);
                 }
@@ -211,7 +214,7 @@ namespace Servicio.RecursoHumano.Reportes
 
         public IEnumerable<int> Generador()
         {
-            for (var i = 1; i <= 30 ; ++i)
+            for (var i = 1; i <= 31 ; i++)
             {
                 yield return i;
             }
@@ -270,8 +273,10 @@ namespace Servicio.RecursoHumano.Reportes
             bool _hayComisionServicioHoraEntrada;
             bool _hayComisionServicioHoraEntradaParcial;
 
-            _hayNovedadHoraEntrada = _listaNovedades.Count() > 0 ? (_listaNovedades.Where(novedad => (novedad.HoraDesde < horarioDia.HoraEntrada) && ((novedad.HoraHasta == null) || (novedad.HoraHasta > horarioDia.HoraEntrada))).Select(novedad => novedad).Count() > 0 ? true : false) : false;
-            _hayComisionServicioHoraEntrada = _listaComisiones.Count() > 0 ? (_listaComisiones.Where(comision => (comision.HoraInicio < horarioDia.HoraEntrada) && (comision.HoraFin > horarioDia.HoraEntrada)).Select(comision => comision).Count() > 0 ? true : false) : false;
+            var listaComisonesServicioDelDia = _listaComisiones.Where(comision => comision.FechaDesde.Date <= fecha.Date && ((DateTime)comision.FechaHasta).Date >= fecha.Date).Select(comision => comision).ToList();
+
+            _hayNovedadHoraEntrada = _listaNovedades.Count() > 0 ? (_listaNovedades.Where(novedad => (novedad.HoraDesde <= horarioDia.HoraEntrada) && ((novedad.HoraHasta == null) || (novedad.HoraHasta >= horarioDia.HoraEntrada))).Select(novedad => novedad).Count() > 0 ? true : false) : false;
+            _hayComisionServicioHoraEntrada = listaComisonesServicioDelDia.Count() > 0 ? (listaComisonesServicioDelDia.Where(comision => (comision.HoraInicio <= horarioDia.HoraEntrada) && (comision.HoraFin >= horarioDia.HoraEntrada)).Select(comision => comision).Count() > 0 ? true : false) : false;
 
             if (horarioDia.HoraEntradaParcial.Equals(null)) // Si el horario no incluye entrada parcial
             {
@@ -291,8 +296,8 @@ namespace Servicio.RecursoHumano.Reportes
             }
             else // Si el horario sí incluye entrada parcial
             {
-                _hayNovedadHoraEntradaParcial = _listaNovedades.Count() > 0 ? (_listaNovedades.Where(novedad => (novedad.HoraDesde < horarioDia.HoraEntradaParcial) && ((novedad.HoraHasta == null) || (novedad.HoraHasta > horarioDia.HoraEntradaParcial))).Select(novedad => novedad).Count() > 0 ? true : false) : false;
-                _hayComisionServicioHoraEntradaParcial = _listaComisiones.Count() > 0 ? (_listaComisiones.Where(comision => (comision.HoraInicio < horarioDia.HoraEntradaParcial) && (comision.HoraFin > horarioDia.HoraEntradaParcial)).Select(comision => comision).Count() > 0 ? true : false) : false;
+                _hayNovedadHoraEntradaParcial = _listaNovedades.Count() > 0 ? (_listaNovedades.Where(novedad => (novedad.HoraDesde <= horarioDia.HoraEntradaParcial) && ((novedad.HoraHasta == null) || (novedad.HoraHasta >= horarioDia.HoraEntradaParcial))).Select(novedad => novedad).Count() > 0 ? true : false) : false;
+                _hayComisionServicioHoraEntradaParcial = listaComisonesServicioDelDia.Count() > 0 ? (listaComisonesServicioDelDia.Where(comision => (comision.HoraInicio <= horarioDia.HoraEntradaParcial) && (comision.HoraFin >= horarioDia.HoraEntradaParcial)).Select(comision => comision).Count() > 0 ? true : false) : false;
 
                 if (_hayNovedadHoraEntrada || _hayComisionServicioHoraEntrada) // Primer check (novedades y comision de servicio)
                 {
