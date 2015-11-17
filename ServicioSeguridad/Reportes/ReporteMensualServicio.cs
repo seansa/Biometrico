@@ -67,7 +67,8 @@ namespace Servicio.RecursoHumano.Reportes
             _listaDiasDelMes = DiasDelMesConHorarios();
 
             _dia = new CultureInfo("es-Ar").TextInfo.ToTitleCase(_fecha.Date.ToString("dddd", new CultureInfo("es-Ar")));
-            _horarioDia = _listaHorarios.Where(horario => (bool)horario.GetType().GetProperty(_dia).GetValue(horario, null) == true).SingleOrDefault();
+            
+
             //_minutosToleranciaAusente = ConfiguracionServicio.MinutosToleranciaAusente;
             //_minutosToleranciaLlegadaTarde = ConfiguracionServicio.MinutosToleranciaLlegadaTarde;
 
@@ -156,14 +157,17 @@ namespace Servicio.RecursoHumano.Reportes
         {
             var lista = new List<ReporteMensualDTO>();
 
-            if (_horarioDia != null)
-            {
-                var enumerador = Generador().GetEnumerator();
-                var _finMes = new DateTime(_fecha.Year, _fecha.Month, _diasMes);
-                enumerador.MoveNext();
+            var enumerador = Generador().GetEnumerator();
+            enumerador.MoveNext();
 
-                foreach (var dia in _listaDiasDelMes)
+            foreach (var dia in _listaDiasDelMes)
+            {
+                _horarioDia = HorarioDelDia(dia);
+
+
+                if (_horarioDia != null)
                 {
+                    var _finMes = new DateTime(_fecha.Year, _fecha.Month, _diasMes);
                     var reporte = new ReporteMensualDTO();
                     var listaAccesosDelDia = ListaAccesosDelDia(dia);
 
@@ -182,16 +186,16 @@ namespace Servicio.RecursoHumano.Reportes
                     // Horas de los accesos
 
                     reporte.HoraEntrada = listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Entrada").Any() ? listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Entrada").Last().FechaHora : (DateTime?)null;
-                    reporte.HoraEntradaParcial = listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "EntradaParacial").Any() ? listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "EntradaParacial").Last().FechaHora : (DateTime?)null;
+                    reporte.HoraEntradaParcial = _horarioDia.HoraEntradaParcial == null ? null : listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "EntradaParacial").Any() ? listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "EntradaParacial").Last().FechaHora : (DateTime?)null;
                     reporte.HoraSalida = listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Salida").Any() ? listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Salida").Last().FechaHora : (DateTime?)null;
-                    reporte.HoraSalidaParcial = listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "SalidaParcial").Any() ? listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "SalidaParcial").Last().FechaHora : (DateTime?)null;
+                    reporte.HoraSalidaParcial = _horarioDia.HoraSalidaParcial == null ? null : listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "SalidaParcial").Any() ? listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "SalidaParcial").Last().FechaHora : (DateTime?)null;
 
                     // Minutos tarde y minutos faltantes
 
                     reporte.MinutosTarde = Tardanza(listaAccesosDelDia, _horarioDia);
-                    reporte.MinutosTardeExtension = TardanzaExtension(listaAccesosDelDia, _horarioDia);
+                    reporte.MinutosTardeExtension = _horarioDia.HoraEntradaParcial == null ? null : TardanzaExtension(listaAccesosDelDia, _horarioDia);
                     reporte.MinutosFaltantes = (reporte.HoraSalidaParcial != null && reporte.HoraEntrada != null) ? Diff((DateTime)reporte.HoraEntrada, (DateTime)reporte.HoraSalidaParcial) : (TimeSpan?)null;
-                    reporte.MinutosFaltantesExtension = (reporte.HoraSalida != null && reporte.HoraEntradaParcial != null) ? Diff((DateTime)reporte.HoraEntradaParcial, (DateTime)reporte.HoraSalida) : (TimeSpan?)null;
+                    reporte.MinutosFaltantesExtension = _horarioDia.HoraEntradaParcial == null ? null : (reporte.HoraSalida != null && reporte.HoraEntradaParcial != null) ? Diff((DateTime)reporte.HoraEntradaParcial, (DateTime)reporte.HoraSalida) : (TimeSpan?)null;
 
                     enumerador.MoveNext();
 
@@ -267,7 +271,7 @@ namespace Servicio.RecursoHumano.Reportes
             return lista;
         }
 
-        public List<DateTime> DiasDelMesConHorarios()
+        private List<DateTime> DiasDelMesConHorarios()
         {
             var lista = new List<DateTime>();
 
@@ -287,7 +291,26 @@ namespace Servicio.RecursoHumano.Reportes
             return lista;
         }
 
-        public IEnumerable<int> Generador()
+        private DetalleHorarioDTO HorarioDelDia(DateTime dia)
+        {
+            var cultura = new CultureInfo("es-AR");
+            var diaStr = cultura.DateTimeFormat.GetDayName(dia.DayOfWeek) == "miércoles" ? "miercoles" : cultura.DateTimeFormat.GetDayName(dia.DayOfWeek) == "sábado" ? "sabado" : cultura.DateTimeFormat.GetDayName(dia.DayOfWeek);
+            var diaCased = cultura.TextInfo.ToTitleCase(diaStr);
+
+            foreach (var horario in _listaHorarios)
+            {
+                var valor = horario.GetType().GetProperty(diaCased).GetValue(horario, null);
+
+                if((bool)valor)
+                {
+                    return horario;
+                }
+            }
+
+            return null;
+        }
+
+        private IEnumerable<int> Generador()
         {
             for (var i = 1; i <= 31 ; i++)
             {

@@ -136,13 +136,14 @@ namespace PresentacionRecursoHumano
             if (cmbArea.SelectedItem == null || cmbDireccion.SelectedItem == null) {
                 _listaAgentes = new List<AgenteDTO>();
                 dgvAgentes.DataSource = _listaAgentes;
-                dgvReporte.DataSource = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
+                //dgvReporte.DataSource = _reporteAgenteSeleccionado;
                 CargarAutoComplete(true);
             }
             else
             {
                 _listaAgentes = _agenteServicio.ObtenerPorFiltro(((SubSectorDTO)cmbArea.SelectedItem).Descripcion);
                 dgvAgentes.DataSource = _listaAgentes;
+                dgvReporte.DataSource = _reporteAgenteSeleccionado;
                 CargarAutoComplete();
             }
 
@@ -160,28 +161,28 @@ namespace PresentacionRecursoHumano
             {
                 lblApyNom.Text = _agenteSeleccionado.ApyNom;
                 lblLegajo.Text = _agenteSeleccionado.Legajo;
-            }
+                
+                dgvReporte.DataSource = _reporteAgenteSeleccionado;
+                FormatearGrillaReporte(dgvReporte);
 
-            dgvReporte.DataSource = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
-            FormatearGrillaReporte(dgvReporte);
-
-            if (_reporteAgenteSeleccionado.Any())
-            {
-                if (_reporteAgenteSeleccionado.First().Novedades.Any())
+                if (_reporteAgenteSeleccionado.Any())
                 {
-                    dgvNovedades.DataSource = _reporteAgenteSeleccionado.First().Novedades.ToList();
-                }
+                    if (_reporteAgenteSeleccionado.First().Novedades.Any())
+                    {
+                        dgvNovedades.DataSource = _reporteAgenteSeleccionado.First().Novedades.ToList();
+                    }
 
-                if (_reporteAgenteSeleccionado.First().Comisiones.Any())
-                {
-                    dgvComisiones.DataSource = _reporteAgenteSeleccionado.First().Comisiones.ToList();
-                }
+                    if (_reporteAgenteSeleccionado.First().Comisiones.Any())
+                    {
+                        dgvComisiones.DataSource = _reporteAgenteSeleccionado.First().Comisiones.ToList();
+                    }
 
-                if (_reporteAgenteSeleccionado.First().Lactancias.Any())
-                {
-                    dgvLactancias.DataSource = _reporteAgenteSeleccionado.First().Lactancias.ToList();
+                    if (_reporteAgenteSeleccionado.First().Lactancias.Any())
+                    {
+                        dgvLactancias.DataSource = _reporteAgenteSeleccionado.First().Lactancias.ToList();
+                    }
                 }
-            }
+            } 
         }
 
         public void CargarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
