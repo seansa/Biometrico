@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_00014_ABM_Lactancia));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnGuardar = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
@@ -45,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnlFechas = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.dtpHoraInicio = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -62,6 +61,7 @@
             this.btnMarcarSemana = new System.Windows.Forms.Button();
             this.btnDesmarcar = new System.Windows.Forms.Button();
             this.pnlDias = new System.Windows.Forms.Panel();
+            this.chkHoraInicio = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLactancia)).BeginInit();
             this.panel1.SuspendLayout();
@@ -104,28 +104,28 @@
             // dgvLactancia
             // 
             this.dgvLactancia.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.dgvLactancia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvLactancia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLactancia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dgvLactancia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLactancia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLactancia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLactancia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLactancia.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLactancia.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLactancia.Location = new System.Drawing.Point(0, 260);
             this.dgvLactancia.MultiSelect = false;
             this.dgvLactancia.Name = "dgvLactancia";
@@ -199,8 +199,8 @@
             // 
             // pnlFechas
             // 
+            this.pnlFechas.Controls.Add(this.chkHoraInicio);
             this.pnlFechas.Controls.Add(this.label6);
-            this.pnlFechas.Controls.Add(this.dtpHoraInicio);
             this.pnlFechas.Controls.Add(this.label5);
             this.pnlFechas.Controls.Add(this.label4);
             this.pnlFechas.Controls.Add(this.dtpFechaHasta);
@@ -218,14 +218,6 @@
             this.label6.Size = new System.Drawing.Size(65, 15);
             this.label6.TabIndex = 9;
             this.label6.Text = "Hora Inicio";
-            // 
-            // dtpHoraInicio
-            // 
-            this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicio.Location = new System.Drawing.Point(108, 33);
-            this.dtpHoraInicio.Name = "dtpHoraInicio";
-            this.dtpHoraInicio.Size = new System.Drawing.Size(126, 23);
-            this.dtpHoraInicio.TabIndex = 8;
             // 
             // label5
             // 
@@ -398,6 +390,15 @@
             this.pnlDias.Size = new System.Drawing.Size(747, 38);
             this.pnlDias.TabIndex = 16;
             // 
+            // chkHoraInicio
+            // 
+            this.chkHoraInicio.AutoSize = true;
+            this.chkHoraInicio.Location = new System.Drawing.Point(108, 40);
+            this.chkHoraInicio.Name = "chkHoraInicio";
+            this.chkHoraInicio.Size = new System.Drawing.Size(15, 14);
+            this.chkHoraInicio.TabIndex = 10;
+            this.chkHoraInicio.UseVisualStyleBackColor = true;
+            // 
             // _00014_ABM_Lactancia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -443,7 +444,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlFechas;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dtpHoraInicio;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpFechaHasta;
@@ -461,5 +461,6 @@
         private System.Windows.Forms.Button btnDesmarcar;
         private System.Windows.Forms.Panel pnlDias;
         private PresentacionBase.Clases.Control.DataGridView dgvLactancia;
+        private System.Windows.Forms.CheckBox chkHoraInicio;
     }
 }

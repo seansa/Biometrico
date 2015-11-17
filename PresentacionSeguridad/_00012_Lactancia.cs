@@ -31,7 +31,7 @@ namespace PresentacionRecursoHumano
             base.FormatearGrilla(dgv);
             this.dgvLactancia.Columns["FechaDesdeStr"].Visible = true;
             this.dgvLactancia.Columns["FechaHastaStr"].Visible = true;
-            this.dgvLactancia.Columns["HoraInicioStr"].Visible = true;
+            this.dgvLactancia.Columns["HoraInicio"].Visible = true;
             this.dgvLactancia.Columns["LunesStr"].Visible = true;
             this.dgvLactancia.Columns["MartesStr"].Visible = true;
             this.dgvLactancia.Columns["MiercolesStr"].Visible = true;
@@ -42,7 +42,7 @@ namespace PresentacionRecursoHumano
             this.dgvLactancia.Columns["FechaActualizacionStr"].Visible = true;
             this.dgvLactancia.Columns["FechaDesdeStr"].HeaderText = "Fecha Desde";
             this.dgvLactancia.Columns["FechaHastaStr"].HeaderText = "Fecha Hasta";
-            this.dgvLactancia.Columns["HoraInicioStr"].HeaderText = "Hora Inicio";
+            this.dgvLactancia.Columns["HoraInicio"].HeaderText = "Hora Inicio";
             this.dgvLactancia.Columns["LunesStr"].HeaderText = "Lunes";
             this.dgvLactancia.Columns["MartesStr"].HeaderText = "Martes";
             this.dgvLactancia.Columns["MiercolesStr"].HeaderText = "Miercoles";
