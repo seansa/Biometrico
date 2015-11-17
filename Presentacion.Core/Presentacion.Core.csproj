@@ -59,6 +59,12 @@
     <Compile Include="_10001_Acceso.Designer.cs">
       <DependentUpon>_10001_Acceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="_10002_ReporteDiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_10002_ReporteDiario.Designer.cs">
+      <DependentUpon>_10002_ReporteDiario.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -67,6 +73,9 @@
   <ItemGroup>
     <EmbeddedResource Include="_10001_Acceso.resx">
       <DependentUpon>_10001_Acceso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_10002_ReporteDiario.resx">
+      <DependentUpon>_10002_ReporteDiario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

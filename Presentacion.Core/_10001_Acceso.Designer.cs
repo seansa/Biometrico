@@ -91,9 +91,10 @@
             // dgvAgentes
             // 
             this.dgvAgentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAgentes.Location = new System.Drawing.Point(0, 95);
+            this.dgvAgentes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvAgentes.Location = new System.Drawing.Point(0, 98);
             this.dgvAgentes.Name = "dgvAgentes";
-            this.dgvAgentes.Size = new System.Drawing.Size(504, 197);
+            this.dgvAgentes.Size = new System.Drawing.Size(342, 197);
             this.dgvAgentes.TabIndex = 2;
             this.dgvAgentes.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgentes_RowEnter);
             // 
@@ -123,7 +124,6 @@
             this.dtpFecha.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtpFecha.Size = new System.Drawing.Size(83, 23);
             this.dtpFecha.TabIndex = 4;
-            this.dtpFecha.ValueChanged += new System.EventHandler(this.dtpFecha_ValueChanged);
             // 
             // cmbTipoAcceso
             // 

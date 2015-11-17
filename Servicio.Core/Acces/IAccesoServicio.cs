@@ -10,7 +10,7 @@ namespace Servicio.Core.Acces
 {
     public interface IAccesoServicio
     {
-        void Insertar(long agenteId, DateTime fechaHora, TipoAcceso tipoAcceso, string nroReloj);
+        void Insertar(long agenteId, DateTime fechaHora, TipoAcceso tipoAcceso, string nroReloj,TimeSpan? hora);
         bool VerificarNoEsteRegistrado(long agenteId, DateTime fechaHora, TipoAcceso tipoAcceso, string nroReloj);
         bool VerificarTipoAccesoCorrecto(long agenteId, DateTime fechaHora, TipoAcceso tipoAcceso, string nroReloj);
         IEnumerable<AccesoDTO> ObtenerPorId(long agenteid);
