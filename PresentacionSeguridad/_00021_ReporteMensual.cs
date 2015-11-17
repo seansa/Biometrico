@@ -286,13 +286,18 @@ namespace PresentacionRecursoHumano
             try
             {
                 _agenteSeleccionado = _agenteServicio.ObtenerTodo().First();
-                ActualizarAgentes();
+                
             }
             catch
             {
                 MessageBox.Show("No hay agentes en la base de datos");
                 Close();
             }
+            finally
+            {
+                ActualizarAgentes();
+            }
+            
         }
    
 

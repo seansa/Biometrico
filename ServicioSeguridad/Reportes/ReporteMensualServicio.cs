@@ -367,7 +367,7 @@ namespace Servicio.RecursoHumano.Reportes
             var listaComisonesServicioDelDia = ComisionesEnElMes(fecha);
             var listaNovedadesDelDia = NovedadesEnElMes(fecha);
 
-            _hayNovedadHoraEntrada = listaNovedadesDelDia.Any() ? (listaNovedadesDelDia.Where(novedad => (((TimeSpan)novedad.HoraDesde).CompareTo(horarioDia.HoraEntrada) <= 0) && ((novedad.HoraHasta == null) || (((TimeSpan)novedad.HoraHasta).CompareTo(horarioDia.HoraEntrada) >= 0))).Any() ? true : false) : false;
+            _hayNovedadHoraEntrada = listaNovedadesDelDia.Any() ? (listaNovedadesDelDia.Where(novedad => ((novedad.HoraDesde <= horarioDia.HoraEntrada) && (novedad.HoraHasta >= horarioDia.HoraEntrada))).Any() ? true : false) : false;
             _hayComisionServicioHoraEntrada = listaComisonesServicioDelDia.Any() ? (listaComisonesServicioDelDia.Where(comision => (((comision.HoraInicio <= horarioDia.HoraEntrada) && (comision.HoraFin >= horarioDia.HoraEntrada)) || comision.JornadaCompleta)).Any() ? true : false) : false;
 
             if (horarioDia.HoraEntradaParcial == null) // Si el horario no incluye entrada parcial
