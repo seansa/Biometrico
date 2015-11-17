@@ -68,7 +68,6 @@ namespace Servicio.RecursoHumano.Reportes
 
             _minutosToleranciaAusente = ConfiguracionServicio.MinutosToleranciaAusente ?? 15;
             _minutosToleranciaLlegadaTarde = ConfiguracionServicio.MinutosToleranciaLlegadaTarde ?? 10;
-
         }
 
         #region Statics
@@ -346,7 +345,7 @@ namespace Servicio.RecursoHumano.Reportes
 
         private bool Ausente(DateTime fecha, DetalleHorarioDTO horarioDia, List<AccesoDTO> _listaAccesosDía, out bool porLlegarTarde)
         {
-            int _numeroEntradasDia = _listaAccesosDía.Where(acceso => acceso.TipoAcceso.ToString().Contains("Entrada")).Count();
+            int _numeroEntradasDia = _listaAccesosDía.Where(acceso => acceso.TipoAcceso.ToString().Contains("Entrada")).Count() > 2 ? 2 : _listaAccesosDía.Where(acceso => acceso.TipoAcceso.ToString().Contains("Entrada")).Count();
 
             bool _hayNovedadHoraEntrada;
             bool _hayNovedadHoraEntradaParcial;
@@ -389,7 +388,7 @@ namespace Servicio.RecursoHumano.Reportes
                 else if (_listaAccesosDía.Count() > 0 && (_hayNovedadHoraEntradaParcial || _hayComisionServicioHoraEntradaParcial)) return false; // Segundo check (novedades y comisión de servicio por la tarde)
                 else if (_listaAccesosDía.Count() > 0 && _numeroEntradasDia == 2) // Tercer check (horarios y accesos)
                 {
-                    if (((Tardanza(_listaAccesosDía, horarioDia) != null) && (TardanzaExtension(_listaAccesosDía, horarioDia) != null) && (TardanzaSuperaLimite((TimeSpan)Tardanza(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)) && (TardanzaSuperaLimite((TimeSpan)TardanzaExtension(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)))) // Cuarto check (tardanza)
+                    if (((Tardanza(_listaAccesosDía, horarioDia) != null) && (TardanzaExtension(_listaAccesosDía, horarioDia) != null) && (TardanzaSuperaLimite((TimeSpan)Tardanza(_listaAccesosDía, horarioDia), _minutosToleranciaAusente) || TardanzaSuperaLimite((TimeSpan)TardanzaExtension(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)))) // Cuarto check (tardanza)
                     {
                         porLlegarTarde = true;
                         return true;
