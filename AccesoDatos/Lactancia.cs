@@ -25,7 +25,7 @@ namespace AccesoDatos
         public bool Domingo { get; set; }
         public System.DateTime FechaDesde { get; set; }
         public System.DateTime FechaHasta { get; set; }
-        public System.TimeSpan HoraInicio { get; set; }
+        public bool HoraInicio { get; set; }
         public System.DateTime FechaActualizacion { get; set; }
     
         public virtual Agente Agente { get; set; }

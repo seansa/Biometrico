@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/12/2015 20:24:29
+-- Date Created: 11/16/2015 20:23:08
 -- Generated from EDMX file: C:\Users\DIEGO\Documents\GITHUB REPOSITORIO\LABORATORIO\AccesoDatos\ModeloBometrico.edmx
 -- --------------------------------------------------
 
@@ -259,8 +259,8 @@ CREATE TABLE [dbo].[Novedades] (
     [TipoNovedadId] bigint  NOT NULL,
     [FechaDesde] datetime  NOT NULL,
     [FechaHasta] datetime  NULL,
-    [HoraDesde] nvarchar(max)  NOT NULL,
-    [HoraHasta] nvarchar(max)  NOT NULL,
+    [HoraDesde] time  NULL,
+    [HoraHasta] time  NULL,
     [Observacion] nvarchar(max)  NOT NULL
 );
 GO
@@ -292,7 +292,7 @@ CREATE TABLE [dbo].[Lactancias] (
     [Domingo] bit  NOT NULL,
     [FechaDesde] datetime  NOT NULL,
     [FechaHasta] datetime  NOT NULL,
-    [HoraInicio] time  NOT NULL,
+    [HoraInicio] bit  NOT NULL,
     [FechaActualizacion] datetime  NOT NULL
 );
 GO
