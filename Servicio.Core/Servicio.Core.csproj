@@ -53,6 +53,9 @@
     <Compile Include="Acces\AccesoServicio.cs" />
     <Compile Include="Acces\IAccesoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporte\IReporteServicio.cs" />
+    <Compile Include="Reporte\ReporteDiarioDTO\ReporteDiarioDTO.cs" />
+    <Compile Include="Reporte\ReporteServicio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

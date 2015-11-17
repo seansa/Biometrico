@@ -61,15 +61,17 @@
             this.accesoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accesoDelAgenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relojDefectuosoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mensualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mensualToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mensualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mensualToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -133,7 +135,9 @@
             this.sectorToolStripMenuItem,
             this.subSectorToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.seguridadToolStripMenuItem});
+            this.seguridadToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.configuracionToolStripMenuItem});
             this.administraciónToolStripMenuItem.Name = "administraciónToolStripMenuItem";
             this.administraciónToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.administraciónToolStripMenuItem.Text = "Administración";
@@ -144,7 +148,7 @@
             this.consultaDeSectoresToolStripMenuItem,
             this.nuevoSectorToolStripMenuItem});
             this.sectorToolStripMenuItem.Name = "sectorToolStripMenuItem";
-            this.sectorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.sectorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sectorToolStripMenuItem.Text = "Sector";
             // 
             // consultaDeSectoresToolStripMenuItem
@@ -169,7 +173,7 @@
             this.toolStripMenuItem4,
             this.asignarAgentesToolStripMenuItem});
             this.subSectorToolStripMenuItem.Name = "subSectorToolStripMenuItem";
-            this.subSectorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.subSectorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.subSectorToolStripMenuItem.Text = "Sub-Sector";
             // 
             // consultaDeSubSectoresToolStripMenuItem
@@ -201,7 +205,7 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(129, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // seguridadToolStripMenuItem
             // 
@@ -212,7 +216,7 @@
             this.toolStripMenuItem3,
             this.perfilToolStripMenuItem});
             this.seguridadToolStripMenuItem.Name = "seguridadToolStripMenuItem";
-            this.seguridadToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.seguridadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.seguridadToolStripMenuItem.Text = "Seguridad";
             // 
             // usuariosToolStripMenuItem
@@ -334,6 +338,29 @@
             this.relojDefectuosoToolStripMenuItem.Text = "Reloj Defectuoso";
             this.relojDefectuosoToolStripMenuItem.Click += new System.EventHandler(this.relojDefectuosoToolStripMenuItem_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mensualToolStripMenuItem,
+            this.mensualToolStripMenuItem1});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // mensualToolStripMenuItem
+            // 
+            this.mensualToolStripMenuItem.Name = "mensualToolStripMenuItem";
+            this.mensualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mensualToolStripMenuItem.Text = "Diario";
+            this.mensualToolStripMenuItem.Click += new System.EventHandler(this.mensualToolStripMenuItem_Click);
+            // 
+            // mensualToolStripMenuItem1
+            // 
+            this.mensualToolStripMenuItem1.Name = "mensualToolStripMenuItem1";
+            this.mensualToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.mensualToolStripMenuItem1.Text = "Mensual";
+            this.mensualToolStripMenuItem1.Click += new System.EventHandler(this.mensualToolStripMenuItem1_Click);
+            // 
             // salirDelSistemaToolStripMenuItem
             // 
             this.salirDelSistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -381,27 +408,17 @@
             this.lblUsuario.Size = new System.Drawing.Size(50, 17);
             this.lblUsuario.Text = "Usuario:";
             // 
-            // reportesToolStripMenuItem
+            // toolStripSeparator1
             // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mensualToolStripMenuItem,
-            this.mensualToolStripMenuItem1});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.reportesToolStripMenuItem.Text = "Reportes";
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
-            // mensualToolStripMenuItem
+            // configuracionToolStripMenuItem
             // 
-            this.mensualToolStripMenuItem.Name = "mensualToolStripMenuItem";
-            this.mensualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.mensualToolStripMenuItem.Text = "Diario";
-            // 
-            // mensualToolStripMenuItem1
-            // 
-            this.mensualToolStripMenuItem1.Name = "mensualToolStripMenuItem1";
-            this.mensualToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.mensualToolStripMenuItem1.Text = "Mensual";
-            this.mensualToolStripMenuItem1.Click += new System.EventHandler(this.mensualToolStripMenuItem1_Click);
+            this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
+            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.configuracionToolStripMenuItem.Text = "Configuracion";
+            this.configuracionToolStripMenuItem.Click += new System.EventHandler(this.configuracionToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -473,5 +490,7 @@
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mensualToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mensualToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem configuracionToolStripMenuItem;
     }
 }

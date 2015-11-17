@@ -235,5 +235,15 @@ namespace BiometricoWF
         {
             EjecutarFormulario(new PresentacionRecursoHumano._00021_ReporteMensual("Reporte Mensual"), false);
         }
+
+        private void mensualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EjecutarFormulario(new Presentacion.Core._10002_ReporteDiario(), false);
+        }
+
+        private void configuracionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EjecutarFormulario(new PresentacionRecursoHumano._00020_Configuracion(), false);
+        }
     }
 }

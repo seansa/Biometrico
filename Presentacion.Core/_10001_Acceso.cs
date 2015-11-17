@@ -63,7 +63,7 @@ namespace Presentacion.Core
         {
             _tipoAcceso = _diccionario.First(x => x.Value == this.cmbTipoAcceso.SelectedValue.ToString()).Key;
            
-                _accesoServicio.Insertar(_agenteId, this.dtpHoraAcceso.Value, _tipoAcceso, "2");
+                _accesoServicio.Insertar(_agenteId, this.dtpFecha.Value.Date, _tipoAcceso, "2",(TimeSpan?)this.dtpHoraAcceso.Value.TimeOfDay);
             
         }
 
@@ -80,9 +80,6 @@ namespace Presentacion.Core
 
         }
 
-        private void dtpFecha_ValueChanged(object sender, EventArgs e)
-        {
-            this.dtpHoraAcceso.Value = this.dtpFecha.Value.Date;
-        }
+        
     }
 }
