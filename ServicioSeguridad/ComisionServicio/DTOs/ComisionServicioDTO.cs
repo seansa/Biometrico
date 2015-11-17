@@ -15,11 +15,11 @@ namespace Servicio.RecursoHumano.ComisionServicio.DTOs
         public DateTime? FechaHasta { get; set; }
         public string FechaHastaStr { get { return ((DateTime)FechaHasta).ToShortDateString(); } }
         public TimeSpan HoraInicio { get; set; }
-        public string HoraInicioStr { get { return HoraInicio.Hours.ToString() + ":" + HoraInicio.Minutes.ToString(); } }
+        public string HoraInicioStr { get { return String.Format("{0:hh\\:mm}", HoraInicio); } }
         public TimeSpan HoraFin { get; set; }
-        public string HoraFinStr { get { return HoraFin.Hours.ToString() + ":" + HoraFin.Minutes.ToString(); } }
+        public string HoraFinStr { get { return String.Format("{0:hh\\:mm}", HoraFin); } }
         public bool JornadaCompleta { get; set; }
-        public string JornadaCompletaStr { get { return JornadaCompleta ? "SI" : "NO"; } }
+        public string JornadaCompletaStr { get { return JornadaCompleta ? "Sí" : "No"; } }
         public string Observaciones { get; set; }
         public string Descripcion { get; set; }
     }
