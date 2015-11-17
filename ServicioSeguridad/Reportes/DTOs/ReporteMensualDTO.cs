@@ -42,9 +42,9 @@ namespace Servicio.RecursoHumano.Reportes.DTOs
         public TimeSpan? MinutosFaltantes { get; set; }
         public TimeSpan? MinutosFaltantesExtension { get; set; }
 
-        public string MinutosTardeStr { get { return (MinutosTarde == null || String.Format("{0:mm\\:ss}", MinutosFaltantesExtension) == "00:00") ? "-" : String.Format("{0:mm\\:ss}", MinutosTarde); } }
-        public string MinutosTardeExtensionStr { get { return (MinutosTardeExtension == null || String.Format("{0:mm\\:ss}", MinutosFaltantesExtension) == "00:00") ? "-" : String.Format("{0:mm\\:ss}", MinutosTardeExtension); } }
-        public string MinutosFaltantesStr { get { return (MinutosFaltantes == null || String.Format("{0:mm\\:ss}", MinutosFaltantesExtension) == "00:00") ? "-" : String.Format("{0:mm\\:ss}", MinutosFaltantes); } }
+        public string MinutosTardeStr { get { return (MinutosTarde == null || String.Format("{0:mm\\:ss}", MinutosTarde) == "00:00") ? "-" : String.Format("{0:mm\\:ss}", MinutosTarde); } }
+        public string MinutosTardeExtensionStr { get { return (MinutosTardeExtension == null || String.Format("{0:mm\\:ss}", MinutosTardeExtension) == "00:00") ? "-" : String.Format("{0:mm\\:ss}", MinutosTardeExtension); } }
+        public string MinutosFaltantesStr { get { return (MinutosFaltantes == null || String.Format("{0:mm\\:ss}", MinutosFaltantes) == "00:00") ? "-" : String.Format("{0:mm\\:ss}", MinutosFaltantes); } }
         public string MinutosFaltantesExtensionStr { get { return (MinutosFaltantesExtension == null || String.Format("{0:mm\\:ss}", MinutosFaltantesExtension) == "00:00") ? "-" : String.Format("{0:mm\\:ss}", MinutosFaltantesExtension); } }
     }
 }
