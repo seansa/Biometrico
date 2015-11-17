@@ -115,7 +115,7 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
             get
             {
                 var valor = -1;
-                if (HoraSalida != null)
+                if (HoraEntrada != null&&HoraSalida!=null)
                 {
                     var valor1 = Convert.ToInt32(HoraSalida.Value.Minutes - _horario.HoraSalida.Value.Minutes);
                     var valor2 = Convert.ToInt32(HoraEntrada.Value.Minutes - _horario.HoraEntrada.Value.Minutes);
@@ -157,57 +157,7 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                 return _reloj != null ? "SI" : "NO";
             }
         }
-        public string Tarde
-        {
-            get
-            {
-                if (HoraEntrada == null)
-                {
-
-                    if (_novedad != null && _novedad.TipoNovedad.EsJornadaCompleta)
-                    {
-                        return "NO";
-                    }
-                    else if (_comision != null && _comision.EsJornadaCompleta)
-                    {
-                        return "NO";
-                    }
-                    else if (_reloj != null && (_reloj.JornadaCompleta == true || (_reloj.HoraDesde <= _horario.HoraEntrada && _reloj.HoraHasta >= _horario.HoraSalida)))
-                    {
-                        return "NO";
-                    }
-                    else
-                    {
-                        return "SI";
-                    }
-                }
-                else
-                {
-                    if (_lactancia != null)
-                    {
-                        if (_lactancia.HoraInicio)
-                        {
-                            var minutos = new TimeSpan(0, _reporteServicio.obtenerMinutosLactancia(), 0);
-                            var horaEntrada = _horario.HoraEntrada.Value.Add(minutos);
-                            return (HoraEntrada.Value.Minutes - horaEntrada.Minutes) > _reporteServicio.obtenerMinutosLlegadaTarde() ? "SI" : "NO";
-                        }
-                        else
-                        {
-                            return (HoraEntrada.Value.Minutes - _horario.HoraEntrada.Value.Minutes) > _reporteServicio.obtenerMinutosLlegadaTarde() ? "SI" : "NO";
-                        }
-
-                    }
-
-                    else
-                    {
-                        return (HoraEntrada.Value.Minutes - _horario.HoraEntrada.Value.Minutes) > _reporteServicio.obtenerMinutosLlegadaTarde() ? "SI" : "NO";
-                    }
-
-
-                }
-            }
-        }
-            public string Ausente
+        public string Ausente
         {
             get
             {
@@ -249,7 +199,9 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                     }
                     else
                     {
-                        return (HoraEntrada.Value.Minutes - _horario.HoraEntrada.Value.Minutes) > _reporteServicio.obtenerMinutosAusentes() ? "SI" : "NO";
+                        var valor = (HoraEntrada.Value.Minutes - _horario.HoraEntrada.Value.Minutes);
+                        var retornar=MinutosTarde>_toleraciaAusente ? "SI" : "NO";
+                        return retornar;
 
                     }
                 }
@@ -257,6 +209,64 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
             }
         }
 
+        public string Tarde
+        {
+            get
+            {
+                if (HoraEntrada == null)
+                {
+
+                    if (_novedad != null && _novedad.TipoNovedad.EsJornadaCompleta)
+                    {
+                        return "NO";
+                    }
+                    else if (_comision != null && _comision.EsJornadaCompleta)
+                    {
+                        return "NO";
+                    }
+                    else if (_reloj != null && (_reloj.JornadaCompleta == true || (_reloj.HoraDesde <= _horario.HoraEntrada && _reloj.HoraHasta >= _horario.HoraSalida)))
+                    {
+                        return "NO";
+                    }
+                    else
+                    {
+                        return "NO";
+                    }
+                }
+                else
+                {
+                    if (Ausente!="SI")
+                    {
+                        if (_lactancia != null)
+                        {
+                            if (_lactancia.HoraInicio)
+                            {
+                                var minutos = new TimeSpan(0, _reporteServicio.obtenerMinutosLactancia(), 0);
+                                var horaEntrada = _horario.HoraEntrada.Value.Add(minutos);
+                                return (HoraEntrada.Value.Minutes - horaEntrada.Minutes) > _reporteServicio.obtenerMinutosLlegadaTarde() ? "SI" : "NO";
+                            }
+                            else
+                            {
+                                return (HoraEntrada.Value.Minutes - _horario.HoraEntrada.Value.Minutes) > _reporteServicio.obtenerMinutosLlegadaTarde() ? "SI" : "NO";
+                            }
+
+                        }
+
+                        else
+                        {
+                            return (HoraEntrada.Value.Minutes - _horario.HoraEntrada.Value.Minutes) > _reporteServicio.obtenerMinutosLlegadaTarde() ? "SI" : "NO";
+                        } 
+                    }
+                    else
+                    {
+                        return "NO";
+                    }
+
+
+                }
+            }
+        }
+           
         
     
         public string JornadaIncompleta

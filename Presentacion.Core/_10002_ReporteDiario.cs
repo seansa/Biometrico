@@ -27,24 +27,10 @@ namespace Presentacion.Core
             var contadorTarde = 0;
             var lista= _reporteServicio.FiltrarAgenteDTO(this.dateTimePicker1.Value.Date);
             this.dataGridView1.DataSource = lista;
-            foreach (var agente in lista)
-            {
-                if (agente.Ausente=="SI")
-                {
-                    contadorAusentes++;
-                }
-                if (agente.Ausente=="NO")
-                {
-                    contadorPresentes++;
-                }
-                if (agente.Tarde=="SI")
-                {
-                    contadorTarde++;
-                }
-            }
-            this.nudAusentes.Value = Convert.ToDecimal(contadorAusentes);
-            this.nudPresentes.Value = Convert.ToDecimal(contadorPresentes);
-            this.nudTarde.Value = Convert.ToDecimal(contadorTarde);
+
+            this.nudAusentes.Value = lista.Count(x => x.Ausente == "SI");
+            this.nudPresentes.Value = Convert.ToDecimal(lista.Count(x => x.Ausente != "SI"));
+            this.nudTarde.Value = Convert.ToDecimal(lista.Count(x => x.Tarde == "SI"));
         }
     }
 }

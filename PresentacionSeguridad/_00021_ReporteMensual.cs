@@ -526,7 +526,7 @@ namespace PresentacionRecursoHumano
             catch
             {
                 MessageBox.Show("No hay accesos en la base de datos");
-                Close();
+                this.Close();
             }
 
             cmbAño.DataSource = _listaAños;
