@@ -166,7 +166,7 @@ namespace Servicio.RecursoHumano.Reportes
 
                     reporte.AgenteId = _agenteId;
                     reporte.Numero = enumerador.Current;
-                    reporte.Ausente = Ausente(dia, _horarioDia, listaAccesosDelDia);
+                    reporte.Ausente = Ausente(dia, _horarioDia, listaAccesosDelDia, out porLlegarTarde);
                     
 
                     // Listas para las grillas de abajo
@@ -191,7 +191,7 @@ namespace Servicio.RecursoHumano.Reportes
                     reporte.MinutosFaltantes = (reporte.HoraSalidaParcial != null && reporte.HoraEntrada != null) ? Diff((TimeSpan)reporte.HoraSalidaParcial, (TimeSpan)reporte.HoraEntrada) : (TimeSpan?)null;
                     reporte.MinutosFaltantesExtension = _horarioDia.HoraEntradaParcial == null ? ((reporte.HoraSalida != null && reporte.HoraEntrada != null) ? Diff(Diff((TimeSpan)reporte.HoraSalida, (TimeSpan)reporte.HoraEntrada), Diff((TimeSpan)_horarioDia.HoraSalida, (TimeSpan)_horarioDia.HoraEntrada)) : (TimeSpan?)null) : ((reporte.HoraSalida != null && reporte.HoraEntradaParcial != null) ? Diff(Diff((TimeSpan)reporte.HoraSalida, (TimeSpan)reporte.HoraEntradaParcial), Diff((TimeSpan)_horarioDia.HoraSalida, (TimeSpan)_horarioDia.HoraEntradaParcial)) : (TimeSpan?)null);
 
-                    reporte.AusentePorLlegarTarde = ((TimeSpan?)reporte.MinutosTarde == null ? false : ((TimeSpan)reporte.MinutosTarde).TotalMinutes > _minutosToleranciaAusente);
+                    reporte.AusentePorLlegarTarde = porLlegarTarde;
 
                     enumerador.MoveNext();
 
@@ -243,7 +243,7 @@ namespace Servicio.RecursoHumano.Reportes
 
             foreach (var lactancia in _listaLactancias)
             {
-                if ((lactancia.FechaDesde.Date.CompareTo(currentDia.Date) <= 0) && (lactancia.FechaHasta == null || ((DateTime)lactancia.FechaHasta).Date.CompareTo(currentDia.Date) >= 0))
+                if ((lactancia.FechaDesde.Month.CompareTo(currentDia.Month) <= 0) && (lactancia.FechaHasta == null || ((DateTime)lactancia.FechaHasta).Month.CompareTo(currentDia.Month) >= 0))
                 {
                     lista.Add(lactancia);
                 }
@@ -344,7 +344,7 @@ namespace Servicio.RecursoHumano.Reportes
             else return false;
         }
 
-        private bool Ausente(DateTime fecha, DetalleHorarioDTO horarioDia, List<AccesoDTO> _listaAccesosDía)
+        private bool Ausente(DateTime fecha, DetalleHorarioDTO horarioDia, List<AccesoDTO> _listaAccesosDía, out bool porLlegarTarde)
         {
             int _numeroEntradasDia = _listaAccesosDía.Where(acceso => acceso.TipoAcceso.ToString().Contains("Entrada")).Count();
 
@@ -355,6 +355,7 @@ namespace Servicio.RecursoHumano.Reportes
 
             var listaComisonesServicioDelDia = ComisionesEnElMes(fecha);
             var listaNovedadesDelDia = NovedadesEnElMes(fecha);
+            porLlegarTarde = false;
 
             _hayNovedadHoraEntrada = listaNovedadesDelDia.Any() ? (listaNovedadesDelDia.Where(novedad => ((novedad.HoraDesde <= horarioDia.HoraEntrada) && (novedad.HoraHasta >= horarioDia.HoraEntrada))).Any() ? true : false) : false;
             _hayComisionServicioHoraEntrada = listaComisonesServicioDelDia.Any() ? (listaComisonesServicioDelDia.Where(comision => (((comision.HoraInicio <= horarioDia.HoraEntrada) && (comision.HoraFin >= horarioDia.HoraEntrada)) || comision.JornadaCompleta)).Any() ? true : false) : false;
@@ -369,6 +370,7 @@ namespace Servicio.RecursoHumano.Reportes
                 {
                     if (Tardanza(_listaAccesosDía, horarioDia) != null && TardanzaSuperaLimite((TimeSpan)Tardanza(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)) // Tercer check (tardanza)
                     {
+                        porLlegarTarde = true;
                         return true;
                     }
                     return false;
@@ -389,6 +391,7 @@ namespace Servicio.RecursoHumano.Reportes
                 {
                     if (((Tardanza(_listaAccesosDía, horarioDia) != null) && (TardanzaExtension(_listaAccesosDía, horarioDia) != null) && (TardanzaSuperaLimite((TimeSpan)Tardanza(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)) && (TardanzaSuperaLimite((TimeSpan)TardanzaExtension(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)))) // Cuarto check (tardanza)
                     {
+                        porLlegarTarde = true;
                         return true;
                     }
                     return false;
