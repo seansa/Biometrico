@@ -10,7 +10,7 @@ namespace Servicio.Core.Acces
 {
     public class AccesoServicio : IAccesoServicio
     {
-        public void Insertar(long agenteId, DateTime fechaHora, TipoAcceso tipoAcceso, string nroReloj)
+        public void Insertar(long agenteId, DateTime fechaHora, TipoAcceso tipoAcceso, string nroReloj, TimeSpan? hora)
         {
             try
             {
@@ -21,6 +21,7 @@ namespace Servicio.Core.Acces
                     _acceso.FechaHora = fechaHora;
                     _acceso.TipoAcceso = tipoAcceso;
                     _acceso.NroReloj = nroReloj;
+                    _acceso.Hora = hora;
                     _context.Accesos.Add(_acceso);
                     _context.SaveChanges();
                 }

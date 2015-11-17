@@ -19,6 +19,7 @@ namespace AccesoDatos
         public System.DateTime FechaHora { get; set; }
         public TipoAcceso TipoAcceso { get; set; }
         public string NroReloj { get; set; }
+        public Nullable<System.TimeSpan> Hora { get; set; }
     
         public virtual Agente Agente { get; set; }
     }

@@ -156,6 +156,7 @@
     <Property Name="FechaHora" Type="datetime" Nullable="false" />
     <Property Name="TipoAcceso" Type="int" Nullable="false" />
     <Property Name="NroReloj" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Hora" Type="time" Nullable="true" />
   </EntityType>
   <EntityType Name="Perfiles">
     <Key>
@@ -677,6 +678,7 @@
           <NavigationProperty Name="Agente" Relationship="ModeloBometrico.AgenteAcceso" FromRole="Acceso" ToRole="Agente" />
           <Property Name="TipoAcceso" Type="ModeloBometrico.TipoAcceso" Nullable="false" />
           <Property Name="NroReloj" Type="String" Nullable="false" />
+          <Property Name="Hora" Type="Time" Nullable="true" />
         </EntityType>
         <EnumType Name="TipoAcceso">
           <Member Name="Entrada" Value="1" />
@@ -974,6 +976,7 @@
           <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
           <ScalarProperty Name="TipoAcceso" ColumnName="TipoAcceso" />
           <ScalarProperty Name="NroReloj" ColumnName="NroReloj" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
