@@ -37,7 +37,7 @@ namespace Servicio.Core.Reporte
                     var listaDto = new List<ReporteDiarioDTO.ReporteDiarioDTO>();
                     foreach (var agente in _context.Agentes.ToList())
                     {
-                        var lista = agente.Horarios.Where(w => w.FechaDesde <= fechaBuscar && w.FechaHasta >= fechaBuscar).OrderByDescending(o => o.FechaActualizacion).ToList();
+                        var lista = agente.Horarios.Where(w => w.FechaDesde.Date <= fechaBuscar && w.FechaHasta.Date >= fechaBuscar).OrderByDescending(o => o.FechaActualizacion).ToList();
                         var ultimoHorario = lista.FirstOrDefault();
                         if (ultimoHorario != null)
                         {
