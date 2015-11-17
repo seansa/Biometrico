@@ -253,7 +253,7 @@
     <Property Name="Domingo" Type="bit" Nullable="false" />
     <Property Name="FechaDesde" Type="datetime" Nullable="false" />
     <Property Name="FechaHasta" Type="datetime" Nullable="false" />
-    <Property Name="HoraInicio" Type="time" Nullable="false" />
+    <Property Name="HoraInicio" Type="bit" Nullable="false" />
     <Property Name="FechaActualizacion" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="RelojDefectuosos">
@@ -865,7 +865,7 @@
           <Property Name="Domingo" Type="Boolean" Nullable="false" />
           <Property Name="FechaDesde" Type="DateTime" Nullable="false" />
           <Property Name="FechaHasta" Type="DateTime" Nullable="false" />
-          <Property Name="HoraInicio" Type="Time" Nullable="false" />
+          <Property Name="HoraInicio" Type="Boolean" Nullable="false" />
           <Property Name="FechaActualizacion" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Agente" Relationship="ModeloBometrico.AgenteLactancia" FromRole="Lactancia" ToRole="Agente" />
         </EntityType>

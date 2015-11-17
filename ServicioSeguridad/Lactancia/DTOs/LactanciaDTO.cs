@@ -16,8 +16,8 @@ namespace Servicio.RecursoHumano.Lactancia.DTOs
         public string FechaDesdeStr { get { return FechaDesde.ToShortDateString(); } }
         public DateTime FechaHasta { get; set; }
         public string FechaHastaStr { get { return FechaHasta.ToShortDateString(); } }
-        public TimeSpan HoraInicio { get; set; }
-        public string HoraInicioStr { get { return HoraInicio.Hours.ToString() + ":" + HoraInicio.Minutes.ToString(); } }
+        public bool HoraInicio { get; set; }
+        //public string HoraInicioStr { get { return HoraInicio.Hours.ToString() + ":" + HoraInicio.Minutes.ToString(); } }
         public bool Lunes { get; set; }
         public string LunesStr { get { return Lunes ? "SI" : "NO"; } }
         public bool Martes { get; set; }
