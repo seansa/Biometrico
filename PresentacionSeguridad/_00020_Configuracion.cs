@@ -24,7 +24,7 @@ namespace PresentacionRecursoHumano
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             _configuracion.GuardarConfiguracion(dtpEntradaPorDefecto.Value.TimeOfDay, dtpSalidaPorDefecto.Value.TimeOfDay, Convert.ToInt32(nudMinutosLactancia.Value), Convert.ToInt32(nudMinutosTarde.Value), Convert.ToInt32(nudMinutosAusente.Value));
-            MessageBox.Show("La nueva configuración ha sido guardada con éxito.");
+            MessageBox.Show("La configuracion ha sido guardada con exito.");
             this.Close();
         }
 
