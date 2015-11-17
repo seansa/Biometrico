@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/18/2015 00:52:00
+-- Date Created: 11/16/2015 23:08:05
 -- Generated from EDMX file: C:\Users\DIEGO\Documents\GITHUB REPOSITORIO\LABORATORIO\AccesoDatos\ModeloBometrico.edmx
 -- --------------------------------------------------
 
@@ -194,8 +194,7 @@ CREATE TABLE [dbo].[Accesos] (
     [AgenteId] bigint  NOT NULL,
     [FechaHora] datetime  NOT NULL,
     [TipoAcceso] int  NOT NULL,
-    [NroReloj] nvarchar(max)  NOT NULL,
-    [Hora] time  NULL
+    [NroReloj] nvarchar(max)  NOT NULL
 );
 GO
 

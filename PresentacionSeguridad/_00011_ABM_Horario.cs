@@ -94,9 +94,15 @@ namespace PresentacionRecursoHumano
                     listaTemporal = _horarioServicio.AgregarDetalleHorario(listaHorarios, IdAgente, dtpFechaDesde.Value, dtpFechaHasta.Value, dtpHoraEntrada.Value.TimeOfDay, _horaSalidaParcial, _horaEntradaParcial, dtpHoraSalida.Value.TimeOfDay, chkLunes.Checked, chkMartes.Checked, chkMiercoles.Checked, chkJueves.Checked, chkViernes.Checked, chkSabado.Checked, chkDomingo.Checked).ToList();
                 }
                 else MessageBox.Show("El Agente ya tiene asignado horarios en el/los dias ingresados.");
+                LimpiarControles(this.pnlDias);
                 this.dgvgrilla.DataSource = listaTemporal.ToList();
                 FormatearGrilla(this.dgvgrilla);
             }
+        }
+
+        public override void LimpiarControles(object obj)
+        {
+            base.LimpiarControles(obj);
         }
 
         public override void FormatearGrilla(DataGridView dgv)
