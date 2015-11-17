@@ -157,7 +157,7 @@ namespace PresentacionRecursoHumano
                 lblLegajo.Text = _agenteSeleccionado.Legajo;
             }
 
-            dgvReporte.DataSource = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
+            dgvReporte.DataSource = _reporteAgenteSeleccionado;
             //FormatearGrillaReporte(dgvReporte);
         }
 
@@ -238,6 +238,7 @@ namespace PresentacionRecursoHumano
             this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             ActualizarAgentes();
+            _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[0].DataBoundItem;
         }
 
         private void cmbArea_SelectionChangeCommitted(object sender, EventArgs e)
@@ -258,18 +259,9 @@ namespace PresentacionRecursoHumano
                 _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[_filaAgente].DataBoundItem;
 
                 _reporteServicio = new ReporteMensualServicio(_agenteSeleccionado.Id, MesReporte());
+                _reporteAgenteSeleccionado = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
 
-                _reporteAgenteSeleccionado = new List<ReporteMensualDTO>();
-
-                foreach (var item in _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id))
-                {
-                    _reporteAgenteSeleccionado.Add(item);
-                }
-
-                //ActualizarReporte();
-
-                dgvReporte.DataSource = _reporteAgenteSeleccionado;
-                //MessageBox.Show("{0}", _reporteAgenteSeleccionado.First().FechaShortStr);
+                ActualizarReporte();
             }
             else
             {

@@ -30,17 +30,18 @@ namespace Servicio.RecursoHumano.Reportes
         private readonly ILactanciaServicio _lactanciaServicio;
         
         private List<DetalleHorarioDTO> _listaHorarios;
-        private List<AccesoDTO> _listaAccesos;
+        private List<AccesoDTO> _listaAccesosDelMes;
         private List<ComisionServicioDTO> _listaComisiones;
         private List<NovedadAgenteDTO> _listaNovedades;
-        private List<AccesoDTO> _listaAccesosDía;
         private List<LactanciaDTO> _listaLactancias;
+        private List<DateTime> _listaDiasDelMes;
 
         private DateTime _fecha;
         private string _dia;
-        DetalleHorarioDTO _horarioDia;
+        private DetalleHorarioDTO _horarioDia;
         private int _minutosToleranciaLlegadaTarde;
         private int _minutosToleranciaAusente;
+        private int _diasMes;
 
         private static List<Tuple<string, int>> _listaMesesYAños = ListaMesesYAños();
 
@@ -49,6 +50,7 @@ namespace Servicio.RecursoHumano.Reportes
         {
             _agenteId = AgenteId;
             _fecha = fecha;
+            _diasMes = DateTime.DaysInMonth(_fecha.Year, _fecha.Month);
 
             _agenteServicio = new AgenteServicio();
             _accesoServicio = new AccesoServicio();
@@ -58,11 +60,11 @@ namespace Servicio.RecursoHumano.Reportes
             _lactanciaServicio = new LactanciaServicio();
 
             _listaHorarios = _horarioServicio.ObtenerHorariosPorId(_agenteId).ToList();
-            _listaAccesos = _accesoServicio.ObtenerPorId(_agenteId).ToList();
+            _listaAccesosDelMes = _accesoServicio.ObtenerPorId(_agenteId).Where(acceso => acceso.FechaHora.Month == _fecha.Month).ToList();
             _listaComisiones = _comisionServicio.ObtenerPorFiltro(_agenteId).ToList();
             _listaNovedades = _novedadesServicio.ObtenerPorId(_agenteId).ToList();
             _listaLactancias = _lactanciaServicio.ObtenerPorFiltro(_agenteId).ToList();
-            _listaAccesosDía = _listaAccesos.Where(acceso => acceso.FechaHora.Date == _fecha.Date).Select(acceso => acceso).ToList();
+            _listaDiasDelMes = DiasDelMesConHorarios();
 
             _dia = new CultureInfo("es-Ar").TextInfo.ToTitleCase(_fecha.Date.ToString("dddd", new CultureInfo("es-Ar")));
             _horarioDia = _listaHorarios.Where(horario => (bool)horario.GetType().GetProperty(_dia).GetValue(horario, null) == true).SingleOrDefault();
@@ -150,34 +152,61 @@ namespace Servicio.RecursoHumano.Reportes
 
         #endregion
 
-        public IEnumerable<ReporteMensualDTO> ObtenerPorId(long agenteId)
+        public List<ReporteMensualDTO> ObtenerPorId(long agenteId)
         {
-            using (var _context = new ModeloBometricoContainer())
+            var lista = new List<ReporteMensualDTO>();
+
+            if (_horarioDia != null)
             {
-                if (_horarioDia != null) //
+                foreach (var dia in _listaDiasDelMes)
                 {
                     var reporte = new ReporteMensualDTO();
+                    var listaAccesosDelDia = ListaAccesosDelDia(dia);
 
                     reporte.AgenteId = _agenteId;
-                    reporte.Accesos = _listaAccesosDía;
+                    reporte.Accesos = listaAccesosDelDia;
                     reporte.Numero = Generador().GetEnumerator().Current;
-                    reporte.Ausente = Ausente(_fecha, _horarioDia);
+                    reporte.Ausente = Ausente(dia, _horarioDia, listaAccesosDelDia);
                     reporte.Comision = _listaComisiones.Where(comision => comision.FechaDesde.Date < _fecha && (comision.FechaHasta == null || ((DateTime)comision.FechaHasta).Date > _fecha)).SingleOrDefault();
                     reporte.Lactancia = _listaLactancias.Where(lactancia => lactancia.FechaDesde.Date < _fecha && (lactancia.FechaHasta == null || ((DateTime)lactancia.FechaHasta).Date > _fecha)).SingleOrDefault();
                     reporte.Novedad = reporte.Novedad = _listaNovedades.Where(novedad => novedad.FechaDesde.Date < _fecha && (novedad.FechaHasta == null || ((DateTime)novedad.FechaHasta).Date > _fecha)).SingleOrDefault();
-                    reporte.Fecha = _fecha;
-                    reporte.HoraEntrada = _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Entrada").Any() ? _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Entrada").Single().FechaHora : (DateTime?)null;
-                    reporte.HoraEntradaParcial = _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Entrada Parcial").Any() ? _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Entrada Parcial").Single().FechaHora : (DateTime?)null;
-                    reporte.HoraSalida = _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Salida").Any() ? _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Salida").Single().FechaHora : (DateTime?)null;
-                    reporte.HoraSalidaParcial = _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Salida Parcial").Any() ? _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Salida Parcial").Single().FechaHora : (DateTime?)null;
-                    reporte.MinutosTarde = Tardanza(_listaAccesosDía, _horarioDia);
-                    reporte.MinutosTardeExtension = TardanzaExtension(_listaAccesosDía, _horarioDia);
+                    reporte.Fecha = dia;
+                    reporte.HoraEntrada = listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Entrada").Any() ? listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Entrada").Single().FechaHora : (DateTime?)null;
+                    reporte.HoraEntradaParcial = listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Entrada Parcial").Any() ? listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Entrada Parcial").Single().FechaHora : (DateTime?)null;
+                    reporte.HoraSalida = listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Salida").Any() ? listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Salida").Single().FechaHora : (DateTime?)null;
+                    reporte.HoraSalidaParcial = listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Salida Parcial").Any() ? listaAccesosDelDia.Where(acceso => acceso.TipoAcceso == "Salida Parcial").Single().FechaHora : (DateTime?)null;
+                    reporte.MinutosTarde = Tardanza(listaAccesosDelDia, _horarioDia);
+                    reporte.MinutosTardeExtension = TardanzaExtension(listaAccesosDelDia, _horarioDia);
                     reporte.MinutosFaltantes = null;
                     reporte.MinutosFaltantesExtension = null;
 
-                    yield return reporte;
+                    Generador().GetEnumerator().MoveNext();
+
+                    lista.Add(reporte);
                 }
             }
+
+            return lista;
+        }
+
+        public List<DateTime> DiasDelMesConHorarios()
+        {
+            var lista = new List<DateTime>();
+
+            for (var i = 1; i <= _diasMes; i++)
+            {                
+                var diaActual = new DateTime(_fecha.Year, _fecha.Month, i);
+
+                if(diaActual <= DateTime.Now)
+                {
+                    if (_listaHorarios.Where(horario => (horario.FechaDesde.Date < diaActual.Date) && (horario.FechaHasta == null || horario.FechaHasta.Date > diaActual.Date)).Any())
+                    {
+                        lista.Add(diaActual);
+                    }
+                }
+            }
+
+            return lista;
         }
 
         public IEnumerable<int> Generador()
@@ -186,6 +215,20 @@ namespace Servicio.RecursoHumano.Reportes
             {
                 yield return i;
             }
+        }
+
+        private List<AccesoDTO> ListaAccesosDelDia(DateTime fecha)
+        {
+            var lista = new List<AccesoDTO>();
+
+            foreach (var item in _listaAccesosDelMes)
+            {
+                if (item.FechaHora.Day == fecha.Day - 1) {
+                    lista.Add(item);
+                }
+            }
+
+            return lista;
         }
 
         private TimeSpan? Tardanza(List<AccesoDTO> accesosDia, DetalleHorarioDTO horarioDia)
@@ -218,7 +261,7 @@ namespace Servicio.RecursoHumano.Reportes
             else return null;
         }
 
-        private bool Ausente(DateTime fecha, DetalleHorarioDTO horarioDia)
+        private bool Ausente(DateTime fecha, DetalleHorarioDTO horarioDia, List<AccesoDTO> _listaAccesosDía)
         {
             int _numeroEntradasDia = _listaAccesosDía.Where(acceso => acceso.TipoAcceso.Contains("Entrada")).Select(acceso => acceso).Count();
 
