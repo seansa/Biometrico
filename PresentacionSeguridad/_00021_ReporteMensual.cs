@@ -34,7 +34,6 @@ namespace PresentacionRecursoHumano
             _agenteServicio = new AgenteServicio();
             _sectorServicio = new SectorServicio();
             _subsectorServicio = new SubSectorServicio();
-
             _agenteSeleccionado = null;
 
             _filaAgente = -1;
@@ -144,7 +143,7 @@ namespace PresentacionRecursoHumano
             {
                 _listaAgentes = _agenteServicio.ObtenerPorFiltro(((SubSectorDTO)cmbArea.SelectedItem).Descripcion);
                 dgvAgentes.DataSource = _listaAgentes;
-                dgvReporte.DataSource = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
+                //dgvReporte.DataSource = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
                 CargarAutoComplete();
             }
 
@@ -167,13 +166,13 @@ namespace PresentacionRecursoHumano
             dgvReporte.DataSource = _reporteAgenteSeleccionado;
             FormatearGrillaReporte(dgvReporte);
 
-            if (_reporteAgenteSeleccionado.First() != null)
+            /*if (_reporteAgenteSeleccionado.First() != null)
             {
                 if (_reporteAgenteSeleccionado.First().Novedades.Any())
                 {
                     dgvNovedades.DataSource = _reporteAgenteSeleccionado.First().Novedades.ToList();
                 }
-            }
+            }*/
         }
 
         public void CargarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
@@ -218,21 +217,6 @@ namespace PresentacionRecursoHumano
             int year = (int)cmbAño.SelectedItem;
 
             return new DateTime(year, month, day);
-        }
-
-        private void VaciarForm()
-        {
-            cmbAño.DataSource = null;
-            cmbMes.DataSource = null;
-            dgvAgentes.DataSource = null;
-            dgvReporte.DataSource = null;
-            dgvNovedades.DataSource = null;
-            dgvComisiones.DataSource = null;
-            dgvLactancias.DataSource = null;
-            txtBuscar.AutoCompleteCustomSource = null;
-
-            MessageBox.Show("No hay accesos en la base de datos");
-            Close();
         }
 
         private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
@@ -283,11 +267,23 @@ namespace PresentacionRecursoHumano
                 Close();
             }
 
+            lblApyNom.Text = String.Empty;
+            lblLegajo.Text = String.Empty;
+
             this.txtBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
+            try
+            {
+                _agenteSeleccionado = _agenteServicio.ObtenerTodo().First();
+            }
+            catch
+            {
+                MessageBox.Show("No hay agentes en la base de datos");
+                Close();
+            }
+
             ActualizarAgentes();
-            _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[0].DataBoundItem;
         }
    
 
