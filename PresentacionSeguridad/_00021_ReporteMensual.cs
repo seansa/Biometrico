@@ -396,6 +396,7 @@ namespace PresentacionRecursoHumano
 
                 lblAusenciasTotales.Text = ObtenerInasistenciasTotales().ToString();
                 lblAusenciasPorLlegadasTarde.Text = ObtenerInasistenciasPorLlegadasTarde().ToString();
+                lblLlegadasTarde.Text = ObtenerLlegadasTarde().ToString();
 
                 tclDetalles.TabPages[0].Select();
             }
@@ -422,6 +423,32 @@ namespace PresentacionRecursoHumano
             }
 
             return inasistencias;
+        }
+
+        private int ObtenerLlegadasTarde()
+        {
+            int llegadasTarde = 0;
+
+            foreach (ReporteMensualDTO item in _reporteAgenteSeleccionado)
+            {
+                llegadasTarde += item.MinutosTardeStr != "-" ? 1 : 0;
+                llegadasTarde += item.MinutosTardeExtensionStr != "-" ? 1 : 0;
+            }
+
+            return llegadasTarde;
+        }
+
+        private int ObtenerJornadasIncumplidas()
+        {
+            int llegadasTarde = 0;
+
+            foreach (ReporteMensualDTO item in _reporteAgenteSeleccionado)
+            {
+                if (item.MinutosFaltantesStr != "-" || item.MinutosFaltantesExtensionStr != "-") llegadasTarde++;
+
+            }
+
+            return llegadasTarde;
         }
 
         public void CargarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
