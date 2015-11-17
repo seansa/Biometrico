@@ -173,9 +173,9 @@ namespace Servicio.RecursoHumano.Reportes
 
                     // Listas para las grillas de abajo
 
-                    reporte.Comisiones = _listaComisiones.Where(comision => comision.FechaDesde.Date <= _fecha.Date && (comision.FechaHasta == null || ((DateTime)comision.FechaHasta).Date >= _finMes.Date)).Select(comision => comision).ToList();
-                    reporte.Lactancias = _listaLactancias.Where(lactancia => lactancia.FechaDesde.Date <= _fecha.Date && (lactancia.FechaHasta == null || ((DateTime)lactancia.FechaHasta).Date >= _finMes.Date)).Select(lactancia => lactancia).ToList();
-                    reporte.Novedades = _listaNovedades.Where(novedad => novedad.FechaDesde.Date <= _fecha.Date && (novedad.FechaHasta == null || ((DateTime)novedad.FechaHasta).Date > _finMes.Date)).Select(novedad => novedad).ToList();
+                    reporte.Comisiones = ComisionesEnElMes(dia);
+                    reporte.Lactancias = _listaLactancias.Where(lactancia => lactancia.FechaDesde.Date <= dia.Date && (lactancia.FechaHasta == null || ((DateTime)lactancia.FechaHasta).Date >= dia.Date)).Select(lactancia => lactancia).ToList();
+                    reporte.Novedades = _listaNovedades.Where(novedad => novedad.FechaDesde.Date <= dia.Date && (novedad.FechaHasta == null || ((DateTime)novedad.FechaHasta).Date > dia.Date)).Select(novedad => novedad).ToList();
 
                     reporte.Fecha = dia;
 
@@ -196,6 +196,21 @@ namespace Servicio.RecursoHumano.Reportes
                     enumerador.MoveNext();
 
                     lista.Add(reporte);
+                }
+            }
+
+            return lista;
+        }
+
+        private List<ComisionServicioDTO> ComisionesEnElMes(DateTime currentDia)
+        {
+            var lista = new List<ComisionServicioDTO>();
+
+            foreach (var comision in _listaComisiones)
+            {
+                if ((comision.FechaDesde.Date.DayOfYear <= currentDia.Date.DayOfYear) && (comision.FechaHasta == null || ((DateTime)comision.FechaHasta).Date.DayOfYear >= currentDia.Date.DayOfYear))
+                {
+                    lista.Add(comision);
                 }
             }
 
@@ -283,7 +298,7 @@ namespace Servicio.RecursoHumano.Reportes
             bool _hayComisionServicioHoraEntrada;
             bool _hayComisionServicioHoraEntradaParcial;
 
-            var listaComisonesServicioDelDia = _listaComisiones.Where(comision => comision.FechaDesde.Date <= fecha.Date && ((DateTime)comision.FechaHasta).Date >= fecha.Date).Select(comision => comision).ToList();
+            var listaComisonesServicioDelDia = ComisionesEnElMes(fecha);
 
             _hayNovedadHoraEntrada = _listaNovedades.Count() > 0 ? (_listaNovedades.Where(novedad => (novedad.HoraDesde <= horarioDia.HoraEntrada) && ((novedad.HoraHasta == null) || (novedad.HoraHasta >= horarioDia.HoraEntrada))).Select(novedad => novedad).Count() > 0 ? true : false) : false;
             _hayComisionServicioHoraEntrada = listaComisonesServicioDelDia.Count() > 0 ? (listaComisonesServicioDelDia.Where(comision => (comision.HoraInicio <= horarioDia.HoraEntrada) && (comision.HoraFin >= horarioDia.HoraEntrada)).Select(comision => comision).Count() > 0 ? true : false) : false;

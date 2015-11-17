@@ -159,7 +159,7 @@
             // 
             this.lblLegajo.AutoSize = true;
             this.lblLegajo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegajo.Location = new System.Drawing.Point(527, 13);
+            this.lblLegajo.Location = new System.Drawing.Point(526, 13);
             this.lblLegajo.Name = "lblLegajo";
             this.lblLegajo.Size = new System.Drawing.Size(64, 25);
             this.lblLegajo.TabIndex = 12;
@@ -178,7 +178,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(479, 19);
+            this.label7.Location = new System.Drawing.Point(478, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 15);
             this.label7.TabIndex = 9;

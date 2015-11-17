@@ -127,7 +127,7 @@ namespace PresentacionRecursoHumano
                     {
                         AgenteId = this.AgenteId,
                         FechaDesde = this.dtpFechaDesde.Value,
-                        FechaHasta = fechaHasta,
+                        FechaHasta = chkFechaHasta.Checked ? fechaHasta : null,
                         Observaciones = this.txtObservaciones.Text,
                         JornadaCompleta = this.chkJornadaCompleta.Checked,
                         HoraFin = this.dtpHoraFin.Value.TimeOfDay,

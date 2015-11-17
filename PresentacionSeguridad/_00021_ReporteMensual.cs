@@ -143,7 +143,6 @@ namespace PresentacionRecursoHumano
             {
                 _listaAgentes = _agenteServicio.ObtenerPorFiltro(((SubSectorDTO)cmbArea.SelectedItem).Descripcion);
                 dgvAgentes.DataSource = _listaAgentes;
-                //dgvReporte.DataSource = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
                 CargarAutoComplete();
             }
 
@@ -163,16 +162,26 @@ namespace PresentacionRecursoHumano
                 lblLegajo.Text = _agenteSeleccionado.Legajo;
             }
 
-            dgvReporte.DataSource = _reporteAgenteSeleccionado;
+            dgvReporte.DataSource = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
             FormatearGrillaReporte(dgvReporte);
 
-            /*if (_reporteAgenteSeleccionado.First() != null)
+            if (_reporteAgenteSeleccionado.Any())
             {
                 if (_reporteAgenteSeleccionado.First().Novedades.Any())
                 {
                     dgvNovedades.DataSource = _reporteAgenteSeleccionado.First().Novedades.ToList();
                 }
-            }*/
+
+                if (_reporteAgenteSeleccionado.First().Comisiones.Any())
+                {
+                    dgvComisiones.DataSource = _reporteAgenteSeleccionado.First().Comisiones.ToList();
+                }
+
+                if (_reporteAgenteSeleccionado.First().Lactancias.Any())
+                {
+                    dgvLactancias.DataSource = _reporteAgenteSeleccionado.First().Lactancias.ToList();
+                }
+            }
         }
 
         public void CargarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")

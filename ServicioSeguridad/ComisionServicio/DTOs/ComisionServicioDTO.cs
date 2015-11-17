@@ -13,7 +13,7 @@ namespace Servicio.RecursoHumano.ComisionServicio.DTOs
         public DateTime FechaDesde { get; set; }
         public string FechaDesdeStr { get { return FechaDesde.ToShortDateString(); } }
         public DateTime? FechaHasta { get; set; }
-        public string FechaHastaStr { get { return ((DateTime)FechaHasta).ToShortDateString(); } }
+        public string FechaHastaStr { get { return ((DateTime?)FechaHasta) == null ? "-" : ((DateTime)FechaHasta).ToShortDateString(); } }
         public TimeSpan HoraInicio { get; set; }
         public string HoraInicioStr { get { return String.Format("{0:hh\\:mm}", HoraInicio); } }
         public TimeSpan HoraFin { get; set; }

@@ -50,7 +50,7 @@ namespace Servicio.RecursoHumano.ComisionServicio
                                 Id = x.Id,
                                 AgenteId = x.AgenteId,
                                 FechaDesde = x.FechaDesde,
-                                FechaHasta = x.FechaHasta,
+                                FechaHasta = x.FechaHasta ?? null,
                                 HoraDesde = x.HoraInicio,
                                 HoraHasta = x.HoraFin,
                                 Descripcion = x.Descripcion,
