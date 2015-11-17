@@ -338,6 +338,12 @@ namespace Servicio.RecursoHumano.Reportes
             else return null;
         }
 
+        private bool TardanzaSuperaLimite(TimeSpan tardanza, int limite)
+        {
+            if (tardanza.Minutes > limite) return true;
+            else return false;
+        }
+
         private bool Ausente(DateTime fecha, DetalleHorarioDTO horarioDia, List<AccesoDTO> _listaAccesosDía)
         {
             int _numeroEntradasDia = _listaAccesosDía.Where(acceso => acceso.TipoAcceso.ToString().Contains("Entrada")).Count();
@@ -361,7 +367,7 @@ namespace Servicio.RecursoHumano.Reportes
                 }
                 else if (_listaAccesosDía.Any() || _numeroEntradasDia == 1) // Segundo check (horarios y accesos)
                 {
-                    if (Tardanza(_listaAccesosDía, horarioDia) != null) // Tercer check (tardanza)
+                    if (Tardanza(_listaAccesosDía, horarioDia) != null && TardanzaSuperaLimite((TimeSpan)Tardanza(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)) // Tercer check (tardanza)
                     {
                         return true;
                     }
@@ -381,9 +387,9 @@ namespace Servicio.RecursoHumano.Reportes
                 else if (_listaAccesosDía.Count() > 0 && (_hayNovedadHoraEntradaParcial || _hayComisionServicioHoraEntradaParcial)) return false; // Segundo check (novedades y comisión de servicio por la tarde)
                 else if (_listaAccesosDía.Count() > 0 && _numeroEntradasDia == 2) // Tercer check (horarios y accesos)
                 {
-                    if (Tardanza(_listaAccesosDía, horarioDia) != null && TardanzaExtension(_listaAccesosDía, horarioDia) != null) // Cuarto check (tardanza)
+                    if (((Tardanza(_listaAccesosDía, horarioDia) != null) && (TardanzaExtension(_listaAccesosDía, horarioDia) != null) && (TardanzaSuperaLimite((TimeSpan)Tardanza(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)) && (TardanzaSuperaLimite((TimeSpan)TardanzaExtension(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)))) // Cuarto check (tardanza)
                     {
-                        return false;
+                        return true;
                     }
                     return false;
                 }
