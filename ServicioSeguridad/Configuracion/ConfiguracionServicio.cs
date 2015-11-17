@@ -34,7 +34,7 @@ namespace Servicio.RecursoHumano.Configuracion
             }
         }
 
-        public static int MinutosToleranciaAusente {
+        public static int? MinutosToleranciaAusente {
             get {
                 try
                 {
@@ -48,12 +48,12 @@ namespace Servicio.RecursoHumano.Configuracion
                 catch (Exception)
                 {
 
-                    throw;
+                    return null;
                 }
             }
         }
 
-        public static int MinutosToleranciaLlegadaTarde
+        public static int? MinutosToleranciaLlegadaTarde
         {
             get
             {
@@ -69,7 +69,7 @@ namespace Servicio.RecursoHumano.Configuracion
                 catch (Exception)
                 {
 
-                    throw;
+                    return null;
                 }
             }
         }

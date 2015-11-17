@@ -44,6 +44,7 @@ namespace Servicio.Core.Acces
                     {
                         AgenteId = acceso.AgenteId,
                         FechaHora = acceso.FechaHora,
+                        Hora = acceso.Hora,
                         TipoAcceso = acceso.TipoAcceso.ToString(),
                         NumeroReloj = acceso.NroReloj,
                     }).ToList();

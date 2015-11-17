@@ -15,7 +15,7 @@ namespace Servicio.Core.Acceso.DTOs
         public DateTime FechaHora { get; set; }
         public string TipoAcceso { get; set; }
         public string Fecha { get { return FechaHora.ToShortDateString(); } }
-        public string Hora { get { return FechaHora.ToShortTimeString(); } }
+        public TimeSpan? Hora { get; set; }
         public string NumeroReloj { get; set; }
 
     }

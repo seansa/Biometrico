@@ -394,10 +394,35 @@ namespace PresentacionRecursoHumano
                     }
                 }
 
+                lblAusenciasTotales.Text = ObtenerInasistenciasTotales().ToString();
+                lblAusenciasPorLlegadasTarde.Text = ObtenerInasistenciasPorLlegadasTarde().ToString();
+
                 tclDetalles.TabPages[0].Select();
             }
         }
-       
+
+        private int ObtenerInasistenciasTotales() {
+            int inasistencias = 0;
+
+            foreach (ReporteMensualDTO item in _reporteAgenteSeleccionado)
+            {
+                inasistencias += item.Ausente ? 1 : 0;
+            }
+
+            return inasistencias;
+        }
+
+        private int ObtenerInasistenciasPorLlegadasTarde()
+        {
+            int inasistencias = 0;
+
+            foreach (ReporteMensualDTO item in _reporteAgenteSeleccionado)
+            {
+                inasistencias += item.AusentePorLlegarTarde ? 1 : 0;
+            }
+
+            return inasistencias;
+        }
 
         public void CargarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
         {
