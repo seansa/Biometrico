@@ -13,7 +13,7 @@ namespace Servicio.RecursoHumano.Reportes.DTOs
     public class ReporteMensualDTO
     {
         public int Numero { get; set; }
-        public AgenteDTO Agente { get; set; }
+        public long AgenteId { get; set; }
 
         public bool TieneAccesos
         {
@@ -24,50 +24,29 @@ namespace Servicio.RecursoHumano.Reportes.DTOs
         }
         public bool TieneNovedades {
             get {
-                return Novedades.Count() > 0 ? true : false;
+                return Novedad != null ? true : false;
             }
         }
         public bool TieneComisiones
         {
             get
             {
-                return Comisiones.Count() > 0 ? true : false;
+                return Comision != null ? true : false;
             }
         }
         public bool TieneLactancias
         {
             get
             {
-                return Lactancias.Count() > 0 ? true : false;
-            }
-        }
-        public int CantidadNovedades
-        {
-            get
-            {
-                return TieneNovedades ? Novedades.Count() : 0;
-            }
-        }
-        public int CantidadComisiones
-        {
-            get
-            {
-                return TieneComisiones ? Comisiones.Count() : 0;
-            }
-        }
-        public int CantidadLactancias
-        {
-            get
-            {
-                return TieneLactancias ? Lactancias.Count() : 0;
+                return Lactancia != null ? true : false;
             }
         }
 
-        public List<HorarioDTO> Horarios { get; set; }
-        public List<Core.Acceso.DTOs.AccesoDTO> Accesos { get; private set; }
-        public List<NovedadAgente.DTOs.NovedadAgenteDTO> Novedades { get; set; }
-        public List<ComisionServicio.DTOs.ComisionServicioDTO> Comisiones { get; set; }
-        public List<Lactancia.DTOs.LactanciaDTO> Lactancias { get; set; }
+        //public List<HorarioDTO> Horarios { get; set; }
+        public List<Core.Acceso.DTOs.AccesoDTO> Accesos { get; set; }  // Accesos de un día (1 fila) --> de 'Fecha'
+        public NovedadAgente.DTOs.NovedadAgenteDTO Novedad { get; set; }
+        public ComisionServicio.DTOs.ComisionServicioDTO Comision { get; set; }
+        public Lactancia.DTOs.LactanciaDTO Lactancia { get; set; }
 
         public DateTime Fecha { get; set; }
         public string Mes { get { return Fecha.Month.ToString("MMMM", new CultureInfo("es-AR")); } }
@@ -83,12 +62,12 @@ namespace Servicio.RecursoHumano.Reportes.DTOs
 
         public bool Ausente { get; set; }
         public DateTime HoraEntrada { get; set; }
-        public DateTime HoraEntradaParcial { get; set; }
-        public DateTime HoraSalida { get; set; }
-        public DateTime HoraSalidaParcial { get; set; }
-        public TimeSpan MinutosTarde { get; set; }
-        public TimeSpan MinutosFaltantes { get; set; }
-        public TimeSpan MinutosTardeExtension { get; set; }
-        public TimeSpan MinutosFaltantesExtension { get; set; }
+        public DateTime? HoraEntradaParcial { get; set; }
+        public DateTime? HoraSalida { get; set; }
+        public DateTime? HoraSalidaParcial { get; set; }
+        public TimeSpan? MinutosTarde { get; set; }
+        public TimeSpan? MinutosFaltantes { get; set; }
+        public TimeSpan? MinutosTardeExtension { get; set; }
+        public TimeSpan? MinutosFaltantesExtension { get; set; }
     }
 }

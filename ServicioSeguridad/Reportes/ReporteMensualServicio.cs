@@ -11,43 +11,72 @@ using Servicio.Core.Acces;
 using Servicio.RecursoHumano.Horario;
 using Servicio.RecursoHumano.ComisionServicio;
 using Servicio.RecursoHumano.NovedadAgente;
+using Servicio.RecursoHumano.Reportes.DTOs;
+using Servicio.RecursoHumano.Configuracion;
+using Servicio.RecursoHumano.Agente;
+using Servicio.RecursoHumano.Lactancia;
+using Servicio.RecursoHumano.Lactancia.DTOs;
 
 namespace Servicio.RecursoHumano.Reportes
 {
     public class ReporteMensualServicio : IReporteMensualServicio
     {
         private readonly long _agenteId;
+        private readonly IAgenteServicio _agenteServicio;
         private readonly IAccesoServicio _accesoServicio;
         private readonly IHorarioServicio _horarioServicio;
         private readonly IComisionServicio _comisionServicio;
         private readonly INovedadAgenteServicio _novedadesServicio;
+        private readonly ILactanciaServicio _lactanciaServicio;
         
         private List<DetalleHorarioDTO> _listaHorarios;
         private List<AccesoDTO> _listaAccesos;
         private List<ComisionServicioDTO> _listaComisiones;
         private List<NovedadAgenteDTO> _listaNovedades;
+        private List<AccesoDTO> _listaAccesosDía;
+        private List<LactanciaDTO> _listaLactancias;
 
+        private DateTime _fecha;
+        private string _dia;
+        DetalleHorarioDTO _horarioDia;
         private int _minutosToleranciaLlegadaTarde;
         private int _minutosToleranciaAusente;
 
         private static List<Tuple<string, int>> _listaMesesYAños = ListaMesesYAños();
 
 
-        public ReporteMensualServicio(long AgenteId)
+        public ReporteMensualServicio(long AgenteId, DateTime fecha)
         {
             _agenteId = AgenteId;
-            
+            _fecha = fecha;
+
+            _agenteServicio = new AgenteServicio();
             _accesoServicio = new AccesoServicio();
             _horarioServicio = new HorarioServicio();
             _comisionServicio = new ComisionServicio.ComisionServicio();
             _novedadesServicio = new NovedadAgenteServicio();
+            _lactanciaServicio = new LactanciaServicio();
 
             _listaHorarios = _horarioServicio.ObtenerHorariosPorId(_agenteId).ToList();
             _listaAccesos = _accesoServicio.ObtenerPorId(_agenteId).ToList();
             _listaComisiones = _comisionServicio.ObtenerPorFiltro(_agenteId).ToList();
             _listaNovedades = _novedadesServicio.ObtenerPorId(_agenteId).ToList();
+            _listaLactancias = _lactanciaServicio.ObtenerPorFiltro(_agenteId).ToList();
+            _listaAccesosDía = _listaAccesos.Where(acceso => acceso.FechaHora.Date == _fecha.Date).Select(acceso => acceso).ToList();
+
+            _dia = new CultureInfo("es-Ar").TextInfo.ToTitleCase(_fecha.Date.ToString("dddd", new CultureInfo("es-Ar")));
+            _horarioDia = _listaHorarios.Where(horario => (bool)horario.GetType().GetProperty(_dia).GetValue(horario, null) == true).Select(horario => horario).SingleOrDefault();
+            //_minutosToleranciaAusente = ConfiguracionServicio.MinutosToleranciaAusente;
+            //_minutosToleranciaLlegadaTarde = ConfiguracionServicio.MinutosToleranciaLlegadaTarde;
+
+
+            ////// Config (falta formulario)
+            _minutosToleranciaAusente = 15;
+            _minutosToleranciaLlegadaTarde = 10;
+
         }
 
+        #region Statics
         private static DateTime FechaPrimerAcceso()
         {
             try
@@ -119,6 +148,46 @@ namespace Servicio.RecursoHumano.Reportes
             return lista;
         }
 
+        #endregion
+
+        public IEnumerable<ReporteMensualDTO> ObtenerPorId(long agenteId)
+        {
+            using (var _context = new ModeloBometricoContainer())
+            {
+                if (_horarioDia != null)
+                {
+                    var reporte = new ReporteMensualDTO();
+
+                    reporte.AgenteId = _agenteId;
+                    reporte.Accesos = _listaAccesosDía;
+                    reporte.Numero = Generador().Single();
+                    reporte.Ausente = Ausente(_fecha, _horarioDia);
+                    reporte.Comision = _listaComisiones.Where(comision => comision.FechaDesde.Date < _fecha && (comision.FechaHasta == null || ((DateTime)comision.FechaHasta).Date > _fecha)).SingleOrDefault();
+                    reporte.Lactancia = _listaLactancias.Where(lactancia => lactancia.FechaDesde.Date < _fecha && (lactancia.FechaHasta == null || ((DateTime)lactancia.FechaHasta).Date > _fecha)).SingleOrDefault();
+                    reporte.Novedad = reporte.Novedad = _listaNovedades.Where(novedad => novedad.FechaDesde.Date < _fecha && (novedad.FechaHasta == null || ((DateTime)novedad.FechaHasta).Date > _fecha)).SingleOrDefault();
+                    reporte.Fecha = _fecha;
+                    reporte.HoraEntrada = _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Entrada").SingleOrDefault().FechaHora;
+                    reporte.HoraEntradaParcial = _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Entrada Parcial").SingleOrDefault().FechaHora;
+                    reporte.HoraSalida = _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Salida").SingleOrDefault().FechaHora;
+                    reporte.HoraSalidaParcial = _listaAccesosDía.Where(acceso => acceso.TipoAcceso == "Salida Parcial").SingleOrDefault().FechaHora;
+                    reporte.MinutosTarde = Tardanza(_listaAccesosDía, _horarioDia);
+                    reporte.MinutosTardeExtension = TardanzaExtension(_listaAccesosDía, _horarioDia);
+                    reporte.MinutosFaltantes = null;
+                    reporte.MinutosFaltantesExtension = null;
+
+                    yield return reporte;
+                }
+            }
+        }
+
+        public IEnumerable<int> Generador()
+        {
+            for (var i = 1; ; ++i)
+            {
+                yield return i;
+            }
+        }
+
         private TimeSpan? Tardanza(List<AccesoDTO> accesosDia, DetalleHorarioDTO horarioDia)
         {
             TimeSpan _horaEntradaAcceso = accesosDia.Where(acceso => acceso.TipoAcceso.Equals("Entrada")).Single().FechaHora.TimeOfDay;
@@ -145,21 +214,8 @@ namespace Servicio.RecursoHumano.Reportes
             else return null;
         }
 
-        private bool DiaConHorario(DateTime fecha)
-        {
-            string _dia = fecha.Date.ToString("dddd", new CultureInfo("es-Ar"));
-            DetalleHorarioDTO _horarioDia = _listaHorarios.Where(horario => _dia == (string)horario.GetType().GetProperty(_dia).GetValue(horario, null)).Select(horario => horario).SingleOrDefault();
-
-            if (_horarioDia != null) return true;
-            else return false;
-        }
-
         private bool Ausente(DateTime fecha, DetalleHorarioDTO horarioDia)
         {
-            string _dia = fecha.Date.ToString("dddd", new CultureInfo("es-Ar"));
-
-            List<AccesoDTO> _listaAccesosDía = _listaAccesos.Where(acceso => acceso.FechaHora.Date == fecha.Date).Select(acceso => acceso).ToList();
-
             int _numeroEntradasDia = _listaAccesosDía.Where(acceso => acceso.TipoAcceso.Contains("Entrada")).Select(acceso => acceso).Count();
 
             bool _hayNovedadHoraEntrada;

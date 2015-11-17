@@ -8,6 +8,7 @@ using Servicio.RecursoHumano.SubSector.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -187,6 +188,15 @@ namespace PresentacionRecursoHumano
             return null;
         }
 
+        private DateTime MesReporte()
+        {
+            int day = 1;
+            int month = DateTime.ParseExact((string)cmbMes.SelectedItem, "MMMM", new CultureInfo("es-Ar")).Month;
+            int year = (int)cmbAño.SelectedItem;
+
+            return new DateTime(year, month, day);
+        }
+
         private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -239,7 +249,7 @@ namespace PresentacionRecursoHumano
                 _filaAgente = e.RowIndex;
                 _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[_filaAgente].DataBoundItem;
 
-                _reporteServicio = new ReporteMensualServicio(_agenteSeleccionado.Id);
+                _reporteServicio = new ReporteMensualServicio(_agenteSeleccionado.Id, MesReporte());
 
                 ActualizarReporte();
             }

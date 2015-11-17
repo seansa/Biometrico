@@ -17,6 +17,8 @@ namespace Servicio.RecursoHumano.Agente
 
         AccesoDatos.Agente ObtenerPorId(long id);
 
+        AgenteDTO ObtenerDTOPorId(long id);
+
         IEnumerable<AgenteDTO> ObtenerTodo();
 
         IEnumerable<AgenteDTO> ObtenerPorFiltro(string cadenaBuscar);

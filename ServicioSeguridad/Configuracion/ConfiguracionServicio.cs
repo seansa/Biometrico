@@ -34,6 +34,46 @@ namespace Servicio.RecursoHumano.Configuracion
             }
         }
 
+        public static int MinutosToleranciaAusente {
+            get {
+                try
+                {
+                    using (var _context = new AccesoDatos.ModeloBometricoContainer())
+                    {
+
+                        return _context.Configuraciones.Select(config => config.MinutosToleranciaAusente).Last();
+
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        public static int MinutosToleranciaLlegadaTarde
+        {
+            get
+            {
+                try
+                {
+                    using (var _context = new AccesoDatos.ModeloBometricoContainer())
+                    {
+
+                        return _context.Configuraciones.Select(config => config.MinutosToleranciaLlegadaTarde).Last();
+
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
         public bool HayRegistros()
         {
             try

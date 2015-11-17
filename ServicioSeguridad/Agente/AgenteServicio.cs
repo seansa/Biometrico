@@ -140,6 +140,38 @@ namespace Servicio.RecursoHumano.Agente
             }
         }
 
+        public AgenteDTO ObtenerDTOPorId(long id)
+        {
+            try
+            {
+                using (var _context = new AccesoDatos.ModeloBometricoContainer())
+                {
+                    var _agente = _context.Agentes
+                        .AsNoTracking()
+                        .Where(x => x.Id == id)
+                        .Select(x => new AgenteDTO
+                        {
+                            Id = x.Id,
+                            Apellido = x.Apellido,
+                            DNI = x.DNI,
+                            Nombre = x.Nombre,
+                            Legajo = x.Legajo,
+                            Mail = x.Mail,
+                            Celular = x.Celular,
+                            Telefono = x.Telefono,
+                            Visualizar = x.Visualizar ? "SI" : "NO"
+                        })
+                        .SingleOrDefault();
+
+                    return _agente;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public IEnumerable<AgenteDTO> ObtenerTodo()
         {
             try
