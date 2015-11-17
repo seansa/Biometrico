@@ -64,10 +64,7 @@ namespace Servicio.RecursoHumano.Reportes
             _listaComisiones = _comisionServicio.ObtenerPorFiltro(_agenteId).ToList();
             _listaNovedades = _novedadesServicio.ObtenerPorId(_agenteId).ToList();
             _listaLactancias = _lactanciaServicio.ObtenerPorFiltro(_agenteId).ToList();
-            _listaDiasDelMes = DiasDelMesConHorarios();
-
-            _dia = new CultureInfo("es-Ar").TextInfo.ToTitleCase(_fecha.Date.ToString("dddd", new CultureInfo("es-Ar")));
-            
+            _listaDiasDelMes = DiasDelMesConHorarios();            
 
             //_minutosToleranciaAusente = ConfiguracionServicio.MinutosToleranciaAusente;
             //_minutosToleranciaLlegadaTarde = ConfiguracionServicio.MinutosToleranciaLlegadaTarde;
@@ -208,22 +205,17 @@ namespace Servicio.RecursoHumano.Reportes
 
         private TimeSpan Diff(DateTime mayor, DateTime menor)
         {
-            var minutosMayor = mayor.Minute;
-            var segundosMayor = mayor.Second;
-            var minutosMenor = menor.Minute;
-            var segundosMenor = menor.Second;
+            var mayorCompleto = mayor.TimeOfDay;
+            var menorCompleto = menor.TimeOfDay;
+            var diff = mayorCompleto.Subtract(menorCompleto);
 
-            var MayorMinutos = TimeSpan.FromMinutes(minutosMayor);
-            var MayorSegundos = TimeSpan.FromSeconds(segundosMayor);
+            var minutos = diff.Minutes;
+            var segundos = diff.Seconds;
 
-            MayorMinutos.Add(MayorSegundos);
+            var resultadoMinutos = TimeSpan.FromMinutes(minutos);
+            var resultadoSegundos = TimeSpan.FromSeconds(segundos);
 
-            var MenorMinutos = TimeSpan.FromMinutes(minutosMenor);
-            var MenorSegundos = TimeSpan.FromSeconds(segundosMenor);
-
-            MenorMinutos.Add(MenorSegundos);
-
-            return MayorMinutos.Subtract(MenorMinutos);
+            return resultadoMinutos.Add(resultadoSegundos);
         }
 
         private List<ComisionServicioDTO> ComisionesEnElMes(DateTime currentDia)
@@ -324,7 +316,7 @@ namespace Servicio.RecursoHumano.Reportes
 
             foreach (var item in _listaAccesosDelMes)
             {
-                if (item.FechaHora.Day == fecha.Day - 1) {
+                if (item.FechaHora.Date.Day == fecha.Date.Day) {
                     lista.Add(item);
                 }
             }
