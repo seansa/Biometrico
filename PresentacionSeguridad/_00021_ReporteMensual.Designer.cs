@@ -129,7 +129,7 @@
             this.dgvReporte.Name = "dgvReporte";
             this.dgvReporte.RowHeadersVisible = false;
             this.dgvReporte.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReporte.Size = new System.Drawing.Size(669, 307);
+            this.dgvReporte.Size = new System.Drawing.Size(669, 355);
             this.dgvReporte.TabIndex = 1;
             // 
             // groupBox2
@@ -158,7 +158,7 @@
             // 
             this.lblLegajo.AutoSize = true;
             this.lblLegajo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegajo.Location = new System.Drawing.Point(526, 13);
+            this.lblLegajo.Location = new System.Drawing.Point(525, 13);
             this.lblLegajo.Name = "lblLegajo";
             this.lblLegajo.Size = new System.Drawing.Size(64, 25);
             this.lblLegajo.TabIndex = 12;
@@ -177,7 +177,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(478, 19);
+            this.label7.Location = new System.Drawing.Point(477, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 15);
             this.label7.TabIndex = 9;
@@ -513,7 +513,7 @@
             this.dgvNovedades.Name = "dgvNovedades";
             this.dgvNovedades.RowHeadersVisible = false;
             this.dgvNovedades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNovedades.Size = new System.Drawing.Size(655, 95);
+            this.dgvNovedades.Size = new System.Drawing.Size(655, 47);
             this.dgvNovedades.TabIndex = 35;
             // 
             // tclDetalles
@@ -521,11 +521,12 @@
             this.tclDetalles.Controls.Add(this.tbpNovedades);
             this.tclDetalles.Controls.Add(this.tbpComisiones);
             this.tclDetalles.Controls.Add(this.tbpLactancias);
-            this.tclDetalles.Location = new System.Drawing.Point(305, 413);
+            this.tclDetalles.HotTrack = true;
+            this.tclDetalles.Location = new System.Drawing.Point(305, 461);
             this.tclDetalles.Multiline = true;
             this.tclDetalles.Name = "tclDetalles";
             this.tclDetalles.SelectedIndex = 0;
-            this.tclDetalles.Size = new System.Drawing.Size(671, 130);
+            this.tclDetalles.Size = new System.Drawing.Size(671, 82);
             this.tclDetalles.TabIndex = 36;
             // 
             // tbpNovedades
@@ -534,7 +535,7 @@
             this.tbpNovedades.Location = new System.Drawing.Point(4, 24);
             this.tbpNovedades.Name = "tbpNovedades";
             this.tbpNovedades.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpNovedades.Size = new System.Drawing.Size(663, 102);
+            this.tbpNovedades.Size = new System.Drawing.Size(663, 54);
             this.tbpNovedades.TabIndex = 0;
             this.tbpNovedades.Text = "Novedades";
             this.tbpNovedades.UseVisualStyleBackColor = true;
@@ -545,7 +546,7 @@
             this.tbpComisiones.Location = new System.Drawing.Point(4, 24);
             this.tbpComisiones.Name = "tbpComisiones";
             this.tbpComisiones.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpComisiones.Size = new System.Drawing.Size(663, 102);
+            this.tbpComisiones.Size = new System.Drawing.Size(663, 54);
             this.tbpComisiones.TabIndex = 1;
             this.tbpComisiones.Text = "Comisiones de servicio";
             this.tbpComisiones.UseVisualStyleBackColor = true;
@@ -580,7 +581,7 @@
             this.dgvComisiones.Name = "dgvComisiones";
             this.dgvComisiones.RowHeadersVisible = false;
             this.dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComisiones.Size = new System.Drawing.Size(655, 95);
+            this.dgvComisiones.Size = new System.Drawing.Size(655, 47);
             this.dgvComisiones.TabIndex = 37;
             // 
             // tbpLactancias
@@ -589,7 +590,7 @@
             this.tbpLactancias.Location = new System.Drawing.Point(4, 24);
             this.tbpLactancias.Name = "tbpLactancias";
             this.tbpLactancias.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpLactancias.Size = new System.Drawing.Size(663, 102);
+            this.tbpLactancias.Size = new System.Drawing.Size(663, 54);
             this.tbpLactancias.TabIndex = 2;
             this.tbpLactancias.Text = "Lactancias";
             this.tbpLactancias.UseVisualStyleBackColor = true;
@@ -624,7 +625,7 @@
             this.dgvLactancias.Name = "dgvLactancias";
             this.dgvLactancias.RowHeadersVisible = false;
             this.dgvLactancias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLactancias.Size = new System.Drawing.Size(655, 95);
+            this.dgvLactancias.Size = new System.Drawing.Size(655, 47);
             this.dgvLactancias.TabIndex = 37;
             // 
             // _00021_ReporteMensual
