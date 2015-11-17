@@ -335,7 +335,7 @@ namespace PresentacionRecursoHumano
                     dgvLactancias.DataSource = null;
                     tclDetalles.TabPages[2].Text = "Lactancias";
 
-                    if (_reporteAgenteSeleccionado.First().Lactancias.Any())
+                    if (_reporteAgenteSeleccionado.First().Lactancias.Any() && chkLactancias.Checked)
                     {
                         dgvLactancias.Enabled = true;
                         dgvLactancias.DataSource = _reporteAgenteSeleccionado.First().Lactancias.ToList();
@@ -347,7 +347,7 @@ namespace PresentacionRecursoHumano
                         FormatearGrillaLactancias(dgvLactancias);
                     }
 
-                    if (_reporteAgenteSeleccionado.First().Comisiones.Any())
+                    if (_reporteAgenteSeleccionado.First().Comisiones.Any() && chkComsiones.Checked)
                     {
                         dgvComisiones.Enabled = true;
                         dgvComisiones.DataSource = _reporteAgenteSeleccionado.First().Comisiones.ToList();
@@ -358,7 +358,7 @@ namespace PresentacionRecursoHumano
                         FormatearGrillaComisiones(dgvComisiones);
                     }
 
-                    if (_reporteAgenteSeleccionado.First().Novedades.Any())
+                    if (_reporteAgenteSeleccionado.First().Novedades.Any() && chkNovedades.Checked)
                     {
                         dgvNovedades.Enabled = true;
                         dgvNovedades.DataSource = _reporteAgenteSeleccionado.First().Novedades.ToList();
@@ -372,21 +372,21 @@ namespace PresentacionRecursoHumano
                 }
                 else
                 {
-                    if (!_reporteAgenteSeleccionado.Any())
+                    if (!_reporteAgenteSeleccionado.Any() || !chkNovedades.Checked)
                     {
                         dgvNovedades.DataSource = null;
                         dgvNovedades.Enabled = false;
                         tclDetalles.TabPages[0].Text = "Novedades";
                     }
 
-                    if (!_reporteAgenteSeleccionado.Any())
+                    if (!_reporteAgenteSeleccionado.Any() || !chkComsiones.Checked)
                     {
                         dgvComisiones.DataSource = null;
                         dgvComisiones.Enabled = false;
                         tclDetalles.TabPages[1].Text = "Comisiones de servicio";
                     }
 
-                    if (!_reporteAgenteSeleccionado.Any())
+                    if (!_reporteAgenteSeleccionado.Any() || !chkLactancias.Checked)
                     {
                         dgvLactancias.DataSource = null;
                         dgvLactancias.Enabled = false;
@@ -542,6 +542,11 @@ namespace PresentacionRecursoHumano
                 _filaAgente = -1;
                 _agenteSeleccionado = null;
             }          
+        }
+
+        private void chkComsiones_CheckedChanged(object sender, EventArgs e)
+        {
+            ActualizarReporte();
         }
     }
 }

@@ -277,6 +277,7 @@
             this.chkLactancias.TabIndex = 3;
             this.chkLactancias.Text = "Lactancias";
             this.chkLactancias.UseVisualStyleBackColor = true;
+            this.chkLactancias.CheckedChanged += new System.EventHandler(this.chkComsiones_CheckedChanged);
             // 
             // chkNovedades
             // 
@@ -289,6 +290,7 @@
             this.chkNovedades.TabIndex = 2;
             this.chkNovedades.Text = "Novedades";
             this.chkNovedades.UseVisualStyleBackColor = true;
+            this.chkNovedades.CheckedChanged += new System.EventHandler(this.chkComsiones_CheckedChanged);
             // 
             // chkComsiones
             // 
@@ -301,6 +303,7 @@
             this.chkComsiones.TabIndex = 1;
             this.chkComsiones.Text = "Comisiones de servicio";
             this.chkComsiones.UseVisualStyleBackColor = true;
+            this.chkComsiones.CheckedChanged += new System.EventHandler(this.chkComsiones_CheckedChanged);
             // 
             // label2
             // 
