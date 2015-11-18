@@ -111,12 +111,13 @@ namespace PresentacionRecursoHumano
                         _nuevaNovedad.AngenteId = current_id;
                         _nuevaNovedad.Observacion = this.txtObservacion.Text;
                         _nuevaNovedad.TipoNovedadId = _tipoNovedadId;
-                        _nuevaNovedad.FechaDesde = this.dtpFechaDesde.Value;
-                        _nuevaNovedad.FechaHasta = this.dtpFechaHasta.Value;
-                        _nuevaNovedad.HoraDesde = (_tipoNovedad.EsJornadaCompleta) ? dtpHoraDesde.Value.TimeOfDay : (TimeSpan?)null;
-                        _nuevaNovedad.HoraHasta = (_tipoNovedad.EsJornadaCompleta) ? dtpHoraHasta.Value.TimeOfDay : (TimeSpan?)null;
+                        _nuevaNovedad.FechaDesde = this.dtpFechaDesde.Value.Date;
+                        _nuevaNovedad.FechaHasta = this.dtpFechaHasta.Value.Date;
+                        _nuevaNovedad.HoraDesde = (_tipoNovedad.EsJornadaCompleta) ? (TimeSpan?)null: dtpHoraDesde.Value.TimeOfDay;
+                        _nuevaNovedad.HoraHasta = (_tipoNovedad.EsJornadaCompleta) ? (TimeSpan?)null: dtpHoraHasta.Value.TimeOfDay ;
                         _novedadAgente.Insertar(_nuevaNovedad);
                         LimpiarControles(this);
+                        MessageBox.Show("La Novedad del Agente ha sido guardada con éxito");
                     }
                     else
                     {
