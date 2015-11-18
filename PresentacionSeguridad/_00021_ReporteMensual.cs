@@ -325,7 +325,7 @@ namespace PresentacionRecursoHumano
                 lblApyNom.Text = _agenteSeleccionado.ApyNom;
                 lblLegajo.Text = _agenteSeleccionado.Legajo;
 
-                dgvReporte.DataSource = _reporteAgenteSeleccionado;
+                dgvReporte.DataSource = _reporteAgenteSeleccionado; // CAMBIAR (regenerar _reporteAgenteSeleccionado)
                 FormatearGrillaReporte(dgvReporte);
 
                 if (_reporteAgenteSeleccionado.Any())
@@ -404,7 +404,8 @@ namespace PresentacionRecursoHumano
             }
         }
 
-        private int ObtenerInasistenciasTotales() {
+        private int ObtenerInasistenciasTotales()
+        {
             int inasistencias = 0;
 
             foreach (ReporteMensualDTO item in _reporteAgenteSeleccionado)
@@ -415,7 +416,7 @@ namespace PresentacionRecursoHumano
             return inasistencias;
         }
 
-        private int ObtenerInasistenciasPorLlegadasTarde()
+        private int ObtenerInasistenciasPorLlegadasTarde() // CAMBIAR (solo las de la mañana cuentan para las inasistencias) --> las otras para el incumpliemiento de la jornada laboral
         {
             int inasistencias = 0;
 
@@ -427,7 +428,7 @@ namespace PresentacionRecursoHumano
             return inasistencias;
         }
 
-        private int ObtenerLlegadasTarde()
+        private int ObtenerLlegadasTarde() // CAMBIAR --> 2 llegadas tarde (que superen el limite) == 1 ausente
         {
             int llegadasTarde = 0;
 
@@ -440,7 +441,7 @@ namespace PresentacionRecursoHumano
             return llegadasTarde;
         }
 
-        private int ObtenerJornadasIncumplidas()
+        private int ObtenerJornadasIncumplidas() // CAMBIAR --> solo las de la mañana, hacia atrás; las de la tarde hacia adelante
         {
             int llegadasTarde = 0;
 
