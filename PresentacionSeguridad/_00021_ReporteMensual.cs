@@ -31,6 +31,8 @@ namespace PresentacionRecursoHumano
         public _00021_ReporteMensual()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
+
             _agenteServicio = new AgenteServicio();
             _sectorServicio = new SectorServicio();
             _subsectorServicio = new SubSectorServicio();
@@ -520,10 +522,9 @@ namespace PresentacionRecursoHumano
         {
             try
             {
-                _listaAños = ReporteMensualServicio.ListaAños();
-                _listaMeses = ReporteMensualServicio.ListaMeses();
-                cmbAño.DataSource = _listaAños;
-                cmbMes.DataSource = _listaMeses;
+                cmbAño.DataSource = ReporteMensualServicio.ListaAños();
+                cmbMes.DataSource = ReporteMensualServicio.ListaMeses();
+                cmbMes.SelectedItem = cmbMes.Items[DateTime.Now.Month - 1];
             }
             catch
             {

@@ -41,16 +41,13 @@ namespace Servicio.RecursoHumano.Reportes
         private DetalleHorarioDTO _horarioDia;
         private int _minutosToleranciaLlegadaTarde;
         private int _minutosToleranciaAusente;
-        private int _diasMes;
-
-        private static List<Tuple<string, int>> _listaMesesYAños = ListaMesesYAños();
-
+        private int _diasDelMes;
 
         public ReporteMensualServicio(long AgenteId, DateTime fecha)
         {
             _agenteId = AgenteId;
             _fecha = fecha;
-            _diasMes = DateTime.DaysInMonth(_fecha.Year, _fecha.Month);
+            _diasDelMes = DateTime.DaysInMonth(_fecha.Year, _fecha.Month);
 
             _agenteServicio = new AgenteServicio();
             _accesoServicio = new AccesoServicio();
@@ -63,8 +60,7 @@ namespace Servicio.RecursoHumano.Reportes
             _listaAccesosDelMes = _accesoServicio.ObtenerPorId(_agenteId).Where(acceso => acceso.FechaHora.Month == _fecha.Month).ToList();
             _listaComisiones = _comisionServicio.ObtenerPorFiltro(_agenteId).ToList();
             _listaNovedades = _novedadesServicio.ObtenerPorId(_agenteId).ToList();
-            _listaLactancias = _lactanciaServicio.ObtenerPorFiltro(_agenteId).ToList();
-            _listaDiasDelMes = DiasDelMesConHorarios();            
+            _listaLactancias = _lactanciaServicio.ObtenerPorFiltro(_agenteId).ToList();           
 
             _minutosToleranciaAusente = ConfiguracionServicio.MinutosToleranciaAusente ?? 15;
             _minutosToleranciaLlegadaTarde = ConfiguracionServicio.MinutosToleranciaLlegadaTarde ?? 10;
@@ -72,59 +68,14 @@ namespace Servicio.RecursoHumano.Reportes
 
         #region Statics
 
-        private static DateTime FechaPrimerAcceso()
-        {
-            try
-            {
-                using (var _context = new ModeloBometricoContainer())
-                {
-                    var _primerAcceso = _context.Accesos.First();
-                    if (_primerAcceso == null) throw new Exception("No hay accesos");
-                    return _primerAcceso.FechaHora;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        private static List<Tuple<string, int>> ListaMesesYAños()
-        {
-            DateTime fechaInicio = FechaPrimerAcceso();
-            DateTime fechaFin = DateTime.Today;
-            DateTime iterador;
-            DateTime limite;
-            List<Tuple<string, int>> lista = new List<Tuple<string, int>>();
-            var dateTimeFormat = new CultureInfo("es-Ar").DateTimeFormat;
-
-            if (fechaInicio.Date == fechaFin.Date)
-            {
-                lista.Add(Tuple.Create(dateTimeFormat.GetMonthName(fechaInicio.Month), fechaInicio.Year));
-                return lista;
-            }
-            else
-            {
-                iterador = new DateTime(fechaInicio.Year, fechaInicio.Month, 1);
-                limite = fechaFin;
-
-                while (iterador <= limite)
-                {
-                    lista.Add(Tuple.Create(dateTimeFormat.GetMonthName(iterador.Month), iterador.Year));
-                    iterador = iterador.AddMonths(1);
-                }
-
-                return lista;
-            }  
-        }
-
         public static List<string> ListaMeses()
         {
             var lista = new List<string>();
+            var cultura = new CultureInfo("es-Ar");
 
-            foreach (var tupla in _listaMesesYAños)
+            for (int i = 1; i <= 12; i++)
             {
-                lista.Add(tupla.Item1);
+                lista.Add(cultura.TextInfo.ToTitleCase(cultura.DateTimeFormat.GetMonthName(i).ToString()));
             }
 
             return lista;
@@ -132,14 +83,8 @@ namespace Servicio.RecursoHumano.Reportes
 
         public static List<int> ListaAños()
         {
-            var lista = new List<int>();
-
-            foreach (var tupla in _listaMesesYAños)
-            {
-                lista.Add(tupla.Item2);
-            }
-
-            return lista;
+            int añoActual = DateTime.Now.Year;
+            return Enumerable.Range(añoActual - 10, añoActual - (añoActual - 10) + 1).OrderByDescending(año => año).ToList();
         }
 
         #endregion
@@ -158,7 +103,7 @@ namespace Servicio.RecursoHumano.Reportes
 
                 if (_horarioDia != null)
                 {
-                    var _finMes = new DateTime(_fecha.Year, _fecha.Month, _diasMes);
+                    var _finMes = new DateTime(_fecha.Year, _fecha.Month, _diasDelMes);
                     var reporte = new ReporteMensualDTO();
                     var listaAccesosDelDia = ListaAccesosDelDia(dia);
                     bool porLlegarTarde;
@@ -251,24 +196,9 @@ namespace Servicio.RecursoHumano.Reportes
             return lista;
         }
 
-        private List<DateTime> DiasDelMesConHorarios()
+        private int DiasDelMes(int año, int mes)
         {
-            var lista = new List<DateTime>();
-
-            for (var i = 1; i <= _diasMes; i++)
-            {                
-                var diaActual = new DateTime(_fecha.Year, _fecha.Month, i);
-
-                if(diaActual <= DateTime.Now)
-                {
-                    if (_listaHorarios.Where(horario => (horario.FechaDesde.Date.CompareTo(diaActual.Date) <= 0) && (horario.FechaHasta == null || horario.FechaHasta.Date.CompareTo(diaActual.Date) >= 0)).Any())
-                    {
-                        lista.Add(diaActual);
-                    }
-                }
-            }
-
-            return lista;
+            return DateTime.DaysInMonth(año, mes);
         }
 
         private DetalleHorarioDTO HorarioDelDia(DateTime dia)
