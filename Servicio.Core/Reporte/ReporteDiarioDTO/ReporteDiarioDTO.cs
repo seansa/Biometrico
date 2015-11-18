@@ -267,39 +267,28 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                     {
                         if (!_tipoNovedad.EsJornadaCompleta)
                         {
-                            
-                            if (_novedad.HoraHasta<=HoraEntrada&&_novedad.HoraDesde<=_horario.HoraEntrada)
-                            {
-                                var minutosAdicionales = _novedad.HoraHasta - _novedad.HoraDesde;
-                                var horarioEntrada = _horario.HoraEntrada.Value.Add((TimeSpan)minutosAdicionales);
-                                return (HoraEntrada.Value.TotalMinutes - horarioEntrada.TotalMinutes) >= (double)_toleraciaAusente ? "SI" : "NO";
-                            }
+                            return MinutosTarde > _toleraciaAusente ? "SI" : "NO";
                         }
                     }
                     if (_comision!=null &&_novedad==null)
                     {
+                        return MinutosTarde > _toleraciaAusente ? "SI" : "NO";
 
                     }
                     if (_lactancia != null)
                     {
                         if (_lactancia.HoraInicio)
                         {
-                            var minutos = new TimeSpan(0, _minutosLactancia, 0);
-                            var horaEntrada = _horario.HoraEntrada.Value.Add(minutos);
-                            return (HoraEntrada.Value.Minutes - horaEntrada.Minutes) > _toleraciaAusente ? "SI" : "NO";
-
+                            return MinutosTarde > _toleraciaAusente ? "SI" : "NO";
                         }
                         else
                         {
                             return MinutosTarde > _toleraciaAusente ? "SI" : "NO";
-
                         }
                     }
                     else
                     {
-                        var retornar=MinutosTarde>_toleraciaAusente ? "SI" : "NO";
-                        return retornar;
-
+                        return MinutosTarde > _toleraciaAusente ? "SI" : "NO";
                     }
                 }
 
@@ -312,12 +301,24 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
             {
                 if (HoraEntrada == null)
                 {
-
-                    if (_novedad != null && _tipoNovedad.EsJornadaCompleta)
+                    if (_novedad != null)
                     {
-                        return "NO";
+
+                        if (_tipoNovedad.EsJornadaCompleta)
+                        {
+                            return "NO";
+                        }
+                        else if (_reporteServicio.IsTimeInRange((TimeSpan)_horario.HoraEntrada, (TimeSpan)_novedad.HoraDesde, (TimeSpan)_novedad.HoraHasta)
+                            || _reporteServicio.IsTimeInRange((TimeSpan)_horario.HoraSalida, (TimeSpan)_novedad.HoraDesde, (TimeSpan)_novedad.HoraHasta))
+                        {
+                            return "NO";
+                        }
+                        else
+                        {
+                            return "SI";
+                        }
                     }
-                    else if (_comision != null)
+                    else if (_comision != null && _novedad == null)
                     {
                         if (_comision.EsJornadaCompleta)
                         {
@@ -334,45 +335,51 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                             return "SI";
                         }
                     }
-                    else if (_reloj != null && (_reloj.JornadaCompleta == true || (_reloj.HoraDesde <= _horario.HoraEntrada && _reloj.HoraHasta >= _horario.HoraSalida)))
+                    else if (_reloj != null && _reloj.JornadaCompleta == true)
                     {
                         return "NO";
                     }
                     else
                     {
-                        return "NO";
+                        return "SI";
                     }
                 }
                 else
                 {
                     if (Ausente!="SI")
                     {
+                        if (_novedad != null)
+                        {
+                            if (!_tipoNovedad.EsJornadaCompleta)
+                            {
+                                return MinutosTarde > _toleraciaLlegadaTarde ? "SI" : "NO";
+                            }
+                        }
+                        if (_comision != null && _novedad == null)
+                        {
+                            return MinutosTarde > _toleraciaLlegadaTarde ? "SI" : "NO";
+
+                        }
                         if (_lactancia != null)
                         {
                             if (_lactancia.HoraInicio)
                             {
-                                var minutos = new TimeSpan(0,_minutosLactancia, 0);
-                                var horaEntrada = _horario.HoraEntrada.Value.Add(minutos);
-                                return (HoraEntrada.Value.Minutes - horaEntrada.Minutes) > _toleraciaLlegadaTarde ? "SI" : "NO";
+                                return MinutosTarde > _toleraciaLlegadaTarde ? "SI" : "NO";
                             }
                             else
                             {
                                 return MinutosTarde > _toleraciaLlegadaTarde ? "SI" : "NO";
                             }
-
                         }
-
                         else
                         {
                             return MinutosTarde > _toleraciaLlegadaTarde ? "SI" : "NO";
-                        } 
+                        }
                     }
                     else
                     {
                         return "NO";
                     }
-
-
                 }
             }
         }

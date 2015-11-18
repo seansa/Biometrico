@@ -17,7 +17,7 @@ namespace Servicio.Core.Reporte
         int obtenerMinutosAusentes();
         int obtenerMinutosLactancia();
         TipoNovedad obtenerTipo(long id);
-        bool IsDateInRange(DateTime fecha, DateTime fechaDesde, DateTime? fechaHasta);
+       
         bool IsTimeInRange(TimeSpan hora, TimeSpan horaDesde, TimeSpan horaHasta);
     }
 }
