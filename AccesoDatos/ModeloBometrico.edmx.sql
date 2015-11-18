@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/17/2015 21:14:29
--- Generated from EDMX file: C:\Users\Jorge Petroni\Source\Repos\test\Biometrico\AccesoDatos\ModeloBometrico.edmx
+-- Date Created: 11/18/2015 00:52:00
+-- Generated from EDMX file: C:\Users\DIEGO\Documents\GITHUB REPOSITORIO\LABORATORIO\AccesoDatos\ModeloBometrico.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [Biometrico];
+USE [BiometricoDB];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
