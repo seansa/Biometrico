@@ -9,6 +9,6 @@ namespace Servicio.RecursoHumano.Reportes
 {
     public interface IReporteMensualServicio
     {
-        List<ReporteMensualDTO> ObtenerPorId(long agenteId);
+        List<ReporteMensualDTO> ObtenerPorId(long agenteId, int año, int mes);
     }
 }

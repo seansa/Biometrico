@@ -575,7 +575,7 @@ namespace PresentacionRecursoHumano
                 _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[_filaAgente].DataBoundItem;
 
                 _reporteServicio = new ReporteMensualServicio(_agenteSeleccionado.Id, MesReporte());
-                _reporteAgenteSeleccionado = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id);
+                _reporteAgenteSeleccionado = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id, (int)cmbAño.SelectedItem, (int)cmbMes.SelectedIndex);
 
                 ActualizarReporte();
             }

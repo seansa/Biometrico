@@ -89,17 +89,17 @@ namespace Servicio.RecursoHumano.Reportes
 
         #endregion
 
-        public List<ReporteMensualDTO> ObtenerPorId(long agenteId)
+        public List<ReporteMensualDTO> ObtenerPorId(long agenteId, int año, int mes)
         {
             var lista = new List<ReporteMensualDTO>();
 
             var enumerador = Generador().GetEnumerator();
             enumerador.MoveNext();
 
-            foreach (var dia in _listaDiasDelMes)
+            for (int i = 0; i <_diasDelMes; i++)
             {
+                var dia = new DateTime(año, mes, i);
                 _horarioDia = HorarioDelDia(dia);
-
 
                 if (_horarioDia != null)
                 {
