@@ -62,75 +62,99 @@ namespace PresentacionRecursoHumano
             this.dgvAgentes.Columns["ApyNom"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
         }
 
+        private void CheckearColumna(DataGridView grilla, string nombreColumna)
+        {
+            if (!this.dgvReporte.Columns.Contains(nombreColumna))
+            {
+                var columna = new DataGridViewColumn();
+                var celda = new DataGridViewTextBoxCell();
+                columna.CellTemplate = celda;
+                columna.Name = nombreColumna;
+
+                this.dgvReporte.Columns.Add(columna);
+            }
+        }
+
         public void FormatearGrillaReporte(DataGridView dgvReporte)
         {
             base.FormatearGrilla(dgvReporte);
 
+            CheckearColumna(dgvReporte, "Numero");
             this.dgvReporte.Columns["Numero"].Visible = true;
             this.dgvReporte.Columns["Numero"].HeaderText = "Nº";
             this.dgvReporte.Columns["Numero"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["Numero"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["Numero"].DisplayIndex = 1;
-                    
+            this.dgvReporte.Columns["Numero"].DisplayIndex = 0;
+
+            CheckearColumna(dgvReporte, "FechaStr");
             this.dgvReporte.Columns["FechaStr"].Visible = true;
             this.dgvReporte.Columns["FechaStr"].HeaderText = "Fecha";
             this.dgvReporte.Columns["FechaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             this.dgvReporte.Columns["FechaStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["FechaStr"].DisplayIndex = 2;
+            this.dgvReporte.Columns["FechaStr"].DisplayIndex = 1;
 
+            CheckearColumna(dgvReporte, "AusenteStr");
             this.dgvReporte.Columns["AusenteStr"].Visible = true;
             this.dgvReporte.Columns["AusenteStr"].HeaderText = "Ausente";
             this.dgvReporte.Columns["AusenteStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["AusenteStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["AusenteStr"].DisplayIndex = 3;
+            this.dgvReporte.Columns["AusenteStr"].DisplayIndex = 2;
 
+            CheckearColumna(dgvReporte, "HoraEntradaStr");
             this.dgvReporte.Columns["HoraEntradaStr"].Visible = true;
             this.dgvReporte.Columns["HoraEntradaStr"].HeaderText = "Entrada";
             this.dgvReporte.Columns["HoraEntradaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["HoraEntradaStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["HoraEntradaStr"].DisplayIndex = 4;
+            this.dgvReporte.Columns["HoraEntradaStr"].DisplayIndex = 3;
 
+            CheckearColumna(dgvReporte, "MinutosTardeStr");
             this.dgvReporte.Columns["MinutosTardeStr"].Visible = true;
             this.dgvReporte.Columns["MinutosTardeStr"].HeaderText = "Tardanza";
             this.dgvReporte.Columns["MinutosTardeStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["MinutosTardeStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["MinutosTardeStr"].DisplayIndex = 5;
+            this.dgvReporte.Columns["MinutosTardeStr"].DisplayIndex = 4;
 
+            CheckearColumna(dgvReporte, "HoraSalidaParcialStr");
             this.dgvReporte.Columns["HoraSalidaParcialStr"].Visible = true;
             this.dgvReporte.Columns["HoraSalidaParcialStr"].HeaderText = "Salida Parcial";
             this.dgvReporte.Columns["HoraSalidaParcialStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["HoraSalidaParcialStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["HoraSalidaParcialStr"].DisplayIndex = 6;
+            this.dgvReporte.Columns["HoraSalidaParcialStr"].DisplayIndex = 5;
 
+            CheckearColumna(dgvReporte, "MinutosFaltantesStr");
             this.dgvReporte.Columns["MinutosFaltantesStr"].Visible = true;
             this.dgvReporte.Columns["MinutosFaltantesStr"].HeaderText = "Faltante";
             this.dgvReporte.Columns["MinutosFaltantesStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["MinutosFaltantesStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["MinutosFaltantesStr"].DisplayIndex = 7;
+            this.dgvReporte.Columns["MinutosFaltantesStr"].DisplayIndex = 6;
 
+            CheckearColumna(dgvReporte, "HoraEntradaParcialStr");
             this.dgvReporte.Columns["HoraEntradaParcialStr"].Visible = true;
             this.dgvReporte.Columns["HoraEntradaParcialStr"].HeaderText = "Entrada Parcial";
             this.dgvReporte.Columns["HoraEntradaParcialStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["HoraEntradaParcialStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["HoraEntradaParcialStr"].DisplayIndex = 8;
+            this.dgvReporte.Columns["HoraEntradaParcialStr"].DisplayIndex = 7;
 
+            CheckearColumna(dgvReporte, "MinutosTardeExtensionStr");
             this.dgvReporte.Columns["MinutosTardeExtensionStr"].Visible = true;
             this.dgvReporte.Columns["MinutosTardeExtensionStr"].HeaderText = "Tardanza";
             this.dgvReporte.Columns["MinutosTardeExtensionStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["MinutosTardeExtensionStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["MinutosTardeExtensionStr"].DisplayIndex = 9;
+            this.dgvReporte.Columns["MinutosTardeExtensionStr"].DisplayIndex = 8;
 
+            CheckearColumna(dgvReporte, "HoraSalidaStr");
             this.dgvReporte.Columns["HoraSalidaStr"].Visible = true;
             this.dgvReporte.Columns["HoraSalidaStr"].HeaderText = "Salida";
             this.dgvReporte.Columns["HoraSalidaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["HoraSalidaStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["HoraSalidaStr"].DisplayIndex = 10;
+            this.dgvReporte.Columns["HoraSalidaStr"].DisplayIndex = 9;
 
+            CheckearColumna(dgvReporte, "MinutosFaltantesExtensionStr");
             this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].Visible = true;
             this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].HeaderText = "Faltante";
             this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].DisplayIndex = 11;
+            this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].DisplayIndex = 10;
         }
 
         public void FormatearGrillaNovedades(DataGridView dgvNovedades)
@@ -325,7 +349,7 @@ namespace PresentacionRecursoHumano
                 lblApyNom.Text = _agenteSeleccionado.ApyNom;
                 lblLegajo.Text = _agenteSeleccionado.Legajo;
 
-                dgvReporte.DataSource = _reporteAgenteSeleccionado; // CAMBIAR (regenerar _reporteAgenteSeleccionado)
+                _reporteAgenteSeleccionado = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id, (int)cmbAño.SelectedItem, (int)cmbMes.SelectedIndex);
                 FormatearGrillaReporte(dgvReporte);
 
                 if (_reporteAgenteSeleccionado.Any())
@@ -340,7 +364,7 @@ namespace PresentacionRecursoHumano
                     if (_reporteAgenteSeleccionado.First().Lactancias.Any() && chkLactancias.Checked)
                     {
                         dgvLactancias.Enabled = true;
-                        dgvLactancias.DataSource = _reporteAgenteSeleccionado.First().Lactancias.ToList();
+                        dgvLactancias.DataSource = _reporteAgenteSeleccionado.First().Lactancias.AsParallel().ToList();
 
                         tclDetalles.TabPages[2].Text = "Lactancias";
                         tclDetalles.TabPages[2].Text += string.Format(" ({0})", dgvLactancias.RowCount);
@@ -352,7 +376,7 @@ namespace PresentacionRecursoHumano
                     if (_reporteAgenteSeleccionado.First().Comisiones.Any() && chkComsiones.Checked)
                     {
                         dgvComisiones.Enabled = true;
-                        dgvComisiones.DataSource = _reporteAgenteSeleccionado.First().Comisiones.ToList();
+                        dgvComisiones.DataSource = _reporteAgenteSeleccionado.First().Comisiones.AsParallel().ToList();
                         tclDetalles.TabPages[1].Text = "Comisiones de servicio";
                         tclDetalles.TabPages[1].Text += string.Format(" ({0})", dgvComisiones.RowCount);
                         tclDetalles.SelectTab(1);
@@ -363,7 +387,7 @@ namespace PresentacionRecursoHumano
                     if (_reporteAgenteSeleccionado.First().Novedades.Any() && chkNovedades.Checked)
                     {
                         dgvNovedades.Enabled = true;
-                        dgvNovedades.DataSource = _reporteAgenteSeleccionado.First().Novedades.ToList();
+                        dgvNovedades.DataSource = _reporteAgenteSeleccionado.First().Novedades.AsParallel().ToList();
 
                         tclDetalles.TabPages[0].Text = "Novedades";
                         tclDetalles.TabPages[0].Text += string.Format(" ({0})", dgvNovedades.RowCount);
@@ -399,8 +423,6 @@ namespace PresentacionRecursoHumano
                 lblAusenciasTotales.Text = ObtenerInasistenciasTotales().ToString();
                 lblAusenciasPorLlegadasTarde.Text = ObtenerInasistenciasPorLlegadasTarde().ToString();
                 lblLlegadasTarde.Text = ObtenerLlegadasTarde().ToString();
-
-                tclDetalles.TabPages[0].Select();
             }
         }
 
@@ -410,7 +432,7 @@ namespace PresentacionRecursoHumano
 
             foreach (ReporteMensualDTO item in _reporteAgenteSeleccionado)
             {
-                inasistencias += item.Ausente ? 1 : 0;
+                inasistencias += item.Ausente == null ? 0 : (bool)item.Ausente ? 1 : 0;
             }
 
             return inasistencias;
@@ -422,7 +444,7 @@ namespace PresentacionRecursoHumano
 
             foreach (ReporteMensualDTO item in _reporteAgenteSeleccionado)
             {
-                inasistencias += item.AusentePorLlegarTarde ? 1 : 0;
+                inasistencias += item.AusentePorLlegarTarde == null ? 0 : (bool)item.AusentePorLlegarTarde ? 1 : 0;
             }
 
             return inasistencias;
@@ -529,8 +551,9 @@ namespace PresentacionRecursoHumano
             }
             catch
             {
-                MessageBox.Show("No hay accesos en la base de datos");
-
+                MessageBox.Show("No hay accesos en la base de datos"); 
+            } 
+            finally {
                 try
                 {
                     CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
@@ -543,19 +566,25 @@ namespace PresentacionRecursoHumano
                 }
                 catch
                 {
-                    MessageBox.Show("No hay sectores o subsectores en la base de datos");
-
+                    MessageBox.Show("No hay sectores o subsectores en la base de datos"); 
+                }
+                finally {
                     try
                     {
                         _agenteSeleccionado = _agenteServicio.ObtenerTodo().First();
                         ActualizarAgentes();
+                        dgvReporte.TabStop = false;
+                        dgvLactancias.TabStop = false;
+                        dgvNovedades.TabStop = false;
+                        dgvComisiones.TabStop = false;
+                        dgvAgentes.Focus();
                     }
                     catch
                     {
                         MessageBox.Show("No hay agentes en la base de datos");
                     }
                 }
-            }                  
+            }                 
         }
    
         private void cmbArea_SelectionChangeCommitted(object sender, EventArgs e)
@@ -590,6 +619,23 @@ namespace PresentacionRecursoHumano
         private void chkComsiones_CheckedChanged(object sender, EventArgs e)
         {
             ActualizarReporte();
+        }
+
+        private void dgvAgentes_Leave(object sender, EventArgs e)
+        {
+            dgvAgentes.Focus();
+        }
+
+        private void dgvReporte_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.ColumnIndex == 1 && ((DataGridView)sender)[e.ColumnIndex, e.RowIndex].Value.ToString() == "")
+            {
+                e.Cancel = true;
+            } 
+            else
+            {
+                ((DataGridView)sender).CancelEdit();
+            }
         }
     }
 }

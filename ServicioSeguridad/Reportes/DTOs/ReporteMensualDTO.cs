@@ -23,9 +23,9 @@ namespace Servicio.RecursoHumano.Reportes.DTOs
 
         public string FechaStr { get { return String.Format("{0:dd\\/MM\\/yy}", Fecha); } }
 
-        public bool Ausente { get; set; }
-        public bool AusentePorLlegarTarde { get; set; }
-        public string AusenteStr { get { return Ausente ? "Sí" : "No"; } }
+        public bool? Ausente { get; set; }
+        public bool? AusentePorLlegarTarde { get; set; }
+        public string AusenteStr { get { return Ausente == null? "" : (bool)Ausente ? "Sí" : "No"; } }
 
         public TimeSpan? HoraEntrada { get; set; }
         public TimeSpan? HoraEntradaParcial { get; set; }

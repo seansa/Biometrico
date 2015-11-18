@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/17/2015 21:14:29
+-- Date Created: 11/18/2015 18:24:15
 -- Generated from EDMX file: C:\Users\Jorge Petroni\Source\Repos\test\Biometrico\AccesoDatos\ModeloBometrico.edmx
 -- --------------------------------------------------
 
