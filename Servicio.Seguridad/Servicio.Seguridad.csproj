@@ -61,9 +61,9 @@
     <Compile Include="Controles\ControlSistemaServicio.cs" />
     <Compile Include="Controles\DTOs\ControlSistemaDTO.cs" />
     <Compile Include="Controles\IControlSistemaServicio.cs" />
-    <Compile Include="Formulario\DTOs\FormularioDTO.cs" />
-    <Compile Include="Formulario\FormularioServicio.cs" />
-    <Compile Include="Formulario\IFormularioServicio.cs" />
+    <Compile Include="LogIn\Formulario\DTOs\FormularioDTO.cs" />
+    <Compile Include="LogIn\Formulario\FormularioServicio.cs" />
+    <Compile Include="LogIn\Formulario\IFormularioServicio.cs" />
     <Compile Include="LogIn\ILogInServicio.cs" />
     <Compile Include="LogIn\LogInServicio.cs" />
     <Compile Include="PerfilControles\DTOs\PerfilControlDTO.cs" />

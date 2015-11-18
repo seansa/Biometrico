@@ -522,51 +522,40 @@ namespace PresentacionRecursoHumano
             {
                 _listaAños = ReporteMensualServicio.ListaAños();
                 _listaMeses = ReporteMensualServicio.ListaMeses();
+                cmbAño.DataSource = _listaAños;
+                cmbMes.DataSource = _listaMeses;
             }
             catch
             {
                 MessageBox.Show("No hay accesos en la base de datos");
-                this.Close();
-            }
 
-            cmbAño.DataSource = _listaAños;
-            cmbMes.DataSource = _listaMeses;
+                try
+                {
+                    CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
+                    CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(((SectorDTO)cmbDireccion.SelectedItem).Id), "Descripcion");
+                    lblApyNom.Text = String.Empty;
+                    lblLegajo.Text = String.Empty;
 
-            try
-            {
-                CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
-                CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(((SectorDTO)cmbDireccion.SelectedItem).Id), "Descripcion");
-            }
-            catch
-            {
-                MessageBox.Show("No hay sectores o subsectores en la base de datos");
-                Close();
-            }
+                    this.txtBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                }
+                catch
+                {
+                    MessageBox.Show("No hay sectores o subsectores en la base de datos");
 
-            lblApyNom.Text = String.Empty;
-            lblLegajo.Text = String.Empty;
-
-            this.txtBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-            try
-            {
-                _agenteSeleccionado = _agenteServicio.ObtenerTodo().First();
-                
-            }
-            catch
-            {
-                MessageBox.Show("No hay agentes en la base de datos");
-                Close();
-            }
-            finally
-            {
-                ActualizarAgentes();
-            }
-            
+                    try
+                    {
+                        _agenteSeleccionado = _agenteServicio.ObtenerTodo().First();
+                        ActualizarAgentes();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No hay agentes en la base de datos");
+                    }
+                }
+            }                  
         }
    
-
         private void cmbArea_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ActualizarAgentes();
