@@ -120,7 +120,7 @@ namespace Servicio.RecursoHumano.Horario
                 using (var _context= new ModeloBometricoContainer())
                 {
                     var lista = _context.Horarios.AsParallel();
-                   var existe= lista.AsParallel().Count() >0 ?  true : false;
+                    var existe= lista.AsParallel().Count() >0 ?  true : false;
                     return existe;
                 }
             }
