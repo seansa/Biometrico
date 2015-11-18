@@ -39,9 +39,9 @@ namespace PresentacionBase
 
         public void PoblarComboBox(ComboBox cmb, object lista, string propiedadMostrar, string propiedadDevolver = "Id")
         {
-            cmb.DataSource = lista;
             cmb.DisplayMember = propiedadMostrar;
             cmb.ValueMember = propiedadDevolver;
+            cmb.DataSource = lista;
         }
         
         public void PoblarComboBox(ComboBox cmb, object obj, string propiedadMostrar, string propiedadDevolver, int elementoSeleccionadoId)

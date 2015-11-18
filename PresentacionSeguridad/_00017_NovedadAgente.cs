@@ -25,7 +25,7 @@ namespace PresentacionRecursoHumano
 
         private long current_id;
         private long _tipoNovedadId;
-        bool bandera;
+        
 
         public _00017_NovedadAgente()
         {
@@ -33,9 +33,7 @@ namespace PresentacionRecursoHumano
             _agenteServicio = new AgenteServicio();
             _tipoNovedadAgente = new TipoNovedadAgenteServicio();
             _novedadAgente = new NovedadAgenteServicio();
-
-            bandera = false;
-            _tipoNovedadId = 1;
+                        
             PoblarGrilla();
             FormatearGrilla(this.dgvNovedadAgente);
             PoblarComboBox(this.cmbTipoNovedadAgente, _tipoNovedadAgente.ObtenerTodo(), "Descripcion");
@@ -152,7 +150,7 @@ namespace PresentacionRecursoHumano
         private void cmbTipoNovedadAgente_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (cmbTipoNovedadAgente.SelectedIndex >= 0 && bandera == true)
+            if (cmbTipoNovedadAgente.SelectedIndex >= 0)
             {
                 _tipoNovedadId = (long)cmbTipoNovedadAgente.SelectedValue;
                 var _tipoNovedad = _tipoNovedadAgente.ObtenerPorId(_tipoNovedadId);
@@ -160,10 +158,7 @@ namespace PresentacionRecursoHumano
                 this.dtpHoraDesde.Enabled = _tipoNovedad.EsJornadaCompleta ? false : true;
                 this.dtpHoraHasta.Enabled = _tipoNovedad.EsJornadaCompleta ? false : true;
             }
-            else
-            {
-                bandera = true;
-            }
+           
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

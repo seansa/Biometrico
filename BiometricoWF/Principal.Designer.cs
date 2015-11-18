@@ -32,7 +32,6 @@
             this.agenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaDeAgentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoAgenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.novedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novedadesAgenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +57,8 @@
             this.asignarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asginarFormulariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignarControlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accesoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accesoDelAgenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relojDefectuosoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,8 +71,6 @@
             this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -95,7 +94,6 @@
             this.agenteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consultaDeAgentesToolStripMenuItem,
             this.nuevoAgenteToolStripMenuItem,
-            this.novedadesToolStripMenuItem,
             this.novedadesAgenteToolStripMenuItem});
             this.agenteToolStripMenuItem.Name = "agenteToolStripMenuItem";
             this.agenteToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
@@ -114,13 +112,6 @@
             this.nuevoAgenteToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.nuevoAgenteToolStripMenuItem.Text = "Nuevo Agente";
             this.nuevoAgenteToolStripMenuItem.Click += new System.EventHandler(this.nuevoAgenteToolStripMenuItem_Click);
-            // 
-            // novedadesToolStripMenuItem
-            // 
-            this.novedadesToolStripMenuItem.Name = "novedadesToolStripMenuItem";
-            this.novedadesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.novedadesToolStripMenuItem.Text = "Novedades";
-            this.novedadesToolStripMenuItem.Click += new System.EventHandler(this.novedadesToolStripMenuItem_Click);
             // 
             // novedadesAgenteToolStripMenuItem
             // 
@@ -148,7 +139,7 @@
             this.consultaDeSectoresToolStripMenuItem,
             this.nuevoSectorToolStripMenuItem});
             this.sectorToolStripMenuItem.Name = "sectorToolStripMenuItem";
-            this.sectorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sectorToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.sectorToolStripMenuItem.Text = "Sector";
             // 
             // consultaDeSectoresToolStripMenuItem
@@ -173,7 +164,7 @@
             this.toolStripMenuItem4,
             this.asignarAgentesToolStripMenuItem});
             this.subSectorToolStripMenuItem.Name = "subSectorToolStripMenuItem";
-            this.subSectorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.subSectorToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.subSectorToolStripMenuItem.Text = "Sub-Sector";
             // 
             // consultaDeSubSectoresToolStripMenuItem
@@ -205,7 +196,7 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(147, 6);
             // 
             // seguridadToolStripMenuItem
             // 
@@ -216,7 +207,7 @@
             this.toolStripMenuItem3,
             this.perfilToolStripMenuItem});
             this.seguridadToolStripMenuItem.Name = "seguridadToolStripMenuItem";
-            this.seguridadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.seguridadToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.seguridadToolStripMenuItem.Text = "Seguridad";
             // 
             // usuariosToolStripMenuItem
@@ -314,6 +305,18 @@
             this.asignarControlesToolStripMenuItem.Text = "Asignar Controles";
             this.asignarControlesToolStripMenuItem.Click += new System.EventHandler(this.asignarControlesToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
+            // 
+            // configuracionToolStripMenuItem
+            // 
+            this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
+            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.configuracionToolStripMenuItem.Text = "Configuracion";
+            this.configuracionToolStripMenuItem.Click += new System.EventHandler(this.configuracionToolStripMenuItem_Click);
+            // 
             // accesoToolStripMenuItem
             // 
             this.accesoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -350,14 +353,14 @@
             // mensualToolStripMenuItem
             // 
             this.mensualToolStripMenuItem.Name = "mensualToolStripMenuItem";
-            this.mensualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mensualToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.mensualToolStripMenuItem.Text = "Diario";
             this.mensualToolStripMenuItem.Click += new System.EventHandler(this.mensualToolStripMenuItem_Click);
             // 
             // mensualToolStripMenuItem1
             // 
             this.mensualToolStripMenuItem1.Name = "mensualToolStripMenuItem1";
-            this.mensualToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.mensualToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.mensualToolStripMenuItem1.Text = "Mensual";
             this.mensualToolStripMenuItem1.Click += new System.EventHandler(this.mensualToolStripMenuItem1_Click);
             // 
@@ -407,18 +410,6 @@
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(50, 17);
             this.lblUsuario.Text = "Usuario:";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // configuracionToolStripMenuItem
-            // 
-            this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
-            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.configuracionToolStripMenuItem.Text = "Configuracion";
-            this.configuracionToolStripMenuItem.Click += new System.EventHandler(this.configuracionToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -482,7 +473,6 @@
         private System.Windows.Forms.ToolStripMenuItem crearUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel lblUsuario;
-        private System.Windows.Forms.ToolStripMenuItem novedadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accesoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accesoDelAgenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relojDefectuosoToolStripMenuItem;
