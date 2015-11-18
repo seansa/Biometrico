@@ -116,7 +116,7 @@ namespace PresentacionRecursoHumano
             else fechaHasta = null;
 
             if (txtDescripcion.Text.Trim().Length == 0) MessageBox.Show("La descripción no debe estar vacía");
-            else if (dtpHoraInicio.Value.ToShortTimeString() == dtpHoraFin.Value.ToShortTimeString()) {
+            else if ((dtpHoraInicio.Value.ToShortTimeString() == dtpHoraFin.Value.ToShortTimeString()) && !chkJornadaCompleta.Checked) {
                 MessageBox.Show("La hora de entrada y salida es la misma");
             }
             else
@@ -214,6 +214,19 @@ namespace PresentacionRecursoHumano
 
             if (listaComisionesEliminar.Count() > 0) Eliminar(listaComisionesEliminar);
             this.Close();
+        }
+
+        private void chkJornadaCompleta_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((CheckBox)sender).Checked)
+            {
+                dtpHoraFin.Enabled = false;
+                dtpHoraInicio.Enabled = false;
+            }
+            else{
+                dtpHoraFin.Enabled = true;
+                dtpHoraInicio.Enabled = true;
+            }
         }
     }
 }

@@ -24,6 +24,8 @@ namespace PresentacionRecursoHumano
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             _configuracion.GuardarConfiguracion(dtpEntradaPorDefecto.Value.TimeOfDay, dtpSalidaPorDefecto.Value.TimeOfDay, Convert.ToInt32(nudMinutosLactancia.Value), Convert.ToInt32(nudMinutosTarde.Value), Convert.ToInt32(nudMinutosAusente.Value));
+            MessageBox.Show("La configuracion ha sido guardada con exito.");
+            this.Close();
         }
 
         private void _00020_Configuracion_Load(object sender, EventArgs e)
@@ -43,6 +45,11 @@ namespace PresentacionRecursoHumano
             this.nudMinutosTarde.Value = (decimal)confi.MinutosToleranciaLlegadaTarde;
             this.dtpEntradaPorDefecto.Value = Convert.ToDateTime(confi.HoraEntradaPorDefecto.ToString());
             this.dtpSalidaPorDefecto.Value = Convert.ToDateTime(confi.HoraSalidaPorDefecto.ToString());
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

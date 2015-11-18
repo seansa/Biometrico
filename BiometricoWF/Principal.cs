@@ -238,7 +238,7 @@ namespace BiometricoWF
 
         private void mensualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EjecutarFormulario(new Presentacion.Core._10002_ReporteDiario(), false);
+            EjecutarFormulario(new Presentacion.Core._10002_ReporteDiario(), true);
         }
 
         private void configuracionToolStripMenuItem_Click(object sender, EventArgs e)

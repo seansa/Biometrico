@@ -290,6 +290,7 @@
             this.chkJornadaCompleta.TabIndex = 52;
             this.chkJornadaCompleta.Text = "Jornada Completa";
             this.chkJornadaCompleta.UseVisualStyleBackColor = true;
+            this.chkJornadaCompleta.CheckedChanged += new System.EventHandler(this.chkJornadaCompleta_CheckedChanged);
             // 
             // dtpHoraFin
             // 

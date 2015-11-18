@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Jorge Petroni\Source\Repos\test\Biometrico\AccesoDatos\ModeloBometrico.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\DIEGO\Documents\GITHUB REPOSITORIO\LABORATORIO\AccesoDatos\ModeloBometrico.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

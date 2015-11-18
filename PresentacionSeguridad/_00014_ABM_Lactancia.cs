@@ -112,7 +112,7 @@ namespace PresentacionRecursoHumano
                 }
                 else
                 {
-                    MessageBox.Show("Se Repite");
+                    MessageBox.Show("El Agente ya tiene asignada lactancia en el/los dias especificados");
                 }
             }
             else

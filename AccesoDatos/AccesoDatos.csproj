@@ -79,11 +79,6 @@
     <Compile Include="Lactancia.cs">
       <DependentUpon>ModeloBometrico.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloBiometrico.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModeloBiometrico.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ModeloBometrico.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,17 +131,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloBometrico.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ModeloBiometrico.xsc">
-      <DependentUpon>ModeloBiometrico.xsd</DependentUpon>
-    </None>
-    <None Include="ModeloBiometrico.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ModeloBiometrico.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ModeloBiometrico.xss">
-      <DependentUpon>ModeloBiometrico.xsd</DependentUpon>
-    </None>
     <None Include="ModeloBometrico.edmx.diagram">
       <DependentUpon>ModeloBometrico.edmx</DependentUpon>
     </None>

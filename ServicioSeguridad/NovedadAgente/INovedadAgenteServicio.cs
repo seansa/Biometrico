@@ -11,5 +11,6 @@ namespace Servicio.RecursoHumano.NovedadAgente
     {
         void Insertar(NovedadAgenteDTO novedadAgente);
         IEnumerable<NovedadAgenteDTO> ObtenerPorId(long agenteId);
+        bool VerificarRangodeFechas(List<NovedadAgenteDTO> listaNovedades, DateTime fechadesde, DateTime fechahasta);
     }
 }

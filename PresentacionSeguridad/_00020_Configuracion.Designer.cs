@@ -190,6 +190,7 @@
             this.btnSalir.Size = new System.Drawing.Size(33, 35);
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // _00020_Configuracion
             // 

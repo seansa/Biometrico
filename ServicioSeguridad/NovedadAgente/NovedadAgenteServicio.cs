@@ -61,5 +61,36 @@ namespace Servicio.RecursoHumano.NovedadAgente
                 return resultado;
             }
         }
+
+        public bool VerificarRangodeFechas(List<NovedadAgenteDTO> listaNovedades, DateTime fechadesde, DateTime fechahasta)
+        {
+            foreach(var novedad in listaNovedades)
+            {
+                if(IsDateInRange(fechadesde,novedad.FechaDesde,novedad.FechaHasta)||IsDateInRange(fechahasta,novedad.FechaDesde,novedad.FechaHasta)||IsDateInRange(novedad.FechaDesde,fechadesde,fechahasta))
+                return false;
+            }
+            return true;
+        }
+
+        private bool IsDateInRange(DateTime fecha, DateTime fechaDesde, DateTime? fechaHasta)
+        {
+            if (fechaHasta != null)
+            {
+                if (DateTime.Compare(fecha.Date, fechaDesde.Date) >= 0 && DateTime.Compare(fecha.Date, ((DateTime)fechaHasta).Date) <= 0)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (DateTime.Compare(fecha.Date, fechaDesde.Date) >= 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        
     }
 }

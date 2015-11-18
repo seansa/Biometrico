@@ -22,10 +22,11 @@ namespace PresentacionRecursoHumano
         private readonly IAgenteServicio _agenteServicio;
         TipoNovedadAgenteServicio _tipoNovedadAgente;
         NovedadAgenteServicio _novedadAgente;
+        List<NovedadAgenteDTO> listaNovedades;
 
         private long current_id;
         private long _tipoNovedadId;
-        bool bandera;
+        
 
         public _00017_NovedadAgente()
         {
@@ -33,9 +34,8 @@ namespace PresentacionRecursoHumano
             _agenteServicio = new AgenteServicio();
             _tipoNovedadAgente = new TipoNovedadAgenteServicio();
             _novedadAgente = new NovedadAgenteServicio();
-
-            bandera = false;
-            _tipoNovedadId = 1;
+            listaNovedades = new List<NovedadAgenteDTO>();
+                        
             PoblarGrilla();
             FormatearGrilla(this.dgvNovedadAgente);
             PoblarComboBox(this.cmbTipoNovedadAgente, _tipoNovedadAgente.ObtenerTodo(), "Descripcion");
@@ -107,23 +107,27 @@ namespace PresentacionRecursoHumano
             {
                 if (HorasValidas(_tipoNovedad))
                 {
-                    if (VerificarDatosObligatorios(new object[] { this.txtObservacion }))
-                    {
-                        var _nuevaNovedad = new NovedadAgenteDTO();
-                        _nuevaNovedad.AngenteId = current_id;
-                        _nuevaNovedad.Observacion = this.txtObservacion.Text;
-                        _nuevaNovedad.TipoNovedadId = _tipoNovedadId;
-                        _nuevaNovedad.FechaDesde = this.dtpFechaDesde.Value;
-                        _nuevaNovedad.FechaHasta = this.dtpFechaHasta.Value;
-                        _nuevaNovedad.HoraDesde = (_tipoNovedad.EsJornadaCompleta) ? dtpHoraDesde.Value.TimeOfDay : (TimeSpan?)null;
-                        _nuevaNovedad.HoraHasta = (_tipoNovedad.EsJornadaCompleta) ? dtpHoraHasta.Value.TimeOfDay : (TimeSpan?)null;
-                        _novedadAgente.Insertar(_nuevaNovedad);
-                        LimpiarControles(this);
+                   
+                        if (_novedadAgente.VerificarRangodeFechas(listaNovedades, this.dtpFechaDesde.Value.Date, this.dtpFechaHasta.Value.Date))
+                         {
+
+                            var _nuevaNovedad = new NovedadAgenteDTO();
+                            _nuevaNovedad.AngenteId = current_id;
+                            _nuevaNovedad.Observacion = this.txtObservacion.Text;
+                            _nuevaNovedad.TipoNovedadId = _tipoNovedadId;
+                            _nuevaNovedad.FechaDesde = this.dtpFechaDesde.Value.Date;
+                            _nuevaNovedad.FechaHasta = this.dtpFechaHasta.Value.Date;
+                            _nuevaNovedad.HoraDesde = (_tipoNovedad.EsJornadaCompleta) ? (TimeSpan?)null : dtpHoraDesde.Value.TimeOfDay;
+                            _nuevaNovedad.HoraHasta = (_tipoNovedad.EsJornadaCompleta) ? (TimeSpan?)null : dtpHoraHasta.Value.TimeOfDay;
+                            _novedadAgente.Insertar(_nuevaNovedad);
+                            LimpiarControles(this);
+                            listaNovedades.Add(_nuevaNovedad);
+                        MessageBox.Show("La Novedad del Agente ha sido guardada con éxito");
+                        
                     }
                     else
                     {
-                        Mensaje.Mostrar("Debe escribir una Observacion", TipoMensaje.Aviso);
-                        txtObservacion.Focus();
+                        Mensaje.Mostrar("El agente ya tiene una Novedad en ese rango de fechas",TipoMensaje.Aviso);
                     }
                 }
                 else
@@ -152,7 +156,7 @@ namespace PresentacionRecursoHumano
         private void cmbTipoNovedadAgente_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (cmbTipoNovedadAgente.SelectedIndex >= 0 && bandera == true)
+            if (cmbTipoNovedadAgente.SelectedIndex >= 0)
             {
                 _tipoNovedadId = (long)cmbTipoNovedadAgente.SelectedValue;
                 var _tipoNovedad = _tipoNovedadAgente.ObtenerPorId(_tipoNovedadId);
@@ -160,15 +164,17 @@ namespace PresentacionRecursoHumano
                 this.dtpHoraDesde.Enabled = _tipoNovedad.EsJornadaCompleta ? false : true;
                 this.dtpHoraHasta.Enabled = _tipoNovedad.EsJornadaCompleta ? false : true;
             }
-            else
-            {
-                bandera = true;
-            }
+           
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarControles(this);
+        }
+
+        private void _00017_NovedadAgente_Load(object sender, EventArgs e)
+        {
+            listaNovedades = _novedadAgente.ObtenerPorId(current_id).ToList();
         }
     }
 }

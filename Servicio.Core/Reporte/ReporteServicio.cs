@@ -37,7 +37,7 @@ namespace Servicio.Core.Reporte
                     var listaDto = new List<ReporteDiarioDTO.ReporteDiarioDTO>();
                     foreach (var agente in _context.Agentes.ToList())
                     {
-                        var lista = agente.Horarios.Where(w => w.FechaDesde <= fechaBuscar && w.FechaHasta >= fechaBuscar).OrderByDescending(o => o.FechaActualizacion).ToList();
+                        var lista = agente.Horarios.Where(w => w.FechaDesde.Date <= fechaBuscar && w.FechaHasta.Date >= fechaBuscar).OrderByDescending(o => o.FechaActualizacion).ToList();
                         var ultimoHorario = lista.FirstOrDefault();
                         if (ultimoHorario != null)
                         {
@@ -271,6 +271,51 @@ namespace Servicio.Core.Reporte
 
                 throw;
             }
+        }
+        public TipoNovedad obtenerTipo(long id)
+        {
+            try
+            {
+                using (var _context=new ModeloBometricoContainer())
+                {
+                    return _context.TipoNovedades.Find(id);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private bool IsDateInRange(DateTime fecha, DateTime fechaDesde, DateTime? fechaHasta)
+        {
+            if (fechaHasta != null)
+            {
+                if (DateTime.Compare(fecha.Date, fechaDesde.Date) >= 0 && DateTime.Compare(fecha.Date, ((DateTime)fechaHasta).Date) <= 0)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (DateTime.Compare(fecha.Date, fechaDesde.Date) >= 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool IsTimeInRange(TimeSpan hora, TimeSpan horaDesde, TimeSpan horaHasta)
+        {
+            if (TimeSpan.Compare(hora,horaDesde)>=0&&TimeSpan.Compare(hora,horaHasta)<=0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 

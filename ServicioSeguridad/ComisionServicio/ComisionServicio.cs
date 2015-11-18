@@ -51,8 +51,8 @@ namespace Servicio.RecursoHumano.ComisionServicio
                                 AgenteId = x.AgenteId,
                                 FechaDesde = x.FechaDesde,
                                 FechaHasta = x.FechaHasta ?? null,
-                                HoraDesde = x.HoraInicio,
-                                HoraHasta = x.HoraFin,
+                                HoraDesde = (TimeSpan)x.HoraInicio,
+                                HoraHasta = (TimeSpan)x.HoraFin,
                                 Descripcion = x.Descripcion,
                                 EsJornadaCompleta = x.JornadaCompleta,
                                 Observacion = x.Observaciones
@@ -84,8 +84,8 @@ namespace Servicio.RecursoHumano.ComisionServicio
                         AgenteId = x.AgenteId,
                         FechaDesde = x.FechaDesde,
                         FechaHasta = x.FechaHasta,
-                        HoraFin = x.HoraHasta,
-                        HoraInicio = x.HoraDesde,
+                        HoraFin = x.EsJornadaCompleta ? (TimeSpan?)null : x.HoraHasta,
+                        HoraInicio = x.EsJornadaCompleta ? (TimeSpan?)null : x.HoraDesde,
                         Descripcion = x.Descripcion,
                         JornadaCompleta = x.EsJornadaCompleta,
                         Observaciones = x.Observacion
@@ -113,8 +113,8 @@ namespace Servicio.RecursoHumano.ComisionServicio
                             AgenteId = x.AgenteId,
                             FechaDesde = x.FechaDesde,
                             FechaHasta = x.FechaHasta,
-                            HoraFin = x.HoraHasta,
-                            HoraInicio = x.HoraDesde,
+                            HoraFin = x.EsJornadaCompleta ? (TimeSpan?)null : x.HoraHasta,
+                            HoraInicio = x.EsJornadaCompleta ? (TimeSpan?)null : x.HoraDesde,
                             Descripcion = x.Descripcion,
                             JornadaCompleta = x.EsJornadaCompleta,
                             Observaciones = x.Observacion
@@ -158,8 +158,8 @@ namespace Servicio.RecursoHumano.ComisionServicio
                         AgenteId = x.AgenteId,
                         FechaDesde = x.FechaDesde,
                         FechaHasta = x.FechaHasta,
-                        HoraFin = x.HoraHasta,
-                        HoraInicio = x.HoraDesde,
+                        HoraFin = x.EsJornadaCompleta ? (TimeSpan?)null : x.HoraHasta,
+                        HoraInicio = x.EsJornadaCompleta ? (TimeSpan?)null : x.HoraDesde,
                         Descripcion = x.Descripcion,
                         JornadaCompleta = x.EsJornadaCompleta,
                         Observaciones = x.Observacion
@@ -176,8 +176,7 @@ namespace Servicio.RecursoHumano.ComisionServicio
 
         public bool VerificarNoEsteRepetidoMemoria(List<ComisionServicioDTO> lista, DateTime fechaDesde, DateTime? fechaHasta, bool jornadaCompleta, TimeSpan horaInicio, TimeSpan horaFin)
         {
-            try
-            {
+           
                 foreach (var comision in lista)
                 {
                     if (IsDateInRange(fechaDesde, comision.FechaDesde, comision.FechaHasta)
@@ -185,7 +184,8 @@ namespace Servicio.RecursoHumano.ComisionServicio
                         ||IsDateInRange(comision.FechaDesde,fechaDesde,fechaHasta))
                     {
                         if (jornadaCompleta) return false;
-                        else if (lista.Any(e =>
+
+                        if (lista.Any(e =>
                            (horaInicio < e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin < e.HoraFin) ||
                            (horaInicio == e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin < e.HoraFin) ||
                            (horaInicio < e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin == e.HoraFin) ||
@@ -194,23 +194,29 @@ namespace Servicio.RecursoHumano.ComisionServicio
                            (horaInicio > e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin < e.HoraFin) ||
                            (horaInicio < e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin > e.HoraFin) ||
                            (horaInicio == e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin > e.HoraFin) ||
-                           (horaInicio > e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin == e.HoraFin))) return false;
+                           (horaInicio > e.HoraInicio && horaInicio < e.HoraFin && horaFin > e.HoraInicio && horaFin == e.HoraFin)))
+                            return false;
                         else return true;
                     } 
                 }
                 return true;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
         }
 
         private bool IsDateInRange(DateTime fecha, DateTime fechaDesde, DateTime? fechaHasta)
         {
-            if (DateTime.Compare(fecha.Date,fechaDesde.Date)>=0 && DateTime.Compare(fecha.Date,((DateTime)fechaHasta).Date) <= 0)
+            if (fechaHasta != null)
             {
-                return true;   
+                if (DateTime.Compare(fecha.Date, fechaDesde.Date) >= 0 && DateTime.Compare(fecha.Date, ((DateTime)fechaHasta).Date) <= 0)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (DateTime.Compare(fecha.Date, fechaDesde.Date) >= 0)
+                {
+                    return true;
+                }
             }
             return false;
         }
