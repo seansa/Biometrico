@@ -163,13 +163,39 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
             {
                 if (HoraEntrada == null)
                 {
-                    if (_novedad != null && _novedad.TipoNovedad.EsJornadaCompleta)
+                    if (_novedad != null)
                     {
-                        return "NO";
+
+                        if (_tipoNovedad.EsJornadaCompleta)
+                        {
+                            return "NO";
+                        }
+                        else if ((_novedad.HoraDesde<=_horario.HoraEntrada&&_novedad.HoraHasta>=_horario.HoraSalida)
+                            ||(_novedad.HoraDesde<=_horario.HoraSalida&&_novedad.HoraHasta>=_horario.HoraSalida))
+                        {
+                            return "NO";
+                        }
+                        else
+                        {
+                            return "SI";
+                        }
                     }
-                    else if (_comision != null && _comision.EsJornadaCompleta)
+                    else if (_comision != null)
                     {
-                        return "NO";
+                        if (_comision.EsJornadaCompleta)
+                        {
+
+                            return "NO"; 
+                        }
+                        else if ((_comision.HoraDesde<=_horario.HoraEntrada&&_comision.HoraHasta>=_horario.HoraEntrada)
+                            || (_comision.HoraDesde<=_horario.HoraSalida&&_comision.HoraHasta>=_horario.HoraSalida))
+                        {
+                            return "NO";
+                        }
+                        else
+                        {
+                            return "SI";
+                        }
                     }
                     else if (_reloj != null && _reloj.JornadaCompleta == true)
                     {
@@ -215,13 +241,26 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                 if (HoraEntrada == null)
                 {
 
-                    if (_novedad != null && _novedad.TipoNovedad.EsJornadaCompleta)
+                    if (_novedad != null && _tipoNovedad.EsJornadaCompleta)
                     {
                         return "NO";
                     }
-                    else if (_comision != null && _comision.EsJornadaCompleta)
+                    else if (_comision != null)
                     {
-                        return "NO";
+                        if (_comision.EsJornadaCompleta)
+                        {
+
+                            return "NO";
+                        }
+                        else if ((_comision.HoraDesde <= _horario.HoraEntrada && _comision.HoraHasta >= _horario.HoraEntrada)
+                            || (_comision.HoraDesde <= _horario.HoraSalida && _comision.HoraHasta >= _horario.HoraSalida))
+                        {
+                            return "NO";
+                        }
+                        else
+                        {
+                            return "SI";
+                        }
                     }
                     else if (_reloj != null && (_reloj.JornadaCompleta == true || (_reloj.HoraDesde <= _horario.HoraEntrada && _reloj.HoraHasta >= _horario.HoraSalida)))
                     {
@@ -303,11 +342,20 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
         private ComisionServicio _comision;
         private Lactancia _lactancia;
         private RelojDefectuoso _reloj;
+        private TipoNovedad _tipoNovedad;
         private List<AccesoDatos.Acceso> _accesos;
         private int _toleraciaLlegadaTarde;
         private int _toleraciaAusente;
         private int _minutosLactancia;
-        public ReporteDiarioDTO(long agenteId, DateTime fechaBuscar, Horario horario,Novedad novedad, ComisionServicio comision, Lactancia lactancia,RelojDefectuoso reloj)
+        
+
+        public ReporteDiarioDTO(long agenteId
+            , DateTime fechaBuscar
+            , Horario horario
+            ,Novedad novedad
+            , ComisionServicio comision
+            , Lactancia lactancia
+            ,RelojDefectuoso reloj)
         {
 
             AgenteId = agenteId;
@@ -323,7 +371,13 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
             _novedad = novedad;
             _comision = comision;
             _reloj = reloj;
+            if (_novedad!=null)
+            {
+                _tipoNovedad = _reporteServicio.obtenerTipo(_novedad.Id);
+            }
         }
+
+        
         
     }
 }

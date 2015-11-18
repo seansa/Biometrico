@@ -272,6 +272,21 @@ namespace Servicio.Core.Reporte
                 throw;
             }
         }
+        public TipoNovedad obtenerTipo(long id)
+        {
+            try
+            {
+                using (var _context=new ModeloBometricoContainer())
+                {
+                    return _context.TipoNovedades.Find(id);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 
 

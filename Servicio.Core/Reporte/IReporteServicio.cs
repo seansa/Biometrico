@@ -16,5 +16,6 @@ namespace Servicio.Core.Reporte
         int obtenerMinutosLlegadaTarde();
         int obtenerMinutosAusentes();
         int obtenerMinutosLactancia();
+        TipoNovedad obtenerTipo(long id);
     }
 }
