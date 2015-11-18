@@ -12,17 +12,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PresentacionBase;
 using Presentacion.Core;
-
+using Servicio.RecursoHumano.Horario;
 
 namespace BiometricoWF
 {
     public partial class Principal : PresentacionBase.FormularioBase
     {
+        private IHorarioServicio _horarioServicio;
         public Principal()
         {
             InitializeComponent();
 
             this.BackgroundImage = Properties.Resources.Fondo;
+            _horarioServicio = new HorarioServicio();
         }
 
         private void EjecutarFormulario(Form formulario, bool mdi = true)
@@ -238,7 +240,14 @@ namespace BiometricoWF
 
         private void mensualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EjecutarFormulario(new Presentacion.Core._10002_ReporteDiario(), true);
+            if (_horarioServicio.VerificarAlgunHorarioCargado())
+            {
+                EjecutarFormulario(new Presentacion.Core._10002_ReporteDiario(), true); 
+            }
+            else
+            {
+                MessageBox.Show("No hay Horarios Cargados");
+            }
         }
 
         private void configuracionToolStripMenuItem_Click(object sender, EventArgs e)
