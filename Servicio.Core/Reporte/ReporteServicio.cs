@@ -7,6 +7,8 @@ using AccesoDatos;
 using System.Reflection;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity;
 
 namespace Servicio.Core.Reporte
 {
@@ -48,6 +50,7 @@ namespace Servicio.Core.Reporte
                                 var lactancia = obtenerLactancia(agente.Id, fechaBuscar);
                                 var reloj = obtenerReloj(fechaBuscar);
                                 ultimoHorario = formateoHorarioEntrada(ultimoHorario, novedad, comision, lactancia);
+                                ultimoHorario = formateoHoraSalida(ultimoHorario, lactancia);
                                 var _reporteDTO = new ReporteDiarioDTO.ReporteDiarioDTO(agente.Id, fechaBuscar, ultimoHorario,novedad, comision,lactancia,reloj);
                                 
                                 listaDto.Add(_reporteDTO);
@@ -89,6 +92,16 @@ namespace Servicio.Core.Reporte
             var horario = schedule;
 
             if ((bool)schedule.GetType().GetProperty(ConvertirDia(fechaBuscar)).GetValue(horario, null))
+            {
+                return true;
+            }
+            return false;
+        }
+        private bool TomarValorPropiedad(DateTime fechaBuscar, Lactancia lactancia)
+        {
+            var _lactancia=lactancia;
+
+            if ((bool)lactancia.GetType().GetProperty(ConvertirDia(fechaBuscar)).GetValue(_lactancia, null))
             {
                 return true;
             }
@@ -196,7 +209,7 @@ namespace Servicio.Core.Reporte
             {
                 using (var _context = new ModeloBometricoContainer())
                 {
-                    var novedadesOrdenadas = _context.Novedades.Where(x => x.AgenteId == id&&x.FechaDesde<=fechaBuscar&&x.FechaHasta>=fechaBuscar).OrderByDescending(x => x.Id);
+                    var novedadesOrdenadas = _context.Novedades.Where(x => x.AgenteId == id&&DbFunctions.TruncateTime(x.FechaDesde)<=fechaBuscar.Date&&DbFunctions.TruncateTime(x.FechaHasta)>=fechaBuscar.Date).OrderByDescending(x => x.Id);
                     var novedad = novedadesOrdenadas.FirstOrDefault();
                     return novedad;
                 }
@@ -214,7 +227,7 @@ namespace Servicio.Core.Reporte
             {
                 using (var _context = new ModeloBometricoContainer())
                 {
-                    var comisionOrdenada = _context.ComisionServicios.Where(w => w.AgenteId == id && w.FechaDesde <= fechaBuscar && w.FechaHasta >= fechaBuscar).OrderByDescending(x => x.Id);
+                    var comisionOrdenada = _context.ComisionServicios.Where(w => w.AgenteId == id && DbFunctions.TruncateTime( w.FechaDesde) <= fechaBuscar.Date && DbFunctions.TruncateTime(w.FechaHasta) >= fechaBuscar.Date).OrderByDescending(x => x.Id);
                     var comision = comisionOrdenada.FirstOrDefault();
                     if (comision!=null)
                     {
@@ -239,11 +252,12 @@ namespace Servicio.Core.Reporte
             {
                 using (var _context=new ModeloBometricoContainer())
                 {
-                    var lactanciaOrdenada = _context.Lactancias.Where(x => x.AgenteId == id && x.FechaDesde <= fechaBuscar && x.FechaHasta >= fechaBuscar).OrderByDescending(x => x.FechaActualizacion);
+                    var lactanciaOrdenada = _context.Lactancias.Where(x => x.AgenteId == id && DbFunctions.TruncateTime(x.FechaDesde) <= fechaBuscar.Date&& DbFunctions.TruncateTime(x.FechaHasta) >= fechaBuscar.Date).OrderByDescending(o =>o.FechaActualizacion);
                     var lactancia = lactanciaOrdenada.FirstOrDefault();
                     if (lactancia!=null)
                     {
-                        return lactancia;
+                        return TomarValorPropiedad(fechaBuscar, lactancia) ? lactancia : null;
+                        
                     }
                     else
                     {
@@ -383,6 +397,19 @@ namespace Servicio.Core.Reporte
             {
                 return horario;
             }
+        }
+        private Horario formateoHoraSalida(Horario horario, Lactancia lactancia)
+        {
+            if (lactancia!=null)
+            {
+                if (!lactancia.HoraInicio)
+                {
+                    var minutos = new TimeSpan(0, obtenerMinutosLactancia(), 0);
+                    horario.HoraSalida = horario.HoraSalida.Value.Subtract(minutos);
+                    return horario;
+                }
+            }
+            return horario;
         }
     }
 

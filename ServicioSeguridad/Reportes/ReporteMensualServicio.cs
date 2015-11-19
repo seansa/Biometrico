@@ -107,7 +107,6 @@ namespace Servicio.RecursoHumano.Reportes
                 {
                     reporte.AgenteId = _agenteId;
                     reporte.Numero = i;
-                    reporte.Ausente = Ausente(dia, _horarioDia, listaAccesosDelDia, out porLlegarTarde);
 
                     // Listas para las grillas de abajo
 
@@ -116,7 +115,7 @@ namespace Servicio.RecursoHumano.Reportes
                     reporte.Novedades = NovedadesEnElMes(dia) ?? new List<NovedadAgenteDTO>();
 
                     reporte.Fecha = dia;
-                    reporte.Mes = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(dia.ToString("dddd", new CultureInfo("es-Ar")));
+                    reporte.Dia = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(dia.ToString("dddd", new CultureInfo("es-Ar")));
 
                     // Horas de los accesos
 
@@ -132,6 +131,7 @@ namespace Servicio.RecursoHumano.Reportes
                     reporte.MinutosFaltantes = listaAccesosDelDia == null ? null : (reporte.HoraSalidaParcial != null && reporte.HoraEntrada != null) ? Diff((TimeSpan)reporte.HoraSalidaParcial, (TimeSpan)reporte.HoraEntrada) : (TimeSpan?)null;
                     reporte.MinutosFaltantesExtension = listaAccesosDelDia == null ? null : _horarioDia.HoraEntradaParcial == null ? ((reporte.HoraSalida != null && reporte.HoraEntrada != null) ? Diff(Diff((TimeSpan)reporte.HoraSalida, (TimeSpan)reporte.HoraEntrada), Diff((TimeSpan)_horarioDia.HoraSalida, (TimeSpan)_horarioDia.HoraEntrada)) : (TimeSpan?)null) : ((reporte.HoraSalida != null && reporte.HoraEntradaParcial != null) ? Diff(Diff((TimeSpan)reporte.HoraSalida, (TimeSpan)reporte.HoraEntradaParcial), Diff((TimeSpan)_horarioDia.HoraSalida, (TimeSpan)_horarioDia.HoraEntradaParcial)) : (TimeSpan?)null);
 
+                    reporte.Ausente = listaAccesosDelDia == null ? (bool?)null : Ausente(dia, _horarioDia, listaAccesosDelDia, out porLlegarTarde) || ((reporte.MinutosTarde != null) && ((TimeSpan)reporte.MinutosTarde).Minutes > _minutosToleranciaAusente ? true : false);
                     reporte.AusentePorLlegarTarde = listaAccesosDelDia == null ? (bool?)null : porLlegarTarde;
                 }
                 else
@@ -147,7 +147,7 @@ namespace Servicio.RecursoHumano.Reportes
                     reporte.Novedades = NovedadesEnElMes(dia) ?? new List<NovedadAgenteDTO>();
 
                     reporte.Fecha = dia;
-                    reporte.Mes = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(dia.ToString("dddd", new CultureInfo("es-Ar")));
+                    reporte.Dia = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(dia.ToString("dddd", new CultureInfo("es-Ar")));
 
                     // Horas de los accesos
 
@@ -274,7 +274,7 @@ namespace Servicio.RecursoHumano.Reportes
             TimeSpan? _horaEntradaAcceso = accesosDia.Where(acceso => acceso.TipoAcceso.Equals("Entrada")).Any() ? accesosDia.Where(acceso => acceso.TipoAcceso.Equals("Entrada")).Last().Hora : (TimeSpan?)null;
             TimeSpan _horaEntradaHorario = (TimeSpan)horarioDia.HoraEntrada;
 
-            if (_horaEntradaAcceso > _horaEntradaHorario && _horaEntradaAcceso != null)
+            if (_horaEntradaAcceso != null && _horaEntradaAcceso > _horaEntradaHorario)
             {
                 return Diff(_horaEntradaHorario, (TimeSpan)_horaEntradaAcceso);
             }
@@ -301,15 +301,11 @@ namespace Servicio.RecursoHumano.Reportes
 
         private bool Ausente(DateTime fecha, DetalleHorarioDTO horarioDia, List<AccesoDTO> _listaAccesosDía, out bool? porLlegarTarde)
         {
-            int _numeroEntradasDia = _listaAccesosDía.Where(acceso => acceso.TipoAcceso.ToString().Contains("Entrada")).Count() > 2 ? 2 : _listaAccesosDía.Where(acceso => acceso.TipoAcceso.ToString().Contains("Entrada")).Count();
-
             bool _hayNovedadHoraEntrada;
-            bool _hayNovedadHoraEntradaParcial;
             bool _hayComisionServicioHoraEntrada;
-            bool _hayComisionServicioHoraEntradaParcial;
 
-            var listaComisonesServicioDelDia = ComisionesEnElMes(fecha);
-            var listaNovedadesDelDia = NovedadesEnElMes(fecha);
+            var listaComisonesServicioDelDia = ComisionesEnElMes(fecha).Where(comision => (comision.FechaDesde <= fecha) && (comision.FechaHasta >= fecha)).AsParallel().ToList();
+            var listaNovedadesDelDia = NovedadesEnElMes(fecha).Where(novedad => (novedad.FechaDesde <= fecha) && (novedad.FechaHasta >= fecha)).AsParallel().ToList(); ;
             porLlegarTarde = false;
 
             _hayNovedadHoraEntrada = listaNovedadesDelDia.Any() ? (listaNovedadesDelDia.Where(novedad => ((novedad.HoraDesde <= horarioDia.HoraEntrada) && (novedad.HoraHasta >= horarioDia.HoraEntrada))).Any() ? true : false) : false;
@@ -328,7 +324,8 @@ namespace Servicio.RecursoHumano.Reportes
                 }
                 return false;
             }
-            return true;
+            else if (fecha.Date <= DateTime.Now.Date) return true;
+            return false;
         }
     }
 }

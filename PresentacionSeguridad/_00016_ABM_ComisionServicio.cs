@@ -130,8 +130,8 @@ namespace PresentacionRecursoHumano
                         FechaHasta = chkFechaHasta.Checked ? fechaHasta : null,
                         Observaciones = this.txtObservaciones.Text,
                         JornadaCompleta = this.chkJornadaCompleta.Checked,
-                        HoraFin = this.dtpHoraFin.Value.TimeOfDay,
-                        HoraInicio = this.dtpHoraInicio.Value.TimeOfDay,
+                        HoraFin = this.chkJornadaCompleta.Checked ? (TimeSpan?)null : this.dtpHoraFin.Value.TimeOfDay,
+                        HoraInicio = this.chkJornadaCompleta.Checked ? (TimeSpan?)null : this.dtpHoraInicio.Value.TimeOfDay,
                         Descripcion = this.txtDescripcion.Text,
                     };
                     listaComisionesAgregar.Add(_nuevaComision);
