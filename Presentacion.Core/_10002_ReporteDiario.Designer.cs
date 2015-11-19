@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nudTarde = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnReporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAusentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPresentes)).BeginInit();
@@ -117,11 +118,22 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Tarde";
             // 
+            // btnReporte
+            // 
+            this.btnReporte.Location = new System.Drawing.Point(298, 9);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(75, 23);
+            this.btnReporte.TabIndex = 9;
+            this.btnReporte.Text = "Ver Reporte";
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
             // _10002_ReporteDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 490);
+            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.nudTarde);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nudPresentes);
@@ -154,5 +166,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown nudTarde;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnReporte;
     }
 }

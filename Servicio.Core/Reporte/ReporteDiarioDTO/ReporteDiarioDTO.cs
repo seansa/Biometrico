@@ -115,7 +115,7 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                 }
                 else
                 {
-                    return MinutosTarde.ToString("D2");
+                    return MinutosTarde.ToString();
                 }
             }
         }
@@ -157,7 +157,7 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
             }
            
         }
-        public string MinutosFaltantesSTR { get { return MinutosFaltantes >= 0 ? MinutosFaltantes.ToString("d2") : "NO"; } }
+        public string MinutosFaltantesSTR { get { return MinutosFaltantes >= 0 ? MinutosFaltantes.ToString() : "NO"; } }
         public string Nov
         {
             get
