@@ -95,13 +95,13 @@ namespace PresentacionRecursoHumano
             this.dgvReporte.Columns["FechaStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvReporte.Columns["FechaStr"].DisplayIndex = 1;
 
-            CheckearColumna(dgvReporte, "Mes");
-            this.dgvReporte.Columns["Mes"].Visible = true;
-            this.dgvReporte.Columns["Mes"].HeaderText = "Mes";
-            this.dgvReporte.Columns["Mes"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvReporte.Columns["Mes"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["Mes"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            this.dgvReporte.Columns["Mes"].DisplayIndex = 2;
+            CheckearColumna(dgvReporte, "Dia");
+            this.dgvReporte.Columns["Dia"].Visible = true;
+            this.dgvReporte.Columns["Dia"].HeaderText = "Día";
+            this.dgvReporte.Columns["Dia"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["Dia"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvReporte.Columns["Dia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgvReporte.Columns["Dia"].DisplayIndex = 2;
 
             CheckearColumna(dgvReporte, "AusenteStr");
             this.dgvReporte.Columns["AusenteStr"].Visible = true;
@@ -381,10 +381,10 @@ namespace PresentacionRecursoHumano
                     dgvLactancias.DataSource = null;
                     tclDetalles.TabPages[2].Text = "Lactancias";
 
-                    if (_reporteAgenteSeleccionado.First().Lactancias.Any() && chkLactancias.Checked)
+                    if (_reporteAgenteSeleccionado.Last().Lactancias.Any() && chkLactancias.Checked)
                     {
                         dgvLactancias.Enabled = true;
-                        dgvLactancias.DataSource = _reporteAgenteSeleccionado.First().Lactancias.AsParallel().ToList();
+                        dgvLactancias.DataSource = _reporteAgenteSeleccionado.Last().Lactancias.AsParallel().ToList();
 
                         tclDetalles.TabPages[2].Text = "Lactancias";
                         tclDetalles.TabPages[2].Text += string.Format(" ({0})", dgvLactancias.RowCount);
@@ -393,10 +393,10 @@ namespace PresentacionRecursoHumano
                         FormatearGrillaLactancias(dgvLactancias);
                     }
 
-                    if (_reporteAgenteSeleccionado.First().Comisiones.Any() && chkComsiones.Checked)
+                    if (_reporteAgenteSeleccionado.Last().Comisiones.Any() && chkComsiones.Checked)
                     {
                         dgvComisiones.Enabled = true;
-                        dgvComisiones.DataSource = _reporteAgenteSeleccionado.First().Comisiones.AsParallel().ToList();
+                        dgvComisiones.DataSource = _reporteAgenteSeleccionado.Last().Comisiones.AsParallel().ToList();
                         tclDetalles.TabPages[1].Text = "Comisiones de servicio";
                         tclDetalles.TabPages[1].Text += string.Format(" ({0})", dgvComisiones.RowCount);
                         tclDetalles.SelectTab(1);
@@ -404,10 +404,10 @@ namespace PresentacionRecursoHumano
                         FormatearGrillaComisiones(dgvComisiones);
                     }
 
-                    if (_reporteAgenteSeleccionado.First().Novedades.Any() && chkNovedades.Checked)
+                    if (_reporteAgenteSeleccionado.Last().Novedades.Any() && chkNovedades.Checked)
                     {
                         dgvNovedades.Enabled = true;
-                        dgvNovedades.DataSource = _reporteAgenteSeleccionado.First().Novedades.AsParallel().ToList();
+                        dgvNovedades.DataSource = _reporteAgenteSeleccionado.Last().Novedades.AsParallel().ToList();
 
                         tclDetalles.TabPages[0].Text = "Novedades";
                         tclDetalles.TabPages[0].Text += string.Format(" ({0})", dgvNovedades.RowCount);
@@ -591,7 +591,8 @@ namespace PresentacionRecursoHumano
                 finally {
                     try
                     {
-                        _agenteSeleccionado = _agenteServicio.ObtenerTodo().First();
+                        _agenteSeleccionado = _agenteServicio.ObtenerPorFiltro(((SubSectorDTO)cmbArea.SelectedItem).Descripcion).First();
+
                         ActualizarAgentes();
                         dgvReporte.TabStop = false;
                         dgvLactancias.TabStop = false;

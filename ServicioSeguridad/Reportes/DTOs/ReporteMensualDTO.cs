@@ -20,7 +20,7 @@ namespace Servicio.RecursoHumano.Reportes.DTOs
         public List<Lactancia.DTOs.LactanciaDTO> Lactancias { get; set; }
 
         public DateTime Fecha { get; set; }
-        public String Mes { get; set; }
+        public String Dia { get; set; }
 
         public string FechaStr { get { return String.Format("{0:dd\\/MM\\/yy}", Fecha); } }
 
