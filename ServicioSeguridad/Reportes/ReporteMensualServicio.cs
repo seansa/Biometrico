@@ -100,14 +100,14 @@ namespace Servicio.RecursoHumano.Reportes
                 var _finMes = new DateTime(_fecha.Year, _fecha.Month, _diasDelMes);
                 var reporte = new ReporteMensualDTO();
                 bool? porLlegarTarde = null;
+                var listaAccesosDelDia = ListaAccesosDelDia(dia);
+                _diasDelMes = DateTime.DaysInMonth(dia.Year, dia.Month);
 
                 if (_horarioDia != null)
                 {
-                    var listaAccesosDelDia = ListaAccesosDelDia(dia);
-
                     reporte.AgenteId = _agenteId;
                     reporte.Numero = i;
-                    reporte.Ausente = listaAccesosDelDia == null ? (bool?)null : Ausente(dia, _horarioDia, listaAccesosDelDia, out porLlegarTarde);
+                    reporte.Ausente = Ausente(dia, _horarioDia, listaAccesosDelDia, out porLlegarTarde);
 
                     // Listas para las grillas de abajo
 
@@ -116,6 +116,7 @@ namespace Servicio.RecursoHumano.Reportes
                     reporte.Novedades = NovedadesEnElMes(dia) ?? new List<NovedadAgenteDTO>();
 
                     reporte.Fecha = dia;
+                    reporte.Mes = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(dia.ToString("dddd", new CultureInfo("es-Ar")));
 
                     // Horas de los accesos
 
@@ -132,8 +133,6 @@ namespace Servicio.RecursoHumano.Reportes
                     reporte.MinutosFaltantesExtension = listaAccesosDelDia == null ? null : _horarioDia.HoraEntradaParcial == null ? ((reporte.HoraSalida != null && reporte.HoraEntrada != null) ? Diff(Diff((TimeSpan)reporte.HoraSalida, (TimeSpan)reporte.HoraEntrada), Diff((TimeSpan)_horarioDia.HoraSalida, (TimeSpan)_horarioDia.HoraEntrada)) : (TimeSpan?)null) : ((reporte.HoraSalida != null && reporte.HoraEntradaParcial != null) ? Diff(Diff((TimeSpan)reporte.HoraSalida, (TimeSpan)reporte.HoraEntradaParcial), Diff((TimeSpan)_horarioDia.HoraSalida, (TimeSpan)_horarioDia.HoraEntradaParcial)) : (TimeSpan?)null);
 
                     reporte.AusentePorLlegarTarde = listaAccesosDelDia == null ? (bool?)null : porLlegarTarde;
-
-                    lista.Add(reporte);
                 }
                 else
                 {
@@ -148,6 +147,7 @@ namespace Servicio.RecursoHumano.Reportes
                     reporte.Novedades = NovedadesEnElMes(dia) ?? new List<NovedadAgenteDTO>();
 
                     reporte.Fecha = dia;
+                    reporte.Mes = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(dia.ToString("dddd", new CultureInfo("es-Ar")));
 
                     // Horas de los accesos
 
@@ -164,9 +164,9 @@ namespace Servicio.RecursoHumano.Reportes
                     reporte.MinutosFaltantesExtension = null;
 
                     reporte.AusentePorLlegarTarde = null;
-
-                    lista.Add(reporte);
                 }
+
+                lista.Add(reporte);
             }
 
             return lista;
@@ -293,10 +293,10 @@ namespace Servicio.RecursoHumano.Reportes
             else return null;
         }
 
-        private bool TardanzaSuperaLimite(TimeSpan tardanza, int limite)
+        private bool TardanzaSuperaLimite(TimeSpan? tardanza, int limite)
         {
-            if (tardanza.Minutes > limite) return true;
-            else return false;
+            if (tardanza != null && ((TimeSpan)tardanza).TotalMinutes > limite) return true;
+            return false;
         }
 
         private bool Ausente(DateTime fecha, DetalleHorarioDTO horarioDia, List<AccesoDTO> _listaAccesosDía, out bool? porLlegarTarde)
@@ -315,44 +315,20 @@ namespace Servicio.RecursoHumano.Reportes
             _hayNovedadHoraEntrada = listaNovedadesDelDia.Any() ? (listaNovedadesDelDia.Where(novedad => ((novedad.HoraDesde <= horarioDia.HoraEntrada) && (novedad.HoraHasta >= horarioDia.HoraEntrada))).Any() ? true : false) : false;
             _hayComisionServicioHoraEntrada = listaComisonesServicioDelDia.Any() ? (listaComisonesServicioDelDia.Where(comision => (((comision.HoraInicio <= horarioDia.HoraEntrada) && (comision.HoraFin >= horarioDia.HoraEntrada)) || comision.JornadaCompleta)).Any() ? true : false) : false;
 
-            if (horarioDia.HoraEntradaParcial == null) // Si el horario no incluye entrada parcial
+            if (_hayNovedadHoraEntrada || _hayComisionServicioHoraEntrada) // Primer check (novedades y comision de servicio)
             {
-                if (_hayNovedadHoraEntrada || _hayComisionServicioHoraEntrada) // Primer check (novedades y comision de servicio)
-                {
-                    return false;
-                }
-                else if (_listaAccesosDía.Any() || _numeroEntradasDia == 1) // Segundo check (horarios y accesos)
-                {
-                    if (Tardanza(_listaAccesosDía, horarioDia) != null && TardanzaSuperaLimite((TimeSpan)Tardanza(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)) // Tercer check (tardanza)
-                    {
-                        porLlegarTarde = true;
-                        return true;
-                    }
-                    return false;
-                }
-                return true;
+                return false;
             }
-            else // Si el horario sí incluye entrada parcial
+            else if (_listaAccesosDía.Any()) // Segundo check (horarios y accesos)
             {
-                _hayNovedadHoraEntradaParcial = listaNovedadesDelDia.Any() ? (listaNovedadesDelDia.Where(novedad => (((TimeSpan)novedad.HoraDesde).CompareTo(horarioDia.HoraEntradaParcial) <= 0) && ((novedad.HoraHasta == null) || (((TimeSpan)novedad.HoraHasta).CompareTo(horarioDia.HoraEntradaParcial) >= 0))).Any() ? true : false) : false;
-                _hayComisionServicioHoraEntradaParcial = listaComisonesServicioDelDia.Any() ? (listaComisonesServicioDelDia.Where(comision => (((comision.HoraInicio <= horarioDia.HoraEntradaParcial) && (comision.HoraFin >= horarioDia.HoraEntradaParcial)) || comision.JornadaCompleta)).Any() ? true : false) : false;
-
-                if (_hayNovedadHoraEntrada || _hayComisionServicioHoraEntrada) // Primer check (novedades y comision de servicio)
+                if (TardanzaSuperaLimite(Tardanza(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)) // Tercer check (tardanza)
                 {
-                    return false;
+                    porLlegarTarde = true;
+                    return true;
                 }
-                else if (_listaAccesosDía.Count() > 0 && (_hayNovedadHoraEntradaParcial || _hayComisionServicioHoraEntradaParcial)) return false; // Segundo check (novedades y comisión de servicio por la tarde)
-                else if (_listaAccesosDía.Count() > 0 && _numeroEntradasDia == 2) // Tercer check (horarios y accesos)
-                {
-                    if (((Tardanza(_listaAccesosDía, horarioDia) != null) && (TardanzaExtension(_listaAccesosDía, horarioDia) != null) && (TardanzaSuperaLimite((TimeSpan)Tardanza(_listaAccesosDía, horarioDia), _minutosToleranciaAusente) || TardanzaSuperaLimite((TimeSpan)TardanzaExtension(_listaAccesosDía, horarioDia), _minutosToleranciaAusente)))) // Cuarto check (tardanza)
-                    {
-                        porLlegarTarde = true;
-                        return true;
-                    }
-                    return false;
-                }
-                return true;
-            }            
+                return false;
+            }
+            return true;
         }
     }
 }

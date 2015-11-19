@@ -79,82 +79,99 @@ namespace PresentacionRecursoHumano
         {
             base.FormatearGrilla(dgvReporte);
 
+            dgvReporte.ColumnHeadersDefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+
             CheckearColumna(dgvReporte, "Numero");
             this.dgvReporte.Columns["Numero"].Visible = true;
             this.dgvReporte.Columns["Numero"].HeaderText = "Nº";
-            this.dgvReporte.Columns["Numero"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["Numero"].Width = 30;
             this.dgvReporte.Columns["Numero"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvReporte.Columns["Numero"].DisplayIndex = 0;
 
             CheckearColumna(dgvReporte, "FechaStr");
             this.dgvReporte.Columns["FechaStr"].Visible = true;
             this.dgvReporte.Columns["FechaStr"].HeaderText = "Fecha";
-            this.dgvReporte.Columns["FechaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvReporte.Columns["FechaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvReporte.Columns["FechaStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvReporte.Columns["FechaStr"].DisplayIndex = 1;
+
+            CheckearColumna(dgvReporte, "Mes");
+            this.dgvReporte.Columns["Mes"].Visible = true;
+            this.dgvReporte.Columns["Mes"].HeaderText = "Mes";
+            this.dgvReporte.Columns["Mes"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["Mes"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dgvReporte.Columns["Mes"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            this.dgvReporte.Columns["Mes"].DisplayIndex = 2;
 
             CheckearColumna(dgvReporte, "AusenteStr");
             this.dgvReporte.Columns["AusenteStr"].Visible = true;
             this.dgvReporte.Columns["AusenteStr"].HeaderText = "Ausente";
-            this.dgvReporte.Columns["AusenteStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["AusenteStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dgvReporte.Columns["AusenteStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["AusenteStr"].DisplayIndex = 2;
+            this.dgvReporte.Columns["AusenteStr"].DisplayIndex = 3;
 
             CheckearColumna(dgvReporte, "HoraEntradaStr");
             this.dgvReporte.Columns["HoraEntradaStr"].Visible = true;
-            this.dgvReporte.Columns["HoraEntradaStr"].HeaderText = "Entrada";
-            this.dgvReporte.Columns["HoraEntradaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["HoraEntradaStr"].HeaderText = "Hora Entrada";
+            this.dgvReporte.Columns["HoraEntradaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dgvReporte.Columns["HoraEntradaStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["HoraEntradaStr"].DisplayIndex = 3;
+            this.dgvReporte.Columns["HoraEntradaStr"].DisplayIndex = 4;
 
             CheckearColumna(dgvReporte, "MinutosTardeStr");
             this.dgvReporte.Columns["MinutosTardeStr"].Visible = true;
-            this.dgvReporte.Columns["MinutosTardeStr"].HeaderText = "Tardanza";
-            this.dgvReporte.Columns["MinutosTardeStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["MinutosTardeStr"].HeaderText = "Minutos Tarde";
+            this.dgvReporte.Columns["MinutosTardeStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dgvReporte.Columns["MinutosTardeStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["MinutosTardeStr"].DisplayIndex = 4;
+            this.dgvReporte.Columns["MinutosTardeStr"].DisplayIndex = 5;
 
             CheckearColumna(dgvReporte, "HoraSalidaParcialStr");
             this.dgvReporte.Columns["HoraSalidaParcialStr"].Visible = true;
             this.dgvReporte.Columns["HoraSalidaParcialStr"].HeaderText = "Salida Parcial";
-            this.dgvReporte.Columns["HoraSalidaParcialStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["HoraSalidaParcialStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dgvReporte.Columns["HoraSalidaParcialStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["HoraSalidaParcialStr"].DisplayIndex = 5;
+            this.dgvReporte.Columns["HoraSalidaParcialStr"].DisplayIndex = 6;
 
             CheckearColumna(dgvReporte, "MinutosFaltantesStr");
             this.dgvReporte.Columns["MinutosFaltantesStr"].Visible = true;
-            this.dgvReporte.Columns["MinutosFaltantesStr"].HeaderText = "Faltante";
-            this.dgvReporte.Columns["MinutosFaltantesStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["MinutosFaltantesStr"].HeaderText = "Minutos Faltantes";
+            this.dgvReporte.Columns["MinutosFaltantesStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dgvReporte.Columns["MinutosFaltantesStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["MinutosFaltantesStr"].DisplayIndex = 6;
+            this.dgvReporte.Columns["MinutosFaltantesStr"].DisplayIndex = 7;
 
             CheckearColumna(dgvReporte, "HoraEntradaParcialStr");
             this.dgvReporte.Columns["HoraEntradaParcialStr"].Visible = true;
             this.dgvReporte.Columns["HoraEntradaParcialStr"].HeaderText = "Entrada Parcial";
-            this.dgvReporte.Columns["HoraEntradaParcialStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["HoraEntradaParcialStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dgvReporte.Columns["HoraEntradaParcialStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["HoraEntradaParcialStr"].DisplayIndex = 7;
+            this.dgvReporte.Columns["HoraEntradaParcialStr"].DisplayIndex = 8;
 
             CheckearColumna(dgvReporte, "MinutosTardeExtensionStr");
             this.dgvReporte.Columns["MinutosTardeExtensionStr"].Visible = true;
-            this.dgvReporte.Columns["MinutosTardeExtensionStr"].HeaderText = "Tardanza";
-            this.dgvReporte.Columns["MinutosTardeExtensionStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["MinutosTardeExtensionStr"].HeaderText = "Minutos Tarde";
+            this.dgvReporte.Columns["MinutosTardeExtensionStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dgvReporte.Columns["MinutosTardeExtensionStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["MinutosTardeExtensionStr"].DisplayIndex = 8;
+            this.dgvReporte.Columns["MinutosTardeExtensionStr"].DisplayIndex = 9;
 
             CheckearColumna(dgvReporte, "HoraSalidaStr");
             this.dgvReporte.Columns["HoraSalidaStr"].Visible = true;
-            this.dgvReporte.Columns["HoraSalidaStr"].HeaderText = "Salida";
-            this.dgvReporte.Columns["HoraSalidaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["HoraSalidaStr"].HeaderText = "Hora Salida";
+            this.dgvReporte.Columns["HoraSalidaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dgvReporte.Columns["HoraSalidaStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["HoraSalidaStr"].DisplayIndex = 9;
+            this.dgvReporte.Columns["HoraSalidaStr"].DisplayIndex = 10;
 
             CheckearColumna(dgvReporte, "MinutosFaltantesExtensionStr");
             this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].Visible = true;
-            this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].HeaderText = "Faltante";
-            this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].HeaderText = "Minutos Faltantes";
+            this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].DisplayIndex = 10;
+            this.dgvReporte.Columns["MinutosFaltantesExtensionStr"].DisplayIndex = 11;
+
+            CheckearColumna(dgvReporte, "Filler");
+            this.dgvReporte.Columns["Filler"].Visible = true;
+            this.dgvReporte.Columns["Filler"].HeaderText = "";
+            this.dgvReporte.Columns["Filler"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvReporte.Columns["Filler"].ReadOnly = true;
+            this.dgvReporte.Columns["Filler"].DisplayIndex = 12;
         }
 
         public void FormatearGrillaNovedades(DataGridView dgvNovedades)
@@ -349,7 +366,10 @@ namespace PresentacionRecursoHumano
                 lblApyNom.Text = _agenteSeleccionado.ApyNom;
                 lblLegajo.Text = _agenteSeleccionado.Legajo;
 
-                _reporteAgenteSeleccionado = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id, (int)cmbAño.SelectedItem, (int)cmbMes.SelectedIndex);
+                _reporteServicio = new ReporteMensualServicio(_agenteSeleccionado.Id, MesReporte());
+                _reporteAgenteSeleccionado = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id, (int)cmbAño.SelectedItem, (int)cmbMes.SelectedIndex + 1);
+                dgvReporte.DataSource = _reporteAgenteSeleccionado;
+
                 FormatearGrillaReporte(dgvReporte);
 
                 if (_reporteAgenteSeleccionado.Any())
@@ -578,6 +598,7 @@ namespace PresentacionRecursoHumano
                         dgvNovedades.TabStop = false;
                         dgvComisiones.TabStop = false;
                         dgvAgentes.Focus();
+                        ActualizarReporte();
                     }
                     catch
                     {
@@ -605,7 +626,7 @@ namespace PresentacionRecursoHumano
                 _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[_filaAgente].DataBoundItem;
 
                 _reporteServicio = new ReporteMensualServicio(_agenteSeleccionado.Id, MesReporte());
-                _reporteAgenteSeleccionado = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id, (int)cmbAño.SelectedItem, (int)cmbMes.SelectedIndex);
+                _reporteAgenteSeleccionado = _reporteServicio.ObtenerPorId(_agenteSeleccionado.Id, (int)cmbAño.SelectedItem, (int)cmbMes.SelectedIndex + 1);
 
                 ActualizarReporte();
             }
@@ -621,21 +642,19 @@ namespace PresentacionRecursoHumano
             ActualizarReporte();
         }
 
-        private void dgvAgentes_Leave(object sender, EventArgs e)
+        private void cmbMes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvAgentes.Focus();
+            ActualizarReporte();
         }
 
-        private void dgvReporte_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void cmbAño_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (e.ColumnIndex == 1 && ((DataGridView)sender)[e.ColumnIndex, e.RowIndex].Value.ToString() == "")
-            {
-                e.Cancel = true;
-            } 
-            else
-            {
-                ((DataGridView)sender).CancelEdit();
-            }
+            ActualizarReporte();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            ActualizarReporte();
         }
     }
 }
