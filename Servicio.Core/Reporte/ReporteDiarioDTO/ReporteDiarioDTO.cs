@@ -13,9 +13,9 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
     public class ReporteDiarioDTO
     {
         private long AgenteId { get; set; }
-        private string Legajo { get { return _agente.Legajo; } }
-        private string Apellido { get { return _agente.Apellido; } }
-        private string Nombre { get { return _agente.Nombre; } }
+        public string Legajo { get { return _agente.Legajo; } }
+        public string Apellido { get { return _agente.Apellido; } }
+        public string Nombre { get { return _agente.Nombre; } }
         public string Agente
         {
             get
@@ -36,7 +36,7 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
             }
 
         }
-        public string HoraEntradaStr { get { return HoraEntrada != null ? HoraEntrada.ToString() : "No Registrado"; } }
+        public string HoraEntradaStr { get { return HoraEntrada != null ? HoraEntrada.ToString() : "No Reg."; } }
         private TimeSpan? HoraSalidaParcial
         {
             get
@@ -49,7 +49,7 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
         {
             get
             {
-                return HoraSalidaParcial != null ? HoraSalidaParcial.ToString() : "No Registrado";
+                return HoraSalidaParcial != null ? HoraSalidaParcial.ToString() : "No Reg.";
             }
         }
         private TimeSpan? HoraEntradaParcial
@@ -64,7 +64,7 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
         {
             get
             {
-                return HoraEntradaParcial != null ? HoraEntradaParcial.ToString() : "No Registrado";
+                return HoraEntradaParcial != null ? HoraEntradaParcial.ToString() : "No Reg.";
             }
         }
         private TimeSpan? HoraSalida
@@ -79,7 +79,7 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
         {
             get
             {
-                return HoraSalida != null ? HoraSalida.ToString() : "No Registrado";
+                return HoraSalida != null ? HoraSalida.ToString() : "No Reg.";
             }
         }
         private double MinutosTarde
@@ -121,7 +121,8 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                 }
                 else
                 {
-                    return string.Format("{0:N2}", MinutosTarde);
+                    var min = TimeSpan.FromMinutes(MinutosTarde);
+                    return min.ToString(); ;
                 }
             }
         }
@@ -184,7 +185,22 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
             }
            
         }
-        public string MinutosFaltantesSTR { get { return MinutosFaltantes >= 0 ? string.Format("{0:N2}", MinutosFaltantes) : "NO"; } }
+        public string MinutosFaltantesSTR
+        {
+            get
+            {
+                if (MinutosFaltantes >= 0)
+                {
+                    var min = TimeSpan.FromMinutes(MinutosFaltantes);
+                    return min.ToString();
+                }
+
+                else
+                {
+                    return "NO";
+                }
+            }
+        }
         public string Nov
         {
             get
@@ -378,7 +394,7 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                     }
                     else
                     {
-                        return "SI";
+                        return "NO";
                     }
                 }
                 else
