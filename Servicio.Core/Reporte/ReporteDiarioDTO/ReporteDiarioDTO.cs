@@ -85,62 +85,17 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                 {
                     if (_novedad != null)
                     {
-                        if (!_tipoNovedad.EsJornadaCompleta)
+                        if (_tipoNovedad.EsJornadaCompleta)
                         {
 
-                            if (_lactancia==null)
-                            {
-                                if (_novedad.HoraHasta <= HoraEntrada && _novedad.HoraDesde <= _horario.HoraEntrada)
-                                {
-                                    var minutosAdicionales = _novedad.HoraHasta - _novedad.HoraDesde;
-                                    var horarioEntrada = _horario.HoraEntrada.Value.Add((TimeSpan)minutosAdicionales);
-                                    return HoraEntrada.Value.TotalMinutes - horarioEntrada.TotalMinutes;
-                                } 
-                            }
-                            else
-                            {
-                                if (_lactancia.HoraInicio)
-                                {
-                                    var minutosLact = new TimeSpan(0, _minutosLactancia, 0);
-                                    var minutosAdicionales = _novedad.HoraHasta - _novedad.HoraDesde;
-                                    var horarioEntrada = _horario.HoraEntrada.Value.Add((TimeSpan)minutosAdicionales);
-                                    horarioEntrada = horarioEntrada.Add(minutosLact);
-                                    return HoraEntrada.Value.TotalMinutes - horarioEntrada.TotalMinutes; 
-                                }
-                            }
+                            return valor;
                         }
                     }
                     if (_comision!=null && _novedad==null)
                     {
-                        if (_lactancia==null)
+                        if (_comision.EsJornadaCompleta)
                         {
-                            if (_comision.HoraHasta <= HoraEntrada && _comision.HoraDesde <= _horario.HoraEntrada)
-                            {
-                                var minutosAdicionales = _comision.HoraHasta - _comision.HoraDesde;
-                                var horarioEntrada = _horario.HoraEntrada.Value.Add((TimeSpan)minutosAdicionales);
-                                return HoraEntrada.Value.TotalMinutes - horarioEntrada.TotalMinutes;
-                            } 
-                        }
-                        else
-                        {
-                            if (_lactancia.HoraInicio)
-                            {
-                                var minutosLact = new TimeSpan(0, _minutosLactancia, 0);
-                                var minutosAdicionales = _comision.HoraHasta - _comision.HoraDesde;
-                                var horarioEntrada = _horario.HoraEntrada.Value.Add((TimeSpan)minutosAdicionales);
-                                horarioEntrada = horarioEntrada.Add(minutosLact);
-                                return HoraEntrada.Value.TotalMinutes - horarioEntrada.TotalMinutes;
-                            }
-
-                        }
-                    }
-                    if (_lactancia!=null )
-                    {
-                        if (_lactancia.HoraInicio)
-                        {
-                            var minutosLact = new TimeSpan(0, _minutosLactancia, 0);
-                            var horarioEntrada = _horario.HoraEntrada.Value.Add(minutosLact);
-                            return HoraEntrada.Value.TotalMinutes - horarioEntrada.TotalMinutes;
+                            return valor;
                         }
                     }
                     
@@ -154,17 +109,13 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
         {
             get
             {
-                if (MinutosTarde == -1 && HoraEntrada == null)
+                if (MinutosTarde == -1 )
                 {
-                    return "No Ingreso";
-                }
-                if (MinutosTarde == -1 && HoraEntrada != null)
-                {
-                    return "llegaTemprano";
+                    return "0";
                 }
                 else
                 {
-                    return MinutosTarde.ToString();
+                    return MinutosTarde.ToString("D2");
                 }
             }
         }
@@ -189,19 +140,15 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                         }
                         else
                         {
-                            if (_novedad.HoraDesde<=_horario.HoraEntrada&&_novedad.HoraHasta==_horario.HoraSalida)
+                            if (_novedad.HoraHasta>=_horario.HoraSalida)
                             {
-                                if (HoraEntrada <= _horario.HoraEntrada)
-                                {
-                                    if (HoraSalida < _horario.HoraSalida)
-                                    {
-                                        return _horario.HoraSalida.Value.TotalMinutes - HoraSalida.Value.TotalMinutes;
-                                    }
-                                    else
-                                    {
-                                        return valor;
-                                    }
-                                } 
+                                return valor;
+                            }
+                            else
+                            {
+                                var valor1 = HoraSalida.Value.TotalMinutes - _horario.HoraSalida.Value.TotalMinutes;
+                                var valor2 = MinutosTarde;
+                                valor = valor2 - valor1;
                             }
                         }
                     }
@@ -526,6 +473,7 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
             _reloj = reloj;
             if (_novedad!=null)
             {
+                _tipoNovedad = new TipoNovedad();
                 _tipoNovedad = _reporteServicio.obtenerTipo(_novedad.Id);
             }
         }
