@@ -113,6 +113,24 @@ namespace Servicio.RecursoHumano.Horario
             }
         }
 
+        public bool VerificarAlgunHorarioCargado()
+        {
+            try
+            {
+                using (var _context= new ModeloBometricoContainer())
+                {
+                    var lista = _context.Horarios.AsParallel();
+                    var existe= lista.AsParallel().Count() >0 ?  true : false;
+                    return existe;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public string VerificarDiasDelRango(DateTime inicio, DateTime fin, int dias)
         {
             DateTime _diaAux = inicio;

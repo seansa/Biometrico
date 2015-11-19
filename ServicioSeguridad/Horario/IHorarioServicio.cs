@@ -14,5 +14,6 @@ namespace Servicio.RecursoHumano.Horario
         IEnumerable<DetalleHorarioDTO> ObtenerHorariosPorId(long id);
         bool VerificarExiste(List<DetalleHorarioDTO> lista, DateTime fechadesde, DateTime fechahasta, TimeSpan? horaentrada, TimeSpan? horasalidaparcial, TimeSpan? horaentradaparcial, TimeSpan? horasalida, bool[] listaDias);
         string VerificarDiasDelRango(DateTime inicio, DateTime fin, int dias);
+        bool VerificarAlgunHorarioCargado();
     }
 }
