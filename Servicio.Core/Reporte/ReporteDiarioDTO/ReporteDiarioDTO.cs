@@ -179,11 +179,38 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                     var valor2 = MinutosTarde;
                     valor = valor2 - valor1;
                 }
+                else
+                {
+                    if (_novedad!=null)
+                    {
+                        if (_tipoNovedad.EsJornadaCompleta)
+                        {
+                            return valor;
+                        }
+                        else
+                        {
+                            if (_novedad.HoraDesde<=_horario.HoraEntrada&&_novedad.HoraHasta==_horario.HoraSalida)
+                            {
+                                if (HoraEntrada <= _horario.HoraEntrada)
+                                {
+                                    if (HoraSalida < _horario.HoraSalida)
+                                    {
+                                        return _horario.HoraSalida.Value.TotalMinutes - HoraSalida.Value.TotalMinutes;
+                                    }
+                                    else
+                                    {
+                                        return valor;
+                                    }
+                                } 
+                            }
+                        }
+                    }
+                }
                 return valor;
             }
            
         }
-        public string MinutosFaltantesSTR { get { return MinutosFaltantes >= 0 ? MinutosFaltantes.ToString() : "NO"; } }
+        public string MinutosFaltantesSTR { get { return MinutosFaltantes >= 0 ? MinutosFaltantes.ToString("d2") : "NO"; } }
         public string Nov
         {
             get

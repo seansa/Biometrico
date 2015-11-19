@@ -47,6 +47,7 @@ namespace Servicio.Core.Reporte
                                 var comision = obtenerComision(agente.Id, fechaBuscar);
                                 var lactancia = obtenerLactancia(agente.Id, fechaBuscar);
                                 var reloj = obtenerReloj(fechaBuscar);
+                                ultimoHorario = formateoHorarioEntrada(ultimoHorario, novedad, comision, lactancia);
                                 var _reporteDTO = new ReporteDiarioDTO.ReporteDiarioDTO(agente.Id, fechaBuscar, ultimoHorario,novedad, comision,lactancia,reloj);
                                 
                                 listaDto.Add(_reporteDTO);
@@ -316,6 +317,72 @@ namespace Servicio.Core.Reporte
                 return false;
             }
 
+        }
+        public Horario formateoHorarioEntrada(Horario horario,Novedad novedad,ComisionServicio comision, Lactancia lactancia)
+        {
+            if (novedad!=null)
+            {
+                if (novedad.HoraDesde!=null&&novedad.HoraHasta!=null)
+                {
+
+                    if (horario.HoraEntrada < novedad.HoraDesde)
+                    {
+                        return horario;
+                    }
+                    else
+                    {
+                        if (horario.HoraSalida > novedad.HoraHasta)
+                        {
+                            horario.HoraEntrada = novedad.HoraHasta;
+                            return horario;
+                        }
+                        else
+                        {
+                            return horario;
+                        }
+
+                    } 
+                }
+                return horario;
+            }
+            if (comision!=null)
+            {
+                if (!comision.EsJornadaCompleta)
+                {
+                    if (horario.HoraEntrada < comision.HoraDesde)
+                    {
+                        return horario;
+                    }
+                    else
+                    {
+                        if (horario.HoraSalida > comision.HoraHasta)
+                        {
+                            horario.HoraEntrada = comision.HoraHasta;
+                            return horario;
+                        }
+                        else
+                        {
+                            return horario;
+                        }
+
+                    }
+                }
+
+                else
+                {
+                    return horario;
+                }
+            }
+            if (lactancia!=null && lactancia.HoraInicio)
+            {
+                var minutos = new TimeSpan(0, obtenerMinutosLactancia(), 0);
+                horario.HoraEntrada=horario.HoraEntrada.Value.Add(minutos);
+                return horario;
+            }
+            else
+            {
+                return horario;
+            }
         }
     }
 
