@@ -40,6 +40,7 @@
             this.nudTarde = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new PresentacionBase.Clases.Control.DataGridView();
+            this.btnReporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudAusentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPresentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTarde)).BeginInit();
@@ -146,11 +147,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(1253, 522);
             this.dataGridView1.TabIndex = 9;
             // 
+            // btnReporte
+            // 
+            this.btnReporte.Location = new System.Drawing.Point(358, 10);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(87, 27);
+            this.btnReporte.TabIndex = 10;
+            this.btnReporte.Text = "Visualizar";
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
             // _10002_ReporteDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1253, 565);
+            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.nudTarde);
             this.Controls.Add(this.label3);
@@ -181,5 +193,6 @@
         private System.Windows.Forms.NumericUpDown nudTarde;
         private System.Windows.Forms.Label label3;
         private PresentacionBase.Clases.Control.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnReporte;
     }
 }
