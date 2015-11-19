@@ -29,6 +29,7 @@ namespace PresentacionRecursoHumano
             _lactanciaServicio = new LactanciaServicio();
             _listaLactancia = new List<LactanciaDTO>();
             _lactanciaSeleccionada = new LactanciaDTO();
+            this.btnGuardar.Enabled = false;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -109,6 +110,7 @@ namespace PresentacionRecursoHumano
                         Domingo = this.chkDomingo.Checked
                     };
                     _listaLactancia.Add(_nuevaLactancia);
+                    this.btnGuardar.Enabled = true;
                 }
                 else
                 {
@@ -120,7 +122,8 @@ namespace PresentacionRecursoHumano
                 MessageBox.Show("NO Hay dias Seleccionados");
             }
             LimpiarControles(this.pnlDias);
-            LimpiarControles(this.pnlFechas);
+            this.dtpFechaDesde.Value = DateTime.Now;
+            this.dtpFechaHasta.Value = DateTime.Now;
             Actualizar();
         }
         public override void LimpiarControles(object obj)
@@ -175,6 +178,14 @@ namespace PresentacionRecursoHumano
             {
                 // _listaLactancia.Remove((LactanciaDTO)this.dgvLactancia.CurrentRow.DataBoundItem);
                 _listaLactancia.Remove((LactanciaDTO)this.dgvLactancia.Rows[_indice].DataBoundItem);
+                if (this.dgvLactancia.RowCount<=0)
+                {
+                    this.btnGuardar.Enabled = false;
+                }
+            }
+            else
+            {
+                this.btnGuardar.Enabled = false;
             }
             Actualizar();
         }

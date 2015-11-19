@@ -481,16 +481,20 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
         private IReporteServicio _reporteServicio;
         private Agente _agente;
         private Horario _horario;
-        private Novedad _novedad;
-        private ComisionServicio _comision;
-        private Lactancia _lactancia;
-        private RelojDefectuoso _reloj;
+        public Novedad _novedad;
+        public ComisionServicio _comision;
+        public Lactancia _lactancia;
+        public RelojDefectuoso _reloj;
         private TipoNovedad _tipoNovedad;
         private List<AccesoDatos.Acceso> _accesos;
         private int _toleraciaLlegadaTarde;
         private int _toleraciaAusente;
         private int _minutosLactancia;
-        
+
+
+        public ReporteDiarioDTO()
+        {
+        }
 
         public ReporteDiarioDTO(long agenteId
             , DateTime fechaBuscar

@@ -1,6 +1,7 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Servicio.Core.Reporte;
+using Servicio.Core.Reporte.ReporteDiarioDTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,9 +31,9 @@ namespace Presentacion.Core
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-             lista= _reporteServicio.FiltrarAgenteDTO(this.dateTimePicker1.Value.Date);
-            
+
+            lista = _reporteServicio.FiltrarAgenteDTO(this.dateTimePicker1.Value.Date);
+
             this.dataGridView1.DataSource = lista;
 
             this.nudAusentes.Value = lista.Count(x => x.Ausente == "SI");
@@ -152,5 +153,53 @@ namespace Presentacion.Core
             proceso.StartInfo.WorkingDirectory = Environment.CurrentDirectory;
             proceso.Start();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if ((e.ColumnIndex == this.dataGridView1.Columns["Comision"].Index) && (string)e.Value != null)
+            {
+                if ((string)e.Value == "SI")
+                {
+
+                    ReporteDiarioDTO reporte = new ReporteDiarioDTO();
+                    reporte = (ReporteDiarioDTO)this.dataGridView1.Rows[e.RowIndex].DataBoundItem;
+
+                    DataGridViewCell cell = this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    cell.ToolTipText = reporte._comision.Descripcion+"\n"+reporte._comision.Observacion;
+                }
+                if ((e.ColumnIndex == this.dataGridView1.Columns["Nov"].Index) && (string)e.Value != null)
+                {
+                    if ((string)e.Value == "SI")
+                    {
+
+                        ReporteDiarioDTO reporte = new ReporteDiarioDTO();
+                        reporte = (ReporteDiarioDTO)this.dataGridView1.Rows[e.RowIndex].DataBoundItem;
+
+                        DataGridViewCell cell = this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                        cell.ToolTipText = reporte._novedad.Observacion;
+                    }
+                }
+                if ((e.ColumnIndex == this.dataGridView1.Columns["Lact"].Index) && (string)e.Value != null)
+                {
+                    if ((string)e.Value == "SI")
+                    {
+
+                        ReporteDiarioDTO reporte = new ReporteDiarioDTO();
+                        reporte = (ReporteDiarioDTO)this.dataGridView1.Rows[e.RowIndex].DataBoundItem;
+
+                        DataGridViewCell cell = this.dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                        cell.ToolTipText = reporte._lactancia.HoraInicio ? "Lactancia al comienzo de la jornada" : "Lactancia al final de la jornada";
+                    }
+
+                }
+            }
+        }
     }
+
 }
