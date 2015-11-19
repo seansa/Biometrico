@@ -27,13 +27,14 @@ namespace PresentacionBase.Clases.Control
             this.RowHeadersVisible = false;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
-            this.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+            this.AlternatingRowsDefaultCellStyle.ForeColor = Colores.ColorTexto;
             // En Teoria Esto Cambia el tamaño de las columnas a automatico y Fill. yambe
             this.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MultiSelect = false;
             this.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.None;
             this.AllowUserToResizeRows = false;
+            this.ColumnHeadersDefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
         }
     }
 }
