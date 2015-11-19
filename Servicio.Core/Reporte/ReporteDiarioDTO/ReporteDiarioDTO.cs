@@ -13,10 +13,16 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
     public class ReporteDiarioDTO
     {
         private long AgenteId { get; set; }
-        public string Legajo { get { return _agente.Legajo; } }
-        public string Apellido { get { return _agente.Apellido; } }
-        public string Nombre { get { return _agente.Nombre; } }
-
+        private string Legajo { get { return _agente.Legajo; } }
+        private string Apellido { get { return _agente.Apellido; } }
+        private string Nombre { get { return _agente.Nombre; } }
+        public string Agente
+        {
+            get
+            {
+                return string.Format("{0} - {1}, {2}", _agente.Legajo.PadLeft(5,'0'), _agente.Apellido, _agente.Nombre);
+            }
+        }
         private DateTime FechaReporte { get; set; }
         public int NumeroDia { get { return FechaReporte.Day; } }
         public string NombreDia { get { return FechaReporte.ToString("dddd", new CultureInfo("es-Es")); } }
@@ -115,7 +121,7 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                 }
                 else
                 {
-                    return MinutosTarde.ToString("D2");
+                    return string.Format("{0:N2}", MinutosTarde);
                 }
             }
         }
@@ -124,14 +130,12 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
             get
             {
                 double valor = -1;
+                
                 if (HoraEntrada != null&&HoraSalida!=null)
                 {
                     var valor1 = HoraSalida.Value.TotalMinutes - _horario.HoraSalida.Value.TotalMinutes;
                     var valor2 = MinutosTarde;
-                    valor = valor2 - valor1;
-                }
-                else
-                {
+
                     if (_novedad!=null)
                     {
                         if (_tipoNovedad.EsJornadaCompleta)
@@ -146,18 +150,41 @@ namespace Servicio.Core.Reporte.ReporteDiarioDTO
                             }
                             else
                             {
-                                var valor1 = HoraSalida.Value.TotalMinutes - _horario.HoraSalida.Value.TotalMinutes;
-                                var valor2 = MinutosTarde;
                                 valor = valor2 - valor1;
+                                return valor;
                             }
                         }
                     }
+                    if (_comision!=null)
+                    {
+                        if(_comision.EsJornadaCompleta)
+                        {
+                            return valor;
+                        }
+                        else
+                        {
+                            if (_comision.HoraHasta>=_horario.HoraSalida)
+                            {
+                                return valor;
+                            }
+                            else
+                            {
+                               
+                                valor = valor2 - valor1;
+                                return valor;
+                            }
+                        }
+                    }
+
+                    valor = valor2 - valor1;
+                    return valor;
+
                 }
                 return valor;
             }
            
         }
-        public string MinutosFaltantesSTR { get { return MinutosFaltantes >= 0 ? MinutosFaltantes.ToString("d2") : "NO"; } }
+        public string MinutosFaltantesSTR { get { return MinutosFaltantes >= 0 ? string.Format("{0:N2}", MinutosFaltantes) : "NO"; } }
         public string Nov
         {
             get
