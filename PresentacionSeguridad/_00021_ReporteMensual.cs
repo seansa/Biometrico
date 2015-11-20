@@ -1,5 +1,6 @@
 ﻿using Servicio.RecursoHumano.Agente;
 using Servicio.RecursoHumano.Agente.DTOs;
+using Servicio.RecursoHumano.Configuracion;
 using Servicio.RecursoHumano.Reportes;
 using Servicio.RecursoHumano.Reportes.DTOs;
 using Servicio.RecursoHumano.Sector;
@@ -230,14 +231,14 @@ namespace PresentacionRecursoHumano
 
             this.dgvLactancias.Columns["FechaDesdeStr"].Visible = true;
             this.dgvLactancias.Columns["FechaDesdeStr"].HeaderText = "Fecha Desde";
-            this.dgvLactancias.Columns["FechaDesdeStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvLactancias.Columns["FechaDesdeStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvLactancias.Columns["FechaDesdeStr"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvLactancias.Columns["FechaDesdeStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvLactancias.Columns["FechaDesdeStr"].DisplayIndex = 1;
                     
             this.dgvLactancias.Columns["FechaHastaStr"].Visible = true;
             this.dgvLactancias.Columns["FechaHastaStr"].HeaderText = "Fecha Hasta";
-            this.dgvLactancias.Columns["FechaHastaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvLactancias.Columns["FechaHastaStr"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgvLactancias.Columns["FechaHastaStr"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvLactancias.Columns["FechaHastaStr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dgvLactancias.Columns["FechaHastaStr"].DisplayIndex = 2;
@@ -366,13 +367,6 @@ namespace PresentacionRecursoHumano
 
         private void ActualizarReporte()
         {
-            if (_agenteSeleccionado == null || _filaAgente == -1)
-            {
-                lblApyNom.Text = String.Empty;
-                lblLegajo.Text = String.Empty;
-            }
-            else
-            {
                 lblApyNom.Text = _agenteSeleccionado.ApyNom;
                 lblLegajo.Text = _agenteSeleccionado.Legajo;
 
@@ -453,7 +447,8 @@ namespace PresentacionRecursoHumano
                 lblAusenciasTotales.Text = ObtenerInasistenciasTotales().ToString();
                 lblAusenciasPorLlegadasTarde.Text = ObtenerInasistenciasPorLlegadasTarde().ToString();
                 lblLlegadasTarde.Text = ObtenerLlegadasTarde().ToString();
-            }
+                lblJornadasIncumplidas.Text = ObtenerJornadasIncumplidas().ToString();
+         
         }
 
         private int ObtenerInasistenciasTotales()
@@ -486,8 +481,7 @@ namespace PresentacionRecursoHumano
 
             foreach (ReporteMensualDTO item in _reporteAgenteSeleccionado)
             {
-                llegadasTarde += item.MinutosTardeStr != "-" ? 1 : 0;
-                llegadasTarde += item.MinutosTardeExtensionStr != "-" ? 1 : 0;
+                llegadasTarde += ((item.AusentePorLlegarTarde != null && ((bool)item.AusentePorLlegarTarde)) || ((item.MinutosTardeStr != "-" && item.MinutosTardeStr != ""))) ? 1 : 0;
             }
 
             return llegadasTarde;
@@ -499,7 +493,7 @@ namespace PresentacionRecursoHumano
 
             foreach (ReporteMensualDTO item in _reporteAgenteSeleccionado)
             {
-                if (item.MinutosFaltantesStr != "-" || item.MinutosFaltantesExtensionStr != "-") llegadasTarde++;
+                if ((item.AusentePorLlegarTarde != null && (bool)item.AusentePorLlegarTarde) || (((item.MinutosTardeExtension != null && item.MinutosTarde != null)) && (((TimeSpan)item.MinutosTardeExtension).Minutes + ((TimeSpan)item.MinutosTarde).Minutes) > ConfiguracionServicio.MinutosToleranciaLlegadaTarde)) llegadasTarde++;
 
             }
 
@@ -577,30 +571,30 @@ namespace PresentacionRecursoHumano
             {
                 cmbAño.DataSource = ReporteMensualServicio.ListaAños();
                 cmbMes.DataSource = ReporteMensualServicio.ListaMeses();
-                cmbMes.SelectedItem = cmbMes.Items[DateTime.Now.Month - 1];
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("No hay accesos en la base de datos"); 
             } 
             finally {
                 try
                 {
-                    CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
-                    CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(((SectorDTO)cmbDireccion.SelectedItem).Id), "Descripcion");
                     lblApyNom.Text = String.Empty;
                     lblLegajo.Text = String.Empty;
 
                     this.txtBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                     this.txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                    
+                    
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("No hay sectores o subsectores en la base de datos"); 
                 }
                 finally {
                     try
                     {
+                        CargarComboBox(this.cmbDireccion, _sectorServicio.ObtenerTodo(), "Descripcion");
+                        CargarComboBox(this.cmbArea, _subsectorServicio.ObtenerTodo(((SectorDTO)cmbDireccion.SelectedItem).Id), "Descripcion");
                         _agenteSeleccionado = _agenteServicio.ObtenerPorFiltro(((SubSectorDTO)cmbArea.SelectedItem).Descripcion).First();
 
                         ActualizarAgentes();
@@ -610,12 +604,11 @@ namespace PresentacionRecursoHumano
                         dgvNovedades.TabStop = false;
                         dgvComisiones.TabStop = false;
 
-                        ActualizarReporte();
                         dgvAgentes.Focus();
+                        ActualizarReporte();
                     }
                     catch
                     {
-                        MessageBox.Show("No hay agentes en la base de datos");
                     }
                 }
             }                 
@@ -637,8 +630,9 @@ namespace PresentacionRecursoHumano
             if (dgvAgentes.RowCount > 0) {
                 _filaAgente = e.RowIndex;
                 _agenteSeleccionado = (AgenteDTO)dgvAgentes.Rows[_filaAgente].DataBoundItem;
-
-                ActualizarReporte();
+                
+                btnActualizar.PerformClick();
+                //cmbMes.SelectedIndex = DateTime.Now.Month - 1;
             }
             else
             {

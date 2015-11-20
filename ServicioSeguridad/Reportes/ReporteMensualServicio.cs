@@ -131,7 +131,7 @@ namespace Servicio.RecursoHumano.Reportes
                     reporte.MinutosFaltantes = listaAccesosDelDia == null ? null : (reporte.HoraSalidaParcial != null && reporte.HoraEntrada != null) ? Diff((TimeSpan)reporte.HoraSalidaParcial, (TimeSpan)reporte.HoraEntrada) : (TimeSpan?)null;
                     reporte.MinutosFaltantesExtension = listaAccesosDelDia == null ? null : _horarioDia.HoraEntradaParcial == null ? ((reporte.HoraSalida != null && reporte.HoraEntrada != null) ? Diff(Diff((TimeSpan)reporte.HoraSalida, (TimeSpan)reporte.HoraEntrada), Diff((TimeSpan)_horarioDia.HoraSalida, (TimeSpan)_horarioDia.HoraEntrada)) : (TimeSpan?)null) : ((reporte.HoraSalida != null && reporte.HoraEntradaParcial != null) ? Diff(Diff((TimeSpan)reporte.HoraSalida, (TimeSpan)reporte.HoraEntradaParcial), Diff((TimeSpan)_horarioDia.HoraSalida, (TimeSpan)_horarioDia.HoraEntradaParcial)) : (TimeSpan?)null);
 
-                    reporte.Ausente = listaAccesosDelDia == null ? (bool?)null : Ausente(dia, _horarioDia, listaAccesosDelDia, out porLlegarTarde) || ((reporte.MinutosTarde != null) && ((TimeSpan)reporte.MinutosTarde).Minutes > _minutosToleranciaAusente ? true : false);
+                    reporte.Ausente = listaAccesosDelDia == null ? (bool?)null : Ausente(dia, _horarioDia, listaAccesosDelDia, out porLlegarTarde) || ((reporte.MinutosTarde != null) && ((TimeSpan)reporte.MinutosTarde).TotalMinutes > _minutosToleranciaAusente ? true : false);
                     reporte.AusentePorLlegarTarde = listaAccesosDelDia == null ? (bool?)null : porLlegarTarde;
                 }
                 else
@@ -237,7 +237,7 @@ namespace Servicio.RecursoHumano.Reportes
             {
                 var valor = horario.GetType().GetProperty(diaCased).GetValue(horario, null);
 
-                if((bool)valor)
+                if((bool)valor && horario.FechaDesde.Date <= dia.Date && horario.FechaHasta.Date >= dia.Date)
                 {
                     return horario;
                 }
@@ -274,7 +274,7 @@ namespace Servicio.RecursoHumano.Reportes
             TimeSpan? _horaEntradaAcceso = accesosDia.Where(acceso => acceso.TipoAcceso.Equals("Entrada")).Any() ? accesosDia.Where(acceso => acceso.TipoAcceso.Equals("Entrada")).Last().Hora : (TimeSpan?)null;
             TimeSpan _horaEntradaHorario = (TimeSpan)horarioDia.HoraEntrada;
 
-            if (_horaEntradaAcceso != null && _horaEntradaAcceso > _horaEntradaHorario)
+            if (_horaEntradaAcceso != null && ((TimeSpan)_horaEntradaAcceso).TotalMinutes > _horaEntradaHorario.TotalMinutes)
             {
                 return Diff(_horaEntradaHorario, (TimeSpan)_horaEntradaAcceso);
             }
@@ -295,7 +295,7 @@ namespace Servicio.RecursoHumano.Reportes
 
         private bool TardanzaSuperaLimite(TimeSpan? tardanza, int limite)
         {
-            if (tardanza != null && ((TimeSpan)tardanza).TotalMinutes > limite) return true;
+            if (tardanza != null && (((TimeSpan)tardanza).TotalMinutes > limite || ((TimeSpan)tardanza).TotalMinutes  + limite < 0)) return true;
             return false;
         }
 
